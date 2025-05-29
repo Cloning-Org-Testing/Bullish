@@ -1,0 +1,7 @@
+*** Bullish WordPress Theme Changelog ***
+
+Version 1.0.0
+
+    * First release!
+    * Demo content added
+    * WPML config file updated 

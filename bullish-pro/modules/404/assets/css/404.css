@@ -1,0 +1,60 @@
+/*----*****---- << 404 Error - Type 2 >> ----*****----*/
+
+	.error404 .type1 h2 { 
+		font-family: var(--wdtFontTypo_Alt); font-size: 100px; font-weight: var(--wdtFontWeight_Base); 
+		line-height: 0.85; letter-spacing: 0; text-transform: uppercase; margin: 0; 
+		margin-bottom: clamp(1.5625rem, 1.3957rem + 0.9202vw, 2.5rem); /*40px - 25px*/ }
+	.error404 .type1 h3 { 
+		position: relative; display: inline-block; font-size: 220px; font-weight: bold; line-height: 0.85; 
+		top: 0; margin: 0; margin-bottom: clamp(1.875rem, 1.7082rem + 0.9202vw, 2.8125rem); /*40px - 25px*/ }
+	.error404 .type1 h4 { 
+		width: 100%; max-width: 570px; font-size: var(--wdtFontSize_H3); font-weight: var(--wdtFontWeight_Base); 
+		line-height: 0.85; text-transform: uppercase; border-bottom: 1px solid var(--wdtBorderColor); 
+		padding-bottom: 30px; margin-top: 0; margin-bottom: 30px; margin-left: auto; margin-right: auto; }
+	.error404 .type1 p {     
+		font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_Base); color: var(--wdtBodyTxtColor); }
+	.error404 .type1 a.wdt-button { 
+		display: inline-block; font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_Base); 
+		letter-spacing: 0; text-transform: capitalize; padding: var(--wdtPadding_Btn); color: var(--wdtAccentTxtColor); 
+		-webkit-border-radius: var(--wdtRadius_Zero); border-radius: var(--wdtRadius_Zero); }
+
+		/* Accents */
+		.error404 .type1 h3 { color: var(--wdtPrimaryColor); }
+		.error404 .type1 a.wdt-button { background-color: var(--wdtPrimaryColor); }
+		.error404 .type1 a.wdt-button:hover { background-color: var(--wdtSecondaryColor); }
+
+
+/*--------------------------------------------------------------
+    Responsive
+--------------------------------------------------------------*/
+
+    @media only screen and (min-width:768px) and (max-width:1024px) {
+		.error404 .type1 h2 { font-size: 80px; }
+		.error404 .type1 h3 { font-size: 180px; }
+	}
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+		.error404 .container { width: 100%; padding: 0 10%; }
+		.error404 .type1 h2, .error404 h2 { font-size: 60px; }
+		.error404 .type1 h3 { font-size: 150px; }
+	}
+
+    @media only screen and (max-width: 479px) {
+		.error404 .container { width: 100%; padding: 0 10%; }
+		.error404 .type1 h4 { width: 100%; }
+		.error404 h1, .error404 h2, .error404 h3, .error404 h4, .error404 h5, .error404 h6 { line-height: normal; }
+		.error404 .type1 h3, .error404 h3 { font-size: 70px; letter-spacing: 0; }
+		.error404 .type1 h2, .error404 h2 { font-size: 120px; }
+	}
+
+	@media only screen and (min-width: 320px) and (max-width: 479px) {
+		.error404 .type1 h2 { font-size: 50px; }
+		.error404 .type1 h3 { font-size: 120px; }
+		.error404 .type1 h4 { font-size: var(--wdtFontSize_H4); }
+	}
+
+	@media only screen and (max-width: 319px) {
+		.error404 .type1 h2 { font-size: 40px; }
+		.error404 .type1 h3 { font-size: 100px; }
+		.error404 .type1 h4 { font-size: var(--wdtFontSize_H5); }	
+	}

@@ -1,0 +1,69 @@
+.swiper.primary-image-wrapper .swiper-slide { width: 100% !important; }
+
+.swatch-color.available div{
+    width: 30px; height: 30px; border: 2px solid blue; border-radius: 50%; 
+}
+
+.swatch-material div{
+    width: 50px; height: 50px; border: 2px solid #000; border-radius: 50%;background-size: cover !important;background-position: 10% 30% !important;
+}
+.swatch-material{ width:50px; height:50px;}
+.proswatch-color.attribute-selectedswatches {
+  
+    border: 1px solid #000 !important;
+    color: #000 !important; outline: #000; outline-offset: 2px; outline-width: 2px; outline-style: solid; 
+}
+.attribute-selectedswatches:not(.proswatch-color) {
+	background: #fff !important;
+    border: 1px solid #000 !important;
+    color: #000 !important;
+}
+
+.product_swatch:not(.proswatch-color) {
+    background-color: black;
+    /* padding: 8px; */
+    border-radius: 50%;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.proswatch-color {
+border-radius: 50%;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.product_swatch:not(.available)
+{
+    pointer-events: none; opacity: 0.4;
+
+}
+.product_swatch{ cursor:pointer; }
+
+.product_swatch.proswatch-material
+{
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+/*==== Listing Swatchus Style ====*/
+
+.woocommerce ul.products li.product .product-wrapper .attribute-swatchesselectbox { display:none !important; }
+.woocommerce ul.products li.product .product-wrapper .product-details .variation-swatches:has( ~ .product-title ) { margin: 0; }
+.woocommerce ul.products li.product .product-wrapper .product-details .variation-swatches .attribute-swatches .swatch {
+    display: inline-block; cursor: pointer; text-align: center; }
+.woocommerce ul.products li.product .product-wrapper .product-details .variation-swatches .attribute-swatches .swatch-color {
+    width: 26px; height: 26px; padding: 3px; border: 1px solid transparent; -webkit-border-radius: var(--wdtRadius_Part); border-radius: var(--wdtRadius_Part); -webkit-transition: all .3s ease; transition: all .3s ease; margin: 0; }
+.woocommerce ul.products li.product .product-wrapper .product-details .variation-swatches .attribute-swatches .swatch-color.selected {
+    border-color: var(--wdtPrimaryColor); }
+.woocommerce ul.products li.product .product-wrapper .product-details .variation-swatches .attribute-swatches .swatch-color div {
+    width: 100%; height: 100%; -webkit-border-radius: var(--wdtRadius_Part); border-radius: var(--wdtRadius_Part); }

@@ -1,0 +1,1 @@
+<?php echo apply_filters( 'bullish_footer_get_template_part', bullish_get_template_part( 'footer', 'templates/footer', '', array() ) ); ?>

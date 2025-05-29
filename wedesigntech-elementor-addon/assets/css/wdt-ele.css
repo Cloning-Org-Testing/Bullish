@@ -1,0 +1,11 @@
+
+
+/* Elementor Panel icon */
+
+.elementor-panel #elementor-panel-category-wdt-widgets .elementor-panel-heading-toggle,
+.elementor-panel #elementor-panel-category-wdt-widgets .elementor-panel-heading-title,
+.elementor-panel #elementor-panel-category-wdt-widgets .elementor-element .icon {
+	-webkit-text-fill-color: transparent; -webkit-background-clip: text;  background-clip: text; 
+    background-image: linear-gradient(0deg, #b1d572 10%, #16a9a6 60%); }
+
+.elementor-panel #elementor-panel-category-wdt-widgets .elementor-element:hover .title { color: #16a9a6; }
