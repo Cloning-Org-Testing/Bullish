@@ -533,7 +533,8 @@ if( !class_exists( 'Bullish_Loader' ) ) {
             $subset = apply_filters( 'bullish_google_font_supsets', 'latin-ext' );
             $fonts  = apply_filters( 'bullish_google_fonts_list', array(
             'Outfit:100,200,300,400,500,600,700,800,900',
-            'Syne:400,500,600,700,800'
+            'Syne:400,500,600,700,800',
+            'DM Sans:100,200,300,400,500,600,700,800,900,100italic,200italic,300italic,400italic,500italic,600italic,700italic,800italic,900italic',
             ) );
 
             foreach( $fonts as $font ) {
