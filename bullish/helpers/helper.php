@@ -190,8 +190,8 @@ if ( ! function_exists( 'bullish_theme_defaults' ) ) {
 				'lh-desktop-unit' => ''
 			),
 			'extra_typo' => array (
-				'font-family' => "Dancing Script",
-				'font-fallback' => '"Dancing Script", sans-serif',
+				'font-family' => "DM Sans",
+				'font-fallback' => '"DM Sans", sans-serif',
 				'font-weight' => 500,
 				'fs-desktop' => 14,
 				'fs-desktop-unit' => 'px',
