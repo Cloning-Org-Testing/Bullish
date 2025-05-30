@@ -11,7 +11,7 @@
     .wrapper { clear: both; float: left; margin: 0; padding: 0; width: 100%; }
     .inner-wrapper { float: left; margin: 0; padding: 0; overflow: clip; width: 100%; }
 
-    .container { clear: both; margin: 0 auto; position: relative; width: 100%; max-width: 1680px; padding: 0 30px; }
+    .container { clear: both; margin: 0 auto; position: relative; width: 100%; max-width: 1480px; padding: 0 30px; }
 
 	.wp-block-cover__inner-container, 
 	.alignwide .wp-block-group__inner-container, 
