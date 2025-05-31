@@ -47,7 +47,7 @@
     #footer .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active { 
         background: none; font-size: clamp(1.125rem, 1.0962rem + 0.1282vw, 1.25rem); /* Min-18 & Max-20 */ 
         font-weight: var(--wdtFontWeight_H5); font-family: var(--wdtFontTypo_Alt); text-transform: capitalize;
-        margin: 0 0 clamp(1rem, 0.9423rem + 0.2564vw, 1.25rem); /* Min-16 & Max-20 */ color: var(--wdtHeadAltColor); }
+        margin: 0 0 clamp(1rem, 0.9423rem + 0.2564vw, 1.25rem); /* Min-16 & Max-20 */ color: var(--wdtAccentTxtColor); }
 
     /* Footer Accordion Menu - Description Style */
 
@@ -76,7 +76,7 @@
         #footer .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder,
         #footer .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-hover, 
         #footer .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active { 
-            background: rgba(var(--wdtPrimaryColorRgb),0.3); border: none; margin: 0; }
+            background:linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor)); color: var(--wdtHeadAltColor); border: none; margin: 0; }
 
         #footer .wdt-accordion-toggle-holder .wdt-accordion-toggle-description { padding: 1em 1.5em; }
 
@@ -111,6 +111,7 @@
     /* Classic Style */
 
         #footer .wdt-accordion-toggle-holder[class*='-template-classic'] .wdt-accordion-toggle-description { 
-            background: rgb(var(--wdt-elementor-color-primary-rgb), 0.1) !important; }
+            background: rgba(var(--wdtAccentTxtColorRgb), 0.1) !important;
+            backdrop-filter: blur(10px);-webkit-backdrop-filter: blur(10px); }
 
     }
