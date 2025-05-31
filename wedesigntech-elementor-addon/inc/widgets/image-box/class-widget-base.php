@@ -182,6 +182,7 @@ class WeDesignTech_Widget_Base_Image_Box {
 				'options' => array(
 					'default'  => esc_html__( 'Default', 'wdt-elementor-addon' ),
 					'standard' => esc_html__( 'Standard', 'wdt-elementor-addon' ),
+					'social-icons' => esc_html__( 'Social Icons', 'wdt-elementor-addon' ),
 					'with-description' => esc_html__( 'With Description', 'wdt-elementor-addon' )
 				)
 			) );
@@ -779,6 +780,22 @@ class WeDesignTech_Widget_Base_Image_Box {
 						'description'     => esc_html__( 'Description', 'wdt-elementor-addon'),
 						'button'          => esc_html__( 'Button', 'wdt-elementor-addon')
 					);
+
+					$settings['group1_content_positions'] = wedesigntech_elementor_format_repeater_values($group1_content_position_elements);
+					$settings['group2_content_positions'] = wedesigntech_elementor_format_repeater_values($group2_content_position_elements);
+
+					if(!isset($settings['title_subtitle_position'])) {
+						$settings['title_subtitle_position'] = 'below';
+					}
+
+					$output .= $this->cc_repeater_contents->render_html($widget_object, $settings);
+
+				}else if($settings['template'] == 'social-icons') {
+
+					$group1_content_position_elements = array(
+						'icon'           => esc_html__( 'Icon', 'wdt-elementor-addon')
+					);
+					$group2_content_position_elements = array();
 
 					$settings['group1_content_positions'] = wedesigntech_elementor_format_repeater_values($group1_content_position_elements);
 					$settings['group2_content_positions'] = wedesigntech_elementor_format_repeater_values($group2_content_position_elements);

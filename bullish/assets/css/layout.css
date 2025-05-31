@@ -1,0 +1,25 @@
+.wdt-cus-header-bg{
+    background-color: rgba(var(--wdtAccentTxtColorRgb),0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--wdtBorderColorRgb),0.1);
+    border-radius: var(--wdtRadius_1X);
+}
+/*-- Icon List -*/
+.wdt-cus-dark-bg-iconlist.elementor-widget.elementor-widget-icon-list .elementor-icon-list-icon svg,
+.wdt-cus-iconlist.elementor-widget.elementor-widget-icon-list .elementor-icon-list-icon svg{ 
+    margin: 0; 
+}
+
+.wdt-cus-dark-bg-iconlist.elementor-widget-icon-list .elementor-icon-list-icon,
+.wdt-cus-iconlist.elementor-widget-icon-list .elementor-icon-list-icon {
+    border:1px solid rgba(var(--wdtHeadAltColorRgb),0.1);
+    height:60px;
+    width:60px;
+    display:grid;
+    place-items:center;
+    border-radius:var(--wdtRadius_Full);
+}
+
+.wdt-cus-dark-bg-iconlist.elementor-widget-icon-list .elementor-icon-list-icon{
+    border-color: rgba(var(--wdtAccentTxtColorRgb),0.1);
+}
