@@ -65,7 +65,7 @@
     /* Menu */
     
     .no-header-menu ul li a { color: var(--wdtHeadAltColor);}
-    .wdt-header-menu .wdt-primary-nav li a { color: var(--wdtHeadAltColor); }
+    .wdt-header-menu .wdt-primary-nav li a { color: var(--wdtAccentTxtColor); }
     .wdt-header-menu li a { font-family: var(--wdtFontTypo_Alt); font-weight: var(--wdtFontWeight_Base); }
     .wdt-header-menu ul li ul li > a { font-size: var(--wdtFontSize_Ext); font-weight: var(--wdtFontWeight_Base); }
 
