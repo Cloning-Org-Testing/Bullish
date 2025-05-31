@@ -4,11 +4,11 @@
     Pagination
 --------------------------------------------------------------*/
 
-    .pagination { float: none; display: inline-block; margin-top: 35px; text-align: center; width: 100%; }
+    .pagination { float: none; display: inline-block; margin-top: clamp(2.1875rem, 1.6302rem + 2.5478vw, 4.6875rem); /*35-75px*/ text-align: center; width: 100%; }
     .pagination .column { float: right; width: 100%; }
     .pagination .column, .pagination ul { margin: 0; }
 
-    .pagination ul, .entry-body > .page-link { padding-left: 0; display: flex; justify-content: center; text-align: center; }
+    .pagination ul, .entry-body > .page-link { padding-left: 0; display: flex; justify-content: center; text-align: center; margin: -6px; }
     .pagination ul li, .woocommerce nav.woocommerce-pagination ul li { display: inline-block; float: none; padding-bottom: 0; display: contents; }
 
     .page-link {  clear: both; float: left; width: 100%; }
@@ -16,7 +16,7 @@
     .page-link a, .pagination ul li a,
     .woocommerce nav.woocommerce-pagination ul li a,
     .page-link > span, .pagination ul li span,
-    .woocommerce nav.woocommerce-pagination ul li span { background: none; border: 1px solid; display: inline-block; font-size: 13px; font-weight: 600; height: 40px; letter-spacing: .5px; line-height: 38px; margin: 10px 5px 0 0; padding: 0; position: relative; text-align: center; text-transform: uppercase; width: 40px; -webkit-border-radius: var(--wdtRadius_2X); border-radius: var(--wdtRadius_2X); }
+    .woocommerce nav.woocommerce-pagination ul li span { background: none; border: 1px solid; display: inline-grid ; place-items: center; font-size: var(--wdtFontSize_H6); font-weight: var(--wdtFontWeight_H6); height: clamp(2.8125rem, 2.6035rem + 0.9554vw, 3.75rem);/*45-60px*/ letter-spacing: 0; margin: 6px; padding: 0; position: relative; text-align: center; text-transform: uppercase; width: clamp(2.8125rem, 2.6035rem + 0.9554vw, 3.75rem); /*45-60px*/ -webkit-border-radius: var(--wdtRadius_Full); border-radius: var(--wdtRadius_Full); }
 
     .page-link a:not(:focus), .pagination ul li a:not(:focus), .woocommerce nav.woocommerce-pagination ul li a:not(:focus) { text-decoration: none; }
 
@@ -74,14 +74,14 @@
     .page-link a, .pagination ul li a,
     .woocommerce nav.woocommerce-pagination ul li a,
     .page-link > span, .pagination ul li span,
-    .woocommerce nav.woocommerce-pagination ul li span { color: var(--wdtHeadAltColor); }
+    .woocommerce nav.woocommerce-pagination ul li span { color: var(--wdtHeadAltColor); background: linear-gradient(90deg, var(--wdtAccentTxtColor), var(--wdtAccentTxtColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor)); background-size: 400% 100%; background-position: bottom left; background-repeat: no-repeat; }
 
     .pagination .newer-posts a, .pagination .older-posts a, .pagination a.loadmore-btn,
     .page-link > a:hover, .page-link > a:focus, .page-link > span,
     .pagination ul li a:hover, .pagination ul li a:focus, .pagination ul li span:not(.dots),
     .woocommerce nav.woocommerce-pagination ul li a:focus, 
     .woocommerce nav.woocommerce-pagination ul li a:hover, 
-    .woocommerce nav.woocommerce-pagination ul li span.current { color: var(--wdtAccentTxtColor); }
+    .woocommerce nav.woocommerce-pagination ul li span.current { color: var(--wdtHeadAltColor); }
 
     .pagination .newer-posts, .pagination .older-posts { background: var(--wdtBodyBGColor); }
 
@@ -107,7 +107,7 @@
     .pagination ul li a:hover, .pagination ul li a:focus, .pagination ul li span:not(.dots),
     .woocommerce nav.woocommerce-pagination ul li a:focus, 
     .woocommerce nav.woocommerce-pagination ul li a:hover, 
-    .woocommerce nav.woocommerce-pagination ul li span.current { background-color: var(--wdtPrimaryColor); }
+    .woocommerce nav.woocommerce-pagination ul li span.current { background-size: 330% 100%; background-position: bottom right; background-repeat: no-repeat; }
 
     .page-link > a:hover, .page-link > a:focus, .page-link > span,
     .pagination ul li a:hover, .pagination ul li a:focus, .pagination ul li span:not(.dots),
@@ -137,7 +137,7 @@
 /* Common Styles for the devices below 767px width */
 @media only screen and (max-width: 767px) {
 
-    .pagination ul li a, .pagination ul li span, .page-link a, .page-link > span, .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span { font-size: calc(var(--wdtFontSize_Base) - 3px); font-weight: 600; height: 32px; line-height: 30px; width: 32px; }
+    .pagination ul li a, .pagination ul li span, .page-link a, .page-link > span, .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span { font-size: calc(var(--wdtFontSize_Base) - 3px); }
 
     .pagination ul li a.next i, .pagination ul li a.prev i,
     .woocommerce .product-loop-sorting nav.woocommerce-pagination ul li i { font-size: calc(var(--wdtFontSize_Base) - 3px); }
