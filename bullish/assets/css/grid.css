@@ -25,7 +25,7 @@
 	#primary.with-left-sidebar { float: right; margin-left: 80px; /*overflow: hidden;*/ }
 	#primary.with-right-sidebar { float: left; margin-right: 80px; /*overflow: hidden;*/ }
 
-	#secondary { width: 400px; margin:0; padding:0; position:relative; z-index:1; }
+	#secondary { width: 420px; margin:0; padding:0; position:relative; z-index:1; }
 
 	#secondary-right, #secondary.secondary-has-right-sidebar { float: right; }
 	#secondary-left, #secondary.secondary-has-left-sidebar { float: left; }
@@ -40,7 +40,7 @@
 	
 	/* Side navigation */
 	
-	#primary { width: calc(100% - 480px); /*overflow: hidden;*/ }
+	#primary { width: calc(100% - 500px); /*overflow: hidden;*/ }
 	.elementor-section.elementor-section-stretched { width: 100% !important; left: 0 !important; }
 
 
@@ -186,8 +186,8 @@
 		.layout-boxed .wrapper { width: 1120px; }
 		.layout-boxed .vc_row.vc_row-no-padding { margin: 0 -30px; }
 
-		#primary { width: calc(100% - 330px); }
-		#secondary { width:300px; }
+		#primary { width: calc(100% - 430px); }
+		#secondary { width:400px; }
 
 		/*----*****---- << Custom Columns >> ----*****----*/
 
@@ -238,8 +238,8 @@
 		.layout-boxed .wrapper { width:940px; }
 		.layout-boxed .vc_row.vc_row-no-padding { margin: 0 -20px; }
 
-		#primary {width: calc(100% - 310px); }
-		#secondary { width:280px; }
+		#primary {width: calc(100% - 330px); }
+		#secondary { width:300px; }
 
 		/*----*****---- << Custom Columns >> ----*****----*/
 		.wdt-col-md-12 { width: 100%; }
@@ -273,6 +273,9 @@
 		.wdt-col-md-offset-2 { margin-left: 16.66666667% }
 		.wdt-col-md-offset-1 { margin-left: 8.33333333% }
 		.wdt-col-md-offset-0 { margin-left: 0 }
+
+		.widget .recent-posts-widget li { flex-direction: column; align-items: start; }
+		.widget .recent-posts-widget li .post-details { margin-top: 24px; margin-left: 0; }
 
 	}
 
@@ -436,7 +439,8 @@
 		.layout-boxed .wrapper { width:100%; }
 
 		.wdt-col, div[class*="wdt-col"], section[class*="wdt-col"], li[class*="wdt-col"] { width: 100% !important; }
-
+		.widget .recent-posts-widget li { flex-direction: column; align-items: start; }
+		.widget .recent-posts-widget li .post-details { margin-top: 24px; margin-left: 0; }
 	}
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */

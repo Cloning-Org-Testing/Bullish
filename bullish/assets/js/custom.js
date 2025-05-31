@@ -458,3 +458,201 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+// Page Preloader And Lazyload for speed
+
+jQuery(function ($) {
+    const preloadThreshold = window.innerHeight + 300;
+    const bgElements = [];
+
+    // --- UTILITIES ---
+    function preloadLink(href, as = "image") {
+        if (!href || document.querySelector(`link[rel="preload"][href="${href}"]`)) return;
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = as;
+        link.href = href;
+        link.fetchPriority = "high";
+
+        // Dynamically add crossorigin attribute
+        const isCrossOrigin = href.startsWith("http") && new URL(href).origin !== window.location.origin;
+        if (isCrossOrigin) {
+            link.crossOrigin = "anonymous";
+        }
+
+        document.head.appendChild(link);
+    }
+
+    function preconnectDomain(href) {
+        try {
+            const url = new URL(href);
+            if (!document.querySelector(`link[rel="preconnect"][href="${url.origin}"]`)) {
+                const link = document.createElement("link");
+                link.rel = "preconnect";
+                link.href = url.origin;
+                link.crossOrigin = "anonymous";
+                document.head.appendChild(link);
+            }
+        } catch (e) {}
+    }
+
+    function forcePreloadImage(url) {
+        if (!url || url.startsWith('data:')) return;
+        const img = new Image();
+        img.src = url;
+        img.loading = "eager";
+        img.decoding = "async";
+        img.setAttribute("fetchpriority", "high");
+        img.style.display = "none";
+        document.body.appendChild(img);
+    }
+
+    function extractUrl(styleVal) {
+        const match = styleVal && styleVal.match(/url\((['"]?)(.*?)\1\)/);
+        return match && match[2] ? match[2] : null;
+    }
+
+    // --- HERO BOOST (above the fold) ---
+    $("section, .elementor-section, .wp-block-cover").each(function () {
+        const $section = $(this);
+        const style = getComputedStyle(this);
+        const bgImage = extractUrl(style.backgroundImage);
+        const isVisible = style.display !== "none" && $section.outerHeight() > 0;
+        const rect = this.getBoundingClientRect();
+        const isAboveFold = rect.top + window.scrollY < window.innerHeight;
+
+        if (bgImage && isVisible && isAboveFold) {
+            preconnectDomain(bgImage);
+            preloadLink(bgImage);
+            forcePreloadImage(bgImage);
+            return false; // break loop on first match
+        }
+    });
+
+
+    // --- EAGER LOAD IMAGES ABOVE FOLD ---
+    $("img").each(function () {
+        const $img = $(this);
+        const rect = this.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const src = $img.attr("src");
+
+        if (src) {
+            preconnectDomain(src);
+            if (top < preloadThreshold || $img.data("priority") === "high") {
+                preloadLink(src);
+                forcePreloadImage(src);
+                $img.attr({
+                    loading: "eager",
+                    decoding: "async",
+                    fetchpriority: "high"
+                });
+            } else {
+                $img.attr({
+                    loading: $img.attr("loading") || "lazy",
+                    decoding: $img.attr("decoding") || "async"
+                });
+            }
+        }
+    });
+
+    // --- BACKGROUND IMAGES ---
+    $("*").each(function () {
+        const el = this;
+        const style = getComputedStyle(el);
+        if (style.display === "none" || el.closest('.megamenu')) return;
+
+        const rect = el.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const bgImage = extractUrl(style.backgroundImage);
+        const varImage = extractUrl(style.getPropertyValue('--optional-background-image'));
+
+        if (bgImage) {
+            preconnectDomain(bgImage);
+            if (top >= preloadThreshold) {
+                el.dataset.lazyBg = bgImage;
+                el.style.backgroundImage = "none";
+                bgElements.push(el);
+            } else {
+                preloadLink(bgImage);
+                forcePreloadImage(bgImage);
+            }
+        }
+
+        if (varImage) {
+            preconnectDomain(varImage);
+            if (top >= preloadThreshold) {
+                el.dataset.lazyVar = varImage;
+                el.style.setProperty('--optional-background-image', 'none');
+                bgElements.push(el);
+            } else {
+                preloadLink(varImage);
+                forcePreloadImage(varImage);
+            }
+        }
+    });
+
+    // --- OBSERVE & LOAD ON VIEW ---
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    if (el.dataset.lazyBg) {
+                        el.style.backgroundImage = `url('${el.dataset.lazyBg}')`;
+                        delete el.dataset.lazyBg;
+                    }
+                    if (el.dataset.lazyVar) {
+                        el.style.setProperty('--optional-background-image', `url('${el.dataset.lazyVar}')`);
+                        delete el.dataset.lazyVar;
+                    }
+                    observer.unobserve(el);
+                }
+            });
+        }, { rootMargin: "300px 0px" });
+
+        bgElements.forEach(el => observer.observe(el));
+    } else {
+        // Fallback
+        bgElements.forEach(el => {
+            if (el.dataset.lazyBg) el.style.backgroundImage = `url('${el.dataset.lazyBg}')`;
+            if (el.dataset.lazyVar) el.style.setProperty('--optional-background-image', `url('${el.dataset.lazyVar}')`);
+        });
+    }
+
+    // --- GOOGLE FONTS: HIGH PRIORITY ---
+    const usedFonts = new Set();
+    document.querySelectorAll("*").forEach(el => {
+        const family = getComputedStyle(el).fontFamily;
+        if (family) {
+            const primary = family.split(",")[0].replace(/['"]/g, "").trim();
+            // Skip system fonts and Times New Roman (which is a system font and not available on Google Fonts)
+            if (!/^system-ui|sans-serif|serif|Times New Roman$/i.test(primary)) {
+                usedFonts.add(primary);
+            }
+        }
+    });
+
+    usedFonts.forEach(font => {
+        const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
+        if (!document.querySelector(`link[href="${url}"]`)) {
+            const preload = document.createElement("link");
+            preload.rel = "preload";
+            preload.as = "style";
+            preload.href = url;
+            preload.crossOrigin = "anonymous";
+            preload.onload = function () {
+                this.rel = "stylesheet";
+            };
+            document.head.appendChild(preload);
+        }
+    });
+
+    // --- LOG HIGH TTFB ---
+    // Use PerformanceNavigationTiming instead of deprecated performance.timing
+    let navEntry = performance.getEntriesByType("navigation")[0];
+    if (navEntry && navEntry.responseStart - navEntry.requestStart > 1000) {
+        console.warn("⚠️ High TTFB. Use full-page cache and database optimization on WP Engine.");
+    }
+});
