@@ -831,14 +831,15 @@ class WeDesignTech_Widget_Base_Image_Box {
 				} else if($settings['template'] == 'with-description') {
 
 					$group1_content_position_elements = array(
-						'image'           => esc_html__( 'Image', 'wdt-elementor-addon')
+						'image'           => esc_html__( 'Image', 'wdt-elementor-addon'),
+						'title' 		  => esc_html__( 'Title', 'wdt-elementor-addon'),
+						'sub_title' 	  => esc_html__( 'Sub Title', 'wdt-elementor-addon'),
+						'description'     => esc_html__( 'Description', 'wdt-elementor-addon'),
 					);
 					$group2_content_position_elements = array(
-						'sub_title' 	  => esc_html__( 'Sub Title', 'wdt-elementor-addon'),
-						'title' 		  => esc_html__( 'Title', 'wdt-elementor-addon'),
-						'description'     => esc_html__( 'Description', 'wdt-elementor-addon'),
 						'button'          => esc_html__( 'Button', 'wdt-elementor-addon')
 					);
+
 
 					$settings['group1_content_positions'] = wedesigntech_elementor_format_repeater_values($group1_content_position_elements);
 					$settings['group2_content_positions'] = wedesigntech_elementor_format_repeater_values($group2_content_position_elements);
