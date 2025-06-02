@@ -164,7 +164,7 @@ class WeDesignTech_Common_Controls_Repeater_Contents {
 				if(in_array('description', $this->option_default_keys)) {
 					$repeater->add_control( 'item_description', array(
 						'label'       => $this->options_default['description'],
-						'type'        => \Elementor\Controls_Manager::TEXTAREA,
+						'type'        => \Elementor\Controls_Manager::WYSIWYG,
 						'label_block' => true,
 						'placeholder' => esc_html__( 'Item Description', 'wdt-elementor-addon' ),
 						'default'     => esc_html__( 'Sed ut perspiciatis unde omnis iste natus error sit, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.', 'wdt-elementor-addon' ),
