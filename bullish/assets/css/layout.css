@@ -9,3 +9,9 @@
 #footer .wdt-template-classic .wdt-accordion-toggle-wrapper{
     background-color: transparent;
 }
+#footer .elementor-widget-text-editor a:not(.button):not(.elementor-button){
+    color: var(--wdtAccentTxtColor);
+}
+#footer .elementor-widget-text-editor a:not(.button):not(.elementor-button):hover{
+    color: var(--wdtPrimaryColor);
+}
