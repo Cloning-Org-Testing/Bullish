@@ -624,30 +624,31 @@ jQuery(function ($) {
     // --- GOOGLE FONTS: HIGH PRIORITY ---
     const usedFonts = new Set();
     document.querySelectorAll("*").forEach(el => {
-        const family = getComputedStyle(el).fontFamily;
-        if (family) {
-            const primary = family.split(",")[0].replace(/['"]/g, "").trim();
-            // Skip system fonts and Times New Roman (which is a system font and not available on Google Fonts)
-            if (!/^system-ui|sans-serif|serif|Times New Roman$/i.test(primary)) {
-                usedFonts.add(primary);
-            }
+    const family = getComputedStyle(el).fontFamily;
+    if (family) {
+        const primary = family.split(",")[0].replace(/['"]/g, "").trim();
+        // Skip system fonts
+        if (!/^system-ui|sans-serif|serif|Times New Roman|apple-system|dashicons$/i.test(primary)) {
+        usedFonts.add(primary);
         }
+    }
     });
 
     usedFonts.forEach(font => {
-        const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
-        if (!document.querySelector(`link[href="${url}"]`)) {
-            const preload = document.createElement("link");
-            preload.rel = "preload";
-            preload.as = "style";
-            preload.href = url;
-            preload.crossOrigin = "anonymous";
-            preload.onload = function () {
-                this.rel = "stylesheet";
-            };
-            document.head.appendChild(preload);
-        }
+    const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
+    if (!document.querySelector(`link[href="${url}"]`)) {
+        const preload = document.createElement("link");
+        preload.rel = "preload";
+        preload.as = "style";
+        preload.href = url;
+        preload.crossOrigin = "anonymous";
+        preload.onload = function () {
+        this.rel = "stylesheet";
+        };
+        document.head.appendChild(preload);
+    }
     });
+
 
     // --- LOG HIGH TTFB ---
     // Use PerformanceNavigationTiming instead of deprecated performance.timing
