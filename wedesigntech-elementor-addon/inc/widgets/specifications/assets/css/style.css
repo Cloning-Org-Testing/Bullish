@@ -32,3 +32,7 @@
 
 .wdt-specifications-holder .wdt-specification-block .wdt-content-title h4 { margin: 0; }
 
+/* Type 1 */
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1{  display:inline-flex; align-items:baseline; gap:20px; }
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-title h4{  font-size:var(--wdtFontSize_H6); }
+

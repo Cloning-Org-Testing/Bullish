@@ -245,7 +245,7 @@
 	.widget ul li, .widget ol li, .widget.widget_nav_menu ul.menu li, .widget.widget_nav_menu ul li a { border-color: var(--wdtBorderColor); }
 
 	.widget #wp-calendar td a { color:rgba(var(--wdtHeadAltColorRgb),0.5); }
-	.widget_tag_cloud .tagcloud a, .widget .tagcloud a, .wp-block-tag-cloud a { background:rgba(var(--wdtHeadAltColorRgb),0.05); }
+		.widget_tag_cloud .tagcloud a, .widget .tagcloud a, .wp-block-tag-cloud a { background: linear-gradient(90deg, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor)); background-size: 300% 100%; background-position: center left; padding:8px 20px; border-radius:var(--wdtRadius_1X); z-index:1; border:1px solid var(--wdtBorderColor); }
 
 	.wdt-dark-bg .widget input[type="text"], .wdt-dark-bg .widget input[type="password"], .wdt-dark-bg .widget input[type="email"], .wdt-dark-bg .widget input[type="url"], .wdt-dark-bg .widget input[type="tel"], .wdt-dark-bg .widget input[type="number"], .wdt-dark-bg .widget input[type="range"], .wdt-dark-bg .widget input[type="date"], .wdt-dark-bg .widget textarea, .wdt-dark-bg .widget input[type="search"], .wdt-dark-bg .widget select, .wdt-dark-bg .widget.widget_categories ul li > a span, .wdt-dark-bg .widget.widget_archive ul li > a span { background:rgba(var(--wdtBodyBGColorRgb),0.15); }
 
@@ -257,7 +257,7 @@
 	.wdt-dark-bg .widget #wp-calendar td a { color:rgba(var(--wdtAccentTxtColorRgb),0.5); }
 	.wdt-dark-bg .tagcloud a { background:rgba(var(--wdtBodyBGColorRgb),0.15); }
 
-	.tagcloud a:hover, .wp-block-tag-cloud a:hover, #footer .wdt-dark-bg .tagcloud a:hover, #footer .tagcloud a:hover { color:var(--wdtAccentTxtColor) !important; }
+	.tagcloud a:hover, .wp-block-tag-cloud a:hover, #footer .wdt-dark-bg .tagcloud a:hover, #footer .tagcloud a:hover { color:var(--wdtHeadAltColor) !important;  background-position: center right; }
 
 	.widget #searchform:hover:before { color: var(--wdtAccentTxtColor); }
 
@@ -275,7 +275,7 @@
 	.wdt-dark-bg .widget.widget_categories ul li > a:hover span, #footer .wdt-dark-bg .widget.widget_categories ul li > a:hover span, #footer .wdt-dark-bg .widget.widget_archive ul li > a:hover span, .wdt-dark-bg .tagcloud a:hover { background-color: var(--wdtPrimaryColor); }
 
 
-	.tagcloud a:hover, .wp-block-tag-cloud a:hover, .wdt-dark-bg .tagcloud a:hover { border-color: var(--wdtPrimaryColor); }
+	.tagcloud a:hover, .wp-block-tag-cloud a:hover, .wdt-dark-bg .tagcloud a:hover { border-color: transparent; }
 
 	.widget_media_image img { border-radius: 10px; }
 
