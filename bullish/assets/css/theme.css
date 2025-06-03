@@ -17,7 +17,7 @@
     --wdtLetterSpacing_3X: 3px;
 
     /* Padding Variables */
-    --wdtInputPadding: 20px 24px;
+    --wdtInputPadding: 18px 24px;
 
     --wdtPadding_Btn:  clamp(1.125rem, 1.0971rem + 0.1274vw, 1.25rem) clamp(1.5rem, 1.2771rem + 1.0191vw, 2.5rem); /*18-20 & 24-40*/
     --wdtPadding_MiniBtn: clamp(0.75rem, 0.7221rem + 0.1274vw, 0.875rem) clamp(1.25rem, 1.1943rem + 0.2548vw, 1.5rem);/*12-14 20-24*/
