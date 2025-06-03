@@ -95,3 +95,23 @@
 @media only screen and (max-width:479px) {
     .wdt-image-box-holder.wdt-rc-template-with-description .wdt-content-item { flex-direction:column; align-items:start; gap:20px; }
 }
+
+/* -- Image Box - Simple Icon -- */
+
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item > div:not(:last-child), 
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item .wdt-content-media-group > div:not(:last-child), 
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item .wdt-content-detail-group > div:not(:last-child), 
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item .wdt-content-elements-group > div:not(:last-child){ margin-bottom:20px }
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item .wdt-content-media-group{ border-bottom:1px solid var(--wdtHeadAltColor); padding-bottom:20px; }
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span{ font-size:50px; color:var(--wdtHeadAltColor); }
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item .wdt-content-title h5{ font-size: clamp(1.5rem, 1.4164rem + 0.3822vw, 1.875rem);/* Min-24 & Max-30 */ }
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item .wdt-content-title h5 a{ color:var(--wdtLinkColor); }
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item .wdt-content-title h5 a:hover{ color:var(--wdtLinkHoverColor); }
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item{ opacity: 0.5; transition: var(--wdt-Ad-Transition); -webkit-transition: var(--wdt-Ad-Transition); }
+
+/* Hover and Active */
+
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-active .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span,
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item:hover .wdt-content-icon-wrapper .wdt-content-icon span{ color: var(--wdtLinkHoverColor); filter: drop-shadow(0 0 10px var(--wdtTertiaryColor)); -webkit-filter: drop-shadow(0 0 10px var(--wdtTertiaryColor)); }
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-active .wdt-content-item,
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item:hover{opacity: 1;}
