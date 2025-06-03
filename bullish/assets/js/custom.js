@@ -460,10 +460,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Page Preloader And Lazyload for speed
+// Page Preloader And Lazyload for speed (Ultra-Optimized)
 
 jQuery(function ($) {
-    const preloadThreshold = window.innerHeight + 300;
+    const preloadThreshold = window.innerHeight + 500;
     const bgElements = [];
 
     // --- UTILITIES ---
@@ -474,13 +474,9 @@ jQuery(function ($) {
         link.as = as;
         link.href = href;
         link.fetchPriority = "high";
-
         // Dynamically add crossorigin attribute
         const isCrossOrigin = href.startsWith("http") && new URL(href).origin !== window.location.origin;
-        if (isCrossOrigin) {
-            link.crossOrigin = "anonymous";
-        }
-
+        if (isCrossOrigin) link.crossOrigin = "anonymous";
         document.head.appendChild(link);
     }
 
@@ -529,7 +525,6 @@ jQuery(function ($) {
             return false; // break loop on first match
         }
     });
-
 
     // --- EAGER LOAD IMAGES ABOVE FOLD ---
     $("img").each(function () {
@@ -610,7 +605,7 @@ jQuery(function ($) {
                     observer.unobserve(el);
                 }
             });
-        }, { rootMargin: "300px 0px" });
+        }, { rootMargin: "500px 0px" });
 
         bgElements.forEach(el => observer.observe(el));
     } else {
@@ -624,36 +619,55 @@ jQuery(function ($) {
     // --- GOOGLE FONTS: HIGH PRIORITY ---
     const usedFonts = new Set();
     document.querySelectorAll("*").forEach(el => {
-    const family = getComputedStyle(el).fontFamily;
-    if (family) {
-        const primary = family.split(",")[0].replace(/['"]/g, "").trim();
-        // Skip system fonts
-        if (!/^system-ui|sans-serif|serif|Times New Roman|apple-system|dashicons$/i.test(primary)) {
-        usedFonts.add(primary);
+        const family = getComputedStyle(el).fontFamily;
+        if (family) {
+            const primary = family.split(",")[0].replace(/['"]/g, "").trim();
+            // Skip system fonts
+            if (!/^system-ui|sans-serif|serif|Times New Roman|apple-system|dashicons$/i.test(primary)) {
+                usedFonts.add(primary);
+            }
         }
-    }
     });
 
     usedFonts.forEach(font => {
-    const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
-    if (!document.querySelector(`link[href="${url}"]`)) {
-        const preload = document.createElement("link");
-        preload.rel = "preload";
-        preload.as = "style";
-        preload.href = url;
-        preload.crossOrigin = "anonymous";
-        preload.onload = function () {
-        this.rel = "stylesheet";
-        };
-        document.head.appendChild(preload);
-    }
+        const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
+        if (!document.querySelector(`link[href="${url}"]`)) {
+            const preload = document.createElement("link");
+            preload.rel = "preload";
+            preload.as = "style";
+            preload.href = url;
+            preload.crossOrigin = "anonymous";
+            preload.onload = function () {
+                this.rel = "stylesheet";
+            };
+            document.head.appendChild(preload);
+        }
     });
 
-
-    // --- LOG HIGH TTFB ---
-    // Use PerformanceNavigationTiming instead of deprecated performance.timing
-    let navEntry = performance.getEntriesByType("navigation")[0];
-    if (navEntry && navEntry.responseStart - navEntry.requestStart > 1000) {
-        console.warn("⚠️ High TTFB. Use full-page cache and database optimization on WP Engine.");
+    // --- CRITICAL CSS: INSTANT LOAD (if available) ---
+    if (window.criticalCssUrl && !document.querySelector(`link[href="${window.criticalCssUrl}"]`)) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = window.criticalCssUrl;
+        link.media = "all";
+        document.head.appendChild(link);
     }
+
+    // --- DEFER NON-CRITICAL CSS (if marked) ---
+    document.querySelectorAll('link[rel="stylesheet"][data-defer]').forEach(link => {
+        link.media = "print";
+        link.onload = function () { this.media = "all"; };
+    });
+
+    // --- PREFETCH NEXT PAGE LINKS (for instant navigation) ---
+    $("a").each(function () {
+        const href = this.href;
+        if (href && href.indexOf(location.origin) === 0 && !this.hasAttribute("download") && !this.target) {
+            const link = document.createElement("link");
+            link.rel = "prefetch";
+            link.href = href;
+            document.head.appendChild(link);
+        }
+    });
+
 });
