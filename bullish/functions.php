@@ -361,6 +361,7 @@ if( !class_exists( 'Bullish_Loader' ) ) {
                 wp_enqueue_style( 'bullish-grid', get_theme_file_uri('/assets/css/grid.css'), false, BULLISH_THEME_VERSION, 'all');
                 wp_enqueue_style( 'bullish-layout', get_theme_file_uri('/assets/css/layout.css'), false, BULLISH_THEME_VERSION, 'all');
                 wp_enqueue_style( 'bullish-widget', get_theme_file_uri('/assets/css/widget.css'), false, BULLISH_THEME_VERSION, 'all');
+                wp_enqueue_style( 'bullish-additional', get_theme_file_uri('/assets/css/additional.css'), false, BULLISH_THEME_VERSION, 'all');
 
             /**
              * After Hook
