@@ -19,8 +19,8 @@
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-wrapper:not(:last-child) { margin-bottom: 20px; }
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-wrapper { display: flex; flex-wrap: wrap; width: 100%; }
 
-.wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder { font-size: 1.2rem; line-height: normal; position: relative; 
-    display: flex; align-items: center; width: 100%; margin: 0 auto; padding: 14px 28px; cursor: pointer; }
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder { font-size: clamp(1.25rem, 1.1943rem + 0.2548vw, 1.5rem); /* Min-20 & Max-24 */ line-height: normal; position: relative; 
+    display: flex; align-items: center; width: 100%; margin: 0 auto; padding: 40px 40px; cursor: pointer; }
 
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-title { font-family: var(--wdtFontTypo_Alt); flex-grow: 1; }
 
@@ -35,14 +35,14 @@
 .wdt-accordion-toggle-holder[class*='-expand-collapse-position-start'] .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon { 
     margin: 0 20px 0 0; }
 
-.wdt-accordion-toggle-holder .wdt-accordion-toggle-description { padding: 14px 28px; font-size: 1rem; 
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-description { padding: 14px 24px; font-size: 1rem; 
     width: 100%; font-family: var(--wdtFontTypo_Base); background: transparent; }
 
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon { position: relative; 
-    display: flex; flex-shrink: 0; width: 1em; height: 1em; margin-left: 10px; }
+    display: flex; flex-shrink: 0; width: 1em; height: 1em; margin-left: 10px;  }
 
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon > div { position: absolute; 
-    top: 0; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: flex-end; margin: auto; }
+    top: 0; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: flex-end; margin: auto; font-size: 14px; color: var(--wdtHeadAltColor); }
 
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active .wdt-accordion-toggle-icon [class*='-toggle-icon-expand'] { opacity: 0; }
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon [class*='-toggle-icon-expand'] { opacity: 1; }
@@ -50,15 +50,26 @@
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active .wdt-accordion-toggle-icon [class*='-toggle-icon-collapse'] { opacity: 1; }
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon [class*='-toggle-icon-collapse'] { opacity: 0; }
 
+.wdt-dark-bg .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon > div {
+    color: var(--wdtAccentTxtColor);
+}
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active  .wdt-accordion-toggle-icon > div {
+    color: var(--wdtPrimaryColor);
+}
 
 /** 
     Template Classic 
 */
 
-.wdt-template-classic .wdt-accordion-toggle-wrapper { background-color: var(--wdtTertiaryColor); border-radius: 10px; overflow: hidden; }
-
+.wdt-template-classic .wdt-accordion-toggle-wrapper { background-color: rgba(var(--wdtAccentTxtColorRgb),0.2); backdrop-filter: blur(10px); border: 1px solid rgba(var(--wdtAccentTxtColorRgb),0.1); border-radius: var(--wdtRadius_2X); overflow: hidden; }
+.wdt-template-classic .wdt-accordion-toggle-wrapper:has(.ui-state-active){border-color: var(--wdtPrimaryColor);}
 .wdt-template-classic .wdt-accordion-toggle-title-holder { border: none; background-color: transparent; color: var(--wdtHeadAltColor); }
 .wdt-template-classic .wdt-accordion-toggle-description { border: none; padding-top: 0px; }
+.wdt-template-classic .wdt-accordion-toggle-description p{ margin-bottom: 0; }
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-description{padding: 0 clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem) clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem); /*40-30*/}
+
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-wrapper .wdt-accordion-toggle-title-holder {padding: clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem); /*40-30*/}
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-wrapper:has(.ui-state-active) .wdt-accordion-toggle-title-holder {padding: clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem) clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem) 20px; /*40-30*/}    
 
 
 /** 
@@ -85,4 +96,9 @@
 
 .wdt-template-bordered .wdt-accordion-toggle-description { border-left-color: var(--wdt-elementor-color-primary); }
 
+/* Color */
+
+.wdt-dark-bg .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-title{
+    color: var(--wdtAccentTxtColor);
+}
 

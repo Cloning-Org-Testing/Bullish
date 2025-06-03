@@ -103,7 +103,7 @@
 .wdt-heading-holder .wdt-heading-subtitle-wrapper{
     color:var(--wdtHeadAltColor);
 }
--wdt-dark-bg .wdt-heading-holder .wdt-heading-subtitle-wrapper{
+.wdt-dark-bg .wdt-heading-holder .wdt-heading-subtitle-wrapper{
     color:var(--wdtAccentTxtColor);
 }
 
