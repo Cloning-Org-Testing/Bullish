@@ -461,29 +461,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // Page Preloader And Lazyload for speed (Ultra-Optimized)
-
 jQuery(function ($) {
-    const preloadThreshold = window.innerHeight + 500;
+    const preloadThreshold = window.innerHeight + 100; // Only preload images visible in viewport
     const bgElements = [];
+    const seenLinks = new Set();
 
     // --- UTILITIES ---
     function preloadLink(href, as = "image") {
-        if (!href || document.querySelector(`link[rel="preload"][href="${href}"]`)) return;
+        if (!href || seenLinks.has(href)) return;
+        seenLinks.add(href);
         const link = document.createElement("link");
         link.rel = "preload";
         link.as = as;
         link.href = href;
+        link.crossOrigin = "anonymous";
         link.fetchPriority = "high";
-        // Dynamically add crossorigin attribute
-        const isCrossOrigin = href.startsWith("http") && new URL(href).origin !== window.location.origin;
-        if (isCrossOrigin) link.crossOrigin = "anonymous";
         document.head.appendChild(link);
     }
 
     function preconnectDomain(href) {
         try {
-            const url = new URL(href);
-            if (!document.querySelector(`link[rel="preconnect"][href="${url.origin}"]`)) {
+            const url = new URL(href, window.location.href);
+            if (!seenLinks.has(url.origin)) {
+                seenLinks.add(url.origin);
                 const link = document.createElement("link");
                 link.rel = "preconnect";
                 link.href = url.origin;
@@ -499,7 +499,6 @@ jQuery(function ($) {
         img.src = url;
         img.loading = "eager";
         img.decoding = "async";
-        img.setAttribute("fetchpriority", "high");
         img.style.display = "none";
         document.body.appendChild(img);
     }
@@ -507,6 +506,19 @@ jQuery(function ($) {
     function extractUrl(styleVal) {
         const match = styleVal && styleVal.match(/url\((['"]?)(.*?)\1\)/);
         return match && match[2] ? match[2] : null;
+    }
+
+    function loadLazyBackgrounds() {
+        bgElements.forEach(el => {
+            if (el.dataset.lazyBg) {
+                el.style.backgroundImage = `url('${el.dataset.lazyBg}')`;
+                delete el.dataset.lazyBg;
+            }
+            if (el.dataset.lazyVar) {
+                el.style.setProperty('--optional-background-image', `url('${el.dataset.lazyVar}')`);
+                delete el.dataset.lazyVar;
+            }
+        });
     }
 
     // --- HERO BOOST (above the fold) ---
@@ -522,73 +534,63 @@ jQuery(function ($) {
             preconnectDomain(bgImage);
             preloadLink(bgImage);
             forcePreloadImage(bgImage);
-            return false; // break loop on first match
+            return false; // stop after first visible above-fold background
         }
     });
 
-    // --- EAGER LOAD IMAGES ABOVE FOLD ---
+    // --- ONLY PRELOAD IMAGES IN VIEWPORT ---
     $("img").each(function () {
-        const $img = $(this);
         const rect = this.getBoundingClientRect();
-        const top = rect.top + window.scrollY;
-        const src = $img.attr("src");
+        const src = this.currentSrc || this.src || this.getAttribute("data-src");
+        if (!src) return;
 
-        if (src) {
-            preconnectDomain(src);
-            if (top < preloadThreshold || $img.data("priority") === "high") {
-                preloadLink(src);
-                forcePreloadImage(src);
-                $img.attr({
-                    loading: "eager",
-                    decoding: "async",
-                    fetchpriority: "high"
-                });
-            } else {
-                $img.attr({
-                    loading: $img.attr("loading") || "lazy",
-                    decoding: $img.attr("decoding") || "async"
-                });
-            }
+        preconnectDomain(src);
+
+        if (rect.top >= 0 && rect.top <= preloadThreshold) {
+            preloadLink(src);
+            forcePreloadImage(src);
+            $(this).attr({
+                loading: "eager",
+                decoding: "async",
+                fetchpriority: "high"
+            });
+        } else {
+            $(this).attr({
+                loading: $(this).attr("loading") || "lazy",
+                decoding: $(this).attr("decoding") || "async"
+            });
         }
     });
 
-    // --- BACKGROUND IMAGES ---
+    // --- BACKGROUND IMAGES (Lazy load outside threshold) ---
     $("*").each(function () {
         const el = this;
-        const style = getComputedStyle(el);
-        if (style.display === "none" || el.closest('.megamenu')) return;
+        if (el.closest('.megamenu')) return;
 
+        const style = getComputedStyle(el);
         const rect = el.getBoundingClientRect();
         const top = rect.top + window.scrollY;
         const bgImage = extractUrl(style.backgroundImage);
         const varImage = extractUrl(style.getPropertyValue('--optional-background-image'));
 
-        if (bgImage) {
-            preconnectDomain(bgImage);
-            if (top >= preloadThreshold) {
-                el.dataset.lazyBg = bgImage;
-                el.style.backgroundImage = "none";
-                bgElements.push(el);
-            } else {
-                preloadLink(bgImage);
-                forcePreloadImage(bgImage);
+        [bgImage, varImage].forEach((url, idx) => {
+            if (url) {
+                preconnectDomain(url);
+                if (top >= preloadThreshold) {
+                    const dataKey = idx === 0 ? "lazyBg" : "lazyVar";
+                    el.dataset[dataKey] = url;
+                    if (idx === 0) el.style.backgroundImage = "none";
+                    else el.style.setProperty('--optional-background-image', 'none');
+                    bgElements.push(el);
+                } else {
+                    preloadLink(url);
+                    forcePreloadImage(url);
+                }
             }
-        }
-
-        if (varImage) {
-            preconnectDomain(varImage);
-            if (top >= preloadThreshold) {
-                el.dataset.lazyVar = varImage;
-                el.style.setProperty('--optional-background-image', 'none');
-                bgElements.push(el);
-            } else {
-                preloadLink(varImage);
-                forcePreloadImage(varImage);
-            }
-        }
+        });
     });
 
-    // --- OBSERVE & LOAD ON VIEW ---
+    // --- INTERSECTION OBSERVER for LAZY BACKGROUND IMAGES ---
     if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -609,20 +611,15 @@ jQuery(function ($) {
 
         bgElements.forEach(el => observer.observe(el));
     } else {
-        // Fallback
-        bgElements.forEach(el => {
-            if (el.dataset.lazyBg) el.style.backgroundImage = `url('${el.dataset.lazyBg}')`;
-            if (el.dataset.lazyVar) el.style.setProperty('--optional-background-image', `url('${el.dataset.lazyVar}')`);
-        });
+        loadLazyBackgrounds();
     }
 
-    // --- GOOGLE FONTS: HIGH PRIORITY ---
+    // --- GOOGLE FONTS (safe, preload visible fonts only) ---
     const usedFonts = new Set();
     document.querySelectorAll("*").forEach(el => {
         const family = getComputedStyle(el).fontFamily;
         if (family) {
             const primary = family.split(",")[0].replace(/['"]/g, "").trim();
-            // Skip system fonts
             if (!/^system-ui|sans-serif|serif|Times New Roman|apple-system|dashicons$/i.test(primary)) {
                 usedFonts.add(primary);
             }
@@ -631,43 +628,30 @@ jQuery(function ($) {
 
     usedFonts.forEach(font => {
         const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
-        if (!document.querySelector(`link[href="${url}"]`)) {
+        if (!seenLinks.has(url)) {
+            seenLinks.add(url);
             const preload = document.createElement("link");
             preload.rel = "preload";
             preload.as = "style";
             preload.href = url;
             preload.crossOrigin = "anonymous";
-            preload.onload = function () {
-                this.rel = "stylesheet";
-            };
+            preload.onload = function () { this.rel = "stylesheet"; };
             document.head.appendChild(preload);
         }
     });
 
-    // --- CRITICAL CSS: INSTANT LOAD (if available) ---
-    if (window.criticalCssUrl && !document.querySelector(`link[href="${window.criticalCssUrl}"]`)) {
+    // --- CRITICAL CSS LOADING ---
+    if (window.criticalCssUrl && !seenLinks.has(window.criticalCssUrl)) {
+        seenLinks.add(window.criticalCssUrl);
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = window.criticalCssUrl;
-        link.media = "all";
         document.head.appendChild(link);
     }
 
-    // --- DEFER NON-CRITICAL CSS (if marked) ---
+    // --- DEFER NON-CRITICAL CSS ---
     document.querySelectorAll('link[rel="stylesheet"][data-defer]').forEach(link => {
         link.media = "print";
         link.onload = function () { this.media = "all"; };
     });
-
-    // --- PREFETCH NEXT PAGE LINKS (for instant navigation) ---
-    $("a").each(function () {
-        const href = this.href;
-        if (href && href.indexOf(location.origin) === 0 && !this.hasAttribute("download") && !this.target) {
-            const link = document.createElement("link");
-            link.rel = "prefetch";
-            link.href = href;
-            document.head.appendChild(link);
-        }
-    });
-
 });
