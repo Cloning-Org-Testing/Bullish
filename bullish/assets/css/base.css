@@ -914,6 +914,7 @@
         padding: 15px 15px 15px 45px;
         width: 100%;
         box-sizing: border-box;
+        border-radius: var(--wdtRadius_1X);
     }
 
     .wpcf7-form.invalid .wpcf7-response-output, .wpcf7 form.invalid .wpcf7-response-output {
@@ -941,9 +942,7 @@
     }
 
     .wpcf7-form .wpcf7-response-output:before, .wpcf7 form .wpcf7-response-output:before {
-        top: 50%;
-        transform: translateY(-50%);
-        -webkit-transform: translateY(-50%);
+        top: 13px;
         left: 18px;
         font-family: "Bullish Icons";
         font-style: normal;

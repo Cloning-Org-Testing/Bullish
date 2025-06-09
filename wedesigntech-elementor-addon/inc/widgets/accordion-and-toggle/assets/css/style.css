@@ -28,7 +28,7 @@
     line-height: 1; position: relative; margin: 0 10px 0 0; padding: 0 5px 0 0; }
 
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-title div[class*='-title-prefix']:not(.icon):before {
-    position: absolute; right: 0; bottom: 2px; width: 3px; height: 3px; content: ''; background: currentColor; }
+    position: absolute; right: 0; bottom: 4px; width: 3px; height: 3px; content: ''; background: currentColor; }
 
 .wdt-accordion-toggle-holder[class*='-expand-collapse-position-start'] .wdt-accordion-toggle-title-holder { 
     flex-direction: row-reverse; justify-content: start; }
@@ -76,25 +76,30 @@
     Template Bordered 
 */
 
-.wdt-template-bordered .wdt-accordion-toggle-wrapper { margin-bottom: 0; }
+.wdt-template-bordered .wdt-accordion-toggle-wrapper { margin-bottom: 0;  border-radius:var(--wdtRadius_2X); overflow:hidden; }
 
-.wdt-template-bordered .wdt-accordion-toggle-title-holder { border-width: 2px; }
+.wdt-template-bordered .wdt-accordion-toggle-title-holder { border-width: 2px; color:var(--wdtHeadAltColor); }
+
+.wdt-template-bordered .wdt-accordion-toggle-wrapper .wdt-accordion-toggle-title-holder,
+.wdt-template-bordered .wdt-accordion-toggle-description { padding:clamp(1.25rem, 0.9713rem + 1.2739vw, 2.5rem);}
+
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon:has(> div:empty) { display:none; }
+
+.wdt-template-bordered .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-title {display:inline-flex;font-weight: var(--wdtFontWeight_Alt);align-items:baseline;}
 
 .wdt-template-bordered .wdt-accordion-toggle-wrapper:not(:last-child) .wdt-accordion-toggle-title-holder { margin-bottom: -2px; }
 
-.wdt-template-bordered .wdt-accordion-toggle-description { padding: 2.5em 2em; border-width: 2px; }
+.wdt-template-bordered .wdt-accordion-toggle-description { padding: 0 clamp(1.25rem, -1.258rem + 11.465vw, 12.5rem) clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem) 2em; border-width: 2px; }
 
 .wdt-template-bordered .wdt-accordion-toggle-wrapper:last-child .wdt-accordion-toggle-description { border-top: 0; }
 .wdt-template-bordered .wdt-accordion-toggle-wrapper:not(:last-child) .wdt-accordion-toggle-description { border-bottom: 0; }
 
 .wdt-template-bordered .wdt-accordion-toggle-title-holder,
 .wdt-template-bordered .wdt-accordion-toggle-title-holder.ui-state-hover,
-.wdt-template-bordered .wdt-accordion-toggle-title-holder.ui-state-active { border-color: #e1e1e1; background-color: transparent; }
+.wdt-template-bordered .wdt-accordion-toggle-title-holder.ui-state-active,
+.wdt-template-bordered .wdt-accordion-toggle-description{ border-color: transparent; background-color: var(--wdtAccentTxtColor); }
 
-.wdt-template-bordered .wdt-accordion-toggle-title-holder.ui-state-hover,
-.wdt-template-bordered .wdt-accordion-toggle-title-holder.ui-state-active { color: var(--wdt-elementor-color-primary); }
-
-.wdt-template-bordered .wdt-accordion-toggle-description { border-left-color: var(--wdt-elementor-color-primary); }
+.wdt-template-bordered .wdt-accordion-toggle-description p { margin:0; }
 
 /* Color */
 

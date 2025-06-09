@@ -1,3 +1,8 @@
+::selection{
+    color:var(--wdtHeadAltColor);
+    background: var(--wdtPrimaryColor);
+}
+
 .wdt-cus-header-bg{
     background-color: rgba(var(--wdtAccentTxtColorRgb),0.1);
     backdrop-filter: blur(10px);
@@ -18,3 +23,23 @@
 #footer .elementor-widget-text-editor a:not(.button):not(.elementor-button):hover{
     color: var(--wdtPrimaryColor);
 }
+
+/* Error message */
+.wpcf7-form input ~ .wpcf7-not-valid-tip, 
+.wpcf7-form input[type="text"] ~ .wpcf7-not-valid-tip, 
+.wpcf7-form input[type="email"] ~ .wpcf7-not-valid-tip, 
+.wpcf7-form input[type="tel"] ~ .wpcf7-not-valid-tip, 
+.wpcf7-form textarea ~ .wpcf7-not-valid-tip,
+.wpcf7-form select ~ .wpcf7-not-valid-tip{
+    -webkit-transition: var(--wdtBaseTransition);
+    transition: var(--wdtBaseTransition);
+    font-size: calc(var(--wdtFontSize_Ext) - 3px);
+    position: absolute;
+    right: 10px;
+    bottom: 3px;
+}
+
+.wpcf7-form input:focus-visible ~ .wpcf7-not-valid-tip, .wpcf7-form input[type="text"]:focus-visible ~ .wpcf7-not-valid-tip, 
+.wpcf7-form input[type="email"]:focus-visible ~ .wpcf7-not-valid-tip, .wpcf7-form input[type="tel"]:focus-visible ~ .wpcf7-not-valid-tip, 
+.wpcf7-form textarea:focus-visible ~ .wpcf7-not-valid-tip, .wpcf7-form select:focus-visible ~ .wpcf7-not-valid-tip, 
+.wpcf7-form .select2.select2-container--default.select2-container--open ~ .wpcf7-not-valid-tip { opacity: 0; }

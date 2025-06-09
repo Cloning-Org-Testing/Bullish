@@ -157,7 +157,7 @@
 
 .breadcrumb a:hover,
 .dark-bg-breadcrumb .breadcrumb a:hover {
-  color: var(--wdtHeadAltColor);
+  color: var(--wdtPrimaryColor);
 }
 
 /*--------------------------------------------------------------
@@ -175,13 +175,13 @@
 
 @media only screen and (min-width: 1281px) {
   .main-title-section-wrapper .main-title-section-container {
-    padding: 75px 0 90px;
+    padding: 120px 0 130px;
   }
 }
 
 @media only screen and (max-width: 1280px) {
   .main-title-section-wrapper .main-title-section-container {
-    padding: 45px 0 60px;
+    padding:  clamp(3.75rem, 3.4713rem + 1.2739vw, 5rem) 0 clamp(4.375rem, 4.0963rem + 1.2739vw, 5.625rem); /* 60-80 & 70-90 */
   }
 }
 
