@@ -21,8 +21,8 @@ class WeDesignTech_Widget_Base_Services {
     function __construct() {
 
 		// Initialize depandant class
-			$this->cc_style = new WeDesignTech_Common_Controls_Style();
-            $this->cc_layout = new WeDesignTech_Common_Controls_Layout('carousel');
+        $this->cc_layout = new WeDesignTech_Common_Controls_Layout('both');
+        $this->cc_style = new WeDesignTech_Common_Controls_Style();
 
 	}
 
@@ -48,6 +48,11 @@ class WeDesignTech_Widget_Base_Services {
 	}
 
     public function init_inline_styles() {
+		if(!\Elementor\Plugin::$instance->preview->is_preview_mode()) {
+			return array (
+				$this->name() => $this->cc_layout->get_column_css()
+			);
+		}
 		return array ();
 	}
 
@@ -67,54 +72,555 @@ class WeDesignTech_Widget_Base_Services {
             $elementor_object->add_control('services_type', array(
                 'type'    => \Elementor\Controls_Manager::SELECT,
                 'label'   => esc_html__('Services Type', 'wdt-elementor-addon'),
-                'default' => 'type1',
+                'default' => 'type-1',
                 'options' => array(
-                    'type_1'    => esc_html__('Type-1', 'wdt-elementor-addon'),
-                    'type_2'    => esc_html__('Type-2', 'wdt-elementor-addon'),
-                    'type_3'    => esc_html__('Type-3', 'wdt-elementor-addon')
+                    'type-1'    => esc_html__('Type-1', 'wdt-elementor-addon'),
+                    'type-2'    => esc_html__('Type-2', 'wdt-elementor-addon'),
+                    'type-3'    => esc_html__('Type-3', 'wdt-elementor-addon')
                 )
             ));
+			$elementor_object->add_control( 'show_price', array(
+				'label'   => esc_html__( 'Show Price', 'wdt-elementor-addon' ),
+				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Yes', 'wdt-elementor-addon' ),
+                'label_off'    => esc_html__( 'No', 'wdt-elementor-addon' ),
+				'return_value' => 'yes',
+                'default'      => ''
+			) );
 
-            $elementor_object->add_control('layout', array(
-                'label'       => esc_html__('Layout Type', 'wdt-elementor-addon'),
-                'type'        => \Elementor\Controls_Manager::SELECT,
-                'description' => esc_html__('Choose type that you like yo use.', 'wdt-elementor-addon'),
-                'options'     => array(
-                    'column' => esc_html__('Column', 'wdt-elementor-addon'),
-                    'carousel' => esc_html__('Carousel', 'wdt-elementor-addon')
-                ),
-                'default'     => 'column',
+			$elementor_object->add_control(
+				'currency_symbol',
+				array(
+					'label' => esc_html__( 'Currency Symbol', 'wdt-elementor-addon' ),
+					'type' => \Elementor\Controls_Manager::SELECT,
+					'options' => array(
+						'' => esc_html__( 'None', 'wdt-elementor-addon' ),
+						'dollar' => '&#36; ' . _x( 'Dollar', 'Currency', 'wdt-elementor-addon' ),
+						'euro' => '&#128; ' . _x( 'Euro', 'Currency', 'wdt-elementor-addon' ),
+						'baht' => '&#3647; ' . _x( 'Baht', 'Currency', 'wdt-elementor-addon' ),
+						'franc' => '&#8355; ' . _x( 'Franc', 'Currency', 'wdt-elementor-addon' ),
+						'guilder' => '&fnof; ' . _x( 'Guilder', 'Currency', 'wdt-elementor-addon' ),
+						'krona' => 'kr ' . _x( 'Krona', 'Currency', 'wdt-elementor-addon' ),
+						'lira' => '&#8356; ' . _x( 'Lira', 'Currency', 'wdt-elementor-addon' ),
+						'peseta' => '&#8359 ' . _x( 'Peseta', 'Currency', 'wdt-elementor-addon' ),
+						'peso' => '&#8369; ' . _x( 'Peso', 'Currency', 'wdt-elementor-addon' ),
+						'pound' => '&#163; ' . _x( 'Pound Sterling', 'Currency', 'wdt-elementor-addon' ),
+						'real' => 'R$ ' . _x( 'Real', 'Currency', 'wdt-elementor-addon' ),
+						'ruble' => '&#8381; ' . _x( 'Ruble', 'Currency', 'wdt-elementor-addon' ),
+						'rupee' => '&#8360; ' . _x( 'Rupee', 'Currency', 'wdt-elementor-addon' ),
+						'indian_rupee' => '&#8377; ' . _x( 'Rupee (Indian)', 'Currency', 'wdt-elementor-addon' ),
+						'shekel' => '&#8362; ' . _x( 'Shekel', 'Currency', 'wdt-elementor-addon' ),
+						'yen' => '&#165; ' . _x( 'Yen/Yuan', 'Currency', 'wdt-elementor-addon' ),
+						'won' => '&#8361; ' . _x( 'Won', 'Currency', 'wdt-elementor-addon' ),
+						'custom' => esc_html__( 'Custom', 'wdt-elementor-addon' ),
+					),
+					'default' => 'dollar',
+					'condition' => array(
+						'services_type' => 'type-2',
+					)
+				)
+			);
+
+			$elementor_object->add_control(
+				'custom_symbol',
+				array(
+					'type'    => \Elementor\Controls_Manager::TEXT,
+					'label'   => esc_html__('Custom Symbol', 'wdt-elementor-addon'),
+					'default' => '',
+					'condition' => array(
+						'currency_symbol' => 'custom',
+					)
+				)
+			);
+
+            $elementor_object->add_control('button_text', array(
+                'label'       => esc_html__('Button Text', 'wdt-elementor-addon'),
+                'type'        => \Elementor\Controls_Manager::TEXT,
+                'default'     => esc_html__('Read More', 'wdt-elementor-addon'),
+                'description' => esc_html__('This text will be used as the button label if the individual service does not have a custom button text set.', 'wdt-elementor-addon'),
             ));
 
-            $elementor_object->add_control('content_alignment', array(
-                'label'   => esc_html__('Content Alignment', 'wdt-elementor-addon'),
-                'type'    => \Elementor\Controls_Manager::CHOOSE,
-                'options' => array(
-                    'left'   => ['title' => esc_html__('Left', 'wdt-elementor-addon'), 'icon' => 'eicon-text-align-left'],
-                    'center' => ['title' => esc_html__('Center', 'wdt-elementor-addon'), 'icon' => 'eicon-text-align-center'],
-                    'right'  => ['title' => esc_html__('Right', 'wdt-elementor-addon'), 'icon' => 'eicon-text-align-right'],
-                ),
-                'default'   => 'left',
-                'toggle'    => true,
-                'condition' => ['layout' => 'column'],
-            ));
-
-            $elementor_object->add_control('columns', array(
-                'label'       => esc_html__('Columns', 'wdt-elementor-addon'),
-                'type'        => \Elementor\Controls_Manager::SELECT,
-                'options'     => array(
-                    1  => esc_html__('I Column', 'wdt-elementor-addon'),
-                    2  => esc_html__('II Columns', 'wdt-elementor-addon'),
-                    3  => esc_html__('III Columns', 'wdt-elementor-addon')
-                ),
-                'description' => esc_html__('Number of columns you like to display your taxonomies.', 'wdt-elementor-addon'),
-                'default'      => 3,
-                'condition' => array('layout' => 'column'),
-            ));
 
         $elementor_object->end_controls_section();
 
 		$this->cc_layout->get_controls($elementor_object);
+
+        // Items
+        $this->cc_style->get_style_controls($elementor_object, array (
+			'slug' => 'item',
+			'title' => esc_html__( 'Item', 'wdt-elementor-addon' ),
+			'styles' => array (
+				'alignment' => array (
+					'field_type' => 'alignment',
+                    'control_type' => 'responsive',
+                    'default' => 'center',
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item' => 'text-align: {{VALUE}}; justify-content: {{VALUE}};'
+					),
+					'condition' => array ()
+				),
+				'margin' => array (
+					'field_type' => 'margin',
+					'selector' => array (
+                        '{{WRAPPER}} .wdt-service-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ),
+					'condition' => array ()
+				),
+				'padding' => array (
+					'field_type' => 'padding',
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					),
+					'condition' => array ()
+				),
+				'tabs' => array (
+					'field_type' => 'tabs',
+					'tab_items' => array (
+						'normal' => array (
+							'title' => esc_html__( 'Normal', 'wdt-elementor-addon' ),
+							'styles' => array (
+								'background' => array (
+									'field_type' => 'background',
+									'selector' => '{{WRAPPER}} .wdt-service-item',
+									'condition' => array ()
+								),
+								'border' => array (
+									'field_type' => 'border',
+									'selector' => '{{WRAPPER}} .wdt-service-item',
+									'condition' => array ()
+								),
+								'border_radius' => array (
+									'field_type' => 'border_radius',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+									),
+									'condition' => array ()
+								),
+								'box_shadow' => array (
+									'field_type' => 'box_shadow',
+									'selector' => '{{WRAPPER}} .wdt-service-item',
+									'condition' => array ()
+								)
+							)
+						),
+						'hover' => array (
+							'title' => esc_html__( 'Hover', 'wdt-elementor-addon' ),
+							'styles' => array (
+								'background' => array (
+									'field_type' => 'background',
+									'selector' => '{{WRAPPER}} .wdt-service-item:hover',
+									'condition' => array ()
+								),
+								'border' => array (
+									'field_type' => 'border',
+									'selector' => '{{WRAPPER}} .wdt-service-item:hover',
+									'condition' => array ()
+								),
+								'border_radius' => array (
+									'field_type' => 'border_radius',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+									),
+									'condition' => array ()
+								),
+								'box_shadow' => array (
+									'field_type' => 'box_shadow',
+									'selector' => '{{WRAPPER}} .wdt-service-item:hover',
+									'condition' => array ()
+								)
+							)
+						)
+					)
+				)
+			)
+		));
+
+        // Image
+		$this->cc_style->get_style_controls($elementor_object, array (
+			'slug' => 'image',
+			'title' => esc_html__( 'Image', 'wdt-elementor-addon' ),
+			'styles' => array (
+				'alignment' => array (
+					'field_type' => 'alignment',
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item .wdt-service-image' => 'text-align: {{VALUE}}; justify-content: {{VALUE}};'
+					),
+					'condition' => array ()
+				),
+				'width' => array (
+					'field_type' => 'width',
+					'selector' => array (
+                        '{{WRAPPER}} .wdt-service-item .wdt-service-image > a' => 'width: {{SIZE}}{{UNIT}};'
+                    ),
+					'condition' => array ()
+				),
+				'height' => array (
+					'field_type' => 'height',
+					'selector' => array (
+                        '{{WRAPPER}} .wdt-service-item .wdt-service-image > a' => 'height: {{SIZE}}{{UNIT}};'
+                    ),
+					'condition' => array ()
+				),
+				'margin' => array (
+					'field_type' => 'margin',
+					'selector' => array (
+                        '{{WRAPPER}} .wdt-service-item .wdt-service-image' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ),
+					'condition' => array ()
+				),
+				'padding' => array (
+					'field_type' => 'padding',
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item .wdt-service-image > a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					),
+					'condition' => array ()
+				),
+				'border' => array (
+					'field_type' => 'border',
+					'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-image > a',
+					'condition' => array ()
+				),
+				'border_radius' => array (
+					'field_type' => 'border_radius',
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item .wdt-service-image > a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					),
+					'condition' => array ()
+				),
+				'box_shadow' => array (
+					'field_type' => 'box_shadow',
+					'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-image > a',
+					'condition' => array ()
+				)
+			)
+		));
+
+        // Icon
+		$this->cc_style->get_style_controls($elementor_object, array (
+			'slug' => 'icon',
+			'title' => esc_html__( 'Icon', 'wdt-elementor-addon' ),
+			'styles' => array (
+				'font_size' => array (
+					'field_type' => 'font_size',
+					'selector' => array (
+                        '{{WRAPPER}} .wdt-service-item .wdt-service-type-icon' => 'font-size: {{SIZE}}{{UNIT}};'
+                    ),
+					'condition' => array ()
+				),
+				'width' => array (
+					'field_type' => 'width',
+					'default' => array (
+						'unit' => 'px'
+					),
+					'size_units' => array ( 'px' ),
+					'range' => array (
+                        'px' => array (
+                            'min' => 10,
+                            'max' => 500,
+                        )
+                    ),
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item .wdt-service-type-icon' => 'width: {{SIZE}}{{UNIT}};'
+					)
+				),
+				'height' => array (
+					'field_type' => 'height',
+					'default' => array (
+						'unit' => 'px'
+					),
+					'size_units' => array ( 'px' ),
+					'range' => array (
+                        'px' => array (
+                            'min' => 10,
+                            'max' => 500,
+                        )
+                    ),
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item .wdt-service-type-icon' => 'height: {{SIZE}}{{UNIT}};'
+					)
+				),
+				'margin' => array (
+					'field_type' => 'margin',
+					'selector' => array (
+                        '{{WRAPPER}} .wdt-service-item .wdt-service-type-icon' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ),
+					'condition' => array ()
+				),
+				'padding' => array (
+					'field_type' => 'padding',
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item .wdt-service-type-icon' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					),
+					'condition' => array ()
+				),
+				'tabs_default' => array (
+					'field_type' => 'tabs',
+					'unique_key' => 'default',
+					'tab_items' => array (
+						'normal' => array (
+							'title' => esc_html__( 'Normal', 'wdt-elementor-addon' ),
+							'styles' => array (
+								'color' => array (
+									'field_type' => 'color',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item .wdt-service-type-icon' => 'color: {{VALUE}};'
+									),
+									'condition' => array ()
+								),
+								'background' => array (
+									'field_type' => 'background',
+									'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-type-icon',
+									'condition' => array ()
+								),
+								'border' => array (
+									'field_type' => 'border',
+									'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-type-icon',
+									'condition' => array ()
+								),
+								'border_radius' => array (
+									'field_type' => 'border_radius',
+									'selector' => array (
+										'{{WRAPPER}}  .wdt-service-item .wdt-service-type-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+									),
+									'condition' => array ()
+								),
+								'box_shadow' => array (
+									'field_type' => 'box_shadow',
+									'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-type-icon',
+									'condition' => array ()
+								)
+							)
+						),
+						'hover' => array (
+							'title' => esc_html__( 'Hover', 'wdt-elementor-addon' ),
+							'styles' => array (
+								'color' => array (
+									'field_type' => 'color',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item:hover .wdt-service-type-icon' => 'color: {{VALUE}};'
+									),
+									'condition' => array ()
+								),
+								'background' => array (
+									'field_type' => 'background',
+									'selector' => '{{WRAPPER}} .wdt-service-item:hover .wdt-service-type-icon',
+									'condition' => array ()
+								),
+								'border' => array (
+									'field_type' => 'border',
+									'selector' => '{{WRAPPER}} .wdt-service-item:hover .wdt-service-type-icon',
+									'condition' => array ()
+								),
+								'border_radius' => array (
+									'field_type' => 'border_radius',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item:hover .wdt-service-type-icon' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+									),
+									'condition' => array ()
+								),
+								'box_shadow' => array (
+									'field_type' => 'box_shadow',
+									'selector' => '{{WRAPPER}} .wdt-service-item:hover .wdt-service-type-icon',
+									'condition' => array ()
+								)
+							)
+						)
+					)
+				)
+			)
+		));
+
+		// Title
+		$this->cc_style->get_style_controls($elementor_object, array (
+			'slug' => 'title',
+			'title' => esc_html__( 'Title', 'wdt-elementor-addon' ),
+			'styles' => array (
+				'typography' => array (
+					'field_type' => 'typography',
+					'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-title h5',
+					'condition' => array ()
+				),
+				'margin' => array (
+					'field_type' => 'margin',
+					'selector' => array (
+                        '{{WRAPPER}} .wdt-service-item .wdt-service-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ),
+					'condition' => array ()
+				),
+				'tabs' => array (
+					'field_type' => 'tabs',
+					'tab_items' => array (
+						'normal' => array (
+							'title' => esc_html__( 'Normal', 'wdt-elementor-addon' ),
+							'styles' => array (
+								'color' => array (
+									'field_type' => 'color',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item .wdt-service-title h5, 
+										 {{WRAPPER}} .wdt-service-item .wdt-service-title h5 > a' => 'color: {{VALUE}};'
+									),
+									'condition' => array ()
+								),
+							)
+						),
+						'hover' => array (
+							'title' => esc_html__( 'Hover', 'wdt-elementor-addon' ),
+							'styles' => array (
+								'color' => array (
+									'field_type' => 'color',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item:hover .wdt-service-title h5 > a:hover' => 'color: {{VALUE}};'
+									),
+									'condition' => array ()
+								),
+							)
+						)
+					)
+				)
+			)
+		));
+
+        // Description
+		$this->cc_style->get_style_controls($elementor_object, array (
+			'slug' => 'description',
+			'title' => esc_html__( 'Description', 'wdt-elementor-addon' ),
+			'styles' => array (
+				'typography' => array (
+					'field_type' => 'typography',
+					'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-description',
+					'condition' => array ()
+				),
+				'margin' => array (
+					'field_type' => 'margin',
+					'selector' => array (
+                        '{{WRAPPER}} .wdt-service-item .wdt-service-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ),
+					'condition' => array ()
+				),
+				'padding' => array (
+					'field_type' => 'padding',
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item .wdt-service-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					),
+					'condition' => array ()
+				),
+				'color' => array (
+					'field_type' => 'color',
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item .wdt-service-description' => 'color: {{VALUE}};'
+					),
+					'condition' => array ()
+				)
+			)
+		));
+
+        // Button
+		$this->cc_style->get_style_controls($elementor_object, array (
+			'slug' => 'button',
+			'title' => esc_html__( 'Button', 'wdt-elementor-addon' ),
+			'styles' => array (
+				'typography' => array (
+					'field_type' => 'typography',
+					'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-button > a',
+					'condition' => array ()
+				),
+				'margin' => array (
+					'field_type' => 'margin',
+					'selector' => array (
+                        '{{WRAPPER}} .wdt-service-item .wdt-service-button > a' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ),
+					'condition' => array ()
+				),
+				'padding' => array (
+					'field_type' => 'padding',
+					'selector' => array (
+						'{{WRAPPER}} .wdt-service-item .wdt-service-button > a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					),
+					'condition' => array ()
+				),
+				'tabs' => array (
+					'field_type' => 'tabs',
+					'tab_items' => array (
+						'normal' => array (
+							'title' => esc_html__( 'Normal', 'wdt-elementor-addon' ),
+							'styles' => array (
+								'color' => array (
+									'field_type' => 'color',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item .wdt-service-button > a' => 'color: {{VALUE}};'
+									),
+									'condition' => array ()
+								),
+								'background' => array (
+									'field_type' => 'background',
+									'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-button > a',
+									'condition' => array ()
+								),
+								'border' => array (
+									'field_type' => 'border',
+									'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-button > a',
+									'condition' => array ()
+								),
+								'border_radius' => array (
+									'field_type' => 'border_radius',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item .wdt-service-button > a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+									),
+									'condition' => array ()
+								),
+								'box_shadow' => array (
+									'field_type' => 'box_shadow',
+									'selector' => '{{WRAPPER}} .wdt-service-item .wdt-service-button > a',
+									'condition' => array ()
+								)
+							)
+						),
+						'hover' => array (
+							'title' => esc_html__( 'Hover', 'wdt-elementor-addon' ),
+							'styles' => array (
+								'color' => array (
+									'field_type' => 'color',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:focus, 
+										 {{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:hover' => 'color: {{VALUE}};'
+									),
+									'condition' => array ()
+								),
+								'background' => array (
+									'field_type' => 'background',
+									'selector' => '{{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:focus, 
+									 			   {{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:hover',
+									'condition' => array ()
+								),
+								'border' => array (
+									'field_type' => 'border',
+									'selector' => '{{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:focus, 
+												   {{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:hover',
+									'condition' => array ()
+								),
+								'border_radius' => array (
+									'field_type' => 'border_radius',
+									'selector' => array (
+										'{{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:focus, 
+										 {{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+									),
+									'condition' => array ()
+								),
+								'box_shadow' => array (
+									'field_type' => 'box_shadow',
+									'selector' => '{{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:focus, 
+												   {{WRAPPER}} .wdt-service-item:hover .wdt-service-button > a:hover',
+									'condition' => array ()
+								)
+							)
+						)
+					)
+				)
+			)
+		));
+
+        // Carousel
+        $this->cc_layout->get_carousel_style_controls($elementor_object, array ('layout' => 'carousel'));
 
     }
 
@@ -125,48 +631,15 @@ class WeDesignTech_Widget_Base_Services {
         }
 
         $output = '';
+        $classes = array ();
 
         $settings['module_id']    = $widget_object->get_id();
         $settings['module_class'] = 'services';
+        $settings['classes'] = $classes;
         $this->cc_layout->set_settings($settings);
+        $module_layout_class = $this->cc_layout->get_item_class();
     
-        $swiperclass = '';
-        $swiperwrapperclass = '';
-        $column_class = '';
-        $content_align_class = '';
-        $outer_wrapper_class = '';
-        $inner_wrapper_start = '';
-        $inner_wrapper_end = '';
-        $slide_class = '';
-
-        if ($settings['layout'] === 'column') {
-
-            if ($settings['columns'] == 1) {
-                $column_class = 'column wdt-one-column';
-            } elseif ($settings['columns'] == 2) {
-                $column_class = 'column wdt-one-half';
-            } else {
-                $column_class = 'column wdt-one-third';
-            }
-
-            if (!empty($settings['content_alignment'])) {
-                $content_align_class = 'align-' . $settings['content_alignment'];
-            }
-
-            $outer_wrapper_class = 'wdt-services-column-wrapper';
-
-        } else if ($settings['layout'] === 'carousel') {
-
-            $module_layout_class = $this->cc_layout->get_item_class();
-            $outer_wrapper_class = 'swiper-container';
-            $inner_wrapper_start = '<div class="swiper-wrapper">';
-            $inner_wrapper_end = '</div>';
-            $slide_class = 'swiper-slide';
-        }
-
-
-        $service_type_class = 'wdt_type_' . str_replace('type', '', $settings['services_type']);
-
+		
         // Query Arguments
         $form_args = array(
             'post_type'      => 'wdt_services',
@@ -184,65 +657,147 @@ class WeDesignTech_Widget_Base_Services {
         if ($form_query->have_posts()) {
 
 
-            $output .= $this->cc_layout->get_wrapper_start(array('class' => $service_type_class . ' ' . $outer_wrapper_class));
-            $output .= $inner_wrapper_start;
+            $output .= $this->cc_layout->get_wrapper_start();
 
             while ($form_query->have_posts()) {
+
                 $form_query->the_post();
                 $service_id = get_the_ID();
 
-                $price = get_post_meta($service_id, 'service_price', true);
-                $button_text = get_post_meta($service_id, 'service_button_text', true);
-                $icon = get_post_meta($service_id, 'service_icon', true);
-                $service_description = get_post_meta($service_id, 'service_description', true);
-                $service_type = $settings['services_type'];
                 
-                $output .= '<div class="' . esc_attr(trim($module_layout_class . ' ' . $column_class . ' ' . $content_align_class . ' ' . $slide_class)) . ' wdt-service-types-holder">';
+				$service_settings = get_post_meta(get_the_ID(), '_bullish_service_settings', true);
+				// echo'<pre>Serviceee'; print_r($service_settings); echo'</pre>';
 
-                if ($service_type === 'type_1') {
-                    $output .= '<div class="wdt-service-type-wrapper wdt_' . esc_attr($service_type) . '">';
-                    $output .= '<div class="wdt-service-type-title">' . get_the_title() . '</div>';
-                    $output .= '<div class="wdt-service-type-description">' . esc_html($service_description) . '</div>';
-                    $output .= '</div>';
+				$icon  = !empty($service_settings['service_icon']) ? $service_settings['service_icon'] : '';
+				$price = !empty($service_settings['service_price']) ? $service_settings['service_price'] : '';
+				$offerprice = !empty($service_settings['service_offer_price']) ? $service_settings['service_offer_price'] : '';
+                $service_type = isset($settings['services_type']) ? $settings['services_type'] : 'type-1';
 
-                } elseif ($service_type === 'type_2') {
-                    $output .= '<div class="wdt-service-type-wrapper wdt_' . esc_attr($service_type) . '">';
-                    $output .= '<div class="wdt-service-type-icon"><img src="' . esc_url($icon) . '" alt="Service Icon" title="Service Icon"/></div>';
-                    $output .= '<div class="wdt-service-type-title">' . get_the_title() . '</div>';
-                    $output .= '<div class="wdt-service-type-price">$' . esc_html($price) . '</div>';
-                    $output .= '</div>';
+                $output .= '<div class="'.esc_attr($module_layout_class).'">';
+					$output .= '<div class="wdt-service-item wdt-' . esc_attr($service_type) . '">';
 
-                } elseif ($service_type === 'type_3') {
-                    $output .= '<div class="wdt-service-type-wrapper wdt_' . esc_attr($service_type) . '">';
-                        if (has_post_thumbnail()) {
-                            $output .= '<div class="wdt-service-type-thumb">';
-                                $output .= get_the_post_thumbnail($service_id, 'full');
+                        if ($service_type === 'type-1') {
+
+                            $output .= '<div class="wdt-service-media-group">';
+                                $output .= '<div class="wdt-service-image">';
+                                	$output .= $this->render_service_image($service_id);
+								$output .= '</div>';
                             $output .= '</div>';
+
+                            $output .= '<div class="wdt-service-detail-group">';
+                                $output .= '<div class="wdt-service-title"><h5>';
+                                    $output .= '<a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a>';
+                                $output .= '</h5></div>';
+
+							if ($settings['show_price'] == true) {
+								if (!empty($price) || !empty($offerprice)) {
+
+									$currency_symbol_key = $settings['currency_symbol'] ?? '';
+									$custom_symbol = $settings['custom_symbol'] ?? '';
+
+									$symbol = ($currency_symbol_key === 'custom') ? esc_html($custom_symbol) : $this->get_currency_symbol($currency_symbol_key);
+									$output .= '<div class="wdt-service-type-price-group">';
+									$output .= '<div class="wdt-service-type-price">' . $symbol . esc_html($price) . '</div>';
+									$output .= '<div class="wdt-service-type-offerprice">' . $symbol . esc_html($offerprice) . '</div>';
+									$output .= '</div>';
+
+								}
+							}
+                                $excerpt = get_the_excerpt($service_id);
+                                if ( !empty($excerpt) ) {
+                                    $output .= '<div class="wdt-service-description">' . esc_html($excerpt) . '</div>';
+                                }                    
+                                            
+                                if ( !empty($settings['button_text']) ) {
+                                    $output .= '<div class="wdt-service-button">';
+                                        $output .= '<a href="' . esc_url(get_permalink()) . '">' . esc_html($settings['button_text']) . '</a>';
+                                    $output .= '</div>';
+                                }
+                            $output .= '</div>';
+
+                        } elseif ($service_type === 'type-2') {
+
+							
+
+                            $output .= $this->render_service_icon($icon);
+                            
+                            $output .= '<div class="wdt-service-title"><h5>';
+                                    $output .= '<a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a>';
+                                $output .= '</h5></div>';
+                            
+                            $excerpt = get_the_excerpt($service_id);
+                            if ( !empty($excerpt) ) {
+                                $output .= '<div class="wdt-service-description">' . esc_html($excerpt) . '</div>';
+                            } 
+							if ($settings['show_price'] == true) {
+								if (!empty($price) || !empty($offerprice)) {
+
+									$currency_symbol_key = $settings['currency_symbol'] ?? '';
+									$custom_symbol = $settings['custom_symbol'] ?? '';
+
+									$symbol = ($currency_symbol_key === 'custom') ? esc_html($custom_symbol) : $this->get_currency_symbol($currency_symbol_key);
+									$output .= '<div class="wdt-service-type-price-group">';
+									$output .= '<div class="wdt-service-type-price">' . $symbol . esc_html($price) . '</div>';
+									$output .= '<div class="wdt-service-type-offerprice">' . $symbol . esc_html($offerprice) . '</div>';
+									$output .= '</div>';
+
+								}
+							}
+
+							if ( !empty($settings['button_text']) ) {
+								$output .= '<div class="wdt-service-button">';
+									$output .= '<a href="' . esc_url(get_permalink()) . '">' . esc_html($settings['button_text']) . '</a>';
+								$output .= '</div>';
+							}		
+
+                        } elseif ($service_type === 'type-3') {
+                            
+                            
+                            $output .= '<div class="wdt-service-media-group">';
+								$output .= '<div class="wdt-service-image">';
+                                	$output .= $this->render_service_image($service_id);
+								$output .= '</div>';
+
+                                $output .= $this->render_service_icon($icon);
+                            $output .= '</div>';
+                            
+                            $output .= '<div class="wdt-service-detail-group">';
+
+                                $output .= '<div class="wdt-service-title"><h5>';
+                                    $output .= '<a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a>';
+                                $output .= '</h5></div>';
+                                
+                            if ($settings['show_price'] == true) {
+								if (!empty($price) || !empty($offerprice)) {
+
+									$currency_symbol_key = $settings['currency_symbol'] ?? '';
+									$custom_symbol = $settings['custom_symbol'] ?? '';
+
+									$symbol = ($currency_symbol_key === 'custom') ? esc_html($custom_symbol) : $this->get_currency_symbol($currency_symbol_key);
+									$output .= '<div class="wdt-service-type-price-group">';
+									$output .= '<div class="wdt-service-type-price">' . $symbol . esc_html($price) . '</div>';
+									$output .= '<div class="wdt-service-type-offerprice">' . $symbol . esc_html($offerprice) . '</div>';
+									$output .= '</div>';
+
+								}
+							}
+                                $excerpt = get_the_excerpt($service_id);
+                                if ( !empty($excerpt) ) {
+                                    $output .= '<div class="wdt-service-description">' . esc_html($excerpt) . '</div>';
+                                }                    
+                                            
+                                if ( !empty($settings['button_text']) ) {
+                                    $output .= '<div class="wdt-service-button">';
+                                        $output .= '<a href="' . esc_url(get_permalink()) . '">' . esc_html($settings['button_text']) . '</a>';
+                                    $output .= '</div>';
+                                }
+                            $output .= '</div>';
+                            
                         }
-                        $output .= '<div class="wdt-service-items">';
-                            if (!empty($icon)) {
-                                $output .= '<div class="wdt-service-type-icon"><img src="' . esc_url($icon) . '" alt="Service Icon"  title="Service Icon"/></div>';
 
-                            }
-                            $output .= '<div class="wdt-service-type-title">' . get_the_title() . '</div>';
-                            if (!empty($price)) {
-                                $output .= '<div class="wdt-service-type-price">$' . esc_html($price) . '</div>';
-                            }
-                            if (!empty($service_description)) {
-                                $output .= '<div class="wdt-service-type-service_description">' . esc_html($service_description) . '</div>';
-                            }
-                            if (!empty($button_text)) {
-                                $output .= '<div class="wdt-service-type-btn"><a href="' . esc_url(get_permalink()) . '" class="wdt-btn">' . esc_html($button_text) . '</a></div>';
-                            }
-                        $output .= '</div>';
                     $output .= '</div>';
-                }
-
                 $output .= '</div>';
             }
-
-
-            $output .= $inner_wrapper_end;
 
 
             wp_reset_postdata();
@@ -253,22 +808,69 @@ class WeDesignTech_Widget_Base_Services {
         return $output;
     }
 
+    public function render_service_icon($icon) {
+        
+        $output = '';
 
+        if (!empty($icon)) {
+            if (strpos($icon, '.svg') !== false) {
+                $svg_path = ABSPATH . str_replace(site_url('/'), '', $icon);
+                if (file_exists($svg_path)) {
+                    $svg_content = file_get_contents($svg_path);
+                    if ($svg_content !== false) {
+                        $output .= '<div class="wdt-service-type-icon svg-icon">' . $svg_content . '</div>';
+                    }
+                }
+            } else {
+                $output .= '<div class="wdt-service-type-icon"><img src="' . esc_url($icon) . '" alt="Service Icon" title="Service Icon"/></div>';
+            }
+        }
 
-    public function wdt_service_post_ids(){
-		$posts = get_posts( array(
-			'post_type'   => 'wdt_services',
-			'post_status' => 'publish',
-			'numberposts' => -1
-		));
-		$options = array();
-		if ( ! empty( $posts ) && ! is_wp_error( $posts ) ){
-			foreach ( $posts as $post ) {
-				$options[ $post->ID ] = $post->post_title;
-			}
+        return $output;
+    }
+
+    public function render_service_image($service_id) {
+
+		if (has_post_thumbnail($service_id)) {
+
+			$image = get_the_post_thumbnail($service_id, 'full');
+			$permalink = get_permalink($service_id);
+
+			return '<a href="' . esc_url($permalink) . '">' . $image . '</a>';
+
+		} else {
+
+			$title = get_the_title($service_id);
+			$permalink = get_permalink($service_id);
+			$img_tag = '<img src="https://dummyimage.com/1200x800/cccccc/999999.jpg?text=' . esc_attr($title) . '" alt="' . esc_attr($title) . '" />';
+
+			return '<a href="' . esc_url($permalink) . '">' . $img_tag . '</a>';
 		}
 
-		return $options;
+    }
+
+	private function get_currency_symbol( $symbol_name ) {
+		$symbols = [
+			'dollar' => '&#36;',
+            'euro' => '&#128;',
+            'baht' => '&#3647;',
+            'franc' => '&#8355;',
+            'guilder' => '&fnof;',
+            'krona' => 'kr',
+            'lira' => '&#8356;',
+            'peseta' => '&#8359;',
+            'peso' => '&#8369;',
+            'pound' => '&#163;',
+            'real' => 'R$',
+            'ruble' => '&#8381;',
+            'rupee' => '&#8360;',
+            'indian_rupee' => '&#8377;',
+            'shekel' => '&#8362;',
+            'yen' => '&#165;',
+            'won' => '&#8361;',
+		];
+
+		return isset( $symbols[ $symbol_name ] ) ? $symbols[ $symbol_name ] : '';
 	}
 
 }

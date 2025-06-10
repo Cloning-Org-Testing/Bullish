@@ -27,8 +27,6 @@ if (! class_exists ( 'BullishPlusPostTypes' )) {
 			require_once BULLISH_PLUS_DIR_PATH . 'post-types/header-post-type.php';
 			// Footer Post Type
 			require_once BULLISH_PLUS_DIR_PATH . 'post-types/footer-post-type.php';
-			// Services Post Type
-			require_once BULLISH_PLUS_DIR_PATH . 'post-types/services-post-type.php';
 		}
 	}
 }

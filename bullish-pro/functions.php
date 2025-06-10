@@ -109,3 +109,34 @@ if(!function_exists('bullish_html_output')) {
 		return apply_filters( 'bullish_html_output', $html );
 	}
 }
+
+
+/**
+ * Returns string for time duration.
+ */
+if ( ! function_exists( 'bullish_pro_duration_to_string' ) ) {
+	
+    function bullish_pro_duration_to_string( $duration ) {
+        
+        if ( !is_numeric( $duration ) || $duration < 0 ) {
+            return ''; 
+        }
+
+        $hours   = (int)( $duration / 3600 );
+        $minutes = (int)( ( $duration % 3600 ) / 60 );
+        $result  = '';
+
+        if ( $hours > 0 ) {
+            $result = ( $hours == 1 ) ? sprintf( esc_html__( '%d hr', 'bullish-pro' ), $hours ) : sprintf( esc_html__( '%d hrs', 'bullish-pro' ), $hours );
+            if ( $minutes > 0 ) {
+                $result .= ' ';
+            }
+        }
+
+        if ( $minutes > 0 ) {
+            $result .= sprintf( esc_html__( '%d mins', 'bullish-pro' ), $minutes );
+        }
+
+        return $result;
+    }
+}
