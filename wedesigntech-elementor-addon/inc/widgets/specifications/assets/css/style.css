@@ -33,7 +33,7 @@
 .wdt-specifications-holder .wdt-specification-block .wdt-content-title h4 { margin: 0; }
 
 /* Type 1 */
-.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1{display:inline-flex;align-items:center;gap: clamp(0.9375rem, 0.8333rem + 0.3472vw, 1.25rem);/*15-20px*/}
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1{display:inline-flex;align-items:flex-start;gap: clamp(0.9375rem, 0.8333rem + 0.3472vw, 1.25rem);/*15-20px*/}
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-title h4{  font-size:var(--wdtFontSize_H6);  }
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-icon-wrapper {padding: 13px;background:var(--wdtBodyBGColor);border-radius: var(--wdtRadius_1X);}
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-icon {font-size: clamp(1.5rem, 1.4164rem + 0.3822vw, 1.875rem); /* Min-24 & Max-30 */;padding:12px;background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor), var(--wdtPrimaryColor));background-size: 300% 100%;background-position: center left;border-radius: inherit;color: var(--wdtHeadAltColor);}
@@ -41,12 +41,12 @@
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items { line-height:var(--wdtLineHeight_Alt); }
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a { color:var(--wdtBodyTxtColor); font-size: calc(var(--wdtFontSize_Base) - 1px); }
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a:hover { color:var(--wdtPrimaryColor); }
+.wdt-specifications-holder .wdt-content-item .wdt-content-detail-group { align-self: center; }
 
 @media only screen and (max-width:479px){
-    .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1{
-        flex-direction:column;
-        align-items: inherit;
-    }
+    .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-icon-wrapper {padding: 7px;}
+    .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-icon {padding:10px;}
+
 }
 
 /* contact custom btn */

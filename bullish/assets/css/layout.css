@@ -43,3 +43,26 @@
 .wpcf7-form input[type="email"]:focus-visible ~ .wpcf7-not-valid-tip, .wpcf7-form input[type="tel"]:focus-visible ~ .wpcf7-not-valid-tip, 
 .wpcf7-form textarea:focus-visible ~ .wpcf7-not-valid-tip, .wpcf7-form select:focus-visible ~ .wpcf7-not-valid-tip, 
 .wpcf7-form .select2.select2-container--default.select2-container--open ~ .wpcf7-not-valid-tip { opacity: 0; }
+
+/* Upload Form */
+.wdt-upload-form .wdt-upload-form-top > p{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+    margin-bottom:30px;
+}
+
+.wdt-upload-form .wdt-upload-form-bottom .wdt-upload-form-btn-group {
+    display:flex;
+    justify-content:space-between;
+}
+
+.wdt-upload-form .wdt-upload-form-top input,
+.wdt-upload-form .wdt-upload-form-bottom textarea,
+.wdt-upload-form .wdt-upload-form-top .select2 .select2-selection{
+    padding:var(--wdtInputPadding);
+    line-height:1;
+    border-radius:var(--wdtRadius_1X);
+    border-color:transparent;
+    background:var(--wdtBodyBGColor);
+}
