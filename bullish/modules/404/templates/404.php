@@ -6,11 +6,11 @@
     <div class="wrapper <?php echo esc_attr( $class );?>">
         <div class="container">
             <div class="center-content-wrapper">
-                    <h2><?php esc_html_e("Oops!", 'bullish'); ?></h2>
-                    <h3>404</h3>
-                    <h4><?php esc_html_e("Page Not Found", 'bullish'); ?></h4>
+                    <h1>404</h1>
+                    <h2><?php esc_html_e("Error Page", 'bullish'); ?></h2>
+                    <h4><?php esc_html_e("Oops! Page Not Found", 'bullish'); ?></h4>
                     <div class="wdt-hr-invisible-xsmall"></div>
-                    <p><?php esc_html_e("It seems you've ventured too far.", 'bullish'); ?></p>
+                    <p><?php esc_html_e("Whether you’re here to build muscle, find balance, or boost you’re here to find balance your our state-of the-art equipment, expert muscle.", 'bullish'); ?></p>
                     <div class="wdt-hr-invisible-xsmall"></div>
                     <a class="wdt-button filled small" target="_self" href="<?php echo esc_url(home_url('/'));?>"><?php esc_html_e("Back to Home",'bullish');?></a>
             </div>
