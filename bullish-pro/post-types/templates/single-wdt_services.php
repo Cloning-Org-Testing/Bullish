@@ -29,14 +29,36 @@
 
                         echo '<div class="wdt-service-meta-wrap">';
 
-                            $service_price = !empty($service_settings['service_price']) ? $service_settings['service_price'] : '';
-                            $service_offer_price = !empty($service_settings['service_offer_price']) ? $service_settings['service_offer_price'] : '';
+                            $service_price         = !empty($service_settings['service_price']) ? $service_settings['service_price'] : '';
+                            $service_offer_price   = !empty($service_settings['service_offer_price']) ? $service_settings['service_offer_price'] : '';
+                            $service_price_duration = !empty($service_settings['service_price_duration']) ? $service_settings['service_price_duration'] : '';
 
-                            if (!empty($service_price)) {
-                                echo '<div class="wdt-service-price">' . esc_html__('Price', 'bullish-pro') . ': <del>' . esc_html($service_price) . '</del><span>'. esc_html($service_offer_price) .'</span></div>';
+                            $duration_label = '';
+                            if ($service_price_duration === 'day') {
+                                $duration_label = esc_html__(' / day', 'bullish-pro');
+                            } elseif ($service_price_duration === 'month') {
+                                $duration_label = esc_html__(' / month', 'bullish-pro');
+                            } elseif ($service_price_duration === 'year') {
+                                $duration_label = esc_html__(' / year', 'bullish-pro');
                             }
 
+                            if (!empty($service_price)) {
+                                echo '<div class="wdt-service-price">';
+                                echo esc_html__('Price', 'bullish-pro') . ': ';
+
+                                if (!empty($service_offer_price)) {
+                                    echo '<del>' . esc_html($service_price) . '</del> ';
+                                    echo '<span>' . esc_html($service_offer_price . $duration_label) . '</span>';
+                                } else {
+                                    echo '<span>' . esc_html($service_price . $duration_label) . '</span>';
+                                }
+
+                                echo '</div>';
+                            }
+
+
                         echo '</div>';
+
 
                     echo '</div>';
 
@@ -131,15 +153,25 @@
                                     }
 
                                     if (!empty($contact_socials)) {
+                                        echo '<h3>' . esc_html__('Social Info', 'bullish-pro') . '</h3>';
                                         echo '<div class="social-icons">';
-                                            echo '<h3>' . esc_html__('Social Info', 'bullish-pro') . '</h3>';
                                             foreach ($contact_socials as $social) {
                                                 $icon = $social['social_icon'] ?? '';
                                                 $url  = $social['social_url'] ?? '';
 
                                                 if (!empty($icon) && !empty($url)) {
                                                     echo '<a href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer">';
-                                                    echo '<img src="' . esc_url($icon) . '" alt="social-icon" />';
+                                                        if (strpos($icon, '.svg') !== false) {
+                                                            $svg_path = ABSPATH . str_replace(site_url('/'), '', $icon);
+                                                            if (file_exists($svg_path)) {
+                                                                $svg_content = file_get_contents($svg_path);
+                                                                if ($svg_content !== false) {
+                                                                    echo '<div class="wdt-social-type-icon svg-icon">' . $svg_content . '</div>';
+                                                                }
+                                                            }
+                                                        } else {
+                                                            echo '<div class="wdt-social-type-icon"><img src="' . esc_url($icon) . '" alt="social Icon" title="Service Icon"/></div>';
+                                                        }
                                                     echo '</a>';
                                                 }
                                             }

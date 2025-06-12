@@ -757,15 +757,16 @@ class WeDesignTech_Widget_Base_Services {
 								$output .= '<div class="wdt-service-image">';
                                 	$output .= $this->render_service_image($service_id);
 								$output .= '</div>';
-
-                                $output .= $this->render_service_icon($icon);
                             $output .= '</div>';
                             
                             $output .= '<div class="wdt-service-detail-group">';
 
-                                $output .= '<div class="wdt-service-title"><h5>';
-                                    $output .= '<a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a>';
-                                $output .= '</h5></div>';
+							$output .= '<div class="wdt-service-content-group">';
+									$output .= '<div class="wdt-service-title"><h5>';
+										$output .= '<a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a>';
+									$output .= '</h5></div>';
+									$output .= $this->render_service_icon($icon);
+							$output .='</div>';
                                 
                             if ($settings['show_price'] == true) {
 								if (!empty($price) || !empty($offerprice)) {

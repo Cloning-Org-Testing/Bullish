@@ -50,29 +50,24 @@ class WeDesignTech_Widget_Base_Google_Map {
 	}
 
 	public function init_scripts() {
-		if( !empty( $this->map_api_key ) ) {
-			$gmap_api_url = add_query_arg( array( 'key' => $this->map_api_key ), 'https://maps.googleapis.com/maps/api/js' );
-			add_action( 'wp_enqueue_scripts', function() use ( $gmap_api_url ) {
-				wp_enqueue_script(
-					'google-maps-api',
-					$gmap_api_url,
-					array(),
-					null,
-					true // Load in footer
-				);
-				// Add async and defer attributes
-				add_filter( 'script_loader_tag', function( $tag, $handle ) {
-					if ( 'google-maps-api' !== $handle ) {
-						return $tag;
-					}
-					return str_replace( '<script ', '<script async defer ', $tag );
-				}, 10, 2 );
-			} );
+		if (!empty($this->map_api_key)) {
+			$gmap_api_url = add_query_arg(['key' => $this->map_api_key], 'https://maps.googleapis.com/maps/api/js');
+			
+			add_filter('script_loader_tag', function ($tag, $handle) {
+				if ($handle === 'google-map') { 
+					if (strpos($tag, 'defer') === false) {
+						return str_replace('<script ', '<script defer ', $tag);
+					} 
+					return $tag;
+				}
+				return $tag;
+			}, 10, 2);
+
 			return array(
+				'google-map' => $gmap_api_url,
 				$this->name() => WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'inc/widgets/google-map/assets/js/script.js'
 			);
 		}
-		return array ();
 	}
 
 	public function create_elementor_controls($elementor_object) {

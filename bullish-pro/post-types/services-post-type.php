@@ -159,6 +159,20 @@ if (! class_exists('BullishProServicesPostType')) {
 							),
 
 							array(
+								'id'         => 'service_price_duration',
+								'type'       => 'select',
+								'title'      => esc_html__('Price Duration', 'bullish-pro'),
+								'desc'       => esc_html__('Select whether the price is per day, month, or year.', 'bullish-pro'),
+								'options'    => array(
+									'day'   => esc_html__('Day', 'bullish-pro'),
+									'month' => esc_html__('Month', 'bullish-pro'),
+									'year'  => esc_html__('Year', 'bullish-pro'),
+								),
+								'default'    => 'month',
+								'dependency' => array('enable_service_price', '==', 'yes'),
+							),
+
+							array(
 								'id'      => 'service-duration',
 								'type'    => 'select',
 								'title'   => esc_html__('Duration', 'bullish-pro'),
