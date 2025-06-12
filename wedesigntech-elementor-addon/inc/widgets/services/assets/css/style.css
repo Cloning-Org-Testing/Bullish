@@ -86,3 +86,49 @@
 /* ---------------------------------------------------------------------
  ===== Service Type - 3 =====
 --------------------------------------------------------------------- */
+.wdt-service-item.wdt-type-3 {
+    display:flex;
+    flex-direction:column-reverse;
+    padding:10px;
+    background:Var(--wdtSecondaryColor);
+    border-radius:var(--wdtRadius_2X);
+    border:1px solid var(--wdtBorderColor);
+}
+.wdt-service-item.wdt-type-3 .wdt-service-detail-group {
+    padding:30px;
+}
+.wdt-service-item.wdt-type-3 .wdt-service-detail-group .wdt-service-content-group {
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+}
+.wdt-service-item.wdt-type-3 .wdt-service-detail-group .wdt-service-content-group .wdt-service-title{
+    margin-right:20px;
+}
+.wdt-service-item.wdt-type-3 .wdt-service-detail-group .wdt-service-content-group .wdt-service-title h5,
+.wdt-service-item.wdt-type-3 .wdt-service-detail-group .wdt-service-content-group .wdt-service-title h5 a{
+    margin: 0;
+    color:var(--wdtAccentTxtColor);
+    font-size:var(--wdtFontSize_H4);
+}
+.wdt-service-item.wdt-type-3 .wdt-service-detail-group .wdt-service-content-group .wdt-service-title h5 a:hover{
+    color:var(--wdtPrimaryColor);
+}
+.wdt-service-item.wdt-type-3 .wdt-service-media-group .wdt-service-image {
+    border-radius:var(--wdtRadius_2X);
+    overflow:hidden;
+    transition:var(--wdtAltTransition);
+}
+
+.wdt-service-item.wdt-type-3 .wdt-service-detail-group .wdt-service-description{
+    margin-top:30px;
+    padding-top:30px;
+    border-top:1px solid rgba(var(--wdtBorderColorRgb),0.4);
+    transition:var(--wdtAltTransition);
+}
+
+.wdt-service-item.wdt-type-3 .wdt-service-detail-group .wdt-service-content-group .wdt-service-type-icon{
+    font-size:var(--wdtFontSize_H2);
+    line-height: 1;
+    color:var(--wdtAccentTxtColor);
+}

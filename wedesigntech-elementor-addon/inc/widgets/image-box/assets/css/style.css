@@ -48,9 +48,9 @@
     background-size: 300% 100%;
     background-position: top right;
     background-repeat: no-repeat;
-    font-size: clamp(1.125rem, 1.0385rem + 0.3846vw, 1.5rem);/* 18px - 24px */
-    width: clamp(2.5rem, 2.2115rem + 1.2821vw, 3.75rem);/* 40px - 60px */
-    height: clamp(2.5rem, 2.2115rem + 1.2821vw, 3.75rem);/* 40px - 60px */
+    font-size:clamp(1.125rem, 1.0833rem + 0.1389vw, 1.25rem);/* 18px - 20px */
+    width: clamp(2.5rem, 2.3958rem + 0.3472vw, 2.8125rem);/* 40px - 45px */
+    height: clamp(2.5rem, 2.3958rem + 0.3472vw, 2.8125rem);/* 40px - 45px */
     color: var(--wdtHeadAltColor);
     border-radius: 50%;
     -webkit-border-radius: 50%;

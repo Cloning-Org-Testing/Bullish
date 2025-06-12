@@ -36,7 +36,7 @@
 .main-title-section h1 {
   font-size: var(--wdtFontSize_H1);
   text-transform: none;
-  margin: 0 0 5px;
+  margin: 0 0 10px;
   word-break: break-all;
 }
 

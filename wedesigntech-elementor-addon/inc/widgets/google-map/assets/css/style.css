@@ -27,7 +27,7 @@
 .wdt-google-map .gm-style .gm-style-iw-c .wdt-google-map-info-desc p { margin-top: 0; }
 
 
-.wdt-google-map-wrapper .wdt-google-map { flex: 1 1 400px; }
+.wdt-google-map-wrapper .wdt-google-map { flex: 1 1 400px; border-radius: inherit; }
 .wdt-google-map-wrapper .wdt-google-map-marker-content-wrapper { flex: 1 1 0; }
 .wdt-google-map-wrapper .wdt-google-map-marker-content-selection { border: 1px solid rgba(var(--wdt-elementor-color-secondary-rgb), 0.15); background: var(--wdt-elementor-color-white); font-family: inherit; font-size: inherit; padding: 10px; width: 100%; }
 
