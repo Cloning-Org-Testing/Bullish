@@ -1,0 +1,21 @@
+/*--===Form-blur-style====== */
+.wdt-cus-blur-style{
+   backdrop-filter: blur(30px);
+}
+/* h2-filler-mask */
+.wdt-cus-filler-mask .elementor-widget-container::before{
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  background: linear-gradient(263.8deg, rgba(var(--wdtPrimaryColorRgb), 0.16) 3.61%, rgba(var(--wdtTertiaryColorRgb), 0.16) 85.04%);
+  -webkit-mask-image: url( https://wdtbullish.wpengine.com/wp-content/uploads/2025/06/h2-filler-mask-icon.svg );
+  mask-image: url( https://wdtbullish.wpengine.com/wp-content/uploads/2025/06/h2-filler-mask-icon.svg );
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}

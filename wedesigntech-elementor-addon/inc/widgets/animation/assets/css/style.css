@@ -55,6 +55,40 @@
     height: clamp(1.75rem, 1.4615rem + 1.2821vw, 3rem); /* Min-28 & Max-48 */ }
 
 
+/**
+Brand icon type1 Style 
+*/
+
+.wdt-animation-wrapper:has(.type1,.type2) {
+    mask-image: linear-gradient(90deg, transparent, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), transparent);
+}
+.wdt-animation-item.type1 {
+  align-items: center;
+  justify-content: center;
+  color: rgba(var(--wdtHeadAltColorRgb),0.3);
+  font-size: clamp(5.625rem, 4.9283rem + 3.1847vw, 8.75rem); /* Min-90 & Max-140 */
+  padding: clamp(1.25rem, 1.1107rem + 0.6369vw, 1.875rem) clamp(1.5625rem, 1.2838rem + 1.2739vw, 2.8125rem); /* Min-20 & Max-30 */ /* Min-25 & Max-45 */
+  margin: 0 clamp(0.625rem, 0.5553rem + 0.3185vw, 0.9375rem); /* Min-10 & Max-15 */
+  border: 1px solid rgba(var(--wdtSecondaryColorRgb),0.3);
+  -webkit-border-radius: var(--wdtRadius_2X);
+  border-radius: var(--wdtRadius_2X);
+  background: linear-gradient(90deg, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor));
+  background-size: 300% 100%;
+  background-position: center left;
+  -webkit-transition: var(--wdt-Ad-Transition);
+  transition: var(--wdt-Ad-Transition);
+}
+.wdt-animation-item.type1 svg{
+  width: 1em;
+  height: auto;
+}
+.wdt-animation-item.type1:hover{
+    color: var(--wdtHeadAltColor);
+    background-position: right center;
+    border-color: transparent;
+}
+
 
 /**
     Responsive - AT Media Query

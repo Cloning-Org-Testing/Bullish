@@ -1,4 +1,5 @@
 <?php
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -67,7 +68,9 @@ class WeDesignTech_Widget_Base_Animation {
 			'options' => array(
 				'image' => esc_html__( 'Image', 'wdt-elementor-addon' ),
 				'text' => esc_html__( 'Text', 'wdt-elementor-addon' ),
-				'icon' => esc_html__( 'Icon', 'wdt-elementor-addon' )
+				'icon' => esc_html__( 'Icon', 'wdt-elementor-addon' ),
+				'type1' => esc_html__( 'Type1', 'wdt-elementor-addon' ),
+				'type2' => esc_html__( 'Type2', 'wdt-elementor-addon' )
 			)
 		) );
 
@@ -90,7 +93,7 @@ class WeDesignTech_Widget_Base_Animation {
 				'library' => 'fa-solid',
 			),
 			'condition'   => array (
-				'content_type' =>'icon'
+				'content_type' => array('icon','type1','type2'),
 			)
 		) );
 
@@ -471,6 +474,20 @@ class WeDesignTech_Widget_Base_Animation {
 									$output .= '</div>';
 								}
 							}
+							else if( $item['content_type'] == 'type1' ) {
+								$output .= '<div class="wdt-animation-item type1">';
+									ob_start();
+									\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+									$output .= ob_get_clean();
+								$output.='</div>';
+							}
+							else if( $item['content_type'] == 'type2' ) {
+								$output .= '<div class="wdt-animation-item type2">';
+									ob_start();
+									\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+									$output .= ob_get_clean();
+								$output.='</div>';
+							}
 							else
 							{
 								$output .= '<div class="wdt-animation-item icon-item">';
@@ -512,6 +529,20 @@ class WeDesignTech_Widget_Base_Animation {
 										$output .= $item['text'];
 									$output .= '</div>';
 								}
+							}
+							else if( $item['content_type'] == 'type1' ) {
+								$output .= '<div class="wdt-animation-item type1">';
+									ob_start();
+									\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+									$output .= ob_get_clean();
+								$output.='</div>';
+							}
+							else if( $item['content_type'] == 'type2' ) {
+								$output .= '<div class="wdt-animation-item type2">';
+									ob_start();
+									\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+									$output .= ob_get_clean();
+								$output.='</div>';
 							}
 							else
 							{
