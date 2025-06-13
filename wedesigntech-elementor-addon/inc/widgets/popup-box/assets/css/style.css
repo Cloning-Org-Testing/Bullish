@@ -135,8 +135,7 @@
 
 /* Right Slide Effects */
 
-.wdt-popup-box-window.mfp-wrap.wdt-right-side-slide .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder { 
-    height: 100%; margin-right: 0; margin-left: auto; max-width: 660px; padding: 40px; }
+.wdt-popup-box-window.mfp-wrap.wdt-right-side-slide .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder { height: calc(100% - 60px); margin-right: 30px; margin-left: auto; margin-top: 30px; max-width: 660px; padding: 40px; margin-bottom: auto; border-radius: var(--wdtRadius_2X); }
 
 .wdt-popup-box-window.wdt-right-side-slide .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder {
     -webkit-transform: translateX(800px); transform: translateX(800px); opacity: 1; 

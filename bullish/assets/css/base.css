@@ -653,7 +653,7 @@
     /* Inputs & fields */
     input[type="text"], input[type="password"], input[type="email"], input[type="url"], input[type="tel"], input[type="number"], input[type="range"], input[type="date"], textarea, input.text, input[type="search"],
 
-    .select2-container--default .select2-search .select2-search__field, .select2-container--default .select2-search--dropdown .select2-search__field, .select2-container--default .select2-search--inline .select2-search__field { border:1px solid; display: block; margin: 0; padding: var(--wdtInputPadding); width:100%; -webkit-appearance:none; appearance:none; -webkit-border-radius: var(--wdtRadius_1X); border-radius: var(--wdtRadius_1X);  border-color: transparent !important; background: var(--wdtBodyBGColor) !important; transition: var(--wdtAltTransition);  }
+    .select2-container--default .select2-search .select2-search__field, .select2-container--default .select2-search--dropdown .select2-search__field, .select2-container--default .select2-search--inline .select2-search__field { border:1px solid; display: block; margin: 0; padding: var(--wdtInputPadding); width:100%; -webkit-appearance:none; appearance:none; -webkit-border-radius: var(--wdtRadius_1X); border-radius: var(--wdtRadius_1X);  border-color: transparent; background: var(--wdtBodyBGColor) !important; transition: var(--wdtAltTransition);  }
 
     .select2-container--default .select2-search .select2-search__field, .select2-container--default .select2-search--dropdown .select2-search__field, .select2-container--default .select2-search--inline .select2-search__field { border: 1px solid !important; }
 
@@ -1293,7 +1293,7 @@
     abbr, acronym, pre, #searchform, 
 
     .comment-form > p input[type="checkbox"] ~ label:before, .comment-form > p input[type="radio"] ~ label:before, .comment-form-wdt-privatepolicy input[type="checkbox"] ~ label:before,
-    .woocommerce-form__label-for-checkbox > span:before, .woocommerce .woocommerce-shipping-methods input[type="radio"] ~ label:before, .woocommerce-page #payment.woocommerce-checkout-payment ul.payment_methods li input[type="radio"] ~ label:before { border-color: rgba(var(--wdtHeadAltColorRgb),0.15); }
+    .woocommerce-form__label-for-checkbox > span:before, .woocommerce .woocommerce-shipping-methods input[type="radio"] ~ label:before, .woocommerce-page #payment.woocommerce-checkout-payment ul.payment_methods li input[type="radio"] ~ label:before { border-color: transparent; }
 
     .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--multiple, .select2-dropdown,
 
@@ -1312,8 +1312,7 @@
 
 
     input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="time"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="color"]:focus, textarea:focus, input.text:focus { 
-        outline: none; outline-offset: -3px; 
-        /* -webkit-box-shadow: 0 0 2px 1px rgba(var(--wdtHeadAltColorRgb),0.15); box-shadow: 0 0 2px 1px rgba(var(--wdtHeadAltColorRgb),0.15);  */
+        outline: none; outline-offset: -3px; border-color: var(--wdtPrimaryColor);
     }
 
     .comment-form > p input[type="checkbox"]:focus:not(:checked) ~ label:before, .comment-form > p input[type="radio"]:focus:not(:checked) ~ label:before, .comment-form-wdt-privatepolicy input[type="checkbox"]:focus:not(:checked) ~ label:before,

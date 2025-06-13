@@ -22,7 +22,7 @@
 	.blog-single-entry .entry-details { clear: both; display: inline-block; width: 100%; }
 	.blog-single-entry .entry-meta { font-size: 14px; font-weight: 300; letter-spacing: .5px; margin-bottom: 7px; }
 	.blog-single-entry .single-entry-body { clear: both; float: left; margin: 0 0 15px; width: 100%; }
-	.blog-single-entry .single-entry-body > *:last-child { margin-bottom: 75px; }
+	.blog-single-entry .single-entry-body > *:last-child { margin-bottom: 40px; }
 	.blog-single-entry .single-entry-body > *:last-child:after { content: ""; clear: both; display: block; }
 
 	.blog-single-entry .single-entry-body > *:last-child > img[class*="align"]:only-child { clear: both; }
@@ -167,7 +167,7 @@
 	==============================	*/
 
 	.blog-single-entry .entry-post-navigation.type1 > div:not(.no-post) > .nav-title-wrap h3 { display: none; }
-	.blog-single-entry .entry-post-navigation > div.no-post > .nav-title-wrap h3 { margin: 0 0 0 0; font-size: var(--wdtFontSize_Base); text-transform: capitalize; cursor: not-allowed; }
+	.blog-single-entry .entry-post-navigation > div.no-post > .nav-title-wrap h3 { margin: 0 0 0 0; font-size: var(--wdtFontSize_Base); text-transform: capitalize; cursor: not-allowed; font-weight: var(--wdtFontWeight_Ext); }
 	.blog-single-entry .entry-post-navigation > div > .nav-title-wrap h3 { margin: 10px 0 0 0; }
 	.blog-single-entry .entry-post-navigation.type1 > .post-next-link > .next-post-bgimg,
 	.blog-single-entry .entry-post-navigation.type1 > .post-prev-link > .prev-post-bgimg {display: none}
@@ -188,13 +188,20 @@
 	.blog-single-entry .entry-post-navigation > div > a { display: block; height: 100%; position: absolute; 
 		left: 0; top: 0; width: 100%; z-index: 1; }
 	.blog-single-entry .entry-post-navigation > div > a:focus { outline: thin dotted; outline-offset: -1px; }
-	.blog-single-entry .entry-post-navigation > div > .nav-title-wrap p { display: block; font-weight: 500; letter-spacing: 0; line-height: normal; margin: 0; position: relative; text-transform: uppercase; width: 100%; -webkit-transition: var(--wdtBaseTransition); transition: var(--wdtBaseTransition); }
-
+	.blog-single-entry .entry-post-navigation > div > .nav-title-wrap p { display: block; font-weight: var(--wdtFontWeight_Ext); letter-spacing: 0; line-height: normal; margin: 0; position: relative; text-transform: uppercase; width: 100%; -webkit-transition: var(--wdtBaseTransition); transition: var(--wdtBaseTransition); }
+	.blog-single-entry .entry-post-navigation > div > .nav-title-wrap p a{ position:relative; font-size: var(--wdtFontSize_Base); }  
+    .blog-single-entry .entry-post-navigation.type1 > div > .nav-title-wrap p a:before,
+    .blog-single-entry .entry-post-navigation.type1 > div > .nav-title-wrap p a:after { content:""; position:absolute; width:50%; height:1px; background:currentColor; bottom:0; left:0; right:auto; top: auto; margin:auto; transition:var(--wdt-Ad-Transition); -webkit-transition:var(--wdt-Ad-Transition); transition-delay: 0s; }
+    .blog-single-entry .entry-post-navigation.type1 > div > .nav-title-wrap p a:after { left:auto; right:0;}
+    .blog-single-entry .entry-post-navigation.type1 > div > .nav-title-wrap p a:hover:before,
+    .blog-single-entry .entry-post-navigation.type1 > div > .nav-title-wrap p a:hover:after { width:0%; }
 	.blog-single-entry .entry-post-navigation { clear: both; display: block; float: left; margin: 35px 0 35px; 
 		position: relative; width: 100%; display: grid; grid-template-columns: repeat(2, 50%); }
+	.blog-single-entry .entry-post-navigation.type1 { margin: 0; padding: 0; }
 
 	.blog-single-entry .entry-post-navigation > div { overflow: hidden; padding: 50px 0; width: 100%; display: flex; 
 		align-items: center; position: relative; /*height: 190px;*/ }
+	.blog-single-entry .entry-post-navigation.type1 > div { padding: 20px 0; }
 	.blog-single-entry .entry-post-navigation.type2 > div { overflow: visible; }
 
 	.blog-single-entry .entry-post-navigation > div .nav-title-wrap { width: 100%; }
@@ -312,7 +319,6 @@
    	}
 
    	@media only screen and (max-width: 1024px) { 
-		.blog-single-entry .entry-post-navigation:not(.type2) > div > .nav-title-wrap h3 {font-size: var(--wdtFontSize_H5);}
 
 		/* Navigation - Type II */
 		.blog-single-entry .entry-post-navigation:not(.wdt-post-entry).type2 { margin-top: 70px; margin-bottom: 70px; }
