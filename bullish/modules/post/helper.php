@@ -110,3 +110,71 @@ if( !function_exists('bullish_single_set_post_class') ) {
         return $classes;
     }
 }
+
+
+add_filter( 'comment_form_default_fields', 'bullish_custom_placeholder_comment_section', 10 );
+function bullish_custom_placeholder_comment_section( $fields ) {
+
+    $req = get_option( 'require_name_email' );
+    $required_attribute = 'required="required"';
+    $required_indicator = '<span class="required" aria-hidden="true">*</span>';
+
+    $fields['author'] = sprintf(
+        '<p class="comment-form-author">%s %s</p>',
+        sprintf(
+            '<input id="author" name="author" type="text" value="%s" size="30" maxlength="245" %s placeholder="Name *" />',
+            esc_attr( isset($commenter['comment_author']) && !empty($commenter['comment_author']) ? $commenter['comment_author'] : '' ),
+            ( $req ? $required_attribute : '' )
+        ),
+        sprintf(
+            esc_html__( '', 'bullish' ),
+            ( $req ? $required_indicator : '' )
+        )
+    );
+    $fields['email'] = sprintf(
+        '<p class="comment-form-email">%s %s</p>',
+        sprintf(
+            '<input id="email" name="email" type="email" value="%s" size="30" maxlength="100" aria-describedby="email-notes"%s placeholder="Email *" />',
+            esc_attr( isset($commenter['comment_author_email']) && !empty($commenter['comment_author_email']) ? $commenter['comment_author_email'] : '' ),
+            ( $req ? $required_attribute : '' )
+        ),
+        sprintf(
+            esc_html__( '', 'bullish' ),
+            ( $req ? $required_indicator : '' )
+        )
+    );
+    $fields['url'] = sprintf(
+        '<p class="comment-form-url">%s %s</p>',
+        sprintf(
+            '<input id="url" name="url" type="text" value="%s" size="30" maxlength="200" placeholder="Website *"/>',
+            esc_attr( isset($commenter['comment_author_url']) && !empty($commenter['comment_author_url']) ? $commenter['comment_author_url'] : '' )
+        ),
+        sprintf(
+            esc_html__( '', 'bullish' )
+        )
+    );
+
+    return $fields;
+
+}
+
+add_filter( 'comment_form_defaults', 'bullish_custom_placeholder_textarea_section', 10 );
+function bullish_custom_placeholder_textarea_section( $fields ) {
+
+    $req = get_option( 'require_name_email' );
+    $required_attribute = 'required="required"';
+    $required_indicator = '<span class="required" aria-hidden="true">*</span>';
+
+    $replace_comment = esc_html__('Enter your comment', 'bullish');
+
+    $fields['comment_field'] = sprintf(
+        '<p class="comment-form-comment">%s %s</p>',
+        '<textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" ' . $required_attribute . ' placeholder="Comment *"></textarea>',
+        sprintf(
+            esc_html__( '', 'bullish' ),
+            $required_indicator
+        )
+    );
+
+    return $fields;
+}
