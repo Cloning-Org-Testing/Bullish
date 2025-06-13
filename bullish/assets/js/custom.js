@@ -462,26 +462,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Page Preloader And Lazyload for speed (Ultra-Optimized)
 jQuery(function ($) {
-    const preloadThreshold = window.innerHeight + 100; // Only preload images visible in viewport
-    const bgElements = [];
+    const preloadThreshold = window.innerHeight + 100;
     const seenLinks = new Set();
+    const bgElements = [];
 
-    // --- UTILITIES ---
-    function preloadLink(href, as = "image") {
+    const preloadLink = (href, as = "image") => {
         if (!href || seenLinks.has(href)) return;
         seenLinks.add(href);
         const link = document.createElement("link");
         link.rel = "preload";
         link.as = as;
         link.href = href;
-        link.crossOrigin = "anonymous";
-        link.fetchPriority = "high";
+        const isCrossOrigin = new URL(href, location.href).origin !== location.origin;
+        if (isCrossOrigin) link.crossOrigin = "anonymous";
         document.head.appendChild(link);
-    }
+    };
 
-    function preconnectDomain(href) {
+    const preconnectDomain = (href) => {
         try {
-            const url = new URL(href, window.location.href);
+            const url = new URL(href);
             if (!seenLinks.has(url.origin)) {
                 seenLinks.add(url.origin);
                 const link = document.createElement("link");
@@ -490,108 +489,116 @@ jQuery(function ($) {
                 link.crossOrigin = "anonymous";
                 document.head.appendChild(link);
             }
-        } catch (e) {}
-    }
+        } catch {}
+    };
 
-    function forcePreloadImage(url) {
-        if (!url || url.startsWith('data:')) return;
+    const forcePreloadImage = (url) => {
+        if (!url || url.startsWith("data:")) return;
         const img = new Image();
         img.src = url;
         img.loading = "eager";
         img.decoding = "async";
         img.style.display = "none";
         document.body.appendChild(img);
-    }
+    };
 
-    function extractUrl(styleVal) {
+    const extractUrl = (styleVal) => {
         const match = styleVal && styleVal.match(/url\((['"]?)(.*?)\1\)/);
         return match && match[2] ? match[2] : null;
-    }
+    };
 
-    function loadLazyBackgrounds() {
-        bgElements.forEach(el => {
-            if (el.dataset.lazyBg) {
-                el.style.backgroundImage = `url('${el.dataset.lazyBg}')`;
-                delete el.dataset.lazyBg;
-            }
-            if (el.dataset.lazyVar) {
-                el.style.setProperty('--optional-background-image', `url('${el.dataset.lazyVar}')`);
-                delete el.dataset.lazyVar;
+    const scanImages = () => {
+        document.querySelectorAll("img").forEach(img => {
+            const rect = img.getBoundingClientRect();
+            const src = img.currentSrc || img.src || img.getAttribute("data-src");
+            if (!src) return;
+            preconnectDomain(src);
+            if (rect.top <= preloadThreshold) {
+                preloadLink(src);
+                forcePreloadImage(src);
+                img.loading = "eager";
+                img.decoding = "async";
+                img.fetchpriority = "high";
+            } else {
+                img.loading = img.getAttribute("loading") || "lazy";
+                img.decoding = img.getAttribute("decoding") || "async";
             }
         });
-    }
+    };
 
-    // --- HERO BOOST (above the fold) ---
-    $("section, .elementor-section, .wp-block-cover").each(function () {
-        const $section = $(this);
-        const style = getComputedStyle(this);
-        const bgImage = extractUrl(style.backgroundImage);
-        const isVisible = style.display !== "none" && $section.outerHeight() > 0;
-        const rect = this.getBoundingClientRect();
-        const isAboveFold = rect.top + window.scrollY < window.innerHeight;
+    const scanBackgrounds = () => {
+        document.querySelectorAll("section, .elementor-section, .wp-block-cover").forEach(el => {
+            const style = getComputedStyle(el);
+            const bgImage = extractUrl(style.backgroundImage);
+            const isVisible = style.display !== "none" && el.offsetHeight > 0;
+            const rect = el.getBoundingClientRect();
+            const isAboveFold = rect.top + window.scrollY < window.innerHeight;
+            if (bgImage && isVisible && isAboveFold) {
+                preconnectDomain(bgImage);
+                preloadLink(bgImage);
+                forcePreloadImage(bgImage);
+            }
+        });
 
-        if (bgImage && isVisible && isAboveFold) {
-            preconnectDomain(bgImage);
-            preloadLink(bgImage);
-            forcePreloadImage(bgImage);
-            return false; // stop after first visible above-fold background
-        }
-    });
-
-    // --- ONLY PRELOAD IMAGES IN VIEWPORT ---
-    $("img").each(function () {
-        const rect = this.getBoundingClientRect();
-        const src = this.currentSrc || this.src || this.getAttribute("data-src");
-        if (!src) return;
-
-        preconnectDomain(src);
-
-        if (rect.top >= 0 && rect.top <= preloadThreshold) {
-            preloadLink(src);
-            forcePreloadImage(src);
-            $(this).attr({
-                loading: "eager",
-                decoding: "async",
-                fetchpriority: "high"
+        document.querySelectorAll("*").forEach(el => {
+            if (el.closest('.megamenu')) return;
+            const style = getComputedStyle(el);
+            const rect = el.getBoundingClientRect();
+            const top = rect.top + window.scrollY;
+            const bgImage = extractUrl(style.backgroundImage);
+            const varImage = extractUrl(style.getPropertyValue('--optional-background-image'));
+            [bgImage, varImage].forEach((url, idx) => {
+                if (url) {
+                    preconnectDomain(url);
+                    if (top >= preloadThreshold) {
+                        const dataKey = idx === 0 ? "lazyBg" : "lazyVar";
+                        el.dataset[dataKey] = url;
+                        if (idx === 0) el.style.backgroundImage = "none";
+                        else el.style.setProperty('--optional-background-image', 'none');
+                        bgElements.push(el);
+                    } else {
+                        preloadLink(url);
+                        forcePreloadImage(url);
+                    }
+                }
             });
-        } else {
-            $(this).attr({
-                loading: $(this).attr("loading") || "lazy",
-                decoding: $(this).attr("decoding") || "async"
-            });
-        }
-    });
+        });
+    };
 
-    // --- BACKGROUND IMAGES (Lazy load outside threshold) ---
-    $("*").each(function () {
-        const el = this;
-        if (el.closest('.megamenu')) return;
-
-        const style = getComputedStyle(el);
-        const rect = el.getBoundingClientRect();
-        const top = rect.top + window.scrollY;
-        const bgImage = extractUrl(style.backgroundImage);
-        const varImage = extractUrl(style.getPropertyValue('--optional-background-image'));
-
-        [bgImage, varImage].forEach((url, idx) => {
-            if (url) {
-                preconnectDomain(url);
-                if (top >= preloadThreshold) {
-                    const dataKey = idx === 0 ? "lazyBg" : "lazyVar";
-                    el.dataset[dataKey] = url;
-                    if (idx === 0) el.style.backgroundImage = "none";
-                    else el.style.setProperty('--optional-background-image', 'none');
-                    bgElements.push(el);
-                } else {
-                    preloadLink(url);
-                    forcePreloadImage(url);
+    const scanFonts = () => {
+        const usedFonts = new Set();
+        const sampledEls = [...document.querySelectorAll("body, h1, h2, h3, p, .elementor-widget")];
+        sampledEls.forEach(el => {
+            const family = getComputedStyle(el).fontFamily;
+            if (family) {
+                const primary = family.split(",")[0].replace(/['"]/g, "").trim();
+                if (!/^(system-ui|sans-serif|serif|Times New Roman|apple-system|dashicons)$/i.test(primary)) {
+                    usedFonts.add(primary);
                 }
             }
         });
-    });
 
-    // --- INTERSECTION OBSERVER for LAZY BACKGROUND IMAGES ---
-    if ("IntersectionObserver" in window) {
+        usedFonts.forEach(font => {
+            const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
+            if (!seenLinks.has(url)) {
+                seenLinks.add(url);
+                const preload = document.createElement("link");
+                preload.rel = "preload";
+                preload.as = "style";
+                preload.href = url;
+                preload.crossOrigin = "anonymous";
+                preload.onload = function () { this.rel = "stylesheet"; };
+                document.head.appendChild(preload);
+            }
+        });
+    };
+
+    const applyLazyBgObserver = () => {
+        if (!("IntersectionObserver" in window)) return bgElements.forEach(el => {
+            if (el.dataset.lazyBg) el.style.backgroundImage = `url('${el.dataset.lazyBg}')`;
+            if (el.dataset.lazyVar) el.style.setProperty('--optional-background-image', `url('${el.dataset.lazyVar}')`);
+        });
+
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -607,40 +614,25 @@ jQuery(function ($) {
                     observer.unobserve(el);
                 }
             });
-        }, { rootMargin: "500px 0px" });
+        }, { rootMargin: "500px" });
 
         bgElements.forEach(el => observer.observe(el));
-    } else {
-        loadLazyBackgrounds();
-    }
+    };
 
-    // --- GOOGLE FONTS (safe, preload visible fonts only) ---
-    const usedFonts = new Set();
-    document.querySelectorAll("*").forEach(el => {
-        const family = getComputedStyle(el).fontFamily;
-        if (family) {
-            const primary = family.split(",")[0].replace(/['"]/g, "").trim();
-            if (!/^system-ui|sans-serif|serif|Times New Roman|apple-system|dashicons$/i.test(primary)) {
-                usedFonts.add(primary);
-            }
-        }
+    // --- Run performance-sensitive logic with delay ---
+    requestIdleCallback(() => {
+        scanImages();
+        scanBackgrounds();
+        scanFonts();
+        applyLazyBgObserver();
+    }, { timeout: 500 });
+
+    // --- Lightweight stylesheet deferral ---
+    document.querySelectorAll('link[rel="stylesheet"][data-defer]').forEach(link => {
+        link.media = "print";
+        link.onload = function () { this.media = "all"; };
     });
 
-    usedFonts.forEach(font => {
-        const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
-        if (!seenLinks.has(url)) {
-            seenLinks.add(url);
-            const preload = document.createElement("link");
-            preload.rel = "preload";
-            preload.as = "style";
-            preload.href = url;
-            preload.crossOrigin = "anonymous";
-            preload.onload = function () { this.rel = "stylesheet"; };
-            document.head.appendChild(preload);
-        }
-    });
-
-    // --- CRITICAL CSS LOADING ---
     if (window.criticalCssUrl && !seenLinks.has(window.criticalCssUrl)) {
         seenLinks.add(window.criticalCssUrl);
         const link = document.createElement("link");
@@ -648,10 +640,4 @@ jQuery(function ($) {
         link.href = window.criticalCssUrl;
         document.head.appendChild(link);
     }
-
-    // --- DEFER NON-CRITICAL CSS ---
-    document.querySelectorAll('link[rel="stylesheet"][data-defer]').forEach(link => {
-        link.media = "print";
-        link.onload = function () { this.media = "all"; };
-    });
 });
