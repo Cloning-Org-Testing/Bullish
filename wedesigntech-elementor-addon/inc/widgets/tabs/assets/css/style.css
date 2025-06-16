@@ -53,7 +53,7 @@
 
 .wdt-tabs-container .wdt-tabs-list li:not(:last-child) { margin: 0 10px 0 0; }
 
-.wdt-tabs-container .wdt-tabs-list li .ui-tabs-anchor { font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_Base); 
+.wdt-tabs-container .wdt-tabs-list li .ui-tabs-anchor { font-size: var(--wdtFontSize_H6); font-weight: var(--wdtFontWeight_Base); 
     position: relative; display: inline-flex; align-items: center; flex-wrap: wrap; justify-content: center; width: 100%; 
     padding: var(--wdtPadding_MiniBtn); letter-spacing: 0; text-transform: capitalize; }
 
@@ -146,7 +146,7 @@
 .wdt-tabs-container[class*='-layout-horizontal'] .wdt-tabs-list li .ui-tabs-anchor { text-align: center; }
 .wdt-tabs-container[class*='-layout-vertical'] .wdt-tabs-list li .ui-tabs-anchor { text-align: left; }
 
-.wdt-tabs-container[class*='-layout-horizontal'][class*='-template-bordered'] .wdt-tabs-list { border-width: 0 0 2px; border-style: solid; }
+.wdt-tabs-container[class*='-layout-horizontal'][class*='-template-bordered'] .wdt-tabs-list { border-width: 0 0 2px; border-style: solid;justify-content: space-evenly; }
 .wdt-tabs-container[class*='-layout-vertical'][class*='-template-bordered'] .wdt-tabs-list { border-width: 0 2px 0 0; border-style: solid; }
 
 .wdt-tabs-container[class*='-layout-horizontal'][class*='-template-bordered'] .wdt-tabs-list li:not(:last-child) { margin: 0 25px 0 0; }
@@ -234,11 +234,11 @@
 
 .wdt-tabs-container[class*='-template-bordered'] .wdt-tabs-list li.ui-state-active .ui-tabs-anchor,
 .wdt-tabs-container[class*='-template-bordered'] .wdt-tabs-list li.ui-state-hover .ui-tabs-anchor { 
-    color: var(--wdt-elementor-color-primary); background-color: transparent; }
+    color: var(--wdt-elementor-color-secondary); background-color: transparent; }
 
 .wdt-tabs-container[class*='-template-bordered'] .wdt-tabs-list li .ui-tabs-anchor:before,
 .wdt-tabs-container[class*='-template-bordered'] .wdt-tabs-list li .ui-tabs-anchor:after { 
-    background-color: var(--wdt-elementor-color-primary); }
+    background-color: var(--wdt-elementor-color-secondary); }
 
 .wdt-tabs-container[class*='-template-bordered'] .wdt-tabs-list li.ui-state-active .ui-tabs-anchor:after,
 .wdt-tabs-container[class*='-template-bordered'] .wdt-tabs-list li.ui-state-hover .ui-tabs-anchor:after { background: transparent; }
