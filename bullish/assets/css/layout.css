@@ -72,11 +72,6 @@
 .wdt-upload-form .wdt-file-upload-btn p.with-spinner { height: max-content; }
 .wdt-upload-form .wdt-file-upload-btn p.with-spinner input { padding: 23px clamp(1.875rem, 1.6667rem + 0.6944vw, 2.5rem); /*30-40px*/ }
 
-@media only screen and (max-width: 479px) {
-    .wdt-upload-form .wdt-upload-form-top > p { grid-template-columns: 1fr; gap: 20px; margin-bottom: 20px; }
-    .wdt-upload-form .wdt-upload-form-bottom .wdt-upload-form-btn-group .wdt-file-upload-btn { width: 100%; }
-}
-
 /* Contact uS Form */
 .wdt-contact-form .wdt-contact-form-top > p{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-bottom:22px; }
 .wdt-contact-form .wdt-contact-form-bottom .wdt-contact-form-btn-group { display:flex; justify-content:space-between; flex-wrap: wrap; gap: 20px; }
@@ -97,3 +92,18 @@
 .wdt-form-submit-btn p > i.wdt-submit-icon { grid-area: 1 / -1; display: block; position: relative; pointer-events: none; width: 16px; height: 16px; right: clamp(1.5rem, 1.2771rem + 1.0191vw, 2.5rem); z-index: 1; }
 .wdt-form-submit-btn p > i.wdt-submit-icon:before { content: ""; position: absolute; pointer-events: none; width: 100%; height: 100%; left: 0; top: 0; right: 0; bottom: 0; margin: auto; mask-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 100 100' style='enable-background:new 0 0 100 100;' xml:space='preserve'%3E%3Cpath d='M97.5,50L44.1,19.1v61.7L97.5,50z M2.5,50v5.3h46.9V50v-5.3H2.5V50z'/%3E%3C/svg%3E%0A"); -webkit-mask-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 100 100' style='enable-background:new 0 0 100 100;' xml:space='preserve'%3E%3Cpath d='M97.5,50L44.1,19.1v61.7L97.5,50z M2.5,50v5.3h46.9V50v-5.3H2.5V50z'/%3E%3C/svg%3E%0A"); mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat; background: var(--wdtHeadAltColor); }
 .wdt-form-submit-btn p:hover > i.wdt-submit-icon:before { -webkit-animation: 0.375s linear 0s 1 normal none running btn-arrow-move-rev; animation: 0.375s linear 0s 1 normal none running btn-arrow-move-rev; }
+
+
+@media only screen and (max-width: 479px) {
+    .wdt-upload-form .wdt-upload-form-top > p,
+    .wdt-contact-form .wdt-contact-form-top > p{
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .wdt-upload-form .wdt-upload-form-bottom .wdt-upload-form-btn-group .wdt-file-upload-btn ,
+    .wdt-contact-form .wdt-contact-form-bottom .wdt-upload-form-btn-group .wdt-file-upload-btn {
+        width: 100%;
+    }
+}
