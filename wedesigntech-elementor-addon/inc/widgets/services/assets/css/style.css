@@ -345,3 +345,80 @@
     place-items: start;
     z-index: 1;
 }
+
+
+/* pagination service carousel */
+.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div {
+    pointer-events:all;
+    margin:0;
+    position:relative;
+    color:var(--wdtAccentTxtColor);
+    width: clamp(2.5rem, -2.5825rem + 5.277vw, 3.75rem); /* Min-40 & Max-60 */
+    height: clamp(2.5rem, -2.5825rem + 5.277vw, 3.75rem); /* Min-40 & Max-60 */
+    border-radius:var(--wdtRadius_Full);
+    background:transparent;
+    border:1px solid currentColor;
+}
+
+.wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div:hover {
+    color:var(--wdtHeadAltColor);
+}
+
+.wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div:before {
+    background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor));
+    background-size: 100% 100%;
+    opacity:0;
+}
+
+.wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div:hover:before {
+   opacity:1;
+}
+
+.wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div.wdt-arrow-pagination-prev {
+    left:calc(-1*clamp(3.4375rem, -20.7042rem + 25.066vw, 9.375rem)); /* Min-55 & Max-150 */
+}
+.wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div.wdt-arrow-pagination-next {
+    right:calc(-1*clamp(3.4375rem, -20.7042rem + 25.066vw, 9.375rem)); /* Min-55 & Max-150 */
+}
+
+.wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div.wdt-arrow-pagination-next:hover i svg{
+    animation: btn-arrow-move 0.375s linear; 
+    -webkit-animation: btn-arrow-move 0.375s linear;
+}
+
+.wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div.wdt-arrow-pagination-prev:hover i svg{
+    animation: btn-arrow-move-rev 0.375s linear; 
+    -webkit-animation: btn-arrow-move-rev 0.375s linear;
+}
+
+@media only screen and (max-width:1540px){
+    .wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination{
+        position:relative;
+        justify-content: center;
+    }
+    .wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div.wdt-arrow-pagination-prev {
+        left:0;
+    }
+    .wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div.wdt-arrow-pagination-next {
+        right:0;
+    }    
+    .wdt-carousel-holder.wdt-services-holder .wdt-carousel-pagination-wrapper .wdt-carousel-arrow-pagination > div {
+        margin:40px 8px 0 8px;
+        width:clamp(2.5rem, -0.0412rem + 2.6385vw, 3.125rem); /* Min-40 & Max-50 */
+        height:clamp(2.5rem, -0.0412rem + 2.6385vw, 3.125rem);  /* Min-40 & Max-50 */
+    }
+}
+

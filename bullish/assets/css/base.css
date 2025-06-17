@@ -686,7 +686,7 @@
 
     .select2-container .select2-choice, .select2-drop, .select2-dropdown,
     .select2-drop.select2-drop-above, .select2-drop.select2-drop-below,
-    .select2-container--open .select2-dropdown.select2-dropdown--above, .select2-container--open .select2-dropdown.select2-dropdown--below { -webkit-border-radius: var(--wdtRadius_3X); border-radius: var(--wdtRadius_3X); }
+    .select2-container--open .select2-dropdown.select2-dropdown--above, .select2-container--open .select2-dropdown.select2-dropdown--below { -webkit-border-radius: var(--wdtRadius_2X); border-radius: var(--wdtRadius_2X); }
 
     .select2-container--open .select2-dropdown.select2-dropdown--above { margin-top: -10px; -webkit-box-shadow: 0 4px 5px rgba(var(--wdtHeadAltColorRgb),0.15), 0 1px 0 0 rgba(var(--wdtHeadAltColorRgb),0.15); box-shadow: 0 4px 5px rgba(var(--wdtHeadAltColorRgb),0.15), 0 1px 0 0 rgba(var(--wdtHeadAltColorRgb),0.15); }
 
