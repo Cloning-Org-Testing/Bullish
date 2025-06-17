@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2025 by original authors @ fontello.com</metadata>
+<defs>
+<font id="bullish-ext-icons" horiz-adv-x="1000" >
+<font-face font-family="bullish-ext-icons" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="bullish-arrow-left" unicode="&#xe900;" d="M25 350l534 309v-617l-534 308z m950 0v-53h-469v53 53h469v-53z" horiz-adv-x="1000" />
+
+<glyph glyph-name="bullish-arrow-right" unicode="&#xe901;" d="M975 350l-534 309v-617l534 308z m-950 0v-53h469v53 53h-469v-53z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>
