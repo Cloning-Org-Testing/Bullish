@@ -161,6 +161,7 @@ class WeDesignTech_Widget_Base_Image_Box {
 			array (
 				'jquery.cookie' =>  WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL.'inc/widgets/image-box/assets/js/jquery.cookie.min.js',
 				'jquery.magnific-image-box-popup' =>  WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL.'inc/widgets/image-box/assets/js/jquery.magnific-popup.min.js',
+				'jquery.leader-line' =>  WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL.'inc/widgets/image-box/assets/js/leader-line.min.js',
 				$this->name() =>  WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL.'inc/widgets/image-box/assets/js/script.js'
 			)
 		);
@@ -201,6 +202,15 @@ class WeDesignTech_Widget_Base_Image_Box {
 
 			$elementor_object->add_control( 'enable_hover_class', array(
 				'label'   => esc_html__( 'Enable hover class name', 'wdt-elementor-addon' ),
+				'type'    => \Elementor\Controls_Manager::SWITCHER,
+				'label_on'     => esc_html__( 'Yes', 'wdt-elementor-addon' ),
+                'label_off'    => esc_html__( 'No', 'wdt-elementor-addon' ),
+				'return_value' => 'yes',
+                'default'      => ''
+			) );
+
+			$elementor_object->add_control( 'enable_leader_line', array(
+				'label'   => esc_html__( 'Enable lines', 'wdt-elementor-addon' ),
 				'type'    => \Elementor\Controls_Manager::SWITCHER,
 				'label_on'     => esc_html__( 'Yes', 'wdt-elementor-addon' ),
                 'label_off'    => esc_html__( 'No', 'wdt-elementor-addon' ),
@@ -747,6 +757,9 @@ class WeDesignTech_Widget_Base_Image_Box {
 			}
 			if($settings['enable_hover_class'] == true) {
 				array_push($classes, 'wdt-image-active-class');
+			}
+			if($settings['enable_leader_line'] == true) {
+				array_push($classes, 'wdt-image-leader-line-class');
 			}
 			$settings['classes'] = $classes;
 			$this->cc_layout->set_settings($settings);

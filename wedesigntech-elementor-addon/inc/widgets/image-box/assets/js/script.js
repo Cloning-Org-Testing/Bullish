@@ -1,7 +1,52 @@
 (function ($) {
 
   const wdtImageBoxWidgetHandler = function($scope) {
+    
     const instance = new wdtImageBoxWidgetHandlerInit($scope);
+
+    // Connecting line
+    function wdtLeaderLines() {
+      if (!$scope.find('.wdt-image-box-holder').hasClass('wdt-image-leader-line-class')) {
+        return; 
+      }
+    
+      const $wdtimageBox = $scope.find('.wdt-image-box-holder');
+      const $wdtimageBoxIcon = $wdtimageBox.find('.wdt-content-icon span');
+      const wdticonsArray = $wdtimageBoxIcon.toArray();
+
+      function wdtgetCssVariable(variable) {
+        return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+      }
+
+      var wdtprimaryColor = wdtgetCssVariable('--wdtPrimaryColor');
+      
+      wdticonsArray.forEach((element, index) => {
+        if (index < wdticonsArray.length - 1) {
+          new LeaderLine(
+            element,
+            wdticonsArray[index + 1],
+            {
+              dash: true,
+              size: 2,
+              color: wdtprimaryColor,
+              endPlug: 'behind'
+            }
+          );
+        }
+      });
+
+    }
+    
+    // Initial setup
+    $(window).on('load', () => {
+      setTimeout(() => {
+        wdtLeaderLines();
+      }, 100); 
+    });
+        
+    $(window).on('resize', wdtLeaderLines);
+
+
     if($scope.find('.wdt-image-box-holder').data('settings')) {
       const settings = $scope.find('.wdt-image-box-holder').data('settings');
       if(settings['enable_popup']) {
