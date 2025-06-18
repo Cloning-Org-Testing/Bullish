@@ -185,7 +185,8 @@ class WeDesignTech_Widget_Base_Image_Box {
 					'social-icons' => esc_html__( 'Social Icons', 'wdt-elementor-addon' ),
 					'simple-icon' => esc_html__( 'Simple Icon', 'wdt-elementor-addon' ),
 					'contact-list' => esc_html__( 'Contact-List', 'wdt-elementor-addon' ),
-					'with-description' => esc_html__( 'With Description', 'wdt-elementor-addon' )
+					'with-description' => esc_html__( 'With Description', 'wdt-elementor-addon' ),
+					'career-list' => esc_html__( 'Career-List', 'wdt-elementor-addon' )
 				)
 			) );
 
@@ -854,6 +855,32 @@ class WeDesignTech_Widget_Base_Image_Box {
 						'image'           => esc_html__( 'Image', 'wdt-elementor-addon'),
 						'title' 		  => esc_html__( 'Title', 'wdt-elementor-addon'),
 						'sub_title' 	  => esc_html__( 'Sub Title', 'wdt-elementor-addon'),
+						'description'     => esc_html__( 'Description', 'wdt-elementor-addon'),
+					);
+					$group2_content_position_elements = array(
+						'button'          => esc_html__( 'Button', 'wdt-elementor-addon')
+					);
+
+
+					$settings['group1_content_positions'] = wedesigntech_elementor_format_repeater_values($group1_content_position_elements);
+					$settings['group2_content_positions'] = wedesigntech_elementor_format_repeater_values($group2_content_position_elements);
+
+					if(!isset($settings['title_subtitle_position'])) {
+						$settings['title_subtitle_position'] = 'below';
+					}
+
+					if(isset($settings['media_image_type'])) {
+						$settings['media_image_type'] = 'cover';
+					}
+
+					$output .= $this->cc_repeater_contents->render_html($widget_object, $settings);
+				}
+				else if($settings['template'] == 'career-list') {
+
+					$group1_content_position_elements = array(
+						'image'           => esc_html__( 'Image', 'wdt-elementor-addon'),
+						'sub_title' 	  => esc_html__( 'Sub Title', 'wdt-elementor-addon'),
+						'title' 		  => esc_html__( 'Title', 'wdt-elementor-addon'),
 						'description'     => esc_html__( 'Description', 'wdt-elementor-addon'),
 					);
 					$group2_content_position_elements = array(
