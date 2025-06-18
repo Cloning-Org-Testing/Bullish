@@ -175,7 +175,7 @@
     .wdt-header-menu ul li:focus > ul,
     .wdt-header-menu ul li:hover > ul { display: block; opacity: 1; pointer-events: auto; visibility: visible; }
 
-    .wdt-header-menu ul li.menu-item-depth-0 > ul { margin-top: 30px; 
+    .wdt-header-menu ul li.menu-item-depth-0 > ul { margin-top: -20px; 
         -webkit-transition: margin-top .25s cubic-bezier(.25,.1,.11,.99) .1s,opacity .2s cubic-bezier(.25,.1,.11,.99) .1s, height 0s ease-out .5s;
         -moz-transition: margin-top .25s cubic-bezier(.25,.1,.11,.99) .1s,opacity .2s cubic-bezier(.25,.1,.11,.99) .1s, height 0s ease-out .5s;
         transition: margin-top .25s cubic-bezier(.25,.1,.11,.99) .1s,opacity .2s cubic-bezier(.25,.1,.11,.99) .1s, height 0s ease-out .5s; }
@@ -439,7 +439,7 @@
 --------------------------------------------------------------*/
 
     #header-wrapper #header:only-child .wdt-no-header-builder-content, .wdt-header-menu ul li ul:not(.menu-item-object-wdt_mega_menus ul),
-    .mobile-menu, .mobile-menu > ul:not(.menu-item-object-wdt_mega_menus ul), .mobile-menu ul:not(.menu-item-object-wdt_mega_menus ul), .mobile-menu ul li ul:not(.menu-item-object-wdt_mega_menus ul) { background-color: var(--wdtHeadAltColor); }
+    .mobile-menu, .mobile-menu > ul:not(.menu-item-object-wdt_mega_menus ul), .mobile-menu ul:not(.menu-item-object-wdt_mega_menus ul), .mobile-menu ul li ul:not(.menu-item-object-wdt_mega_menus ul) { background-color: var(--wdtHeadAltColor); backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); background: rgba(var(--wdtAccentTxtColorRgb),0.05); border: 1px solid rgba(var(--wdtBorderColorRgb), 0.2); }
 
 
     .mobile-menu ul::-webkit-scrollbar { background-color: #f1f1f1; }
@@ -455,7 +455,7 @@
 
 
     .wdt-header-menu ul li ul.children > li > a, .wdt-header-menu ul li ul.sub-menu > li > a,
-    .wdt-header-menu ul li.has-mega-menu ul.menu > li > a { border-color:  rgba(var(--wdtAccentTxtColorRgb),0.055); }
+    .wdt-header-menu ul li.has-mega-menu ul.menu > li > a { border-color:  rgba(var(--wdtAccentTxtColorRgb),0.02); }
     .mobile-menu li a { border-color: rgba(var(--wdtHeadAltColorRgb),0.06); color: var(--wdtAccentTxtColor); }
 
 
