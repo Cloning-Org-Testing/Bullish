@@ -130,7 +130,7 @@ if ( ! function_exists( 'bullish_theme_defaults' ) ) {
 				'font-family' => "DM Sans",
 				'font-fallback' => '"DM Sans", serif',
 				'font-weight' => 400,
-				'fs-desktop' => 18,
+				'fs-desktop' => 16,
 				'fs-desktop-unit' => 'px',
 				'lh-desktop' => 1.55,
 				'lh-desktop-unit' => ''
@@ -193,7 +193,7 @@ if ( ! function_exists( 'bullish_theme_defaults' ) ) {
 				'font-family' => "DM Sans",
 				'font-fallback' => '"DM Sans", sans-serif',
 				'font-weight' => 500,
-				'fs-desktop' => 16,
+				'fs-desktop' => 15,
 				'fs-desktop-unit' => 'px',
 				'lh-desktop' => 1.55,
 				'lh-desktop-unit' => ''
