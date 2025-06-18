@@ -2,7 +2,7 @@
 .wdt-cus-blur-style{
    backdrop-filter: blur(30px);
 }
-/* h2-filler-mask */
+/*-========== h2-filler-mask ===========*/
 .wdt-cus-filler-mask .elementor-widget-container::before{
   content: '';
   height: 100%;
@@ -19,3 +19,23 @@
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
+/*--==== Faq-Page-style--======== */
+
+.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-wrapper {
+  background: linear-gradient(90deg, var(--wdtAccentTxtColor), var(--wdtAccentTxtColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor));
+  background-size: 300% 100%;
+  background-position: center left;
+  transition: var(--wdtBaseTransition);
+  -webkit-transition: var(--wdtBaseTransition);
+}
+.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-wrapper:has(.ui-state-active,.ui-state-hover) {
+   background-position: center right;
+}
+.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-description {
+  padding: 0 clamp(1.25rem, -1.258rem + 11.465vw, 12.5rem) clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem) clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem); /*40-30*/
+  color: rgba(var(--wdtHeadAltColorRgb),0.8);
+}
+.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-title-holder,
+.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-title-holder.ui-state-hover,
+.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-title-holder.ui-state-active,
+.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-description{ border-color: transparent; background-color: transparent; }

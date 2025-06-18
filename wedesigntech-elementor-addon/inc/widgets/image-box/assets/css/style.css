@@ -143,3 +143,116 @@
     justify-content:center;
 }
 }
+
+/* Image box with career-list style */
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(1.5625rem, 1.3535rem + 0.9554vw, 2.5rem); /*25-40*/
+    border-width: 0 0 1px 1px;
+    border-color: rgba(var(--wdtAccentTxtColorRgb), 0.2);
+    backdrop-filter: blur(3px);
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item:last-child {
+    border-bottom: 0;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-media-group {
+    margin: 0 20px 0 0;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item > div[class*="group"] .wdt-content-subtitle + .wdt-content-title{
+    margin-top: 0;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-title h5 {
+    font-size: clamp(1.5rem, 1.4164rem + 0.3822vw, 1.875rem); /* Min-24 & Max-30 */
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-title h5 a {
+    color: var(--wdtAccentTxtColor);
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-subtitle {
+  color: var(--wdtAccentTxtColor);
+  display: flex;
+  align-items: baseline;
+  font-size: var(--wdtFontSize_Base);
+  font-weight: var(--wdtFontWeight_Alt);
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-subtitle::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: var(--wdtAccentTxtColor);
+  border-radius: var(--wdtRadius_Full);
+  bottom: 2px;
+  margin-right: 10px;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-title h5 a:hover {
+    color: var(--wdtPrimaryColor);
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-description p {
+    margin: 0;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-description p:before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 7px;
+    height: 7px;
+    background: var(--wdtHeadAltColor);
+    border-radius: var(--wdtRadius_Full);
+    bottom: 2px;
+    margin-right: 10px;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-button {
+    display: flex;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-button>a {
+    font-size: 0;
+    border-radius: var(--wdtRadius_Full);
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--wdtAccentTxtColor);
+    color: var(--wdtAccentTxtColor);
+    overflow: hidden;
+    background: linear-gradient(90deg, transparent, transparent, var(--wdtPrimaryColor), var(--wdtTertiaryColor));
+   background-size: 300% 100%;
+   background-position: center left;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item:hover .wdt-content-button>a {
+    /* background: var(--wdtAccentTxtColor); */
+    color: var(--wdtHeadAltColor);
+    background-position: center right;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-button>a:before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    mask-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 100 100' style='enable-background:new 0 0 100 100;' xml:space='preserve'%3E%3Cpath d='M97.5,50L44.1,19.1v61.7L97.5,50z M2.5,50v5.3h46.9V50v-5.3H2.5V50z'/%3E%3C/svg%3E%0A");
+    background: currentColor;
+    mask-size: 16px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    transition: inherit;
+    -webkit-transition: inherit;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item:hover .wdt-content-button>a:before{
+  rotate: -40deg;
+}
+.wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-button>a:hover:before {
+    animation: btn-arrow-move 0.375s linear;
+    -webkit-animation: btn-arrow-move 0.375s linear;
+}
+
+@media only screen and (max-width:479px) {
+    .wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item { flex-direction:column; align-items:start; gap:20px; }
+    .wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-media-group { margin: 0; }
+}

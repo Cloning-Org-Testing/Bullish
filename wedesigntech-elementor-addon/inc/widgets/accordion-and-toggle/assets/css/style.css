@@ -35,7 +35,7 @@
 .wdt-accordion-toggle-holder[class*='-expand-collapse-position-start'] .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon { 
     margin: 0 20px 0 0; }
 
-.wdt-accordion-toggle-holder .wdt-accordion-toggle-description { padding: 14px 24px; font-size: 1rem; 
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-description { padding: 14px 24px; font-size: var(--wdtFontSize_Base); 
     width: 100%; font-family: var(--wdtFontTypo_Base); background: transparent; }
 
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon { position: relative; 
@@ -53,8 +53,11 @@
 .wdt-dark-bg .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon > div {
     color: var(--wdtAccentTxtColor);
 }
-.wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active  .wdt-accordion-toggle-icon > div {
+.wdt-dark-bg .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active .wdt-accordion-toggle-icon > div {
     color: var(--wdtPrimaryColor);
+}
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active  .wdt-accordion-toggle-icon > div {
+    color: var(--wdtSecondaryColor);
 }
 
 /** 
