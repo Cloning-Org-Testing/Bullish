@@ -242,12 +242,13 @@ class WeDesignTech_Widget_Base_Flex_Banner {
                     $img_output = '';
                     $class = ($index == 0) ? 'active' : '';
                     $img_output .= esc_url( $item['image']['url'] );
-                    $output .= '  <div class="wdt-flex-banner-option ' . $class .'" style="background-image:url(' . $img_output . ');">';
+                    $output .= '  <div class="wdt-flex-banner-option ' . $class .'">';
                             $output .= ' <div class="wdt-flex-banner-label">';
                             if(isset($item['list_title']) && !empty($item['list_title'])) {
                                 $output .= '<div class="wdt-flex-banner-title">' . $item['list_title'] . '</div>';
                             }
                                 $output .= '  <div class="wdt-flex-banner-info">';
+                                    //Icon
                                     if(!empty($item['list_icon']['value'])) {
                                         $output .= ' <div class="wdt-flex-banner-icon">';
                                             ob_start();
@@ -257,13 +258,31 @@ class WeDesignTech_Widget_Base_Flex_Banner {
                                             $output .= $contents;
                                         $output .= ' </div>';
                                     }
+
+                                    //Sub Title
                                     if(isset($item['list_sub_title']) && !empty($item['list_sub_title'])) {
                                     $output .= '<div class="wdt-flex-banner-sub-title">' . $item['list_sub_title'] . '</div>';
                                     }
+
+                                    //Title
+                                    if(isset($item['list_title']) && !empty($item['list_title'])) {
+                                        $output .= '<div class="wdt-flex-banner-title">' . $item['list_title'] . '</div>';
+                                    }
+
+                                    // Image
+                                    if (!empty($item['image']['url'])) {
+                                        $alt = !empty($item['image']['alt']) ? esc_attr($item['image']['alt']) : '';
+                                        $output .= '<div class="wdt-flex-banner-image">';
+                                        $output .= '<img src="' . esc_url($item['image']['url']) . '" alt="' . $alt . '">';
+                                        $output .= '</div>';
+                                    }
+
+                                    //Content - Description
                                     if(isset($item['list_content']) && !empty($item['list_content'])) {
                                     $output .= '<div class="wdt-flex-banner-content">' . $item['list_content'] . '</div>';
                                     }
-            
+
+                                    //Button
                                     $link_start = $link_end = '';
                                     if( !empty( $item['button_link']['url'] ) && $item['button'] !== '' ){
                                         $target = ( $item['button_link']['is_external'] == 'on' ) ? ' target="_blank" ' : '';
