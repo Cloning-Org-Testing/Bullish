@@ -31,7 +31,7 @@
 
     .blog-entry div i[class*="fa"], .blog-entry div i.pe, .blog-entry div i,
     .blog-entry div.entry-author, .blog-entry div.entry-date, .blog-entry div.entry-comments,
-    .blog-entry div.entry-categories, .blog-entry div.entry-tags { font-size: calc(var(--wdtFontSize_Base) - 2px); font-weight: var(--wdtFontWeight_Ext); }
+    .blog-entry div.entry-categories, .blog-entry div.entry-tags { font-size: calc(var(--wdtFontSize_Base) - 0px); font-weight: var(--wdtFontWeight_Ext); }
 
 
     /** Blog Icon */
