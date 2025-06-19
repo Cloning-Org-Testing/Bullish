@@ -64,7 +64,7 @@
     Template Classic 
 */
 
-.wdt-template-classic .wdt-accordion-toggle-wrapper { background-color: rgba(var(--wdtAccentTxtColorRgb),0.2); backdrop-filter: blur(10px); border: 1px solid rgba(var(--wdtAccentTxtColorRgb),0.1); border-radius: var(--wdtRadius_2X); overflow: hidden; }
+.wdt-template-classic .wdt-accordion-toggle-wrapper { background-color: rgba(var(--wdtAccentTxtColorRgb),0.2); backdrop-filter: blur(10px); border: 1px solid rgba(var(--wdtAccentTxtColorRgb),0.1); border-radius: var(--wdtRadius_2X); overflow: hidden;-webkit-transition: var(--wdt-Ad-Transition);transition: var(--wdt-Ad-Transition); }
 .wdt-template-classic .wdt-accordion-toggle-wrapper:has(.ui-state-active){border-color: var(--wdtPrimaryColor);}
 .wdt-template-classic .wdt-accordion-toggle-title-holder { border: none; background-color: transparent; color: var(--wdtHeadAltColor); }
 .wdt-template-classic .wdt-accordion-toggle-description { border: none; padding-top: 0px; }
