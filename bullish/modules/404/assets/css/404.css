@@ -36,6 +36,20 @@
 
     .error404 .container { height: 100%; text-align: center; }
 
+	.center-content-wrapper:before{
+		content: "";
+		height: 1px;
+		width: 1px;
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		margin: auto;
+		border-radius: var(--wdtRadius_Full);
+		-webkit-border-radius: var(--wdtRadius_Full);
+    	background-color: rgba(var(--wdtPrimaryColorRgb), 0.15);
+    	box-shadow: 0 0 800px 300px rgba(var(--wdtPrimaryColorRgb), 0.12);
+    	-webkit-box-shadow: 0 0 800px 300px rgba(var(--wdtPrimaryColorRgb), 0.12);
+	}
+
 
 
 /*--------------------------------------------------------------
