@@ -191,6 +191,18 @@ class WeDesignTech_Widget_Base_Pricing_Table {
 					'default'     => ''
 				) );
 
+				$elementor_object->add_control(
+					'header_description',
+					array (
+						'label' => esc_html__( 'Description', 'wdt-elementor-addon' ),
+						'type' => \Elementor\Controls_Manager::TEXTAREA,
+						'default' => '',
+						'placeholder' => esc_html__( 'Enter your description', 'wdt-elementor-addon' ),
+						'separator' => 'none',
+						'rows' => 10
+					)
+				);
+
 				// Postions
 				$header_positions = new \Elementor\Repeater();
 				$header_positions->add_control( 'element_value', array(
@@ -199,7 +211,8 @@ class WeDesignTech_Widget_Base_Pricing_Table {
 					'default' => 'title',
 					'options' => array(
 						'title' => esc_html__( 'Title', 'wdt-elementor-addon'),
-						'subtitle' => esc_html__( 'Sub Title', 'wdt-elementor-addon')
+						'subtitle' => esc_html__( 'Sub Title', 'wdt-elementor-addon'),
+						'description' => esc_html__( 'Description', 'wdt-elementor-addon' ),
 					)
 				) );
 				$elementor_object->add_control( 'header_positions', array(
@@ -212,11 +225,16 @@ class WeDesignTech_Widget_Base_Pricing_Table {
 						),
 						array(
 							'element_value' => 'subtitle'
+						),
+						array(
+							'element_value' => 'description'
 						)
 					),
 					'prevent_empty' => true,
 					'title_field'   => '{{ wdtGetPricingTableItems( obj ) }}'
 				) );
+
+				
 
 			$elementor_object->end_controls_section();
 
@@ -2152,14 +2170,24 @@ class WeDesignTech_Widget_Base_Pricing_Table {
 
 			} else if($settings['template'] == 'classic') {
 
-				// Badge
-				$output .= $this->render_badge_html($settings);
-
 				// Header
-				$output .= $this->render_header_html($settings, $link_start, $link_end);
+				$header_content_positions = $this->cc_repeater_contents->content_position_items($settings['header_positions']);
+
+				if(is_array($header_content_positions) && !empty($header_content_positions)) {
+					$output .= '<div class="wdt-pricing-table-header">';
+					foreach($header_content_positions as $content_position) {
+						if($content_position == 'subtitle') {
+							$output .= $this->cc_repeater_contents->render_sub_title($settings['sub_title']);
+						} 
+					}
+					$output .= '</div>';
+				}
 
 				// Pricing
 				$output .= $this->render_pricing_html($settings);
+
+				// Header Copy
+				$output .= $this->render_header_copy_html($settings, $link_start, $link_end);
 
 				// Features
 				$output .= $this->render_features_html($settings, $widget_object);
@@ -2300,6 +2328,30 @@ class WeDesignTech_Widget_Base_Pricing_Table {
 					$output .= $this->cc_repeater_contents->render_title($settings['title'], $link_start, $link_end);
 				} else if($content_position == 'subtitle') {
 					$output .= $this->cc_repeater_contents->render_sub_title($settings['sub_title']);
+				} 
+			}
+			$output .= '</div>';
+		}
+
+		return $output;
+
+	}
+
+	public function render_header_copy_html($settings, $link_start, $link_end) {
+
+		$output = '';
+
+		$header_content_positions = $this->cc_repeater_contents->content_position_items($settings['header_positions']);
+
+		if(is_array($header_content_positions) && !empty($header_content_positions)) {
+			$output .= '<div class="wdt-pricing-table-description">';
+			foreach($header_content_positions as $content_position) {
+				if($content_position == 'title') {
+					$output .= $this->cc_repeater_contents->render_title($settings['title'], $link_start, $link_end);
+				} else if($content_position == 'description' && isset($settings['header_description']) && !empty($settings['header_description'])) {
+					$output .= '<div class="wdt-pricing-table-header-description">';
+						$output .= $settings['header_description'];
+					$output .= '</div>';
 				}
 			}
 			$output .= '</div>';
