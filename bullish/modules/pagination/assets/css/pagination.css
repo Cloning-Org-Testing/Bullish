@@ -31,7 +31,7 @@
 
     }
 
-    .pagination ul li a.next i, .pagination ul li a.prev i {font-size: calc(var(--wdtFontSize_Base) - 2px);height: 30px;line-height: 30px;margin: 0;position: absolute;left: 50%;top: 50%;text-align: center;text-decoration: inherit;width: 30px;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+    .pagination ul li a.next i, .pagination ul li a.prev i {font-size: var(--wdtFontSize_Base);height: 30px;line-height: 30px;margin: 0;position: absolute;left: 50%;top: 50%;text-align: center;text-decoration: inherit;width: 30px;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
     .pagination ul li a.next i:before, .pagination ul li a.prev i:before { font-family: 'bullish-ext-icons' !important; font-size:var(--wdtFontSize_H6); position:relative; top:2px; text-decoration: none; }
     .pagination ul li a.next i:before { content:"\e901"; }
     .pagination ul li a.prev i:before { content:"\e900"; }

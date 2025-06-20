@@ -14,7 +14,7 @@
 	.commentlist ul.children li > .children { padding-top: 0; padding-left: 60px; }
 
 	.commentlist li.comment, .commentlist li.pingback, .commentlist li.trackback { padding-bottom: 0; }
-	.commentlist li.comment .comment-respond p #email-notes, .comment-form > p #email-notes, .comment-form .comment-notes { display: inline-block; font-size: calc(var(--wdtFontSize_Base) - 3px); margin-bottom: 0; width: 100%; }
+	.commentlist li.comment .comment-respond p #email-notes, .comment-form > p #email-notes, .comment-form .comment-notes { display: inline-block; font-size: var(--wdtFontSize_Ext); margin-bottom: 0; width: 100%; }
 	.comment-form .comment-notes { margin-bottom: 15px; }
 
 	#comments { clear: both; }
@@ -146,7 +146,7 @@
 	.comment-form p label { display: inline-block; }
 	.comment-form p:not(.comment-form-cookies-consent) label { font-weight: 500; }
 
-	.comment-form .comment-form-cookies-consent label { font-size: calc(var(--wdtFontSize_Base) - 2px); padding-left: 25px; cursor: pointer; }
+	.comment-form .comment-form-cookies-consent label { font-size: var(--wdtFontSize_Base); padding-left: 25px; cursor: pointer; }
 	.comment-form .comment-form-cookies-consent #wp-comment-cookies-consent { margin: 0; position: absolute; left: 0; top: 7px; }
 
 	.comment-form > p:last-child,.wpcf7-form .contact-form:last-child,.commentlist li.comment .comment-respond p:last-child { margin-bottom: 0; }

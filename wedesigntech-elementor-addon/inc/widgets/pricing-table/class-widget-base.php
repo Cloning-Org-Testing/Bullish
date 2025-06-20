@@ -113,7 +113,7 @@ class WeDesignTech_Widget_Base_Pricing_Table {
 			$elementor_object->start_controls_section( 'wdt_section_media', array(
 				'label' => esc_html__( 'Media', 'wdt-elementor-addon'),
 				'condition' => array (
-					'template!' => array ('list', 'classic', 'default'),
+					'template!' => array ('list', 'classic', 'default', 'bordered'),
 				),
 			) );
 
@@ -528,7 +528,8 @@ class WeDesignTech_Widget_Base_Pricing_Table {
 						'default'  => esc_html__( 'Default', 'wdt-elementor-addon' ),
 						'classic'  => esc_html__( 'Classic', 'wdt-elementor-addon' ),
 						'list'  => esc_html__( 'List', 'wdt-elementor-addon' ),
-						'custom-template' => esc_html__( 'Custom Template', 'wdt-elementor-addon' )
+						'custom-template' => esc_html__( 'Custom Template', 'wdt-elementor-addon' ),
+						'bordered' => esc_html__( 'Bordered', 'wdt-elementor-addon' ),
 					)
 				) );
 
@@ -649,7 +650,7 @@ class WeDesignTech_Widget_Base_Pricing_Table {
 					'slug' => 'media',
 					'title' => esc_html__( 'Media', 'wdt-elementor-addon' ),
 					'condition' => array (
-						'template!' => array ('list', 'classic', 'default'),
+						'template!' => array ('list', 'classic', 'default', 'bordered'),
 					),
 					'styles' => array (
 						'alignment' => array (
@@ -2221,6 +2222,20 @@ class WeDesignTech_Widget_Base_Pricing_Table {
 					}
 
 				}
+
+			} else if($settings['template'] == 'bordered') {
+
+				// Header
+				$output .= $this->render_header_html($settings, $link_start, $link_end);
+
+				// Pricing
+				$output .= $this->render_pricing_html($settings);
+
+				// Footer
+				$output .= $this->render_footer_html($settings, $link_start, $link_end);
+
+				// Features
+				$output .= $this->render_features_html($settings, $widget_object);
 
 			}
 

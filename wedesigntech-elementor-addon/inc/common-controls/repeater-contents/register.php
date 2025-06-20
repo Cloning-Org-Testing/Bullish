@@ -221,6 +221,16 @@ class WeDesignTech_Common_Controls_Repeater_Contents {
 						'condition'   => $this->option_default_condition
 					) );
 				}
+				if(in_array('heading', $this->option_default_keys)) {
+					$repeater->add_control( 'item_heading', array(
+						'label'       => $this->options_default['heading'],
+						'type'        => \Elementor\Controls_Manager::TEXT,
+						'label_block' => true,
+						'placeholder' => esc_html__( 'Item Heading', 'wdt-elementor-addon' ),
+						'default'     => esc_html__( 'Item Heading', 'wdt-elementor-addon' ),
+						'condition'   => $this->option_default_condition
+					) );
+				}
 				if(in_array('custom', $this->option_default_keys)) {
 					do_action($this->options_default['custom']['control_action'], $repeater);
 				}
@@ -286,6 +296,8 @@ class WeDesignTech_Common_Controls_Repeater_Contents {
 					'options'   => $elementor_object->get_elementor_page_list(),
 					'condition' => $this->option_template_condition
 				) );
+
+				
 			}
 
 			$elementor_object->add_control( 'item_contents', array(
@@ -400,6 +412,8 @@ class WeDesignTech_Common_Controls_Repeater_Contents {
 					$output .= $this->render_social_icons($item);
 				} else if($content_position == 'rating') {
 					$output .= $this->cc_rating->render_html($item['rating']);
+				} else if($content_position == 'heading') {
+					$output .= $this->render_heading_html($item['item_heading'], $link_start, $link_end);
 				} else if($content_position == 'elements_group') {
 					$output .= $this->render_elements_group($widget_object, $key, $item, $link_start, $link_end, $settings, $group);
 				} else if($content_position == 'custom') {
@@ -472,6 +486,8 @@ class WeDesignTech_Common_Controls_Repeater_Contents {
 						$output .= $this->render_social_icons($item);
 					} else if($content_position == 'rating') {
 						$output .= $this->cc_rating->render_html($item['rating']);
+					} else if($content_position == 'heading') {
+						$output .= $this->render_heading_html($item['item_heading'], $link_start, $link_end);
 					} else if($content_position == 'custom') {
 						$output .= apply_filters($this->options_default['custom']['render_filter'], '', $widget_object, $key, $item, $link_start, $link_end, $settings);
 					}
@@ -660,5 +676,20 @@ class WeDesignTech_Common_Controls_Repeater_Contents {
 		endif;
 		return $output;
 	}
+
+	public function render_heading_html($item_title, $link_start, $link_end) {
+		$output = '';
+		if ( ! empty( $item_title ) ) {
+			$output .= '<div class="wdt-content-heading">';
+				$output .= '<h5>';
+					$output .= $link_start;
+					$output .= esc_html( $item_title );
+					$output .= $link_end;
+				$output .= '</h5>';
+			$output .= '</div>';
+		}
+		return $output;
+	}
+
 
 }

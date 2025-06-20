@@ -298,6 +298,6 @@
 
 .wdt-terms-and-condition-holder input[type="checkbox"].wdt-terms-and-conditions:checked:after { transform: scale(1); }
 
-.wdt-terms-and-condition-holder .wdt-terms-condition-lbl { font-size: 0.9rem; }
+.wdt-terms-and-condition-holder .wdt-terms-condition-lbl { font-size: 1em; }
 
 .wdt-dark-bg .wdt-terms-and-condition-holder input[type="checkbox"].wdt-terms-and-conditions{ border-color: var(--wdtAccentTxtColor);}
