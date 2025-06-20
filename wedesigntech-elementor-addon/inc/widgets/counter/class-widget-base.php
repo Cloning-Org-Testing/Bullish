@@ -166,7 +166,8 @@ class WeDesignTech_Widget_Base_Counter {
 				'default' => 'default',
 				'options' => array(
 					'default'  => esc_html__( 'Default', 'wdt-elementor-addon' ),
-					'standard' => esc_html__( 'Standard', 'wdt-elementor-addon' )
+					'standard' => esc_html__( 'Standard', 'wdt-elementor-addon' ),
+					'modern'  => esc_html__( 'Modern', 'wdt-elementor-addon' )
 				)
 			) );
 
@@ -730,6 +731,21 @@ class WeDesignTech_Widget_Base_Counter {
 						'sub_title' 	  => esc_html__( 'Sub Title', 'wdt-elementor-addon'),
 						'title' 		  => esc_html__( 'Title', 'wdt-elementor-addon'),
 						'description'     => esc_html__( 'Description', 'wdt-elementor-addon')
+					);
+
+					$settings['group1_content_positions'] = wedesigntech_elementor_format_repeater_values($group1_content_position_elements);
+					$settings['group2_content_positions'] = wedesigntech_elementor_format_repeater_values($group2_content_position_elements);
+
+					$output .= $this->cc_repeater_contents->render_html($widget_object, $settings);
+
+				}
+				else if($settings['template'] == 'modern') {
+
+					$group1_content_position_elements = array(
+						'custom'          => esc_html__( 'Counter', 'wdt-elementor-addon')
+					);
+					$group2_content_position_elements = array(
+						'title' 		  => esc_html__( 'Title', 'wdt-elementor-addon')
 					);
 
 					$settings['group1_content_positions'] = wedesigntech_elementor_format_repeater_values($group1_content_position_elements);
