@@ -566,20 +566,12 @@
 /***<<--- Pricing Table Type - Classic Template --->>***/
 
 .wdt-pricing-table-holder[class*='-template-classic'] {
-    padding: clamp(1.25rem, 0.9713rem + 1.2739vw, 2.5rem); /* Min-20 & Max-40 */
     border-radius: var(--wdtRadius_2X);
     -webkit-border-radius: var(--wdtRadius_2X);
 }
-.wdt-pricing-table-holder[class*="-template-classic"]::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 73%;
-  border-radius: inherit;
-  background: var(--wdtAccentTxtColor);
-  z-index: -1;
+.wdt-pricing-table-holder[class*='-template-classic'] > div{
+    padding: clamp(1.5625rem, 1.3535rem + 0.9554vw, 2.5rem); /* Min-25 & Max-40 */
+    width: 100%;
 }
 .wdt-pricing-table-holder[class*="-template-classic"] div[class*="-table-header"] .wdt-content-subtitle {
   letter-spacing: 0;
@@ -597,14 +589,31 @@
   -webkit-border-radius: var(--wdtRadius_Full);
   border-radius: var(--wdtRadius_Full);
 }
+.wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-header{
+    padding-bottom: 0;
+}
 .wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-pricing {
-    padding: 0 0 clamp(1.25rem, 0.9713rem + 1.2739vw, 2.5rem); /* Min-20 & Max-40 */
     margin: 0;
+    padding-top: 0;
 }
 .wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-description,
 .wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-features{
-   padding: clamp(1.25rem, 0.9713rem + 1.2739vw, 2.5rem) 0; /* Min-20 & Max-40 */
    margin: 0;
+   background: var(--wdtAccentTxtColor);
+}
+.wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-description{
+    border-radius: var(--wdtRadius_2X) var(--wdtRadius_2X) 0 0;
+    -webkit-border-radius: var(--wdtRadius_2X) var(--wdtRadius_2X) 0 0;   
+}
+.wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-features{
+  border-top: 1px solid var(--wdtBorderColor);
+}
+.wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-footer{
+    padding-top: 0;
+    background: var(--wdtAccentTxtColor);
+    border-radius: 0 0 var(--wdtRadius_2X) var(--wdtRadius_2X);
+    -webkit-border-radius: 0 0 var(--wdtRadius_2X) var(--wdtRadius_2X);
+    display: block;
 }
 .wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-badge'] {
     z-index: 2;
@@ -617,9 +626,6 @@
     font-size: clamp(1.25rem, 1.1943rem + 0.2548vw, 1.5rem); /* Min-20 & Max-24 */
     margin-bottom: 12px;
 }
-.wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-features{
-  border-top: 1px solid var(--wdtBorderColor);
-}
 .wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-footer .wdt-content-button>a {
     padding: var(--wdtPadding_Btn);
     background-color: transparent;
@@ -631,7 +637,8 @@
     background-size: 300% 100%;
     background-position: bottom right;
 }
-.wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-footer'] .wdt-content-button > a:hover{
+.wdt-pricing-table-holder[class*='-template-classic']:hover div[class*='-table-footer'] .wdt-content-button > a,
+.active .wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-footer'] .wdt-content-button > a{
     background-position: bottom left; border-color:transparent;
 }
 .wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-footer'] .wdt-content-button > a:after{
@@ -650,7 +657,7 @@
     animation: btn-arrow-move 0.375s linear;-webkit-animation: btn-arrow-move 0.375s linear;
 }
 
-.wdt-pricing-table-holder[class*='-template-classic'] {
+/* .wdt-pricing-table-holder[class*='-template-classic'] {
    background-image: linear-gradient(90deg , var(--wdtTertiaryColor), var(--wdtPrimaryColor) , var(--wdtTertiaryColor));
   background-size: 200% 100%;
   background-position: bottom right;
@@ -658,17 +665,17 @@
 }
 .wdt-pricing-table-holder[class*='-template-classic']:hover{
     background-position: bottom left;
-}
+} */
 .wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-badge']:not(.type4),
 .wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-badge'].type4 .wdt-pricing-table-badge-inner {
     background-color: var(--wdt-elementor-color-primary);
 }
-.wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-badge'].type2:after {
+/* .wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-badge'].type2:after {
     border-bottom-color: var(--wdt-elementor-color-primary);
 }
 .wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-header']:before {
     background-color: var(--wdt-elementor-color-secondary);
-}
+} */
 .wdt-pricing-table-holder[class*='-template-classic'],
 .wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-pricing,
 .wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-pricing .wdt-pricing-table-features .wdt-pricing-table-features-list li:after,
