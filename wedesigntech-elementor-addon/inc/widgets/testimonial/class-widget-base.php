@@ -673,12 +673,11 @@ class WeDesignTech_Widget_Base_Testimonial {
 				} else if($settings['template'] == 'standard') {
 
 					$group1_content_position_elements = array(
-						'image'           => esc_html__( 'Image', 'wdt-elementor-addon'),
-						'title_sub_title' => esc_html__( 'Name and Role', 'wdt-elementor-addon')
+						'image'           => esc_html__( 'Image', 'wdt-elementor-addon')
 					);
 					$group2_content_position_elements = array(
-						'description'     => esc_html__( 'Description', 'wdt-elementor-addon'),
-						'rating'          => esc_html__( 'Rating', 'wdt-elementor-addon')
+						'rating'          => esc_html__( 'Rating', 'wdt-elementor-addon'),
+						'description'     => esc_html__( 'Description', 'wdt-elementor-addon')
 					);
 
 					$settings['group1_content_positions'] = wedesigntech_elementor_format_repeater_values($group1_content_position_elements);

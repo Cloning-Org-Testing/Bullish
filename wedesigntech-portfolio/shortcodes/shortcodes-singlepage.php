@@ -286,29 +286,31 @@ if( !class_exists('WDTPortfolioSinglePageShortcodes') ) {
 
 			if($attrs['listing_id'] != '') {
 
-				$output .= '<div class="wdt-listings-sociallinks-container '.esc_attr( $attrs['class'] ).'">';
+				//If social needs to be displayed in listing page means just un comment the below code.
 
-                    $output .= '<label>'.esc_html__('Socials:', 'wdt-portfolio').'</label>';
+				// $output .= '<div class="wdt-listings-sociallinks-container '.esc_attr( $attrs['class'] ).'">';
 
-					$output .= '<ul class="wdt-listings-sociallinks-list">';
+                //     $output .= '<label>'.esc_html__('Socials:', 'wdt-portfolio').'</label>';
 
-                        $wdt_social_items = get_post_meta($attrs['listing_id'], 'wdt_social_items', true);
-                        $wdt_social_items = (isset($wdt_social_items) && is_array($wdt_social_items)) ? $wdt_social_items : array ();
+				// 	$output .= '<ul class="wdt-listings-sociallinks-list">';
 
-                        $wdt_social_items_value = get_post_meta($attrs['listing_id'], 'wdt_social_items_value', true);
-                        $wdt_social_items_value = (isset($wdt_social_items_value) && is_array($wdt_social_items_value)) ? $wdt_social_items_value : array ();
+                //         $wdt_social_items = get_post_meta($attrs['listing_id'], 'wdt_social_items', true);
+                //         $wdt_social_items = (isset($wdt_social_items) && is_array($wdt_social_items)) ? $wdt_social_items : array ();
 
-						$i = 0;
-						if(is_array($wdt_social_items) && !empty($wdt_social_items)) {
-							foreach($wdt_social_items as $wdt_social_item) {
-								$output .= '<li><a href="'.esc_url($wdt_social_items_value[$i]).'"><span class="fab '.esc_attr($wdt_social_item).'"></span></a></li>';
-								$i++;
-							}
-						}
+                //         $wdt_social_items_value = get_post_meta($attrs['listing_id'], 'wdt_social_items_value', true);
+                //         $wdt_social_items_value = (isset($wdt_social_items_value) && is_array($wdt_social_items_value)) ? $wdt_social_items_value : array ();
 
-					$output .= '</ul>';
+				// 		$i = 0;
+				// 		if(is_array($wdt_social_items) && !empty($wdt_social_items)) {
+				// 			foreach($wdt_social_items as $wdt_social_item) {
+				// 				$output .= '<li><a href="'.esc_url($wdt_social_items_value[$i]).'"><span class="fab '.esc_attr($wdt_social_item).'"></span></a></li>';
+				// 				$i++;
+				// 			}
+				// 		}
 
-				$output .= '</div>';
+				// 	$output .= '</ul>';
+
+				// $output .= '</div>';
 
 			} else {
 
@@ -461,13 +463,13 @@ if( !class_exists('WDTPortfolioSinglePageShortcodes') ) {
 
 					$output .= '<div class="wdt-listings-taxonomy-container ' .esc_attr( $attrs['class'] ).'">';
 
-                        if($attrs['show_label'] == 'true') {
-                            if($attrs['taxonomy'] == 'wdt_listings_category') {
-                                $output .= '<label>'.esc_html__('Category:', 'wdt-portfolio').'</label>';
-                            } else if($attrs['taxonomy'] == 'wdt_listings_amenity') {
-                                $output .= '<label>'.apply_filters( 'amenity_label', 'singular' ).':</label>';
-                            }
-                        }
+                        // if($attrs['show_label'] == 'true') {
+                        //     if($attrs['taxonomy'] == 'wdt_listings_category') {
+                        //         $output .= '<label>'.esc_html__('Category:', 'wdt-portfolio').'</label>';
+                        //     } else if($attrs['taxonomy'] == 'wdt_listings_amenity') {
+                        //         $output .= '<label>'.apply_filters( 'amenity_label', 'singular' ).':</label>';
+                        //     }
+                        // }
 
 						$output .= '<ul class="wdt-listings-taxonomy-list">';
 

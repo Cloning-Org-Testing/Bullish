@@ -12,17 +12,17 @@ $term_ids_str =  implode(',', $term_ids);
 
     <div class="wdt-portfolio-single-content">
         <div class="wdt-portfolio-single-wrapper">       
-            <div class="wdt-portfolio-content-group">
+            <!-- <div class="wdt-portfolio-content-group">
                 <div class="wdt-sticky-wrapper">
-                    <?php echo do_shortcode('[wdt_sp_post_date with_label="true" listing_id="'.$listing_id.'"]'); ?>
-                    <?php echo do_shortcode('[wdt_sp_utils show_title="true" listing_id="'.$listing_id.'"]'); ?>
-                    <?php if (has_excerpt()) { ?>
+                    <?php //echo do_shortcode('[wdt_sp_post_date with_label="true" listing_id="'.$listing_id.'"]'); ?>
+                    <?php //echo do_shortcode('[wdt_sp_utils show_title="true" listing_id="'.$listing_id.'"]'); ?>
+                    <?php //if (has_excerpt()) { ?>
                         <div class="wdt-portfolio-excerpt">
-                            <?php the_excerpt(); ?>
+                            <?php //the_excerpt(); ?>
                         </div>
-                    <?php } ?>
+                    <?php //} ?>
                 </div>
-            </div>
+            </div> -->
             <div class="wdt-portfolio-taxonomy-group">
                 <?php echo do_shortcode('[wdt_sp_taxonomy taxonomy="wdt_listings_category" show_categories="true" show_label="true" listing_id="'.$listing_id.'"]'); ?>
                 <?php echo do_shortcode('[wdt_sp_taxonomy taxonomy="wdt_listings_amenity" show_categories="true" show_label="true" listing_id="'.$listing_id.'"]'); ?>
