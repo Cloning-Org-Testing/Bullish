@@ -1266,7 +1266,7 @@ if(!function_exists('breadcrumbs_portfolio_module')) {
         return $breadcrumbs;
 
     }
-    add_filter( 'aakum_breadcrumbs', 'breadcrumbs_portfolio_module', 10, 1 );
+    add_filter( 'bullish_breadcrumbs', 'breadcrumbs_portfolio_module', 10, 1 );
 }
 
 ?>
