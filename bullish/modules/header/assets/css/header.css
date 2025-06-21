@@ -2,7 +2,7 @@
     Header
 --------------------------------------------------------------*/
 
-    #header-wrapper { float: left; margin: 0 0 120px; padding: 0; position: relative; width: 100%; }
+    #header-wrapper { float: left; margin: 0 0 90px; padding: 0; position: relative; width: 100%; }
 
     #header { float: left; margin: 0; padding: 0; position: relative; width: 100%; z-index: 10; }
 
@@ -137,7 +137,8 @@
     .wdt-header-menu ul li ul.sub-menu li { margin: 0; }
 
     .wdt-header-menu ul li ul.children li ul:not(.menu-item-object-wdt_mega_menus ul),
-    .wdt-header-menu ul li ul.sub-menu li ul:not(.menu-item-object-wdt_mega_menus ul) { left: 100%; top: -12px; }
+    .wdt-header-menu ul li ul.sub-menu li ul:not(.menu-item-object-wdt_mega_menus ul) { left: 100%; top: -13px; }
+    .wdt-header-menu ul li ul.sub-menu li ul:not(.menu-item-object-wdt_mega_menus ul){ background:var(--wdtHeadAltColor); }
 
     .wdt-header-menu ul li.menu-item-depth-2 > ul,
     .wdt-header-menu ul li.menu-item-depth-4 > ul,
