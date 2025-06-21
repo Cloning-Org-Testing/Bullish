@@ -791,7 +791,7 @@ class WeDesignTech_Widget_Base_Image_Box {
 						'image'           => esc_html__( 'Image', 'wdt-elementor-addon')
 					);
 					$group2_content_position_elements = array(
-						'sub_title' 	  => esc_html__( 'Sub Title', 'wdt-elementor-addon'),
+						'icon'           => esc_html__( 'Icon', 'wdt-elementor-addon'),
 						'title' 		  => esc_html__( 'Title', 'wdt-elementor-addon'),
 						'description'     => esc_html__( 'Description', 'wdt-elementor-addon'),
 						'button'          => esc_html__( 'Button', 'wdt-elementor-addon')
