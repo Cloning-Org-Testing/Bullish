@@ -195,7 +195,7 @@
 
 @media only screen and (max-width: 1280px) {
   .main-title-section-wrapper .main-title-section-container {
-    padding:  clamp(3.75rem, 3.4713rem + 1.2739vw, 5rem) 0 clamp(4.375rem, 4.0963rem + 1.2739vw, 5.625rem); /* 60-80 & 70-90 */
+    padding:  clamp(3.75rem, 3.4713rem + 1.2739vw, 5rem) 0 clamp(8.125rem, 7.375rem + 2.5vw, 9.375rem); /* 60-80 & 70-90 */
   }
 }
 
@@ -228,6 +228,9 @@
 @media only screen and (max-width: 479px) {
   .main-title-section-wrapper > .main-title-section-bg:before {
     border-radius: 0;
+    height: 0px;
   }
-  
+  .main-title-section-wrapper .main-title-section-container {
+    padding-bottom: 60px;
+  }
 }
