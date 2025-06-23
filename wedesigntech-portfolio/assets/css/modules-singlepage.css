@@ -12,15 +12,14 @@
 
 /*----*****---- << Default Single Page Style >> ----*****----*/
 
-.wdt-portfolio-single-default { margin-bottom: clamp(3.125rem, 2.3466rem + 4.2945vw, 7.5rem); /*120px - 50px*/ }
+.wdt-portfolio-single-default { margin-bottom: clamp(3.125rem, 1.0474rem + 6.9396vw, 9.375rem); /*150px - 50px*/ }
 .wdt-portfolio-single-default .wdt-portfolio-single-content {
-    display: flex; flex-direction: column; margin-top: clamp(1.25rem, 1.0832rem + 0.9202vw, 2.1875rem); /*35px - 20px*/ }
+    display: flex; flex-direction: column; margin-top: clamp(1.875rem, 1.25rem + 2.0833vw, 3.75rem); /*60px - 20px*/}
 .wdt-portfolio-single-default .wdt-portfolio-single-content .wdt-portfolio-single-wrapper {
     display: grid; grid-template-columns: 68% 32%; }
 .wdt-portfolio-single-default .wdt-portfolio-single-content .wdt-portfolio-single-wrapper:not(:last-child) {
-    padding-bottom: clamp(1.875rem, 1.6526rem + 1.227vw, 3.125rem); /*50px - 30px*/ 
-    margin-bottom: clamp(1.875rem, 1.6526rem + 1.227vw, 3.125rem); /*50px - 30px*/ 
-    border-bottom: 1px solid var(--wdtBorderColor); }
+    margin-bottom: 15px;
+    border-bottom: 0; }
 .wdt-portfolio-single-default .wdt-portfolio-single-content .wdt-portfolio-single-wrapper .wdt-portfolio-content-group { 
     padding-right: clamp(1.875rem, 1.5414rem + 1.8405vw, 3.75rem); /*60px - 30px*/ }
 .wdt-portfolio-single-default .wdt-portfolio-single-content .wdt-portfolio-single-wrapper .wdt-portfolio-content-group .wdt-sticky-wrapper { position: sticky; height: fit-content; top: 0; }
@@ -121,12 +120,9 @@
 .wdt-listings-taxonomy-container ul { 
     display: flex; flex-wrap: wrap; align-items: center; padding: 0; margin: -5px; }
 .wdt-listings-taxonomy-container li { display: flex; margin: 5px; padding: 0; }
-.wdt-listings-taxonomy-container .wdt-listings-taxonomy-list li a { 
-    backface-visibility: hidden; will-change: transform; padding: 10px 20px; background-color: var(--wdtTertiaryColor); 
-    color: var(--wdtHeadAltColor); font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_Base); 
-    line-height: var(--wdtLineHeight_Alt); text-transform: capitalize; }
-.wdt-listings-taxonomy-container .wdt-listings-taxonomy-list li a:hover {
-    background-color: var(--wdtPrimaryColor); color: var(--wdtAccentTxtColor); }
+.wdt-listings-taxonomy-container .wdt-listings-taxonomy-list li a { backface-visibility: hidden; will-change: transform; padding: 0; color: var(--wdtHeadAltColor); line-height: var(--wdtLineHeight_Alt); text-decoration: none; text-transform: capitalize; font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_Ext); }
+.wdt-listings-taxonomy-container .wdt-listings-taxonomy-list li a span:before{ content: ''; margin-right: 10px; width: 6px; height: 6px; display: inline-block; background: currentColor; position: relative; left: 0; top: -2px; bottom: 0; right: 0; border-radius: var(--wdtRadius_Full);}
+.wdt-listings-taxonomy-container .wdt-listings-taxonomy-list li a:hover { color: var(--wdtPrimaryColor); }
 
 
 /*----*****---- << Contact Details Style >> ----*****----*/

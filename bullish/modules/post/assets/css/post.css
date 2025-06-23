@@ -118,7 +118,7 @@
 	.blog-single-entry .entry-likes-views .wdt-like-views > div { width: auto; }
 	.blog-single-entry .entry-likes-views .wdt-like-views .views { margin-left: 10px; }
 
-	.blog-single-entry div[class*="entry-"]:not(.wdt-post-entry) { margin-bottom: 0px; -webkit-transition:all .3s linear; transition:all .3s linear; }
+	.blog-single-entry div[class*="entry-"]:not(.wdt-post-entry) { margin-bottom: 15px; -webkit-transition:all .3s linear; transition:all .3s linear; }
 	.blog-single-entry div[class*="single-entry-"] { display: inline-block; width: 100%; }
 
 	.blog-single-entry div[class^="entry-"] div[class^="single-entry-"] { margin-bottom: 0; }
