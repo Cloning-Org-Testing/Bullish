@@ -10,11 +10,11 @@ background-size: 300% 100%; background-position: bottom left; background-repeat:
   background-position: bottom right;
 }
 .wdt-flex-banner-options{
-  counter-reset: section;
+  counter-reset: count;
 }
 .wdt-flex-banner-options .wdt-flex-banner-option:after{
-  counter-increment: section;
-  content: "0" counter(section);
+  counter-increment: count;
+  content: "0" counter(count);
   color:var(--wdtHeadAltColor);
   font-family:var(--wdtFontTypo_Alt);
   font-size:var(--wdtFontSize_Base);
@@ -22,8 +22,8 @@ background-size: 300% 100%; background-position: bottom left; background-repeat:
   display:block;
   z-index:3;
   position:absolute;
-  top:clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem);
-  left:clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem);
+  top: clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem);/*60-30*/
+  left: clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem);/*60-30*/
   height:50px;
   width:50px;
   border:1px solid currentColor;
@@ -35,7 +35,7 @@ background-size: 300% 100%; background-position: bottom left; background-repeat:
 
 /* Transtion Style */
 
-.wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-label {display: flex;margin-top: auto;align-items: flex-end;padding: clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem);}
+.wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-label {display: flex;margin-top: auto;align-items: flex-end;padding: clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem);/*60-30*/}
 
 .wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-label .wdt-flex-banner-title { flex: 0; }
 .wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-label .wdt-flex-banner-info {flex: 1;}
@@ -180,6 +180,17 @@ background-size: 300% 100%; background-position: bottom left; background-repeat:
       display: flex; flex-direction: column; position: relative; transition: flex .8s cubic-bezier(.29,0,.2,1); will-change: flex; }
 
   .wdt-flex-banner-options .wdt-flex-banner-option.active {flex: 4;}
+
+  .wdt-flex-banner-options .wdt-flex-banner-option:after{
+    left:0;
+    right:0;
+    margin:auto;
+  }
+  .wdt-flex-banner-options .wdt-flex-banner-option.active:after{
+  left:clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem);
+  right:auto;
+}
+.wdt-flex-banner-options .wdt-flex-banner-option:not(.active) .wdt-flex-banner-label{padding: clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem)  clamp(2.1875rem, 1.6696rem + 1.7337vw, 3.75rem);}
 
   /* .wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-title { font-size: var(--wdtFontSize_H6);
     -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg);

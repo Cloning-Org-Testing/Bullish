@@ -59,7 +59,7 @@
 Brand icon type1 Style 
 */
 
-.wdt-animation-wrapper:has(.type1,.type2) {
+.wdt-animation-wrapper:has(.type1,.type2,.icon-item) {
     mask-image: linear-gradient(90deg, transparent, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), transparent);
 }
