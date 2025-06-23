@@ -9,7 +9,7 @@
 .wdt-listings-image-gallery-list { display: flex; flex-wrap: wrap; }
 .wdt-listings-image-gallery-list .wdt-listings-image-gallery-item { box-sizing: border-box; position: relative; }
 
-.wdt-listings-image-gallery-list .wdt-listings-image-gallery-item img { height: 100%; object-fit: cover; object-position: center center; }
+.wdt-listings-image-gallery-list .wdt-listings-image-gallery-item img { height: 100%; object-fit: cover; object-position: center center; border-radius: var(--wdtRadius_2X); -webkit-border-radius: var(--wdtRadius_2X); }
 
 .wdt-listings-image-gallery-list.wdt-column-1 .wdt-listings-image-gallery-item { flex: 1 1 100%; }
 .wdt-listings-image-gallery-list.wdt-column-2 .wdt-listings-image-gallery-item { flex: 1 1 50%; }

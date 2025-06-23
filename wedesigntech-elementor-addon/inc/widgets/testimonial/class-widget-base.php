@@ -714,7 +714,8 @@ class WeDesignTech_Widget_Base_Testimonial {
 				} else if( $settings['template'] == 'aside-title' ){
 
 					$group1_content_position_elements = array(
-						'image'           => esc_html__( 'Image', 'wdt-elementor-addon')
+						'image'           => esc_html__( 'Image', 'wdt-elementor-addon'),
+						'title_sub_title' => esc_html__( 'Name and Role', 'wdt-elementor-addon')
 					);
 					$group2_content_position_elements = array(
 						'icon'  => esc_html__( 'Icon', 'wdt-elementor-addon'),
