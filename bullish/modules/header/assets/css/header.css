@@ -283,7 +283,7 @@
 	.mobile-menu ul li { float: left; width: 100%; }
 
 	.mobile-menu ul li.go-back a {
-		background: none !important; color: inherit !important; border-width: 0 !important; height: 100%; padding: 0; }
+		background: none !important; border-width: 0 !important; height: 100%; padding: 0; }
 
 	.mobile-menu ul li.go-back a,
 	.mobile-menu li[class*="has-children"] > a,
@@ -441,7 +441,7 @@
 
     #header-wrapper #header:only-child .wdt-no-header-builder-content, .wdt-header-menu ul li ul:not(.menu-item-object-wdt_mega_menus ul),
     .mobile-menu, .mobile-menu > ul:not(.menu-item-object-wdt_mega_menus ul), .mobile-menu ul:not(.menu-item-object-wdt_mega_menus ul), .mobile-menu ul li ul:not(.menu-item-object-wdt_mega_menus ul) { background-color: var(--wdtHeadAltColor); backdrop-filter: blur(50px); -webkit-backdrop-filter: blur(50px); background: rgba(var(--wdtAccentTxtColorRgb),0.05); border: 1px solid rgba(var(--wdtBorderColorRgb), 0.2); }
-
+    .mobile-menu > ul ul.sub-menu:not(.menu-item-object-wdt_mega_menus ul) { background: transparent; }
 
     .mobile-menu ul::-webkit-scrollbar { background-color: #f1f1f1; }
     .mobile-menu ul::-webkit-scrollbar-thumb { background-color: #c1c1c1; }
@@ -449,7 +449,7 @@
 
     .mobile-menu ul li.close-nav a:before, .mobile-menu ul li.close-nav a:after { background-color: var(--wdtAccentTxtColor); }
 
-    .mobile-menu ul li.see-all a { background-color: rgba(var(--wdtHeadAltColorRgb),0.05) !important; color: inherit !important; }
+    .mobile-menu ul li.see-all a { background-color: rgba(var(--wdtHeadAltColorRgb),0.05) !important;color: var(--wdtPrimaryColor); }
 
     .mobile-menu-overlay { background-color: rgba(var(--wdtHeadAltColorRgb),0.5); }
 
