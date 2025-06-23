@@ -172,7 +172,8 @@ class WeDesignTech_Widget_Base_Testimonial {
 				'options' => array(
 					'default'  => esc_html__( 'Default', 'wdt-elementor-addon' ),
 					'standard' => esc_html__( 'Standard', 'wdt-elementor-addon' ),
-					'media_below_content' => esc_html__( 'Media Below Content', 'wdt-elementor-addon' )
+					'media_below_content' => esc_html__( 'Media Below Content', 'wdt-elementor-addon' ),
+					'aside-title' => esc_html__( 'Aside Title', 'wdt-elementor-addon' ),
 				)
 			) );
 
@@ -698,6 +699,25 @@ class WeDesignTech_Widget_Base_Testimonial {
 					$group2_content_position_elements = array(
 						'rating'          => esc_html__( 'Rating', 'wdt-elementor-addon'),
 						'heading'      	  => esc_html__( 'Heading', 'wdt-elementor-addon'),
+						'description'     => esc_html__( 'Description', 'wdt-elementor-addon')
+					);
+
+					$settings['group1_content_positions'] = wedesigntech_elementor_format_repeater_values($group1_content_position_elements);
+					$settings['group2_content_positions'] = wedesigntech_elementor_format_repeater_values($group2_content_position_elements);
+
+					if(!isset($settings['title_subtitle_position'])) {
+						$settings['title_subtitle_position'] = 'below';
+					}
+
+					$output .= $this->cc_repeater_contents->render_html($widget_object, $settings);
+ 
+				} else if( $settings['template'] == 'aside-title' ){
+
+					$group1_content_position_elements = array(
+						'image'           => esc_html__( 'Image', 'wdt-elementor-addon')
+					);
+					$group2_content_position_elements = array(
+						'icon'  => esc_html__( 'Icon', 'wdt-elementor-addon'),
 						'description'     => esc_html__( 'Description', 'wdt-elementor-addon')
 					);
 
