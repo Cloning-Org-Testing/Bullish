@@ -306,3 +306,97 @@ border-radius: 50%; -webkit-box-shadow: 0 0 3px 0 rgba(var(--wdt-elementor-color
     .wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item { flex-direction:column; align-items:start; gap:20px; }
     .wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-media-group { margin: 0; }
 }
+
+/*--- Modern Template ---*/
+
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-media-group > div:not(:last-child){
+    margin-bottom:0;
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-media-group{ 
+    display:grid;
+    place-items:center;
+    height: clamp(6.25rem, 5.4213rem + 2.7739vw, 8.75rem);/*140-100*/
+    width: clamp(6.25rem, 5.4213rem + 2.7739vw, 8.75rem);/*140-100*/
+    background-image:linear-gradient(90deg, var(--wdtTertiaryColor), var(--wdtPrimaryColor),var(--wdtAccentTxtColor),var(--wdtAccentTxtColor));
+    background-size:300% 100%;
+    background-position:top right;
+    border-radius:var(--wdtRadius_2X);
+    -webkit-border-radius:var(--wdtRadius_2X);
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-media-group{
+    margin-bottom:35px
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-active .wdt-content-item .wdt-content-media-group,
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item:hover .wdt-content-media-group{
+    background-position:top left;
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-media-group >div{
+    grid-area:1/-1;
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span{
+    font-size: clamp(3.75rem, 3.3356rem + 1.387vw, 5rem);/*80-60*/
+    color:var(--wdtPrimaryColor);
+    filter: drop-shadow(0 0 30px var(--wdtTertiaryColor)); -webkit-filter: drop-shadow(0 0 30px var(--wdtTertiaryColor));
+    transition: var(--wdt-Ad-Transition); -webkit-transition: var(--wdt-Ad-Transition);
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item:hover .wdt-content-icon-wrapper .wdt-content-icon span,
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-active .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span{
+    color: var(--wdtHeadAltColor);
+    filter: none;-webkit-filter: none;
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-image-wrapper,
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-image > span > img,
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-image > a > img{
+    height:100%;
+    width:100%;
+    object-fit:cover;
+    object-position: center;
+    border-radius:var(--wdtRadius_2X);
+    -webkit-border-radius:var(--wdtRadius_2X);
+    overflow: hidden;
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-image > span > img,
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-image > a > img{
+    opacity:0
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-active .wdt-content-item .wdt-content-image > span > img,
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-active .wdt-content-item .wdt-content-image > a > img,
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item:hover .wdt-content-image > span > img,
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item:hover .wdt-content-image > a > img{
+    opacity:0.3
+}
+
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-image-box-wrapper{
+    counter-reset: counter-01;
+}
+.wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-media-group:before{
+    counter-increment: counter-01;
+    content: "0" counter(counter-01);
+    position:absolute;
+    bottom:-12px;
+    background-image: linear-gradient(90deg,rgba(var(--wdtPrimaryColorRgb),0.4) ,rgba(var(--wdtTertiaryColorRgb),0.5));
+    backdrop-filter:blur(5px);
+    padding:6px;
+    border:1px solid var(--wdtBorderColor);
+    border-radius:5px;
+    font-size:16px;
+    line-height:1;
+    color:var(--wdtHeadAltColor);
+}
+
+
+/*--- color ---*/
+.wdt-content-item .wdt-content-title h5,.wdt-content-item .wdt-content-title h5 a{
+    color:var(--wdtHeadAltColor);
+}
+.wdt-content-item .wdt-content-title h5 a:hover{
+    color:var(--wdtPrimaryColor);
+}
+
+
+
+
+
+
+
+

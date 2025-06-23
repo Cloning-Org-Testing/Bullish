@@ -187,7 +187,8 @@ class WeDesignTech_Widget_Base_Image_Box {
 					'simple-icon' => esc_html__( 'Simple Icon', 'wdt-elementor-addon' ),
 					'contact-list' => esc_html__( 'Contact-List', 'wdt-elementor-addon' ),
 					'with-description' => esc_html__( 'With Description', 'wdt-elementor-addon' ),
-					'career-list' => esc_html__( 'Career-List', 'wdt-elementor-addon' )
+					'career-list' => esc_html__( 'Career-List', 'wdt-elementor-addon' ),
+					'modern' => esc_html__( 'Modern', 'wdt-elementor-addon' )
 				)
 			) );
 
@@ -911,6 +912,24 @@ class WeDesignTech_Widget_Base_Image_Box {
 					if(isset($settings['media_image_type'])) {
 						$settings['media_image_type'] = 'cover';
 					}
+
+					$output .= $this->cc_repeater_contents->render_html($widget_object, $settings);
+				}
+				else if($settings['template'] == 'modern') {
+
+					$group1_content_position_elements = array(
+						'image'           => esc_html__( 'Image', 'wdt-elementor-addon'),
+						'icon'           => esc_html__( 'Icon', 'wdt-elementor-addon')						
+					);
+					$group2_content_position_elements = array(
+						'title' 		  => esc_html__( 'Title', 'wdt-elementor-addon'),
+						'sub_title' 	  => esc_html__( 'Sub Title', 'wdt-elementor-addon'),
+						'description'     => esc_html__( 'Description', 'wdt-elementor-addon'),
+						'button'          => esc_html__( 'Button', 'wdt-elementor-addon')
+					);
+					
+					$settings['group1_content_positions'] = wedesigntech_elementor_format_repeater_values($group1_content_position_elements);
+					$settings['group2_content_positions'] = wedesigntech_elementor_format_repeater_values($group2_content_position_elements);
 
 					$output .= $this->cc_repeater_contents->render_html($widget_object, $settings);
 				}
