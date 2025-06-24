@@ -287,7 +287,7 @@
 
 .wdt-terms-and-condition-holder { display: inline-grid; align-items: baseline; grid-template-columns: 25px 1fr; }
 
-.wdt-terms-and-condition-holder input[type="checkbox"].wdt-terms-and-conditions { top: 2px; position: relative;
+.wdt-terms-and-condition-holder input[type="checkbox"].wdt-terms-and-conditions { top: 0; position: relative;
     opacity: 1; -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border: 1px solid rgba(var(--wdtHeadAltColorRgb), 0.15); 
     transform: translateY(-0.075em); display: inline-grid; place-content: center; background: rgba(var(--wdtBodyBGColorRgb), 0.5); 
     border-radius: 2px; padding: 0 0 !important; margin: 0 10px 0 0 !important; cursor: pointer; }

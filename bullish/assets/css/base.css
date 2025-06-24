@@ -99,13 +99,13 @@
         animation-timing-function: cubic-bezier(0.7, 0, 0.3, 1) !important; will-change: transform !important; 
         transition: opacity .4s ease-out,transform .8s !important; }
     
-    @-webkit-keyframes adFadeInUp {
-        from { opacity: 0; transform: translateY(60px) translateZ(0) skewY(4deg) scaleY(1.4); transform-origin: top left; }
-        to { opacity: 1; transform: translateY(0) translateZ(0) skewY(0) scaleY(1); }
+    @-webkit-keyframes adFadeInUp{
+        from{ opacity:0; filter:blur(4px); transform:translateY(50px) scale(1); transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
+        to{ opacity:1; filter:blur(0px); transform:translateY(0px) scale(1); }
     }
-    @keyframes adFadeInUp {
-        from { opacity: 0; transform: translateY(60px) translateZ(0) skewY(4deg) scaleY(1.4); transform-origin: top left; }
-        to { opacity: 1; transform: translateY(0) translateZ(0) skewY(0) scaleY(1); }
+    @keyframes adFadeInUp{
+        from{ opacity:0; filter:blur(4px); transform:translateY(50px) scale(1); transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
+        to{ opacity:1; filter:blur(0px); transform:translateY(0px) scale(1); }
     }
 
     .fadeInDown { animation-name: adfadeInDown !important; animation-duration: 380ms !important; 
@@ -1377,6 +1377,20 @@
     /* Tertiary */
     .has-tertiary-background-color { background-color: var(--wdtTertiaryColor); }
     .has-tertiary-color { color: var(--wdtTertiaryColor); }
+
+    /* Inview Animation */
+    .wdt-inview-section {
+        opacity:0;
+        filter:blur(4px);
+        transform:translateY(50px) scale(1);
+        transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .wdt-inview-section.wdt-item-is-inview {
+        opacity:1;
+        filter:blur(0px);
+        transform:translateY(0px) scale(1);
+    }
 
     /* #endregion */
 
