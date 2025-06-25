@@ -18,7 +18,7 @@ $tabs = array (
         'path' => WDT_PLUGIN_PATH . 'custom-post-types/metaboxes/tabs/general.php'
     ),
     'features'   => array (
-        'label' => esc_html__('Features','wdt-portfolio'),
+        'label' => esc_html__('Counter','wdt-portfolio'),
         'icon' => 'fas fa-puzzle-piece',
         'path' => WDT_PLUGIN_PATH . 'custom-post-types/metaboxes/tabs/features.php'
     ),

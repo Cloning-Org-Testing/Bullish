@@ -10,9 +10,16 @@ function wdt_listing_features_field($item_id) {
     	$output .= '<div class="wdt-features-box-item-holder">';
 
 			$wdt_features_title = $wdt_features_image = '';
+		
 			if($item_id > 0) {
 				$wdt_features_title = get_post_meta($item_id, 'wdt_features_title', true);
 				$wdt_features_image = get_post_meta($item_id, 'wdt_features_image', true);
+				$wdt_features_start_digit     = get_post_meta($item_id, 'wdt_start_digit', true);
+				$wdt_features_end_digit       = get_post_meta($item_id, 'wdt_end_digit', true);
+				$wdt_speed                    = get_post_meta($item_id, 'wdt_speed', true);
+				$wdt_refresh_interval         = get_post_meta($item_id, 'wdt_refresh_interval', true);
+				$wdt_prefix                   = get_post_meta($item_id, 'wdt_prefix', true);
+				$wdt_suffix                   = get_post_meta($item_id, 'wdt_suffix', true);
 			}
 
 			$j = 0;
@@ -35,6 +42,27 @@ function wdt_listing_features_field($item_id) {
 						                <input type="button" value="'.esc_attr__('Remove','wdt-portfolio').'" class="wdt-upload-media-item-reset" />
 						                '.wdt_adminpanel_image_preview($image_url).'
 									</div>
+
+									<div class="wdt-column wdt-one-third">
+										<input name="wdt_start_digit[]" type="number" value="'.esc_attr($wdt_features_start_digit[$j] ?? '').'" placeholder="'.esc_attr__('Start Digit','wdt-portfolio').'" />
+									</div>
+									<div class="wdt-column wdt-one-third">
+										<input name="wdt_end_digit[]" type="number" value="'.esc_attr($wdt_features_end_digit[$j] ?? '').'" placeholder="'.esc_attr__('End Digit','wdt-portfolio').'" />
+									</div>
+									<div class="wdt-column wdt-one-third">
+										<input name="wdt_speed[]" type="number" value="'.esc_attr($wdt_speed[$j] ?? '').'" placeholder="'.esc_attr__('Speed','wdt-portfolio').'" />
+									</div>
+									<div class="wdt-column wdt-one-third">
+										<input name="wdt_refresh_interval[]" type="number" value="'.esc_attr($wdt_refresh_interval[$j] ?? '').'" placeholder="'.esc_attr__('Refresh Interval','wdt-portfolio').'" />
+									</div>
+									<div class="wdt-column wdt-one-third">
+										<input name="wdt_prefix[]" type="text" value="'.esc_attr($wdt_prefix[$j] ?? '').'" placeholder="'.esc_attr__('Prefix','wdt-portfolio').'" />
+									</div>
+									<div class="wdt-column wdt-one-third">
+										<input name="wdt_suffix[]" type="text" value="'.esc_attr($wdt_suffix[$j] ?? '').'" placeholder="'.esc_attr__('Suffix','wdt-portfolio').'" />
+									</div>
+
+
 									<div class="wdt-features-box-options">
 										<span class="wdt-remove-features"><span class="fas fa-times"></span></span>
 					                    <span class="wdt-sort-features"><span class="fas fa-arrows-alt"></span></span>
@@ -61,6 +89,25 @@ function wdt_listing_features_field($item_id) {
 			                <input type="button" value="'.esc_attr__('Upload','wdt-portfolio').'" class="wdt-upload-media-item-button show-preview" />
 			                <input type="button" value="'.esc_attr__('Remove','wdt-portfolio').'" class="wdt-upload-media-item-reset" />
 			                '.wdt_adminpanel_image_preview('').'
+						</div>
+
+						<div class="wdt-column wdt-one-third">
+							<input name="wdt_start_digit[]" type="number" value="" placeholder="'.esc_attr__('Start Digit','wdt-portfolio').'" />
+						</div>
+						<div class="wdt-column wdt-one-third">
+							<input name="wdt_end_digit[]" type="number" value="" placeholder="'.esc_attr__('End Digit','wdt-portfolio').'" />
+						</div>
+						<div class="wdt-column wdt-one-third">
+							<input name="wdt_speed[]" type="number" value="" placeholder="'.esc_attr__('Speed','wdt-portfolio').'" />
+						</div>
+						<div class="wdt-column wdt-one-third">
+							<input name="wdt_refresh_interval[]" type="number" value="" placeholder="'.esc_attr__('Refresh Interval','wdt-portfolio').'" />
+						</div>
+						<div class="wdt-column wdt-one-third">
+							<input name="wdt_prefix[]" type="text" value="" placeholder="'.esc_attr__('Prefix','wdt-portfolio').'" />
+						</div>
+						<div class="wdt-column wdt-one-third">
+							<input name="wdt_suffix[]" type="text" value="" placeholder="'.esc_attr__('Suffix','wdt-portfolio').'" />
 						</div>
 						<div class="wdt-features-box-options">
 							<span class="wdt-remove-features"><span class="fas fa-times"></span></span>
