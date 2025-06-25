@@ -133,6 +133,12 @@ if( !class_exists('WDTPortfolioSinglePageShortcodes') ) {
                 if($attrs['listing_id'] > 0) {
                     $wdt_features_title = get_post_meta($attrs['listing_id'], 'wdt_features_title', true);
                     $wdt_features_image = get_post_meta($attrs['listing_id'], 'wdt_features_image', true);
+					$wdt_features_start_digit = get_post_meta($attrs['listing_id'], 'wdt_start_digit', true);
+					$wdt_features_end_digit = get_post_meta($attrs['listing_id'], 'wdt_end_digit', true);
+					$wdt_speed = get_post_meta($attrs['listing_id'], 'wdt_speed', true);
+					$wdt_refresh_interval = get_post_meta($attrs['listing_id'], 'wdt_refresh_interval', true);
+					$wdt_prefix = get_post_meta($attrs['listing_id'], 'wdt_prefix', true);
+					$wdt_suffix = get_post_meta($attrs['listing_id'], 'wdt_suffix', true);
                 }
 
                 $j = 0; $i = 1;
@@ -152,6 +158,9 @@ if( !class_exists('WDTPortfolioSinglePageShortcodes') ) {
                     $output .= '<div class="wdt-listings-features-box-container '.esc_attr( $attrs['type'] ).' '.esc_attr( $attrs['class'] ).'">';
                         foreach($wdt_features_title as $wdt_feature_title) {
 
+							//wdt_features_start_digit
+
+							
                             if(in_array($j, $include_keys)) {
 
                                 if($i == 1 && $attrs['columns'] != -1) { $first_class = 'first';  } else { $first_class = ''; }
@@ -171,10 +180,27 @@ if( !class_exists('WDTPortfolioSinglePageShortcodes') ) {
                                     $wdt_features_title_html .= '<div class="wdt-listings-features-box-item-title">'.esc_attr($wdt_feature_title).'</div>';
                                 }
 
+								foreach ( $wdt_features_start_digit as $index => $start ) {
+									$start   = isset( $wdt_features_start_digit[ $index ] ) ? $wdt_features_start_digit[ $index ] : '';
+									$wdt_features_end_digit = isset( $wdt_features_end_digit[ $index ] ) ? $wdt_features_end_digit[ $index ] : array();
+									$wdt_speed = isset( $wdt_speed[ $index ] ) ? $wdt_speed[ $index ] : array();
+									$wdt_refresh_interval = isset( $wdt_refresh_interval[ $index ] ) ? $wdt_refresh_interval[ $index ] : array();
+									$wdt_prefix = isset( $wdt_prefix[ $index ] ) ? $wdt_prefix[ $index ] : array();
+									$wdt_suffix = isset( $wdt_suffix[ $index ] ) ? $wdt_suffix[ $index ] : array();
+									
+									// Render (or otherwise use) the values
+									// $output .= "<pre>";
+									// $output .= $start. "START--". $wdt_features_end_digit . "END--". $wdt_speed . "SPEED--". $wdt_refresh_interval . "REFRESH--". $wdt_prefix . "PREFIX--". $wdt_suffix . "SUFFIX--";
+									// $output .= "</pre>";	
+									
+								}
+
+
                                 $output .= '<div class="wdt-listings-features-box-item '.esc_attr($column_class).' '.esc_attr($first_class).'" '.$style_attr.'>';
 
 									$output .= $wdt_features_image_html;
 									$output .= $wdt_features_title_html;
+									
                                     
                                 $output .= '</div>';
 

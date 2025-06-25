@@ -642,7 +642,7 @@ function wdt_generate_listing_item_html($data_listing_attributes) {
                 $output .= '<div class="wdt-listings-item-top-section-content">';
 
                     $output .= do_shortcode('[wdt_sp_taxonomy listing_id="'.esc_attr($listing_id).'" taxonomy="wdt_listings_category" splice="'.esc_attr($no_of_cat_to_display).'" /]');
-
+					$output .= do_shortcode( '[wdt_sp_features listing_id="'.esc_attr($listing_id).'" /]');
                     $output .= '<div class="wdt-listings-item-title">';
 						$output .= '<h4 class="wdt-listings--title">';
 							$output .= '<a href="'.esc_url( get_permalink($listing_id) ).'">'.esc_html( get_the_title($listing_id) ).'</a>';

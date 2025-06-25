@@ -259,6 +259,43 @@ if( !class_exists('WDTPortfolioListingsPostType') ) {
 					delete_post_meta ( $post_id, 'wdt_features_image' );
 				}
 
+				// Counter Fields
+
+				if( isset( $_POST['wdt_start_digit'] ) && is_array($_POST['wdt_start_digit']) ) {
+					update_post_meta( $post_id, 'wdt_start_digit', array_map('intval', $_POST['wdt_start_digit']) );
+				} else {
+					delete_post_meta( $post_id, 'wdt_start_digit' );
+				}
+
+				if( isset( $_POST['wdt_end_digit'] ) && is_array($_POST['wdt_end_digit']) ) {
+					update_post_meta( $post_id, 'wdt_end_digit', array_map('intval', $_POST['wdt_end_digit']) );
+				} else {
+					delete_post_meta( $post_id, 'wdt_end_digit' );
+				}
+
+				if( isset( $_POST['wdt_speed'] ) && is_array($_POST['wdt_speed']) ) {
+					update_post_meta( $post_id, 'wdt_speed', array_map('intval', $_POST['wdt_speed']) );
+				} else {
+					delete_post_meta( $post_id, 'wdt_speed' );
+				}
+
+				if( isset( $_POST['wdt_refresh_interval'] ) && is_array($_POST['wdt_refresh_interval']) ) {
+					update_post_meta( $post_id, 'wdt_refresh_interval', array_map('intval', $_POST['wdt_refresh_interval']) );
+				} else {
+					delete_post_meta( $post_id, 'wdt_refresh_interval' );
+				}
+
+				if( isset( $_POST['wdt_prefix'] ) && is_array($_POST['wdt_prefix']) ) {
+					update_post_meta( $post_id, 'wdt_prefix', array_map('sanitize_text_field', $_POST['wdt_prefix']) );
+				} else {
+					delete_post_meta( $post_id, 'wdt_prefix' );
+				}
+
+				if( isset( $_POST['wdt_suffix'] ) && is_array($_POST['wdt_suffix']) ) {
+					update_post_meta( $post_id, 'wdt_suffix', array_map('sanitize_text_field', $_POST['wdt_suffix']) );
+				} else {
+					delete_post_meta( $post_id, 'wdt_suffix' );
+				}
 
 				// Contact Information
 
