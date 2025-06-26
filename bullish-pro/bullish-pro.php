@@ -113,6 +113,7 @@ if( !class_exists( 'BullishPro' ) ) {
         function frontend() {
             add_filter( 'body_class', array( $this, 'add_body_classes' ) );
             add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+            add_action( 'admin_enqueue_scripts', array( $this,'bullishpro_enqueue_scripts'));
         }
 
         function add_body_classes( $classes ) {
@@ -129,6 +130,17 @@ if( !class_exists( 'BullishPro' ) ) {
             wp_enqueue_style( 'bullish-pro-widget', BULLISH_PRO_DIR_URL . 'assets/css/widget.css', false, BULLISH_PRO_VERSION, 'all');
 
             do_action( 'bullish_pro_after_asset_enqueue' );
+        }
+
+        function bullishpro_enqueue_scripts() {
+            if ( !is_admin() ) {
+                return;
+            }
+            wp_enqueue_script( 'bullish-pro-admin-script', BULLISH_PRO_DIR_URL . 'assets/js/script.js', array( 'jquery' ), BULLISH_PRO_VERSION, true );
+            wp_localize_script('bullish-pro-admin-script', 'bullish_urls', array(
+                    'ajaxurl' => admin_url('admin-ajax.php'),
+                    'wpnonce' => wp_create_nonce('bullish_ajax_settings_nonce')
+            ));
         }
 
         function bullish_cs_framework_settings($settings){

@@ -26,12 +26,21 @@
                             the_post_thumbnail('large');
                             echo '</div>';
                         }
+                    echo '</div>';
 
-                        echo '<div class="wdt-service-meta-wrap">';
+                    echo '<div class="wdt-service-meta-wrap">';
+                    
+                            if ( ! empty( $service_settings['service_icon'] ) ) {
+                                echo '<div class="service-icon-wrap">';
+                                    echo '<img src="' . esc_url( $service_settings['service_icon'] ) . '" alt="' . esc_attr( get_the_title() ) . '" class="service-icon" />';
+                                echo '</div>';
+                            }
 
                             $service_price         = !empty($service_settings['service_price']) ? $service_settings['service_price'] : '';
                             $service_offer_price   = !empty($service_settings['service_offer_price']) ? $service_settings['service_offer_price'] : '';
                             $service_price_duration = !empty($service_settings['service_price_duration']) ? $service_settings['service_price_duration'] : '';
+                            $global_settings = get_option('_bullish_service_settings', []);
+                            $currency_symbol = esc_html($global_settings['currency_symbol'] ?? '');
 
                             $duration_label = '';
                             if ($service_price_duration === 'day') {
@@ -43,150 +52,76 @@
                             }
 
                             if (!empty($service_price)) {
-                                echo '<div class="wdt-service-price">';
-                                echo esc_html__('Price', 'bullish-pro') . ': ';
+                                echo '<div class="wdt-service-type-price-group">';
 
-                                if (!empty($service_offer_price)) {
-                                    echo '<del>' . esc_html($service_price) . '</del> ';
-                                    echo '<span>' . esc_html($service_offer_price . $duration_label) . '</span>';
-                                } else {
-                                    echo '<span>' . esc_html($service_price . $duration_label) . '</span>';
-                                }
+                                    echo '<div class="wdt-service-type-price">';
+                                        if (!empty($service_offer_price)) {
+                                            echo '<del>' . $currency_symbol . esc_html($service_price) . '</del>';
+                                        } else {
+                                            echo esc_html($currency_symbol . $service_price . $duration_label);
+                                        }
+                                    echo '</div>';
+
+                                    if (!empty($service_offer_price)) {
+                                        echo '<div class="wdt-service-type-offerprice">' . esc_html($currency_symbol . $service_offer_price . $duration_label) . '</div>';
+                                    }
 
                                 echo '</div>';
                             }
 
+                            if ( ! empty( $service_settings['service_features'] ) && is_array( $service_settings['service_features'] ) ) {
+                                echo '<div class="service-features-wrap">';
+                                    echo '<h3>' . esc_html__('Service Features', 'bullish-pro') . '</h3>';
+                                    echo '<div class="service-features-list">';
+
+                                    foreach ( $service_settings['service_features'] as $feature ) {
+                                        $icon        = ! empty( $feature['feature_icon'] ) ? esc_url( $feature['feature_icon'] ) : '';
+                                        $image       = ! empty( $feature['feature_image'] ) ? esc_url( $feature['feature_image'] ) : '';
+                                        $description = ! empty( $feature['feature_description'] ) ? esc_html( $feature['feature_description'] ) : '';
+
+                                        echo '<div class="service-feature-item">';
+                                            if ( $icon ) {
+                                                echo '<img src="' . $icon . '" alt="Feature Icon" class="feature-icon" />';
+                                            } elseif ( $image ) {
+                                                echo '<img src="' . $image . '" alt="Feature Image" class="feature-image" />';
+                                            }
+                                            if ( $description ) {
+                                                echo '<p class="feature-description">' . $description . '</p>';
+                                            }
+                                        echo '</div>';
+                                    }
+
+                                    echo '</div>';
+                                echo '</div>';
+                            }
+
+                            if ( ! empty( $service_settings['contact_socials'] ) && is_array( $service_settings['contact_socials'] ) ) {
+                                echo '<div class="wdt-service-social-icons">';
+                                    echo '<h4>' . esc_html__('Follow Us', 'bullish-pro') . '</h4>';
+                                    echo '<ul class="wdt-social-list">';
+
+                                    foreach ( $service_settings['contact_socials'] as $social ) {
+                                        $icon_class = isset( $social['social_icon'] ) ? esc_attr( $social['social_icon'] ) : '';
+                                        $url        = isset( $social['social_url'] ) ? esc_url( $social['social_url'] ) : '';
+
+                                        if ( $icon_class && $url ) {
+                                            echo '<li><a href="' . $url . '" target="_blank" rel="noopener noreferrer">';
+                                                echo '<i class="' . $icon_class . '"></i>';
+                                            echo '</a></li>';
+                                        }
+                                    }
+
+                                    echo '</ul>';
+                                echo '</div>';
+                            }
 
                         echo '</div>';
-
-
-                    echo '</div>';
 
                     the_content();
 
 
                 echo '</div>';
 
-                // @SideBar Content
-
-                echo '<div class="secondary-wrap">';
-                    echo '<div class="sidebar-inner-wrap ">';
-
-                        $services = get_posts([
-                            'post_type'      => 'wdt_services',
-                            'posts_per_page' => -1,
-                            'post_status'    => 'publish',
-                            'orderby'        => 'title',
-                            'order'          => 'ASC',
-                        ]);
-
-                        if ($services) {
-                            echo '<nav class="service-list-navigation">';
-                            echo '<h3>' . esc_html__('All Services', 'bullish-pro') . '</h3>';
-                            echo '<ul class="service-list">';
-                            foreach ($services as $service) {
-                                $active = (get_the_ID() === $service->ID) ? ' class="active"' : '';
-                                echo '<li' . $active . '>';
-                                echo '<a href="' . esc_url(get_permalink($service->ID)) . '">' . esc_html(get_the_title($service->ID)) . '</a>';
-                                echo '</li>';
-                            }
-                            echo '</ul>';
-                            echo '</nav>';
-                        }
-
-
-                        echo '<div class="wdt-service-meta-wrap">';
-
-                            // Single Feature Display
-                            $service_features = $service_settings['service_features'] ?? [];
-
-                            if (!empty($service_features)) {
-                                echo '<div class="service-feature">';
-                                    echo '<h3>' . esc_html__('Features', 'bullish-pro') . '</h3>';
-                                    echo '<ul class="feature-list">';
-
-                                    foreach ($service_features as $feature) {
-                                        $icon        = $feature['feature_icon'] ?? '';
-                                        $image       = $feature['feature_image'] ?? '';
-                                        $description = $feature['feature_description'] ?? '';
-
-                                        echo '<li class="single-feature">';
-
-                                        if ($icon) {
-                                            echo '<div class="feature-icon"><img src="' . esc_url($icon) . '" alt=""></div>';
-                                        }
-
-                                        if ($image) {
-                                            echo '<div class="feature-image"><img src="' . esc_url($image) . '" alt=""></div>';
-                                        }
-
-                                        if ($description) {
-                                            echo '<div class="feature-description">' . wp_kses_post($description) . '</div>';
-                                        }
-
-                                        echo '</li>';
-                                    }
-
-                                    echo '</ul>';
-                                echo '</div>';
-                            }
-                            // Contact Info Display
-                            $contact_email   = $service_settings['contact_email'] ?? '';
-                            $contact_phone   = $service_settings['contact_phone'] ?? '';
-                            $contact_address = $service_settings['contact_address'] ?? '';
-                            $contact_socials = $service_settings['contact_socials'] ?? [];
-
-                            if ($contact_email || $contact_phone || $contact_address || !empty($contact_socials)) {
-                                echo '<div class="service-contact">';
-                                    echo '<h3>' . esc_html__('Contact Info', 'bullish-pro') . '</h3>';
-
-                                    if ($contact_email) {
-                                        echo '<p><strong>' . esc_html__('Email:', 'bullish-pro') . '</strong> <a href="mailto:' . esc_attr($contact_email) . '">' . esc_html($contact_email) . '</a></p>';
-                                    }
-
-                                    if ($contact_phone) {
-                                        echo '<p><strong>' . esc_html__('Phone:', 'bullish-pro') . '</strong> <a href="tel:' . esc_attr($contact_phone) . '">' . esc_html($contact_phone) . '</a></p>';
-                                    }
-
-                                    if ($contact_address) {
-                                        echo '<p><strong>' . esc_html__('Address:', 'bullish-pro') . '</strong> ' . esc_html($contact_address) . '</p>';
-                                    }
-
-                                    if (!empty($contact_socials)) {
-                                        echo '<h3>' . esc_html__('Social Info', 'bullish-pro') . '</h3>';
-                                        echo '<div class="social-icons">';
-                                            foreach ($contact_socials as $social) {
-                                                $icon = $social['social_icon'] ?? '';
-                                                $url  = $social['social_url'] ?? '';
-
-                                                if (!empty($icon) && !empty($url)) {
-                                                    echo '<a href="' . esc_url($url) . '" target="_blank" rel="noopener noreferrer">';
-                                                        if (strpos($icon, '.svg') !== false) {
-                                                            $svg_path = ABSPATH . str_replace(site_url('/'), '', $icon);
-                                                            if (file_exists($svg_path)) {
-                                                                $svg_content = file_get_contents($svg_path);
-                                                                if ($svg_content !== false) {
-                                                                    echo '<div class="wdt-social-type-icon svg-icon">' . $svg_content . '</div>';
-                                                                }
-                                                            }
-                                                        } else {
-                                                            echo '<div class="wdt-social-type-icon"><img src="' . esc_url($icon) . '" alt="social Icon" title="Service Icon"/></div>';
-                                                        }
-                                                    echo '</a>';
-                                                }
-                                            }
-                                        echo '</div>';
-                                    }
-
-
-                                echo '</div>';
-                            }
-
-                        echo '</div>';
-
-                    echo '</div>';
-                echo '</div>';
-                
             echo '</div>';
 
             do_action('bullish_after_single_page_content');
@@ -200,6 +135,13 @@
 
     echo '</section><!-- Primary End -->';
 
+    echo '<section id="secondary" class="' . esc_attr(bullish_get_secondary_classes()) . '"><div class="wdt-sidebar-wrapper">';
+        do_action( 'bullish_before_single_sidebar_wrap' );
+
+        get_sidebar();
+
+        do_action( 'bullish_after_single_sidebar_wrap' );
+    echo '</div></section><!-- Secondary End -->';
 
     get_footer();
 

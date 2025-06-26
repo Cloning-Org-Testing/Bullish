@@ -26,7 +26,11 @@ if (! class_exists('BullishProServicesPostType')) {
 			add_action('init', array($this, 'add_excerpt_support'));
             add_filter('cs_metabox_options', array($this, 'services_metabox'));
 			add_filter('manage_wdt_services_posts_columns', array($this, 'add_price_column'));
+			add_filter('bullish_breadcrumbs', array($this, 'breadcrumbs_portfolio_module'), 10, 1 );
 			add_action('manage_wdt_services_posts_custom_column', array($this, 'render_price_column'), 10, 2);
+
+			add_action('admin_menu', array($this, 'bullish_add_services_settings_submenu') );
+			add_action('pre_get_posts', array($this, 'modify_wdt_services_archive_query') );
         }
 
 		function bullish_register_cpt()
@@ -243,15 +247,29 @@ if (! class_exists('BullishProServicesPostType')) {
 								'button_title' => esc_html__('Add Social Link', 'bullish-pro'),
 								'fields' => array(
 									array(
-										'id'    => 'social_icon',
-										'type'  => 'upload',
-										'title' => esc_html__('Social Icon', 'bullish-pro'),
+									'id'      => 'social_icon',
+									'type'    => 'select',
+									'title'   => esc_html__('Social Icon', 'bullish-pro'),
+									'options' => array(
+										'wdticon-dribble'       => 'Dribbble',
+										'wdticon-flickr'        => 'Flickr',
+										'wdticon-github'        => 'GitHub',
+										'wdticon-pinterest'     => 'Pinterest',
+										'wdt-icon-ext-x-icon'   => 'Twitter',
+										'wdticon-youtube-play'  => 'YouTube',
+										'wdticon-dropbox'       => 'Dropbox',
+										'wdticon-instagram'     => 'Instagram',
+										'wdticon-facebook'      => 'Facebook',
+										'wdticon-linkedin'      => 'LinkedIn',
+										'wdticon-vimeo'         => 'Vimeo',
+									),
+									'chosen'  => true,
 									),
 									array(
-										'id'    => 'social_url',
-										'type'  => 'text',
-										'title' => esc_html__('Social URL', 'bullish-pro'),
-										'desc'  => esc_html__('Enter full URL (e.g., https://facebook.com/yourpage)', 'bullish-pro'),
+									'id'    => 'social_url',
+									'type'  => 'text',
+									'title' => esc_html__('Social URL', 'bullish-pro'),
+									'desc'  => esc_html__('Enter full URL (e.g., https://facebook.com/yourpage)', 'bullish-pro'),
 									),
 								),
 							),
@@ -264,7 +282,33 @@ if (! class_exists('BullishProServicesPostType')) {
 			return $options;
 		}
 
-		
+		function bullish_render_services_settings_page() {
+			
+			$settings_file = BULLISH_PRO_DIR_PATH . 'post-types/services-global-settings.php';
+
+			if (file_exists($settings_file)) {
+
+				include_once $settings_file;
+				$settings_instance = BullishProServiceGlogalSettings::instance();
+				$settings_instance->render_settings_page();
+				
+			} else {
+				echo '<div class="wrap"><h1>Settings</h1><p>Settings file not found at: ' . esc_html($settings_file) . '</p></div>';
+			}
+		}
+
+		function bullish_add_services_settings_submenu() {
+			add_submenu_page(
+				'edit.php?post_type=wdt_services',
+				'Services Settings',              
+				'Settings',                       
+				'manage_options',                 
+				'services-settings',              
+				[$this, 'bullish_render_services_settings_page']
+			);
+		}
+
+	
 		function render_service_icon_metabox($post)
 		{
 			$service_icon = get_post_meta($post->ID, 'service_icon', true);
@@ -340,7 +384,28 @@ if (! class_exists('BullishProServicesPostType')) {
 					$template = BULLISH_PRO_DIR_PATH . 'post-types/templates/single-wdt_services.php';
 				}
 			}
+
+			if (is_post_type_archive('wdt_services')) {
+				if (!file_exists(get_stylesheet_directory() . '/archive-wdt_services.php')) {
+					$template = BULLISH_PRO_DIR_PATH . 'post-types/templates/archive-wdt_services.php';
+				}
+			}
+
 			return $template;
+		}
+
+		/**
+		 * Modify the main query for wdt_services archive
+		 */
+		function modify_wdt_services_archive_query($query) {
+
+			if (!is_admin() && $query->is_main_query() && is_post_type_archive('wdt_services')) {
+				$global_settings = get_option('_bullish_service_settings', []);
+				$post_count = isset($global_settings['count']) ? absint($global_settings['count']) : 6;
+				
+				$query->set('posts_per_page', $post_count);
+				$query->set('post_type', 'wdt_services');
+			}
 		}
 
 		function add_price_column($columns)
@@ -362,6 +427,32 @@ if (! class_exists('BullishProServicesPostType')) {
 				$price = $settings['service_price'] ?? '';
 				echo $price ? esc_html($price) : __('N/A', 'bullish-pro');
 			}
+		}
+
+		function breadcrumbs_portfolio_module( $breadcrumbs ) {
+
+			if (is_singular( 'wdt_services' )) {
+
+				global $post;
+
+				$terms = get_the_terms(
+					$post->ID,
+					'wdt_service_category'
+				);
+
+				if(isset($terms[0]) && !empty($terms[0])) {
+					$breadcrumbs[] = '<a href="'.get_term_link( $terms[0] ).'">'.$terms[0]->name.'</a>';
+				}
+				$breadcrumbs[] = '<span class="current">'.get_the_title($post->ID).'</span>';
+
+			} elseif (is_tax ( 'wdt_service_category' )) {
+
+				$breadcrumbs[] = '<span class="current">'.single_term_title( '', false ).'</span>';
+
+			}
+
+			return $breadcrumbs;
+
 		}
 
 	}

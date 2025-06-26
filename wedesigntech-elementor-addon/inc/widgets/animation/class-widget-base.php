@@ -70,7 +70,8 @@ class WeDesignTech_Widget_Base_Animation {
 				'text' => esc_html__( 'Text', 'wdt-elementor-addon' ),
 				'icon' => esc_html__( 'Icon', 'wdt-elementor-addon' ),
 				'type1' => esc_html__( 'Type1', 'wdt-elementor-addon' ),
-				'type2' => esc_html__( 'Type2', 'wdt-elementor-addon' )
+				'type2' => esc_html__( 'Type2', 'wdt-elementor-addon' ),
+				'icon_text' => esc_html__( 'Icon and Text', 'wdt-elementor-addon' ),
 			)
 		) );
 
@@ -115,6 +116,34 @@ class WeDesignTech_Widget_Base_Animation {
 			'condition'   => array (
 				'content_type' =>'text'
 			)
+		) );
+
+		$repeater->add_control(
+			'icon_text_heading',
+			array(
+				'type' => \Elementor\Controls_Manager::RAW_HTML,
+				'raw' => '<strong>' . esc_html__( 'Icon + Text', 'wdt-elementor-addon' ) . '</strong>',
+				'content_classes' => 'elementor-control-heading',
+				'condition' => array( 'content_type' => 'icon_text' ),
+			)
+		);
+
+		$repeater->add_control( 'icon_text_icon', array(
+			'label' => esc_html__( 'Icon', 'wdt-elementor-addon' ),
+			'type' => \Elementor\Controls_Manager::ICONS,
+			'default' => array(
+				'value' => 'fas fa-check',
+				'library' => 'fa-solid',
+			),
+			'condition' => array( 'content_type' => 'icon_text' ),
+		) );
+
+		$repeater->add_control( 'icon_text_label', array(
+			'label' => esc_html__( 'Text', 'wdt-elementor-addon' ),
+			'type' => \Elementor\Controls_Manager::TEXT,
+			'default' => esc_html__( 'Progressively plagiarize', 'wdt-elementor-addon' ),
+			'label_block' => true,
+			'condition' => array( 'content_type' => 'icon_text' ),
 		) );
 
 		$elementor_object->add_control( 'contents', array(
@@ -488,6 +517,20 @@ class WeDesignTech_Widget_Base_Animation {
 									$output .= ob_get_clean();
 								$output.='</div>';
 							}
+							else if( $item['content_type'] == 'icon_text' ) {
+
+								$output .= '<div class="wdt-animation-item icon-text-item">';
+									if ( !empty( $item['icon_text_icon']['value'] ) ) {
+										ob_start();
+										\Elementor\Icons_Manager::render_icon( $item['icon_text_icon'], [ 'aria-hidden' => 'true' ] );
+										$output .= ob_get_clean();
+									}
+
+									if ( !empty( $item['icon_text_label'] ) ) {
+										$output .= '<span class="icon-text-label">' . esc_html( $item['icon_text_label'] ) . '</span>';
+									}
+								$output .= '</div>';
+							}
 							else
 							{
 								$output .= '<div class="wdt-animation-item icon-item">';
@@ -543,9 +586,19 @@ class WeDesignTech_Widget_Base_Animation {
 									\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
 									$output .= ob_get_clean();
 								$output.='</div>';
-							}
-							else
-							{
+							} else if( $item['content_type'] == 'icon_text' ) {
+								$output .= '<div class="wdt-animation-item icon-text-item">';
+									if ( !empty( $item['icon_text_icon']['value'] ) ) {
+										ob_start();
+										\Elementor\Icons_Manager::render_icon( $item['icon_text_icon'], [ 'aria-hidden' => 'true' ] );
+										$output .= ob_get_clean();
+									}
+
+									if ( !empty( $item['icon_text_label'] ) ) {
+										$output .= '<span class="icon-text-label">' . esc_html( $item['icon_text_label'] ) . '</span>';
+									}
+								$output .= '</div>';
+							} else {
 								$output .= '<div class="wdt-animation-item icon-item">';
 									ob_start();
 									\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
