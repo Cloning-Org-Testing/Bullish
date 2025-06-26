@@ -4,10 +4,10 @@
 .wdt-flex-banner-options .wdt-flex-banner-option:not(:last-child) { margin-right: 30px; }
 .wdt-flex-banner-options .wdt-flex-banner-option:before { 
   content: ""; position: absolute; top: 0; right: 0; left: 0; bottom: 0; display: block; background-color: transparent;
-background-image: linear-gradient(90deg, var(--wdtAccentTxtColor),var(--wdtAccentTxtColor), var(--wdtPrimaryColor),var(--wdtTertiaryColor));
-background-size: 300% 100%; background-position: bottom left; background-repeat: no-repeat; }
+background-image: linear-gradient(90deg, var(--wdtPrimaryColor),var(--wdtTertiaryColor), var(--wdtAccentTxtColor),var(--wdtAccentTxtColor));
+background-size: 300% 100%; background-position: bottom right; background-repeat: no-repeat; transition: var(--wdt-Ad-Transition); -webkit-transition: var(--wdt-Ad-Transition); }
 .wdt-flex-banner-options .wdt-flex-banner-option.active:before{
-  background-position: bottom right;
+  background-position: bottom left;
 }
 .wdt-flex-banner-options{
   counter-reset: count;
