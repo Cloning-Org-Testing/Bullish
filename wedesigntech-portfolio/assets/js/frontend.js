@@ -397,6 +397,7 @@ var wdtPortfolioFrontendUtils = {
 			post_per_page                      = output_container.find('.wdt-listing-output-data-holder').attr('data-postperpage');
 			columns                            = output_container.find('.wdt-listing-output-data-holder').attr('data-columns');
 			apply_isotope                      = output_container.find('.wdt-listing-output-data-holder').attr('data-applyisotope');
+			counter                      = output_container.find('.wdt-listing-output-data-holder').attr('data-counter');
 			excerpt_length                     = output_container.find('.wdt-listing-output-data-holder').attr('data-excerptlength');
 			features_image_or_icon             = output_container.find('.wdt-listing-output-data-holder').attr('data-featuresimageoricon');
 			features_include                   = output_container.find('.wdt-listing-output-data-holder').attr('data-featuresinclude');
@@ -527,6 +528,7 @@ var wdtPortfolioFrontendUtils = {
 				post_per_page                        : post_per_page,
 				columns                              : columns,
 				apply_isotope                        : apply_isotope,
+				apply_counter 						 : counter,
 				isotope_filter                       : isotope_filter,
                 show_isotope_filter_count            : show_isotope_filter_count,
 				apply_child_of                       : apply_child_of,
@@ -599,6 +601,7 @@ var wdtPortfolioFrontendUtils = {
 
 						wdtPortfolioFrontendUtils.wdtPortfolioImagePopup();
 						wdtPortfolioFrontendUtils.wdtPortfolioImageHoverContent();
+						wdtPortfolioFrontendUtils.runCounters(output_container);
 					},1000);
 
 				}
@@ -612,6 +615,31 @@ var wdtPortfolioFrontendUtils = {
 
 	},
 
+	runCounters: function(context) {
+	var $scope = context ? jQuery(context) : jQuery(document);
+
+	$scope.find('.wdt-content-counter-number').each(function() {
+		var $el = jQuery(this);
+
+		var from = parseInt($el.data('from')) || 0;
+		var to = parseInt($el.data('to')) || 0;
+		var speed = parseInt($el.data('speed')) || 1000;
+
+		var countNumber = from;
+		var incrementTime = speed / Math.max((to - from), 1);
+
+		$el.text(from);
+
+		var counterInterval = setInterval(function() {
+		if (countNumber <= to) {
+			$el.text(Math.floor(countNumber));
+			countNumber++;
+		} else {
+			clearInterval(counterInterval);
+		}
+		}, incrementTime);
+	});
+	},
 	wdtPortfolioImageHoverContent : function() {
 		jQuery('.wdt-listings-item-wrapper').mousemove(function(event) {
 			x = event.offsetX;

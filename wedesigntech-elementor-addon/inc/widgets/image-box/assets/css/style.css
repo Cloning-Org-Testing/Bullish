@@ -17,7 +17,7 @@
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image-wrapper .wdt-content-image, 
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image > span, 
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image > a{
-    display:flex;
+    display:flex; height: 100%; width: 100%;
 }
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item,
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image > span > img, 
@@ -33,7 +33,7 @@
     overflow:hidden;
     border-bottom-left-radius:var(--wdtRadius_2X);
     border-bottom-right-radius:var(--wdtRadius_2X);
-    border-top:1px solid var(--wdtBorderColor);
+    border-top:1px solid rgba(var(--wdtBorderColorRgb),0.25);
 }
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item > div{
     width: 100%;
@@ -41,7 +41,9 @@
 }
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-detail-group{
     padding:30px;
+    z-index: 3;
 }
+
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image > span > img, 
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image > a > img{
     opacity:1;
@@ -50,8 +52,15 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transform: translateY(-100%);
+    transition: all 0.3s linear; -webkit-transition: all 0.3s linear;
 }
-
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-active .wdt-content-item .wdt-content-image > span > img, 
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-active .wdt-content-item .wdt-content-image > a > img,
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item:hover .wdt-content-image > span > img, 
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item:hover .wdt-content-image > a > img{
+    transform:translateY(0);
+}
 .wdt-image-box-holder.wdt-rc-template-standard  .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span{
     width:80px;
     height:80px;
@@ -92,8 +101,63 @@
     color:var(--wdtPrimaryColor);
 }
 
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item:before{
+    content:"";
+    height:0px;
+    width:100%;
+    background-color:var(--wdtPrimaryColor);
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    z-index:3;
+    transition:all 0.2s linear; -webkit-transition:all 0.2s linear;
+}
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-active .wdt-content-item:before,
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item:hover:before{
+    height:2px;
+}
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item::after{
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: rgba(var(--wdtAccentTxtColorRgb),0.85);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s linear; -webkit-transition: all 0.3s linear;
+}
+.wdt-image-box-holder.wdt-rc-template-standard  .wdt-active .wdt-content-item:after,
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item:hover:after{
+    transform: translateY(0);
+}
 
-
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-button > a{
+    padding: 10px 0 0;
+    background-color: transparent;
+    transition: var(--wdt-Ad-Transition);
+    -webkit-transition: var(--wdt-Ad-Transition);
+}
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-active .wdt-content-item .wdt-content-button > a,
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item:hover .wdt-content-button > a{
+    color: var(--wdtHeadAltColor) ;
+}
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-button > a:after{
+    content:"";
+    height:12px;
+    width:20px;
+    display:inline-block;
+    background-color:currentcolor;
+    mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 27.7 18'%3E%3Cpath d='M12.1,18V10.6H0V7.4H12.1V0L27.7,9Z'%3E%3C/path%3E%3C/svg%3E");
+    mask-repeat:no-repeat;
+    mask-position:center;
+    margin:auto;
+    margin-left:5px;
+}
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-button > a:hover:after{
+    animation: btn-arrow-move 0.375s linear;-webkit-animation: btn-arrow-move 0.375s linear;
+}
 
 /* Social Icons */
 
