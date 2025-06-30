@@ -51,6 +51,9 @@ ul li.wdt-active .wdt-showcase-content-group{
 	color: var(--wdtHeadAltColor);
 }
 
+.wdt-showcase-container .wdt-content-icon,.wdt-showcase-container .wdt-content-icon span i{
+	display: flex;
+}
 /** 
 	Title Group - Style
 */

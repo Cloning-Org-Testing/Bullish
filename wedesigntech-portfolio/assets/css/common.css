@@ -198,7 +198,7 @@ iframe { max-width: 100%; }
     justify-content: center; width: 100%; margin-top: 20px; text-align: center; }
 
 .wdt-pagination.wdt-ajax-pagination ul.page-numbers,
-.wdt-pagination.wdt-ajax-pagination ul.page-numbers li { display: inline-block; float: none; margin: 0 0 2px; padding: 0; }
+.wdt-pagination.wdt-ajax-pagination ul.page-numbers li { display: inline-block; float: none; margin: 0 3px 2px; padding: 0; }
 
 .wdt-pagination.wdt-ajax-pagination .prev-post,
 .wdt-pagination.wdt-ajax-pagination .next-post { display: inline-block; float: none; width: auto; margin: 0 4px; }
@@ -206,13 +206,16 @@ iframe { max-width: 100%; }
 .wdt-pagination.wdt-ajax-pagination .prev-post a,
 .wdt-pagination.wdt-ajax-pagination .next-post a,
 .wdt-pagination.wdt-ajax-pagination ul.page-numbers li span,
-.wdt-pagination.wdt-ajax-pagination ul.page-numbers li a { font-size: 16px; line-height: 36px; display: inline-block; 
-    float: none; width: 40px; height: 40px; padding: 0; text-decoration: none; color: #ffffff; border: 2px solid; }
+.wdt-pagination.wdt-ajax-pagination ul.page-numbers li a { font-size: 20px; font-weight: var(--wdtFontWeight_Alt); line-height: 58px; display: inline-block; 
+    float: none; width: 60px; height: 60px; padding: 0; text-decoration: none; color: var(--wdtHeadAltColor); 
+    background-image:linear-gradient(90deg,var(--wdtPrimaryColor),var(--wdtTertiaryColor),var(--wdtAccentTxtColor),var(--wdtAccentTxtColor));
+    background-size:300% 100%; background-position:right;
+    border: 1px solid var(--wdtBorderColor); border-radius:var(--wdtRadius_Full); -webkit-border-radius:var(--wdtRadius_Full); }
 
 .wdt-pagination.wdt-ajax-pagination ul.page-numbers li span,
 .wdt-pagination.wdt-ajax-pagination ul.page-numbers li a:hover,
 .wdt-pagination.wdt-ajax-pagination .prev-post a:hover,
-.wdt-pagination.wdt-ajax-pagination .next-post a:hover { background: none; }
+.wdt-pagination.wdt-ajax-pagination .next-post a:hover { background-position:left; border-color:var(--wdtTertiaryColor); }
 
 .wdt-pagination.wdt-ajax-pagination ul.page-numbers li:focus,
 .wdt-pagination.wdt-ajax-pagination ul.page-numbers li:hover { outline: none; }
@@ -221,8 +224,63 @@ iframe { max-width: 100%; }
 .wdt-pagination.wdt-ajax-pagination .next-post a { font-size: 0; }
 
 .wdt-pagination.wdt-ajax-pagination .prev-post a span,
-.wdt-pagination.wdt-ajax-pagination .next-post a span { font-size: 16px; line-height: 36px; }
+.wdt-pagination.wdt-ajax-pagination .next-post a span { font-size: 20px; line-height: 58px; }
 
+.wdt-pagination.wdt-ajax-pagination .prev-post a span:before,
+.wdt-pagination.wdt-ajax-pagination .next-post a span:before{
+    content: "";
+    position: relative;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    mask-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 100 100' style='enable-background:new 0 0 100 100;' xml:space='preserve'%3E%3Cpath d='M97.5,50L44.1,19.1v61.7L97.5,50z M2.5,50v5.3h46.9V50v-5.3H2.5V50z'/%3E%3C/svg%3E%0A");
+    background: var(--wdtSecondaryColor);
+    mask-size: 18px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    transition: inherit;
+    -webkit-transition: inherit;
+    z-index: 3;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+.wdt-pagination.wdt-ajax-pagination .next-post a span:before{
+    transform: unset;
+    -webkit-transform: unset;
+}
+.wdt-pagination.wdt-ajax-pagination .next-post a:hover span:before{
+    animation: btn-arrow-move 0.375s linear;
+    -webkit-animation: btn-arrow-move 0.375s linear;
+}
+.wdt-pagination.wdt-ajax-pagination .prev-post a:hover span:before{
+    animation: btn-arrow-prev 0.375s linear;
+    -webkit-animation: btn-arrow-prev 0.375s linear;
+}
+@keyframes btn-arrow-prev {
+    0% {
+    transform: translateX(0) rotate(180deg);
+    opacity: 1;
+}
+49% {
+    transform: translateX(-100%) rotate(180deg);
+    opacity: 0;
+}
+50% {
+    transform: translateX(100%) rotate(180deg);
+    opacity: 0;
+}
+100% {
+    transform: translateX(0%) rotate(180deg);
+    opacity: 1;
+}
+}
 
 /* Carousel Styles */
 
