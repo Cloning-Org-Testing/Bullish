@@ -22,6 +22,9 @@ function wdt_generate_load_search_data_ouput() {
 	// Carousel
 	$enable_carousel = (isset($_REQUEST['enable_carousel']) && $_REQUEST['enable_carousel'] == 'true') ? true: false;
 
+
+	$apply_counter = (isset($_REQUEST['apply_counter']) && $_REQUEST['apply_counter'] == 'true') ? true: false;
+
 	// Module Id
 	$module_id = (isset($_REQUEST['module_id']) && !empty($_REQUEST['module_id'])) ? $_REQUEST['module_id']: '8888';
 
@@ -244,6 +247,8 @@ function wdt_generate_listing_output_loop($filtered_item_ids, $output_options) {
     $show_isotope_filter_count = (isset($_REQUEST['show_isotope_filter_count']) && $_REQUEST['show_isotope_filter_count'] == 'true') ? true : false;
 	
 	$enable_carousel = (isset($_REQUEST['enable_carousel']) && $_REQUEST['enable_carousel'] == 'true') ? true: false;
+	
+	$apply_counter = (isset($_REQUEST['apply_counter']) && $_REQUEST['apply_counter'] == 'true') ? true: false;
 
 	$module_id = (isset($_REQUEST['module_id']) && !empty($_REQUEST['module_id'])) ? $_REQUEST['module_id']: '8888';
 
@@ -600,12 +605,75 @@ function wdt_generate_listing_item_html($data_listing_attributes) {
 						$output .= '</h4>';
                     $output .= '</div>';
 
+					$output .= '<div class="wdt-listings-item-excerpt">';
+						$output .= esc_html(wdt_custom_excerpt($excerpt_length, $listing_id));
+					$output .= '</div>';
+
 					$view_details_btn = '<span class="detail-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 159 95.6" style="enable-background:new 0 0 159 95.6;" xml:space="preserve"><g class="eye-wrap"><path class="eye-inner" d="M79.5,19.3C63.8,19.3,51,32.1,51,47.8s12.8,28.5,28.5,28.5S108,63.5,108,47.8C108,32.1,95.2,19.3,79.5,19.3z M79.5,67.3 C68.7,67.3,60,58.6,60,47.8s8.7-19.5,19.5-19.5S99,37,99,47.8l0,0C99,58.6,90.3,67.3,79.5,67.3z"/><path class="eye-outer" d="M158.4,45.6C133.2,2,77.5-12.9,33.9,12.2c-13.8,8-25.3,19.5-33.3,33.3c-0.8,1.4-0.8,3.1,0,4.5 c25.2,43.6,80.9,58.5,124.5,33.3c13.8-8,25.3-19.5,33.3-33.3C159.2,48.7,159.2,47,158.4,45.6z M79.5,86.6 c-28.4,0-54.7-14.7-69.8-38.8C33.7,9.3,84.3-2.5,122.8,21.4c10.7,6.7,19.8,15.7,26.4,26.4C134.2,71.9,107.9,86.5,79.5,86.6 L79.5,86.6z"/></g></svg></span>';
 					if( $enable_view_details_btn == 'yes' ) {
 						$view_details_btn = $view_details_btn;
 					} else {
 						$view_details_btn = '';
 					}
+
+					if ( $apply_counter == true && !empty($listing_id) ) {
+
+						$start_digits      = get_post_meta($listing_id, 'wdt_start_digit', true );
+						$end_digits        = get_post_meta($listing_id, 'wdt_end_digit', true );
+						$speeds            = get_post_meta($listing_id, 'wdt_speed', true );
+						$refresh_intervals = get_post_meta($listing_id, 'wdt_refresh_interval', true );
+						$prefixes          = get_post_meta($listing_id, 'wdt_prefix', true );
+						$suffixes          = get_post_meta($listing_id, 'wdt_suffix', true );
+						$titles            = get_post_meta($listing_id, 'wdt_features_title', true );
+						
+						$titles = is_array($titles) ? array_map('sanitize_text_field', $titles) : [];
+
+						// Get the total count from titles
+						$total = count($titles);
+
+						$output .= '<div class="wdt-counter-container">';
+							if ( $total > 0 ) {
+								for ( $i = 0; $i < $total; $i++ ) {
+									 if ( ! isset($end_digits[$i]) ) {
+										continue;
+									}
+									$start_digit      = isset($start_digits[$i]) ? intval($start_digits[$i]) : 0;
+									$end_digit        = isset($end_digits[$i]) ? intval($end_digits[$i]) : 100;
+									$speed            = isset($speeds[$i]) ? intval($speeds[$i]) : 1000;
+									$refresh_interval = isset($refresh_intervals[$i]) ? intval($refresh_intervals[$i]) : 100;
+									$prefix           = isset($prefixes[$i]) ? sanitize_text_field($prefixes[$i]) : '';
+									$suffix           = isset($suffixes[$i]) ? sanitize_text_field($suffixes[$i]) : '';
+									$title            = isset($titles[$i]) ? esc_html($titles[$i]) : '';
+									
+									$output .= '<div class="wdt-content-item wdt-counter-item counter-index-' . $i . '" data-counter-index="' . $i . '">';
+										$output .= '<div class="wdt-content-media-group"></div>';
+										$output .= '<div class="wdt-content-detail-group">';
+
+											$output .= '<div class="wdt-content-counter-wrapper">';
+												$output .= '<div class="wdt-content-counter">';
+													if ( $prefix !== '' ) {
+														$output .= '<span class="wdt-content-counter-prefix">' . esc_html($prefix) . '</span>';
+													}
+													$output .= '<span class="wdt-content-counter-number" data-from="' . esc_attr($start_digit) . '" data-to="' . esc_attr($end_digit) . '" data-speed="' . esc_attr($speed) . '" data-refresh-interval="' . esc_attr($refresh_interval) . '">' . esc_html($end_digit) . '</span>';
+													if ( $suffix !== '' ) {
+														$output .= '<span class="wdt-content-counter-suffix">' . esc_html($suffix) . '</span>';
+													}
+												$output .= '</div>';
+											$output .= '</div>';
+
+											if ( $title !== '' ) {
+												$output .= '<div class="wdt-content-title">';
+													$output .= '<h5>' . $title . '</h5>';
+												$output .= '</div>';
+											}
+
+										$output .= '</div>';
+									$output .= '</div>';
+								}
+							}
+						$output .= '</div>';
+					}
+
 					$output .= '<div class="wdt-listings-group-button-hover-icon">';
 						$output .= '<a class="custom-button-style wdt-button wdt-listing-view-details" href="'.esc_url( get_permalink($listing_id) ).'">'.esc_html__('View Details','wdt-portfolio').''.$view_details_btn.'</a>';
 					$output .= '</div>';

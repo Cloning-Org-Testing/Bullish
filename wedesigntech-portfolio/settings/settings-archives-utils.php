@@ -111,6 +111,24 @@ function wdt_settings_archives_content() {
 
 		$output .= '<div class="wdt-settings-options-holder">';
 			$output .= '<div class="wdt-column wdt-one-fifth first">';
+				$output .= '<label>'.esc_html__( 'Apply Counter','wdt-portfolio').'</label>';
+			$output .= '</div>';
+			$output .= '<div class="wdt-column wdt-four-fifth">';
+
+				$checked = ( 'true' ==  wdt_option('archives', 'archive-page-apply-counter') ) ? ' checked="checked"' : '';
+				$switchclass = ( 'true' ==  wdt_option('archives', 'archive-page-apply-counter') ) ? 'checkbox-switch-on' : 'checkbox-switch-off';
+
+				$output .= '<div data-for="archive-page-apply-counter" class="wdt-checkbox-switch '.esc_attr( $switchclass ).'"></div>';
+				$output .= '<input id="archive-page-apply-counter" class="hidden" type="checkbox" name="wdt[archives][archive-page-apply-counter]" value="true" '.esc_attr( $checked ).' />';
+
+				$output .= '<div class="wdt-note">'.sprintf( esc_html__('If you like to apply counter effect for your %1$s archive pages, check this option.','wdt-portfolio'), strtolower($listing_singular_label) ).'</div>';
+
+			$output .= '</div>';
+		$output .= '</div>';
+
+
+		$output .= '<div class="wdt-settings-options-holder">';
+			$output .= '<div class="wdt-column wdt-one-fifth first">';
 				$output .= '<label>'.esc_html__( 'Excerpt Length','wdt-portfolio').'</label>';
 			$output .= '</div>';
 			$output .= '<div class="wdt-column wdt-four-fifth">';

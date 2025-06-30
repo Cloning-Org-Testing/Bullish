@@ -517,3 +517,50 @@ input.wdt-generate-mls-number { font-weight: 600; margin-right: 10px; }
 @media only screen and (min-width: 320px) and (max-width: 479px) { }
 
 @media only screen and (max-width: 319px) { }
+
+
+
+
+/* for testing  */
+.wdt-counter-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px 60px; /* vertical and horizontal spacing */
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.wdt-counter-item {
+  flex: 0 0 calc(50% - 30px); /* 2 items per row with gap */
+  font-family: 'Inter', sans-serif;
+}
+
+.wdt-content-counter {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.2;
+}
+
+.wdt-content-counter-prefix,
+.wdt-content-counter-suffix {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+}
+
+.wdt-content-title h5 {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #555;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 600px) {
+  .wdt-counter-item {
+    flex: 0 0 100%;
+  }
+}

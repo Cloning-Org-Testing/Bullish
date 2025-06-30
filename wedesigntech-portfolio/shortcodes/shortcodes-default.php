@@ -43,6 +43,7 @@ if( !class_exists('WDTPortfolioShortcodes') ) {
 				'post_per_page'              => -1,
 				'columns'                    => 1,
 				'apply_isotope'              => 'true',
+				'counter'                    => 'true',
 				'isotope_filter'             => '',
                 'show_isotope_filter_count'  => 'false',
 				'apply_child_of'             => 'false',
@@ -178,6 +179,9 @@ if( !class_exists('WDTPortfolioShortcodes') ) {
 			array_push($data_attributes, 'data-postperpage="'.esc_attr($attrs['post_per_page']).'"');
 			array_push($data_attributes, 'data-columns="'.esc_attr($attrs['columns']).'"');
 			array_push($data_attributes, 'data-applyisotope="'.esc_attr($attrs['apply_isotope']).'"');
+
+			array_push($data_attributes, 'data-counter="'.esc_attr($attrs['counter']).'"');
+
 			array_push($data_attributes, 'data-isotopefilter="'.esc_attr($attrs['isotope_filter']).'"');
             array_push($data_attributes, 'data-showisotopefiltercount="'.esc_attr($attrs['show_isotope_filter_count']).'"');
 			array_push($data_attributes, 'data-applychildof="'.esc_attr($attrs['apply_child_of']).'"');
