@@ -365,10 +365,11 @@
     margin-right: 30px;
     margin-left: auto;
     margin-top: 30px;
-    max-width: 660px;
-    padding: 40px;
+    max-width: 730px;
+    padding: 50px;
     margin-bottom: auto;
     border-radius: var(--wdtRadius_2X);
+    background: var(--wdtBodyBGColor);
 }
 
 .wdt-popup-box-window.wdt-right-side-slide .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder {
