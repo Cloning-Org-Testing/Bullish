@@ -19,27 +19,6 @@
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
-/*--==== Faq-Page-style--======== */
-
-/* .wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-wrapper {
-  background: linear-gradient(90deg, var(--wdtAccentTxtColor), var(--wdtAccentTxtColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor));
-  background-size: 300% 100%;
-  background-position: center left;
-  transition: var(--wdtBaseTransition);
-  -webkit-transition: var(--wdtBaseTransition); */
-/* }
-.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-wrapper:has(.ui-state-active,.ui-state-hover) {
-   background-position: center right;
-} */
-/* .wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-description {
-  padding: 0 clamp(1.25rem, -1.258rem + 11.465vw, 12.5rem) clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem) clamp(1.875rem, 1.7357rem + 0.6369vw, 2.5rem); /*40-30*/
-  /* color: rgba(var(--wdtHeadAltColorRgb),0.8); */
-/* } */ 
-/* .wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-title-holder,
-.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-title-holder.ui-state-hover,
-.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-title-holder.ui-state-active,
-.wdt-cus-faq-bg .wdt-template-bordered .wdt-accordion-toggle-description{ border-color: transparent; background-color: transparent; } */
-
 /* =====testimonial-style=== */
 
 .wdt-testimonial-holder.wdt-rc-template-media_below_content .swiper-slide{
@@ -80,4 +59,83 @@
 }
 .wdt-custom-hover-image-box-style .elementor-widget-container .wdt-image-box-holder .wdt-column-wrapper div.wdt-column:hover {
   flex-basis: 80%;
+}
+
+/* -====image-box line style===== */
+/* .wdt-image-box-holder.wdt-rc-template-modern .swiper-slide:nth-child(2n+1) .wdt-content-item{
+  margin-top: 80px;
+} */
+
+
+/* -=======Home-1-Slider--Animation-==== */
+
+.wdt-advanced-carousel-holder.wdt-rc-template-default .swiper-slide .wdt-heading-holder .wdt-heading-title-wrapper {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  transform-origin: center;
+  -webkit-transition: var(--wdtAltTransition);
+  transition: var(--wdtAltTransition);
+  transition-duration: 0.5s;
+  opacity: 0;
+  -webkit-transform: translateX(-100px) scale(0.98);
+  transform: translateX(-100px) scale(0.98);
+}
+.wdt-advanced-carousel-holder.wdt-rc-template-default .swiper-slide-active .wdt-heading-holder .wdt-heading-title-wrapper {
+  transform: translateY(0px) scale(1);
+  -webkit-transform: translateY(0px) scale(1);
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+  opacity: 1
+}
+.wdt-advanced-carousel-holder.wdt-rc-template-default .swiper-slide .wdt-heading-content-wrapper {
+  transform: translateY(50px);
+  -webkit-transform: translateY(50px);
+  transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  opacity: 0;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+.wdt-advanced-carousel-holder.wdt-rc-template-default .swiper-slide-active .wdt-heading-content-wrapper {
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  opacity: 1;
+  transition-delay: 0.8s;
+  -webkit-transition-delay: 0.8s;
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+}
+.wdt-advanced-carousel-holder.wdt-rc-template-default .swiper-slide .wdt-button-holder {
+  transform: translateX(100px);
+  -webkit-transform: translateX(100px);
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  opacity: 0;
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+}
+.wdt-advanced-carousel-holder.wdt-rc-template-default .swiper-slide-active .wdt-button-holder {
+  transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+  transition-delay: 1s;
+  -webkit-transition-delay: 1s;
+  opacity: 1;
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+}
+.wdt-advanced-carousel-holder.wdt-rc-template-default .swiper-slide .wdt-content-item div.elementor-element {
+  opacity: 0.1;
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform-origin: top center;
+  -webkit-transform-origin: top center;
+  transition: var(--wdt-Ad-Transition);
+  -webkit-transition: var(--wdt-Ad-Transition);
+  transition-duration: 0.6s;
+  -webkit-transition-duration: 0.6s;
+}
+.wdt-advanced-carousel-holder.wdt-rc-template-default .swiper-slide-active .wdt-content-item div.elementor-element {
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transform: scale(1);
 }

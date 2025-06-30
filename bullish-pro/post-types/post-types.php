@@ -27,6 +27,8 @@ if (! class_exists ( 'BullishProPostTypes' )) {
 			require_once BULLISH_PRO_DIR_PATH . 'post-types/mega-menu-post-type.php';
 			// Services Post Type
 			require_once BULLISH_PRO_DIR_PATH . 'post-types/services-post-type.php';
+			// Services Global Settings
+			require_once BULLISH_PRO_DIR_PATH . 'post-types/services-global-settings.php';
 
 		}
 	}

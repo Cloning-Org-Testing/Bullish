@@ -656,13 +656,14 @@ class WeDesignTech_Widget_Base_Testimonial {
 
 					$group1_content_position_elements = array(
 						'image' => esc_html__( 'Image', 'wdt-elementor-addon'),
-						'icon'  => esc_html__( 'Icon', 'wdt-elementor-addon'),
-						'title' 		  => esc_html__( 'Name', 'wdt-elementor-addon'),
-						'sub_title' 	  => esc_html__( 'Role', 'wdt-elementor-addon')
+						'icon'  => esc_html__( 'Icon', 'wdt-elementor-addon')
+				
 					);
 					$group2_content_position_elements = array(
 						'description'     => esc_html__( 'Description', 'wdt-elementor-addon'),
 						'rating'          => esc_html__( 'Rating', 'wdt-elementor-addon'),
+						'title' 		  => esc_html__( 'Name', 'wdt-elementor-addon'),
+						'sub_title' 	  => esc_html__( 'Role', 'wdt-elementor-addon'),
 						'social_icons'    => esc_html__( 'Social Icons', 'wdt-elementor-addon')
 					);
 

@@ -88,51 +88,6 @@ class WeDesignTech_Widget_Base_Services {
                 'default'      => ''
 			) );
 
-			$elementor_object->add_control(
-				'currency_symbol',
-				array(
-					'label' => esc_html__( 'Currency Symbol', 'wdt-elementor-addon' ),
-					'type' => \Elementor\Controls_Manager::SELECT,
-					'options' => array(
-						'' => esc_html__( 'None', 'wdt-elementor-addon' ),
-						'dollar' => '&#36; ' . _x( 'Dollar', 'Currency', 'wdt-elementor-addon' ),
-						'euro' => '&#128; ' . _x( 'Euro', 'Currency', 'wdt-elementor-addon' ),
-						'baht' => '&#3647; ' . _x( 'Baht', 'Currency', 'wdt-elementor-addon' ),
-						'franc' => '&#8355; ' . _x( 'Franc', 'Currency', 'wdt-elementor-addon' ),
-						'guilder' => '&fnof; ' . _x( 'Guilder', 'Currency', 'wdt-elementor-addon' ),
-						'krona' => 'kr ' . _x( 'Krona', 'Currency', 'wdt-elementor-addon' ),
-						'lira' => '&#8356; ' . _x( 'Lira', 'Currency', 'wdt-elementor-addon' ),
-						'peseta' => '&#8359 ' . _x( 'Peseta', 'Currency', 'wdt-elementor-addon' ),
-						'peso' => '&#8369; ' . _x( 'Peso', 'Currency', 'wdt-elementor-addon' ),
-						'pound' => '&#163; ' . _x( 'Pound Sterling', 'Currency', 'wdt-elementor-addon' ),
-						'real' => 'R$ ' . _x( 'Real', 'Currency', 'wdt-elementor-addon' ),
-						'ruble' => '&#8381; ' . _x( 'Ruble', 'Currency', 'wdt-elementor-addon' ),
-						'rupee' => '&#8360; ' . _x( 'Rupee', 'Currency', 'wdt-elementor-addon' ),
-						'indian_rupee' => '&#8377; ' . _x( 'Rupee (Indian)', 'Currency', 'wdt-elementor-addon' ),
-						'shekel' => '&#8362; ' . _x( 'Shekel', 'Currency', 'wdt-elementor-addon' ),
-						'yen' => '&#165; ' . _x( 'Yen/Yuan', 'Currency', 'wdt-elementor-addon' ),
-						'won' => '&#8361; ' . _x( 'Won', 'Currency', 'wdt-elementor-addon' ),
-						'custom' => esc_html__( 'Custom', 'wdt-elementor-addon' ),
-					),
-					'default' => 'dollar',
-					'condition' => array(
-						'services_type' => 'type-2',
-					)
-				)
-			);
-
-			$elementor_object->add_control(
-				'custom_symbol',
-				array(
-					'type'    => \Elementor\Controls_Manager::TEXT,
-					'label'   => esc_html__('Custom Symbol', 'wdt-elementor-addon'),
-					'default' => '',
-					'condition' => array(
-						'currency_symbol' => 'custom',
-					)
-				)
-			);
-
             $elementor_object->add_control('button_text', array(
                 'label'       => esc_html__('Button Text', 'wdt-elementor-addon'),
                 'type'        => \Elementor\Controls_Manager::TEXT,
@@ -140,6 +95,60 @@ class WeDesignTech_Widget_Base_Services {
                 'description' => esc_html__('This text will be used as the button label if the individual service does not have a custom button text set.', 'wdt-elementor-addon'),
             ));
 
+        $elementor_object->end_controls_section();
+
+		 $elementor_object->start_controls_section( 'wdt_section_query', array(
+			'label' => esc_html__( 'Service Listing Settings', 'wdt-elementor-addon'),
+		));
+
+            // Query posts by
+            $elementor_object->add_control( 'query_posts_by', array(
+                'type'    => \Elementor\Controls_Manager::SELECT,
+                'label'   => esc_html__('Query Services by', 'wdt-elementor-addon'),
+                'default' => 'category',
+                'options' => array(
+                    'category'  => esc_html__('From Category', 'wdt-elementor-addon'),
+                    'ids'       => esc_html__('By Specific IDs', 'wdt-elementor-addon'),
+                    'all'       => esc_html__('All Services', 'wdt-elementor-addon'),
+                )
+            ));
+
+            // Service categories
+            $elementor_object->add_control( '_service_categories', array(
+                'label'       => esc_html__( 'Categories', 'wdt-elementor-addon' ),
+                'type'        => \Elementor\Controls_Manager::SELECT2,
+                'label_block' => true,
+                'multiple'    => true,
+                'options'     => $this->get_service_categories(),
+                'condition'   => array( 'query_posts_by' => 'category' )
+            ));
+
+            // Service IDs
+            $elementor_object->add_control( '_service_ids', array(
+                'label'       => esc_html__( 'Select Specific Services', 'wdt-elementor-addon' ),
+                'type'        => \Elementor\Controls_Manager::SELECT2,
+                'label_block' => true,
+                'multiple'    => true,
+                'options'     => $this->get_service_post_ids(),
+                'condition'   => array( 'query_posts_by' => 'ids' )
+            ));
+
+            // Post count
+            $elementor_object->add_control( '_service_count', array(
+                'type'        => \Elementor\Controls_Manager::NUMBER,
+                'label'       => esc_html__('Service Count', 'wdt-elementor-addon'),
+                'default'     => '6',
+                'min'         => 1,
+                'max'         => 50,
+                'placeholder' => esc_html__( 'Enter service count', 'wdt-elementor-addon' ),
+                'condition'   => array( 'query_posts_by!' => 'ids' )
+            ));
+			// Post pagination
+			$elementor_object->add_control( '_service_pagination', array(
+				'type'        => \Elementor\Controls_Manager::SWITCHER,
+				'label'       => esc_html__('Pagination', 'wdt-elementor-addon'),
+				'default'     => 'yes'
+			));
 
         $elementor_object->end_controls_section();
 
@@ -619,6 +628,133 @@ class WeDesignTech_Widget_Base_Services {
 			)
 		));
 
+		// Pagination Styles
+        $this->cc_style->get_style_controls($elementor_object, array (
+            'slug' => 'pagination',
+            'title' => esc_html__( 'Pagination', 'wdt-elementor-addon' ),
+            'condition' => array( '_service_pagination' => 'yes' ),
+            'styles' => array (
+                'alignment' => array (
+                    'field_type' => 'alignment',
+                    'selector' => array (
+                        '{{WRAPPER}} .wdt-services-pagination' => 'text-align: {{VALUE}};'
+                    ),
+                    'condition' => array ()
+                ),
+                'margin' => array (
+                    'field_type' => 'margin',
+                    'selector' => array (
+                        '{{WRAPPER}} .wdt-services-pagination' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ),
+                    'condition' => array ()
+                ),
+                'padding' => array (
+                    'field_type' => 'padding',
+                    'selector' => array (
+                        '{{WRAPPER}} .wdt-services-pagination' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                    ),
+                    'condition' => array ()
+                ),
+                'typography' => array (
+                    'field_type' => 'typography',
+                    'selector' => '{{WRAPPER}} .wdt-services-pagination .page-numbers',
+                    'condition' => array ()
+                ),
+                'tabs' => array (
+                    'field_type' => 'tabs',
+                    'tab_items' => array (
+                        'normal' => array (
+                            'title' => esc_html__( 'Normal', 'wdt-elementor-addon' ),
+                            'styles' => array (
+                                'color' => array (
+                                    'field_type' => 'color',
+                                    'selector' => array (
+                                        '{{WRAPPER}} .wdt-services-pagination .page-numbers' => 'color: {{VALUE}};'
+                                    ),
+                                    'condition' => array ()
+                                ),
+                                'background' => array (
+                                    'field_type' => 'background',
+                                    'selector' => '{{WRAPPER}} .wdt-services-pagination .page-numbers',
+                                    'condition' => array ()
+                                ),
+                                'border' => array (
+                                    'field_type' => 'border',
+                                    'selector' => '{{WRAPPER}} .wdt-services-pagination .page-numbers',
+                                    'condition' => array ()
+                                ),
+                                'border_radius' => array (
+                                    'field_type' => 'border_radius',
+                                    'selector' => array (
+                                        '{{WRAPPER}} .wdt-services-pagination .page-numbers' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                                    ),
+                                    'condition' => array ()
+                                ),
+                            )
+                        ),
+                        'hover' => array (
+                            'title' => esc_html__( 'Hover', 'wdt-elementor-addon' ),
+                            'styles' => array (
+                                'color' => array (
+                                    'field_type' => 'color',
+                                    'selector' => array (
+                                        '{{WRAPPER}} .wdt-services-pagination .page-numbers:hover' => 'color: {{VALUE}};'
+                                    ),
+                                    'condition' => array ()
+                                ),
+                                'background' => array (
+                                    'field_type' => 'background',
+                                    'selector' => '{{WRAPPER}} .wdt-services-pagination .page-numbers:hover',
+                                    'condition' => array ()
+                                ),
+                                'border' => array (
+                                    'field_type' => 'border',
+                                    'selector' => '{{WRAPPER}} .wdt-services-pagination .page-numbers:hover',
+                                    'condition' => array ()
+                                ),
+                                'border_radius' => array (
+                                    'field_type' => 'border_radius',
+                                    'selector' => array (
+                                        '{{WRAPPER}} .wdt-services-pagination .page-numbers:hover' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                                    ),
+                                    'condition' => array ()
+                                ),
+                            )
+                        ),
+                        'active' => array (
+                            'title' => esc_html__( 'Active', 'wdt-elementor-addon' ),
+                            'styles' => array (
+                                'color' => array (
+                                    'field_type' => 'color',
+                                    'selector' => array (
+                                        '{{WRAPPER}} .wdt-services-pagination .page-numbers.current' => 'color: {{VALUE}};'
+                                    ),
+                                    'condition' => array ()
+                                ),
+                                'background' => array (
+                                    'field_type' => 'background',
+                                    'selector' => '{{WRAPPER}} .wdt-services-pagination .page-numbers.current',
+                                    'condition' => array ()
+                                ),
+                                'border' => array (
+                                    'field_type' => 'border',
+                                    'selector' => '{{WRAPPER}} .wdt-services-pagination .page-numbers.current',
+                                    'condition' => array ()
+                                ),
+                                'border_radius' => array (
+                                    'field_type' => 'border_radius',
+                                    'selector' => array (
+                                        '{{WRAPPER}} .wdt-services-pagination .page-numbers.current' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                                    ),
+                                    'condition' => array ()
+                                ),
+                            )
+                        )
+                    )
+                )
+            )
+        ));
+
         // Carousel
         $this->cc_layout->get_carousel_style_controls($elementor_object, array ('layout' => 'carousel'));
 
@@ -638,18 +774,44 @@ class WeDesignTech_Widget_Base_Services {
         $settings['classes'] = $classes;
         $this->cc_layout->set_settings($settings);
         $module_layout_class = $this->cc_layout->get_item_class();
-    
-		
-        // Query Arguments
+
+		$query_posts_by = isset($settings['query_posts_by']) ? $settings['query_posts_by'] : 'all';
+        $_service_categories = isset($settings['_service_categories']) ? $settings['_service_categories'] : array();
+        $_service_ids = isset($settings['_service_ids']) ? $settings['_service_ids'] : array();
+        $count = isset($settings['_service_count']) ? intval($settings['_service_count']) : 6;
+        $pagination_enabled = isset($settings['_service_pagination']) && $settings['_service_pagination'] === 'yes';
+
+		// Get current page for pagination
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
         $form_args = array(
             'post_type'      => 'wdt_services',
             'post_status'    => 'publish',
-            'posts_per_page' => -1,
+            'posts_per_page' => $count,
+            'ignore_sticky_posts' => true,
+            'paged'          => $paged,
         );
 
-        if (!empty($settings['_post_ids'])) {
-            $form_args['post__in'] = $settings['_post_ids'];
-            $form_args['orderby'] = 'post__in';
+        // Don't use pagination for specific IDs query
+        if( $query_posts_by == 'ids' ) {
+            $pagination_enabled = false;
+        }
+
+        if( !empty( $_service_categories ) && $query_posts_by == 'category' ) {
+            $form_args['tax_query'] = array(
+                array(
+                    'taxonomy' => 'wdt_service_category', 
+                    'field'    => 'term_id',
+                    'terms'    => $_service_categories,
+                )
+            );
+            $warning = esc_html__('No Services Found in Selected Categories','wdt-elementor-addon');
+        } elseif( $query_posts_by == 'ids' && !empty( $_service_ids ) ) {
+            $form_args['post__in'] = $_service_ids;
+            $form_args['posts_per_page'] = -1; 
+            $warning = esc_html__('No Services Found in Selected IDs','wdt-elementor-addon');
+        } else {
+            $warning = esc_html__('No Services Found','wdt-elementor-addon');
         }
 
         $form_query = new WP_Query($form_args);
@@ -664,14 +826,21 @@ class WeDesignTech_Widget_Base_Services {
                 $form_query->the_post();
                 $service_id = get_the_ID();
 
-                
 				$service_settings = get_post_meta(get_the_ID(), '_bullish_service_settings', true);
-				// echo'<pre>Serviceee'; print_r($service_settings); echo'</pre>';
-
 				$icon  = !empty($service_settings['service_icon']) ? $service_settings['service_icon'] : '';
 				$price = !empty($service_settings['service_price']) ? $service_settings['service_price'] : '';
 				$offerprice = !empty($service_settings['service_offer_price']) ? $service_settings['service_offer_price'] : '';
                 $service_type = isset($settings['services_type']) ? $settings['services_type'] : 'type-1';
+				$duration         = !empty($service_settings['service_price_duration']) ? $service_settings['service_price_duration'] : '';
+
+				$duration_label = '';
+				if ($duration === 'day') {
+					$duration_label = esc_html__(' / day', 'bullish-pro');
+				} elseif ($duration === 'month') {
+					$duration_label = esc_html__(' / month', 'bullish-pro');
+				} elseif ($duration === 'year') {
+					$duration_label = esc_html__(' / year', 'bullish-pro');
+				}
 
                 $output .= '<div class="'.esc_attr($module_layout_class).'">';
 					$output .= '<div class="wdt-service-item wdt-' . esc_attr($service_type) . '">';
@@ -685,37 +854,42 @@ class WeDesignTech_Widget_Base_Services {
                             $output .= '</div>';
 
                             $output .= '<div class="wdt-service-detail-group">';
-								$output .= '<div class="wdt-service-icon">';
-									$output .= $this->render_service_icon($icon);
-								$output .= '</div>';
-								$output .= '<div class="wdt-service-title"><h5>';
+                                $output .= '<div class="wdt-service-title"><h5>';
                                     $output .= '<a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a>';
                                 $output .= '</h5></div>';
 
-							if ($settings['show_price'] == true) {
-								if (!empty($price) || !empty($offerprice)) {
+								if ($settings['show_price'] == true) {
+									if (!empty($price) || !empty($offerprice)) {
 
-									$currency_symbol_key = $settings['currency_symbol'] ?? '';
-									$custom_symbol = $settings['custom_symbol'] ?? '';
+										$global_settings = get_option('_bullish_service_settings', []);
+										$symbol = esc_html($global_settings['currency_symbol'] ?? '');
 
-									$symbol = ($currency_symbol_key === 'custom') ? esc_html($custom_symbol) : $this->get_currency_symbol($currency_symbol_key);
-									$output .= '<div class="wdt-service-type-price-group">';
-									$output .= '<div class="wdt-service-type-price">' . $symbol . esc_html($price) . '</div>';
-									$output .= '<div class="wdt-service-type-offerprice">' . $symbol . esc_html($offerprice) . '</div>';
-									$output .= '</div>';
+										$output .= '<div class="wdt-service-type-price-group">';
+											$output .= '<div class="wdt-service-type-price">';
+												if (!empty($offerprice)) {
+													$output .= '<del>' . $symbol . esc_html($price) . '</del>';
+												} else {
+													$output .= $symbol . esc_html($price . $duration_label);
+												}
+											$output .= '</div>';
 
+											if (!empty($offerprice)) {
+												$output .= '<div class="wdt-service-type-offerprice">' . $symbol . esc_html($offerprice . $duration_label) . '</div>';
+											}
+										$output .= '</div>';
+
+									}
 								}
-							}
-                                $excerpt = get_the_excerpt($service_id);
-                                if ( !empty($excerpt) ) {
-                                    $output .= '<div class="wdt-service-description">' . esc_html($excerpt) . '</div>';
-                                }                    
-                                            
-                                if ( !empty($settings['button_text']) ) {
-                                    $output .= '<div class="wdt-service-button">';
-                                        $output .= '<a href="' . esc_url(get_permalink()) . '">' . esc_html($settings['button_text']) . '</a>';
-                                    $output .= '</div>';
-                                }
+								$excerpt = get_the_excerpt($service_id);
+								if ( !empty($excerpt) ) {
+									$output .= '<div class="wdt-service-description">' . esc_html($excerpt) . '</div>';
+								}                    
+										
+								if ( !empty($settings['button_text']) ) {
+									$output .= '<div class="wdt-service-button">';
+										$output .= '<a href="' . esc_url(get_permalink()) . '">' . esc_html($settings['button_text']) . '</a>';
+									$output .= '</div>';
+								}
                             $output .= '</div>';
 
                         } elseif ($service_type === 'type-2') {
@@ -735,17 +909,25 @@ class WeDesignTech_Widget_Base_Services {
 							if ($settings['show_price'] == true) {
 								if (!empty($price) || !empty($offerprice)) {
 
-									$currency_symbol_key = $settings['currency_symbol'] ?? '';
-									$custom_symbol = $settings['custom_symbol'] ?? '';
+									$global_settings = get_option('_bullish_service_settings', []);
+									$symbol = esc_html($global_settings['currency_symbol'] ?? '');
 
-									$symbol = ($currency_symbol_key === 'custom') ? esc_html($custom_symbol) : $this->get_currency_symbol($currency_symbol_key);
 									$output .= '<div class="wdt-service-type-price-group">';
-									$output .= '<div class="wdt-service-type-price">' . $symbol . esc_html($price) . '</div>';
-									$output .= '<div class="wdt-service-type-offerprice">' . $symbol . esc_html($offerprice) . '</div>';
-									$output .= '</div>';
+										$output .= '<div class="wdt-service-type-price">';
+											if (!empty($offerprice)) {
+												$output .= '<del>' . $symbol . esc_html($price) . '</del>';
+											} else {
+												$output .= $symbol . esc_html($price . $duration_label);
+											}
+										$output .= '</div>';
 
+										if (!empty($offerprice)) {
+											$output .= '<div class="wdt-service-type-offerprice">' . $symbol . esc_html($offerprice . $duration_label) . '</div>';
+										}
+									$output .= '</div>';
 								}
 							}
+
 
 							if ( !empty($settings['button_text']) ) {
 								$output .= '<div class="wdt-service-button">';
@@ -760,41 +942,50 @@ class WeDesignTech_Widget_Base_Services {
 								$output .= '<div class="wdt-service-image">';
                                 	$output .= $this->render_service_image($service_id);
 								$output .= '</div>';
+
+                                $output .= $this->render_service_icon($icon);
                             $output .= '</div>';
                             
                             $output .= '<div class="wdt-service-detail-group">';
 
-							$output .= '<div class="wdt-service-content-group">';
-									$output .= '<div class="wdt-service-title"><h5>';
-										$output .= '<a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a>';
-									$output .= '</h5></div>';
-									$output .= $this->render_service_icon($icon);
-							$output .='</div>';
+                                $output .= '<div class="wdt-service-title"><h5>';
+                                    $output .= '<a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a>';
+                                $output .= '</h5></div>';
                                 
                             if ($settings['show_price'] == true) {
 								if (!empty($price) || !empty($offerprice)) {
 
-									$currency_symbol_key = $settings['currency_symbol'] ?? '';
-									$custom_symbol = $settings['custom_symbol'] ?? '';
+									$global_settings = get_option('_bullish_service_settings', []);
+									$symbol = esc_html($global_settings['currency_symbol'] ?? '');
 
-									$symbol = ($currency_symbol_key === 'custom') ? esc_html($custom_symbol) : $this->get_currency_symbol($currency_symbol_key);
 									$output .= '<div class="wdt-service-type-price-group">';
-									$output .= '<div class="wdt-service-type-price">' . $symbol . esc_html($price) . '</div>';
-									$output .= '<div class="wdt-service-type-offerprice">' . $symbol . esc_html($offerprice) . '</div>';
+									
+									$output .= '<div class="wdt-service-type-price">';
+										if (!empty($offerprice)) {
+											$output .= '<del>' . $symbol . esc_html($price) . '</del>';
+										} else {
+											$output .= $symbol . esc_html($price . $duration_label);
+										}
 									$output .= '</div>';
 
+									if (!empty($offerprice)) {
+										$output .= '<div class="wdt-service-type-offerprice">' . $symbol . esc_html($offerprice . $duration_label) . '</div>';
+									}
+
+									$output .= '</div>';
 								}
 							}
-                                $excerpt = get_the_excerpt($service_id);
-                                if ( !empty($excerpt) ) {
-                                    $output .= '<div class="wdt-service-description">' . esc_html($excerpt) . '</div>';
-                                }                    
-                                            
-                                if ( !empty($settings['button_text']) ) {
-                                    $output .= '<div class="wdt-service-button">';
-                                        $output .= '<a href="' . esc_url(get_permalink()) . '">' . esc_html($settings['button_text']) . '</a>';
-                                    $output .= '</div>';
-                                }
+
+							$excerpt = get_the_excerpt($service_id);
+							if ( !empty($excerpt) ) {
+								$output .= '<div class="wdt-service-description">' . esc_html($excerpt) . '</div>';
+							}                    
+										
+							if ( !empty($settings['button_text']) ) {
+								$output .= '<div class="wdt-service-button">';
+									$output .= '<a href="' . esc_url(get_permalink()) . '">' . esc_html($settings['button_text']) . '</a>';
+								$output .= '</div>';
+							}
                             $output .= '</div>';
                             
                         }
@@ -876,6 +1067,41 @@ class WeDesignTech_Widget_Base_Services {
 
 		return isset( $symbols[ $symbol_name ] ) ? $symbols[ $symbol_name ] : '';
 	}
+
+	 private function get_service_categories() {
+        $categories = array();
+        
+        $terms = get_terms(array(
+            'taxonomy' => 'wdt_service_category', // Adjust this to your actual service category taxonomy
+            'hide_empty' => false,
+        ));
+        
+        if (!is_wp_error($terms) && !empty($terms)) {
+            foreach ($terms as $term) {
+                $categories[$term->term_id] = $term->name;
+            }
+        }
+        
+        return $categories;
+    }
+
+	private function get_service_post_ids() {
+        $services = array();
+        
+        $posts = get_posts(array(
+            'post_type' => 'wdt_services',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+        ));
+        
+        if (!empty($posts)) {
+            foreach ($posts as $post) {
+                $services[$post->ID] = $post->post_title;
+            }
+        }
+        
+        return $services;
+    }
 
 }
 
