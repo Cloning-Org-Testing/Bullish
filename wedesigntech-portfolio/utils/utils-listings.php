@@ -475,8 +475,10 @@ function wdt_generate_listing_output_loop($filtered_item_ids, $output_options) {
 				$output_options['loader_parent']  = '.wdt-listing-output-data-container';
 
                 if($pagination_type != '') {
-                    $output .= wdt_listing_ajax_pagination($max_num_pages, $current_page,'wdt-listing-output-data-holder', $output_options);
-                }
+
+					$output .= wdt_listing_ajax_pagination($max_num_pages, $current_page, 'wdt-listing-output-data-holder', 'wdt-listing-output-data-holder', $output_options);
+                
+				}
 				// Pagination script End
 
 			}
