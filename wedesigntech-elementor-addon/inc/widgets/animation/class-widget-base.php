@@ -276,11 +276,16 @@ class WeDesignTech_Widget_Base_Animation {
 					'step' => 0.5
 				)
 			),
-			'selectors' => array (
+			'selectors' => array(
 				'{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].left-to-right, 
-				 {{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].left-to-right ~ div.wdt-animation-cloned-marqee,
-				 {{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].right-to-left, 
-				 {{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].right-to-left ~ div.wdt-animation-cloned-marqee' => 'animation-duration: {{SIZE}}s;',
+				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].left-to-right ~ div.wdt-animation-cloned-marqee,
+				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].right-to-left, 
+				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].right-to-left ~ div.wdt-animation-cloned-marqee,
+				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].top-to-bottom, 
+				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].top-to-bottom ~ div.wdt-animation-cloned-marqee,
+				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].bottom-to-top, 
+				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].bottom-to-top ~ div.wdt-animation-cloned-marqee' 
+				=> 'animation-duration: {{SIZE}}s;',
 			),
 		) );
 
@@ -309,7 +314,7 @@ class WeDesignTech_Widget_Base_Animation {
 				),
 			),
 			'selectors' => array(
-				'{{WRAPPER}} .icon-item' => 'font-size: {{SIZE}}{{UNIT}};',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item' => 'font-size: {{SIZE}}{{UNIT}};',
 			),
 		) );
 
@@ -318,7 +323,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'type' => \Elementor\Controls_Manager::DIMENSIONS,
 			'size_units' => array ( 'px', 'em', '%' ),
 			'selectors' => array (
-				'{{WRAPPER}} .icon-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item'  => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 		) );
 
@@ -327,7 +332,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'type' => \Elementor\Controls_Manager::DIMENSIONS,
 			'size_units' => array ( 'px', 'em', '%' ),
 			'selectors' => array (
-				'{{WRAPPER}} .icon-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 		) );	
 
@@ -335,7 +340,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'label' => esc_html__( 'Color', 'wdt-elementor-addon' ),
 			'type' => \Elementor\Controls_Manager::COLOR,
 			'selectors' => array(
-				'{{WRAPPER}} .icon-item' => 'color: {{VALUE}}',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item' => 'color: {{VALUE}}',
 			),
 		) );
 
@@ -344,7 +349,7 @@ class WeDesignTech_Widget_Base_Animation {
 			array(
 				'name' => 'icon_normal_background',
 				'types' =>  array('classic', 'gradient', 'video' ),
-				'selector' => '{{WRAPPER}} .icon-item',
+				'selector' => '{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item',
 			)
 		);
 
@@ -352,7 +357,7 @@ class WeDesignTech_Widget_Base_Animation {
 			\Elementor\Group_Control_Border::get_type(),
 			array(
 				'name' => 'icon_normal_border',
-				'selector' => '{{WRAPPER}} .icon-item',
+				'selector' => '{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item',
 			)	
 		);
 
@@ -361,7 +366,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'type' => \Elementor\Controls_Manager::DIMENSIONS,
 			'size_units' => array ( 'px', 'em', '%' ),
 			'selectors' => array (
-				'{{WRAPPER}} .icon-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 		) );
 
@@ -369,7 +374,7 @@ class WeDesignTech_Widget_Base_Animation {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			array(
 				'name' => 'item-icon_normal_box_shadow',
-				'selector' => '{{WRAPPER}} .icon-item',
+				'selector' => '{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item',
 			)	
 		);
 

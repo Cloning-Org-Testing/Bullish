@@ -3,21 +3,18 @@
     const wdtServicesWidgetHandler = function($scope, $) {
 
         const getFullBoxHeight = ($element) => {
-            if (!$element.length) return 0;
 
+            if (!$element.length) return 0;
+            
             const el = $element[0];
             const style = window.getComputedStyle(el);
 
-            console.log('Calculating full box height for element:' + '-->>>' + el  + style);
-            
-
             const height = el.offsetHeight;
-            const marginTop = parseFloat(style.marginTop) || 0;
             const marginBottom = parseFloat(style.marginBottom) || 0;
             const paddingTop = parseFloat(style.paddingTop) || 0;
-            const paddingBottom = parseFloat(style.paddingBottom) || 0;
 
-            return height + marginTop + marginBottom + paddingTop + paddingBottom;
+            return height + marginBottom + paddingTop;
+
         };
 
         // Main logic: find all type-3 items, get max description height, apply as CSS var
