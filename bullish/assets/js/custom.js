@@ -512,8 +512,10 @@ jQuery(function ($) {
             const rect = img.getBoundingClientRect();
             const src = img.currentSrc || img.src || img.getAttribute("data-src");
             if (!src) return;
-            preconnectDomain(src);
-            if (rect.top <= preloadThreshold) {
+
+            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+            if (inViewport) {
+                preconnectDomain(src);
                 preloadLink(src);
                 forcePreloadImage(src);
                 img.loading = "eager";
@@ -527,39 +529,29 @@ jQuery(function ($) {
     };
 
     const scanBackgrounds = () => {
-        document.querySelectorAll("section, .elementor-section, .wp-block-cover").forEach(el => {
-            const style = getComputedStyle(el);
-            const bgImage = extractUrl(style.backgroundImage);
-            const isVisible = style.display !== "none" && el.offsetHeight > 0;
-            const rect = el.getBoundingClientRect();
-            const isAboveFold = rect.top + window.scrollY < window.innerHeight;
-            if (bgImage && isVisible && isAboveFold) {
-                preconnectDomain(bgImage);
-                preloadLink(bgImage);
-                forcePreloadImage(bgImage);
-            }
-        });
-
-        document.querySelectorAll("*").forEach(el => {
-            if (el.closest('.megamenu')) return;
+        document.querySelectorAll(".e-con, .e-con-boxed, .e-container, .e-flex").forEach(el => {
             const style = getComputedStyle(el);
             const rect = el.getBoundingClientRect();
             const top = rect.top + window.scrollY;
+            const isVisible = style.display !== "none" && el.offsetHeight > 0;
+            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+
             const bgImage = extractUrl(style.backgroundImage);
             const varImage = extractUrl(style.getPropertyValue('--optional-background-image'));
+
             [bgImage, varImage].forEach((url, idx) => {
-                if (url) {
-                    preconnectDomain(url);
-                    if (top >= preloadThreshold) {
-                        const dataKey = idx === 0 ? "lazyBg" : "lazyVar";
-                        el.dataset[dataKey] = url;
-                        if (idx === 0) el.style.backgroundImage = "none";
-                        else el.style.setProperty('--optional-background-image', 'none');
-                        bgElements.push(el);
-                    } else {
-                        preloadLink(url);
-                        forcePreloadImage(url);
-                    }
+                if (!url || !isVisible) return;
+
+                preconnectDomain(url);
+                if (inViewport) {
+                    preloadLink(url);
+                    forcePreloadImage(url);
+                } else {
+                    const dataKey = idx === 0 ? "lazyBg" : "lazyVar";
+                    el.dataset[dataKey] = url;
+                    if (idx === 0) el.style.backgroundImage = "none";
+                    else el.style.setProperty('--optional-background-image', 'none');
+                    bgElements.push(el);
                 }
             });
         });
@@ -594,10 +586,13 @@ jQuery(function ($) {
     };
 
     const applyLazyBgObserver = () => {
-        if (!("IntersectionObserver" in window)) return bgElements.forEach(el => {
-            if (el.dataset.lazyBg) el.style.backgroundImage = `url('${el.dataset.lazyBg}')`;
-            if (el.dataset.lazyVar) el.style.setProperty('--optional-background-image', `url('${el.dataset.lazyVar}')`);
-        });
+        if (!("IntersectionObserver" in window)) {
+            bgElements.forEach(el => {
+                if (el.dataset.lazyBg) el.style.backgroundImage = `url('${el.dataset.lazyBg}')`;
+                if (el.dataset.lazyVar) el.style.setProperty('--optional-background-image', `url('${el.dataset.lazyVar}')`);
+            });
+            return;
+        }
 
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -619,7 +614,6 @@ jQuery(function ($) {
         bgElements.forEach(el => observer.observe(el));
     };
 
-    // --- Run performance-sensitive logic with delay ---
     requestIdleCallback(() => {
         scanImages();
         scanBackgrounds();
@@ -627,7 +621,6 @@ jQuery(function ($) {
         applyLazyBgObserver();
     }, { timeout: 500 });
 
-    // --- Lightweight stylesheet deferral ---
     document.querySelectorAll('link[rel="stylesheet"][data-defer]').forEach(link => {
         link.media = "print";
         link.onload = function () { this.media = "all"; };
@@ -640,4 +633,73 @@ jQuery(function ($) {
         link.href = window.criticalCssUrl;
         document.head.appendChild(link);
     }
+});
+
+const buttonActionArea = document.querySelector('.button-action-area');
+const button = document.querySelector('.button');
+
+const map = (value, a0, b0, a1, b1) => {
+  return (value - a0) / (b0 - a0) * (b1 - a1) + a1
+}
+
+let buttonPosition = [50, 50];
+
+const throttle = (cb, delay) => {
+  let shouldWait = false;
+  let lastCallArgs;
+  
+  if (shouldWait) return;
+  
+  const timeoutCb = () => {
+    if (lastCallArgs) {
+      cb(lastCallArgs);
+      lastCallArgs = null;
+      setTimeout(timeoutCb, delay);
+    } else {
+      shouldWait = false
+    }
+  }
+  
+  return (...args) => {
+    if (shouldWait) return;
+    
+    cb(...args);
+    shouldWait = true;
+    setTimeout(timeoutCb, delay);
+  }
+}
+
+const updateMousePosition = throttle((e) => {
+  const x = map(e.offsetX, 0, 200, 50, 100) - 50
+  const y = map(e.offsetY, 0, 200, 50, 100) - 50
+  const anime =  button.animate([
+    { left: buttonPosition[0], top: buttonPosition[1] },
+    { left: x + 'px', top: y + 'px'}
+  ], {
+    duration: 200,
+  });
+
+  anime.onfinish = () => {
+    buttonPosition = [x, y];
+    button.style.top = y + 'px';
+    button.style.left = x + 'px';
+  };
+}, 10);
+
+buttonActionArea.addEventListener('mousemove', (e) => {
+  updateMousePosition(e);
+});
+
+buttonActionArea.addEventListener('mouseleave', () => {
+  const anime =  button.animate([
+    { left: buttonPosition[0], top: buttonPosition[1] },
+    { left: '25px', top: '25px'}
+  ], {
+    duration: 200,
+  });
+  
+  anime.onfinish = () => {
+    button.style.top = '25px';
+    button.style.left = '25px';
+  };
 });
