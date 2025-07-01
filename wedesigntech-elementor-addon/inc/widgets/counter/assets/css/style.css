@@ -22,12 +22,13 @@
 .wdt-counter-holder.wdt-rc-template-modern .wdt-content-item{
     height: clamp(11.875rem, 7.2917rem + 9.5486vw, 18.75rem);/*300-190*/
     width: clamp(11.875rem, 7.2917rem + 9.5486vw, 18.75rem);/*300-190*/
-    background: var(--wdtAccentTxtColor);
+    background: rgba(var(--wdtAccentTxtColorRgb), 0.5);
+    backdrop-filter: blur(10px);
     border-radius: var(--wdtRadius_Full);
     display:flex;
     flex-direction:column;
     padding:clamp(0.625rem, -2.9464rem + 5.5804vw, 3.75rem);/*60-0*/
-    box-shadow: 0 0 10px 10px rgba(var(--wdtBorderColorRgb),0.8);
+    box-shadow: 0 0 30px 10px rgba(var(--wdtBorderColorRgb),0.4);
     position:relative; z-index:3; will-change:transform;
 }
 .wdt-counter-holder.wdt-rc-template-modern .wdt-content-item:hover{
@@ -48,8 +49,8 @@
     opacity:0;
     transition: opacity 0.3s linear; -webkit-transition: opacity 0.3s linear;
     animation: wdt-rotate 3s infinite linear;
-    box-shadow: 0 0 60px 1px rgba(var(--wdtTertiaryColorRgb),0.5);
-    -webkit-box-shadow: 0 0 60px 1px rgba(var(--wdtTertiaryColorRgb),0.5);
+    box-shadow: 0 0 80px 1px rgba(var(--wdtTertiaryColorRgb),0.3);
+    -webkit-box-shadow: 0 0 80px 1px rgba(var(--wdtTertiaryColorRgb),0.3);
 }
 @keyframes wdt-rotate{
     0%{
@@ -78,15 +79,23 @@
     opacity:1;
 }
 
-.wdt-counter-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-counter{
+.wdt-counter-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-counter,
+.wdt-counter-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-counter-prefix, 
+.wdt-counter-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-counter-suffix{
     font-size: clamp(2.5rem, 2.082rem + 1.9108vw, 4.375rem); /* Min-50 & Max-70 */
     font-weight:var(--wdtFontWeight_Ext);
     line-height:1;
+    transition: var(--wdt-Ad-Transition);
 }
 .wdt-counter-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-title h5{
     font-size: clamp(1rem, 0.8333rem + 0.3472vw, 1.25rem);/*20-16*/
     font-weight:var(--wdtFontWeight_Base);
     color:var(--wdtHeadAltColor);
+}
+.wdt-counter-holder.wdt-rc-template-modern .wdt-content-item:hover .wdt-content-counter,
+.wdt-counter-holder.wdt-rc-template-modern .wdt-content-item:hover .wdt-content-counter-prefix, 
+.wdt-counter-holder.wdt-rc-template-modern .wdt-content-item:hover .wdt-content-counter-suffix{
+    color: var(--wdtPrimaryColor);
 }
 
 /* Classic template */
