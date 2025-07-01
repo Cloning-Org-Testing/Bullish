@@ -61,7 +61,7 @@
     font-size: 2rem; height: 1em; line-height: 1; padding: 5px; position: relative; text-align: center; vertical-align: top; width: 1em; z-index: 0; 
     color: inherit; font-size: inherit; height: 1em; width: 1em; }
 
-.wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span svg { fill: currentColor; height: 1em; width: 1em; }
+.wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span svg { fill: currentColor; height: 1em; width: 1em; overflow: visible; }
 
 .wdt-content-item .wdt-content-media-group .wdt-content-icon-wrapper:only-child .wdt-content-icon span { height: auto; }
 .wdt-content-item .wdt-content-media-group .wdt-content-icon-wrapper:only-child .wdt-content-icon span, 
@@ -138,7 +138,7 @@
 .wdt-content-item .wdt-rating { display: inline-block; list-style: none; margin: 0 0px; padding: 0; vertical-align: top; }
 
 .wdt-content-item .wdticon-stars { position: relative; display: inline-block; font-size: inherit; 
-    line-height: 1; color: #daa520; }
+    line-height: 1; color: #FFC527; }
 
 .wdt-content-item .wdticon-stars::before,
 .wdt-content-item .wdticon-stars::after { content: "\e807 \e807 \e807 \e807 \e807"; 
@@ -148,7 +148,7 @@
     background-image: linear-gradient(to right, currentColor 50%, currentColor 50%); background-repeat: no-repeat; 
     background-size: 100% 100%; background-position: right center; opacity: 0.45; }
 
-.wdt-content-item .wdticon-stars::after { display: block; z-index: 1; overflow: hidden; 
+.wdt-content-item .wdticon-stars::after { content: "\e806 \e806 \e806 \e806 \e806"; display: block; z-index: 1; overflow: hidden; 
     position: absolute; left: 0; top: 0; bottom: 0; margin: auto; color: currentColor; background-clip: text;
     background-image: linear-gradient(to right, currentColor 50%, currentColor 50%); -webkit-text-fill-color: transparent;
     background-color: transparent; background-repeat: no-repeat; background-position: left center; }

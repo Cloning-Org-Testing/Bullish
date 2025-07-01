@@ -1,6 +1,6 @@
 
 .wdt-elementor-repeater-container-wrapper { margin: 0px; }
-.wdt-elementor-repeater-container-wrapper > div { margin: 12px; line-height: 1em; display: inline-block; vertical-align: middle; }
+.wdt-elementor-repeater-container-wrapper > div { margin: 0 12px; line-height: 1.35em; display: inline-block; vertical-align: middle; }
 
 .wdt-elementor-repeater-container-wrapper > .wdt-opt-image img { object-fit: cover; border-radius: 0em; }
 
@@ -10,4 +10,5 @@
 .wdt-elementor-repeater-container-wrapper > div.wdt-text-tile{
     font-size: clamp(2.25rem, 2.0549rem + 0.8917vw, 3.125rem); /* Min-36 & Max-50 */
     font-weight: var(--wdtFontWeight_Alt);
+    display: inline;
 }
