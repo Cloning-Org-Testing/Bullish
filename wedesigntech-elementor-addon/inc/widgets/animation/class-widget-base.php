@@ -72,6 +72,7 @@ class WeDesignTech_Widget_Base_Animation {
 				'type1' => esc_html__( 'Type1', 'wdt-elementor-addon' ),
 				'type2' => esc_html__( 'Type2', 'wdt-elementor-addon' ),
 				'icon_text' => esc_html__( 'Icon and Text', 'wdt-elementor-addon' ),
+				'testimonial' => esc_html__( 'Testimonial', 'wdt-elementor-addon' ),
 			)
 		) );
 
@@ -82,7 +83,7 @@ class WeDesignTech_Widget_Base_Animation {
 				'url' => \Elementor\Utils::get_placeholder_image_src(),
 			),
 			'condition'   => array (
-				'content_type' =>'image'
+				'content_type' => array('image', 'testimonial'),
 			)
 		) );
 
@@ -94,7 +95,7 @@ class WeDesignTech_Widget_Base_Animation {
 				'library' => 'fa-solid',
 			),
 			'condition'   => array (
-				'content_type' => array('icon','type1','type2'),
+				'content_type' => array('icon','type1','type2', 'testimonial'),
 			)
 		) );
 
@@ -104,7 +105,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'label_block' => true,
 			'placeholder' => esc_html__( 'Title goes here', 'wdt-elementor-addon' ),
 			'condition'   => array (
-				'content_type' =>'text'
+				'content_type' => array('text', 'testimonial')
 			)
 		) );
 
@@ -114,7 +115,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'placeholder' => esc_html__( 'https://your-link.com', 'wdt-elementor-addon' ),
 			'default'     => array( 'url' => '#' ),
 			'condition'   => array (
-				'content_type' =>'text'
+				'content_type' => array('text', 'testimonial')
 			)
 		) );
 
@@ -145,6 +146,27 @@ class WeDesignTech_Widget_Base_Animation {
 			'label_block' => true,
 			'condition' => array( 'content_type' => 'icon_text' ),
 		) );
+		$repeater->add_control( 'sub_title', array(
+			'label'       => esc_html__( 'Sub Title', 'wdt-elementor-addon' ),
+			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
+			'placeholder' => esc_html__( 'Enter sub title', 'wdt-elementor-addon' ),
+			'default'     => esc_html__( 'This is a subtitle', 'wdt-elementor-addon' ),
+			'condition'   => array (
+				'content_type' => array( 'testimonial' )
+			)
+		) );
+
+		$repeater->add_control( 'description', array(
+			'label'       => esc_html__( 'Description', 'wdt-elementor-addon' ),
+			'type'        => \Elementor\Controls_Manager::TEXTAREA,
+			'placeholder' => esc_html__( 'Enter description text here', 'wdt-elementor-addon' ),
+			'default'     => esc_html__( 'This is the description area.', 'wdt-elementor-addon' ),
+			'rows'        => 4,
+			'condition'   => array (
+				'content_type' => array( 'testimonial' )
+			)
+		) );
 
 		$elementor_object->add_control( 'contents', array(
 			'type'        => \Elementor\Controls_Manager::REPEATER,
@@ -173,16 +195,44 @@ class WeDesignTech_Widget_Base_Animation {
 			'label' => esc_html__( 'Settings', 'wdt-elementor-addon'),
 		) );
 
-		$elementor_object->add_control( 'wdt_mqa_direction', array(
-			'label'   => esc_html__( 'Direction', 'wdt-elementor-addon' ),
-			'type'    => Elementor\Controls_Manager::SELECT,
-			'default' => 'left-to-right',
-			'options' => array(
-				'left-to-right' => esc_html__( 'Left to Right', 'wdt-elementor-addon' ),
-				'right-to-left' => esc_html__( 'Right to Left', 'wdt-elementor-addon' )
-			),
-			'frontend_available' => true
-		) );
+			$elementor_object->add_control( 'wdt_mqa_direction', array(
+				'label'   => esc_html__( 'Direction', 'wdt-elementor-addon' ),
+				'type'    => Elementor\Controls_Manager::SELECT,
+				'default' => 'horizontal',
+				'options' => array(
+					'horizontal' => esc_html__( 'Horizontal', 'wdt-elementor-addon' ),
+					'vertical' => esc_html__( 'Vertical', 'wdt-elementor-addon' )
+				),
+				'frontend_available' => true
+			) );
+			
+			$elementor_object->add_control( 'wdt_horizontal_direction', array(
+				'label'   => esc_html__( 'Direction to move', 'wdt-elementor-addon' ),
+				'type'    => Elementor\Controls_Manager::SELECT,
+				'default' => 'left-to-right',
+				'options' => array(
+					'left-to-right' => esc_html__( 'Left to Right', 'wdt-elementor-addon' ),
+					'right-to-left' => esc_html__( 'Right to Left', 'wdt-elementor-addon' )
+				),
+				'condition'   => array (
+					'wdt_mqa_direction' =>'horizontal'
+				),
+				'frontend_available' => true
+			) );
+
+			$elementor_object->add_control( 'wdt_vertical_direction', array(
+				'label'   => esc_html__( 'Direction to move', 'wdt-elementor-addon' ),
+				'type'    => Elementor\Controls_Manager::SELECT,
+				'default' => 'top-to-bottom',
+				'options' => array(
+					'top-to-bottom' => esc_html__( 'Top to Bottom', 'wdt-elementor-addon' ),
+					'bottom-to-top' => esc_html__( 'Bottom to Top', 'wdt-elementor-addon' )
+				),
+				'condition'   => array (
+					'wdt_mqa_direction' =>'vertical'
+				),
+				'frontend_available' => true
+			) );
 
 		$elementor_object->end_controls_section();
 
@@ -469,10 +519,14 @@ class WeDesignTech_Widget_Base_Animation {
                 'direction' => $settings['wdt_mqa_direction']
             );
 
-			$output .= '<div class="wdt-animation-holder '.esc_attr(implode(' ', $classes)).'" id="wdt-animation-'.esc_attr($widget_object->get_id()).'" data-settings="'.esc_js(wp_json_encode($animation_settings)).'">';
+			$output .= '<div class="wdt-animation-holder '. $settings['wdt_mqa_direction'].''.esc_attr(implode(' ', $classes)).'" id="wdt-animation-'.esc_attr($widget_object->get_id()).'" data-settings="'.esc_js(wp_json_encode($animation_settings)).'">';
                 $output .= '<div class="wdt-animation-wrapper">';
 
-					$output .= '<div class="wdt-animation-main-marqee '.esc_attr($settings['wdt_mqa_direction']).'">';
+				$directioncheck=$settings['wdt_mqa_direction'];
+				if($directioncheck=="vertical")$directionis=$settings['wdt_vertical_direction'];
+				else $directionis=$settings['wdt_horizontal_direction'];
+
+					$output .= '<div class="wdt-animation-main-marqee '.esc_attr($directionis).'">';
 						foreach( $settings['contents'] as $key => $item ) {
 							if( $item['content_type'] == 'image' ) {
 								if(isset($item['image']['url']) && !empty($item['image']['url'])) {
@@ -529,6 +583,61 @@ class WeDesignTech_Widget_Base_Animation {
 									if ( !empty( $item['icon_text_label'] ) ) {
 										$output .= '<span class="icon-text-label">' . esc_html( $item['icon_text_label'] ) . '</span>';
 									}
+								$output .= '</div>';
+							}
+							else if( $item['content_type'] == 'testimonial' ) {
+								
+								$output .= '<div class="wdt-animation-item testimonial-item">';
+									$output .='<div class="testimonial-content-group">';
+										if ( !empty( $item['icon']['value'] ) ) {
+											$output.='<span>';
+												ob_start();
+												\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+												$output .= ob_get_clean();
+											$output.='</span>';
+										}
+
+										if(!empty($item['description'])) {
+											$output .= '<div class="testimonial-description">' . esc_html( $item['description'] ) . '</div>';
+										}
+									$output .='</div>';
+
+									$output .='<div class="testimonial-media-group">';
+										$output .= '<div class="image-item">';
+
+											$image_setting = array ();
+											$image_setting['image'] = $item['image'];
+											$image_setting['image_size'] = 'full';
+											$image_setting['image_custom_dimension'] = isset($item['image_custom_dimension']) ? $item['image_custom_dimension'] : array ();
+		
+											$output .= \Elementor\Group_Control_Image_Size::get_attachment_image_html( $image_setting );
+
+										$output .= '</div>';
+
+										$output .='<div class="testimonial-media-content-group">';
+
+										if ( !empty( $item['text'] ) ) {
+												if( !empty( $item['link']['url'] ) && $item['text'] != '' ){
+													$target = ( $item['link']['is_external'] == 'on' ) ? ' target="_blank" ' : '';
+													$nofollow = ( $item['link']['nofollow'] == 'on' ) ? 'rel="nofollow" ' : '';
+													$output .= '<div class="testimonial-text">';
+														$output .= '<a href="'.esc_url( $item['link']['url'] ).'"'. $target . $nofollow.'>';
+															$output .= $item['text'];
+														$output .= '</a>';
+													$output .= '</div>';
+												} elseif($item['text'] != '') {
+													$output .= '<div class="testimonial-text">';	
+														$output .= $item['text'];
+													$output .= '</div>';
+												}
+										}
+										if(!empty($item['sub_title'])) {
+											$output .= '<span class="testimonial-subtitle">' . esc_html( $item['sub_title'] ) . '</span>';
+										}
+
+										$output .='</div>';
+									$output .='</div>';
+									
 								$output .= '</div>';
 							}
 							else
@@ -597,6 +706,60 @@ class WeDesignTech_Widget_Base_Animation {
 									if ( !empty( $item['icon_text_label'] ) ) {
 										$output .= '<span class="icon-text-label">' . esc_html( $item['icon_text_label'] ) . '</span>';
 									}
+								$output .= '</div>';
+							} else if( $item['content_type'] == 'testimonial' ) {
+								
+								$output .= '<div class="wdt-animation-item testimonial-item">';
+									$output .='<div class="testimonial-content-group">';
+										if ( !empty( $item['icon']['value'] ) ) {
+											$output.='<span>';
+												ob_start();
+												\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+												$output .= ob_get_clean();
+											$output.='</span>';
+										}
+
+										if(!empty($item['description'])) {
+											$output .= '<div class="testimonial-description">' . esc_html( $item['description'] ) . '</div>';
+										}
+									$output .='</div>';
+
+									$output .='<div class="testimonial-media-group">';
+										$output .= '<div class="image-item">';
+
+											$image_setting = array ();
+											$image_setting['image'] = $item['image'];
+											$image_setting['image_size'] = 'full';
+											$image_setting['image_custom_dimension'] = isset($item['image_custom_dimension']) ? $item['image_custom_dimension'] : array ();
+		
+											$output .= \Elementor\Group_Control_Image_Size::get_attachment_image_html( $image_setting );
+
+										$output .= '</div>';
+
+										$output .='<div class="testimonial-media-content-group">';
+
+										if ( !empty( $item['text'] ) ) {
+												if( !empty( $item['link']['url'] ) && $item['text'] != '' ){
+													$target = ( $item['link']['is_external'] == 'on' ) ? ' target="_blank" ' : '';
+													$nofollow = ( $item['link']['nofollow'] == 'on' ) ? 'rel="nofollow" ' : '';
+													$output .= '<div class="testimonial-text">';
+														$output .= '<a href="'.esc_url( $item['link']['url'] ).'"'. $target . $nofollow.'>';
+															$output .= $item['text'];
+														$output .= '</a>';
+													$output .= '</div>';
+												} elseif($item['text'] != '') {
+													$output .= '<div class="testimonial-text">';	
+														$output .= $item['text'];
+													$output .= '</div>';
+												}
+										}
+										if(!empty($item['sub_title'])) {
+											$output .= '<span class="testimonial-subtitle">' . esc_html( $item['sub_title'] ) . '</span>';
+										}
+
+										$output .='</div>';
+									$output .='</div>';
+									
 								$output .= '</div>';
 							} else {
 								$output .= '<div class="wdt-animation-item icon-item">';

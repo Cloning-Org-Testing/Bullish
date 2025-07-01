@@ -19,17 +19,24 @@
       }
 
       var wdtprimaryColor = wdtgetCssVariable('--wdtPrimaryColor');
-      
+    
       wdticonsArray.forEach((element, index) => {
         if (index < wdticonsArray.length - 1) {
+          const isEven = index % 2 === 0;
+          
           new LeaderLine(
             element,
             wdticonsArray[index + 1],
             {
-              dash: true,
-              size: 2,
+              dash: { animation: true, len: 15, gap: 8 },
+              size: 1,
               color: wdtprimaryColor,
-              endPlug: 'behind'
+              endPlug: 'arc',
+              path: 'fluid',
+              startSocket: 'right',
+              endSocket: 'left',
+              startSocketGravity: [-50, isEven ? 80 : -80],
+              endSocketGravity: [50, isEven ? -80 : 80]
             }
           );
         }

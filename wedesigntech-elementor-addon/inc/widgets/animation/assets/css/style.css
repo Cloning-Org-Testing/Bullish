@@ -2,19 +2,19 @@
     Marquee Animation Style 
 */
 
-.wdt-animation-wrapper { position: relative; display: flex; flex-flow: row nowrap; overflow: visible; overflow-x: clip; }
+.wdt-animation-holder:not(.vertical) .wdt-animation-wrapper { position: relative; display: flex; flex-flow: row nowrap; overflow: visible; overflow-x: clip; }
 
-.wdt-animation-wrapper div[class*="-marqee"] { width: auto; flex: 0 0 auto; display: grid; grid-auto-flow: column; align-items: center; }
+.wdt-animation-holder:not(.vertical) .wdt-animation-wrapper div[class*="-marqee"] { width: auto; flex: 0 0 auto; display: grid; grid-auto-flow: column; align-items: center; }
 
-.wdt-animation-wrapper div[class*="-marqee"] .wdt-animation-item { display: inline-flex; flex: 0 0 auto; text-align: center; position: relative; }
-.wdt-animation-wrapper .wdt-animation-item { padding: 0 clamp(1.875rem, 1.5963rem + 1.2739vw, 3.125rem); /*  Min-30 & Max-50 */ }
+.wdt-animation-holder:not(.vertical) .wdt-animation-wrapper div[class*="-marqee"] .wdt-animation-item { display: inline-flex; flex: 0 0 auto; text-align: center; position: relative; }
+.wdt-animation-holder:not(.vertical) .wdt-animation-wrapper .wdt-animation-item { padding: 0 clamp(1.875rem, 1.5963rem + 1.2739vw, 3.125rem); /*  Min-30 & Max-50 */ }
 
-.wdt-animation-wrapper div[class*="-marqee"].right-to-left { 
+.wdt-animation-holder:not(.vertical) .wdt-animation-wrapper div[class*="-marqee"].right-to-left { 
     -webkit-animation: MarqueeLeft 24s linear infinite 0ms; animation: MarqueeLeft 24s linear infinite 0ms; }
-.wdt-animation-wrapper div[class*="-marqee"].left-to-right { 
+.wdt-animation-holder:not(.vertical) .wdt-animation-wrapper div[class*="-marqee"].left-to-right { 
     -webkit-animation: MarqueeRight 24s linear infinite 0ms; animation: MarqueeRight 24s linear infinite 0ms; }
   
-.wdt-animation-wrapper:hover div[class*="-marqee"] { -webkit-animation-play-state: paused; animation-play-state: paused; }
+.wdt-animation-holder:not(.vertical) .wdt-animation-wrapper:hover div[class*="-marqee"] { -webkit-animation-play-state: paused; animation-play-state: paused; }
 
 @keyframes MarqueeLeft { 
     from { margin-left: 0; } 
@@ -88,7 +88,58 @@ Brand icon type1 Style
     background-position: right center;
     border-color: transparent;
 }
+/**
+    Testimonial Style 
+*/
 
+
+/* ===========================
+    Vertical Animation Style
+=========================== */
+
+.wdt-animation-holder.vertical {
+    overflow: hidden;
+    max-height: 600px;
+}
+.wdt-animation-holder.vertical .wdt-animation-wrapper {
+    height: var(--wdt-marque-height);
+}
+.wdt-animation-holder.vertical .wdt-animation-wrapper .wdt-animation-item {
+    display: block;
+}
+.wdt-animation-holder.vertical .wdt-animation-wrapper div[class*="-marqee"].top-to-bottom,
+.wdt-animation-holder.vertical .wdt-animation-wrapper div[class*="-marqee"].top-to-bottom~div[class*="-cloned-marqee"] {
+    -webkit-animation: MarqueeTop 24s linear infinite 0ms;
+    animation: MarqueeTop 24s linear infinite 0ms;
+}
+.wdt-animation-holder.vertical .wdt-animation-wrapper div[class*="-marqee"].bottom-to-top,
+.wdt-animation-holder.vertical .wdt-animation-wrapper div[class*="-marqee"].bottom-to-top~div[class*="-cloned-marqee"] {
+    -webkit-animation: MarqueeBottom 24s linear infinite 0ms;
+    animation: MarqueeBottom 24s linear infinite 0ms;
+}
+.wdt-animation-wrapper:hover div[class*="-marqee"] {
+    -webkit-animation-play-state: paused !important;
+    animation-play-state: paused !important;
+}
+@keyframes MarqueeTop {
+    from {
+        transform: translateY(var(--wdt-marque-Margin-height));
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes MarqueeBottom {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(var(--wdt-marque-Margin-height));
+    }
+}
 
 /**
     Responsive - AT Media Query

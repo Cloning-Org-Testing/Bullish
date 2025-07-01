@@ -54,9 +54,9 @@
 .wdt-custom-hover-image-box-style .elementor-widget-container .wdt-image-box-holder .wdt-column-wrapper div.wdt-column {
   flex-basis: 33.33%;
 }
-.wdt-image-box-holder .wdt-content-item .wdt-content-media-group .wdt-content-image-wrapper {
+/* .wdt-image-box-holder .wdt-content-item .wdt-content-media-group .wdt-content-image-wrapper {
   overflow: hidden;
-}
+} */
 .wdt-custom-hover-image-box-style .elementor-widget-container .wdt-image-box-holder .wdt-column-wrapper div.wdt-column:hover {
   flex-basis: 80%;
 }

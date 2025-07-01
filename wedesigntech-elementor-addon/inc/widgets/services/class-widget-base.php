@@ -59,7 +59,9 @@ class WeDesignTech_Widget_Base_Services {
     public function init_scripts() {
         return array_merge(
             $this->cc_layout->init_scripts(),
-            array()
+            array(
+				$this->name() => WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL.'inc/widgets/services/assets/js/script.js'
+			)
         );
     }
 
