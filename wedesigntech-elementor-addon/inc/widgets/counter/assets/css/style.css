@@ -1,5 +1,5 @@
 
-.wdt-content-item .wdt-content-counter { color: var(--wdt-elementor-color-secondary); display: inline-flex; align-items: center; justify-content: center; font-size: 1.5em; font-weight: bold; -webkit-transition: var(--wdt-elementor-base-transition); transition: var(--wdt-elementor-base-transition); }
+.wdt-content-item .wdt-content-counter { color: var(--wdt-elementor-color-secondary); display: inline-flex; align-items: center; justify-content: center; font-size: 1.5em; font-weight: var(--wdtFontWeight_Ext); -webkit-transition: var(--wdt-elementor-base-transition); transition: var(--wdt-elementor-base-transition); }
 .wdt-content-item .wdt-content-counter > *:not(:last-child) { margin-right: 2px; }
 
 

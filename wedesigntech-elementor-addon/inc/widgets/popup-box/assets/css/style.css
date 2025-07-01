@@ -21,7 +21,7 @@
 }
 
 .wdt-popup-box-window.mfp-wrap .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder {
-    background-color: var(--wdt-elementor-color-white);
+    background-color: var(--wdtBodyBGColor);
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;

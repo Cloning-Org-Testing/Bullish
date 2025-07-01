@@ -59,11 +59,11 @@
 Brand icon type1 Style 
 */
 
-.wdt-animation-wrapper:has(.type1,.type2,.icon-item) {
+.wdt-animation-holder:not(.vertical) .wdt-animation-wrapper:has(.type1,.type2,.icon-item) {
     mask-image: linear-gradient(90deg, transparent, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor), transparent);
 }
-.wdt-animation-item.type1 {
+.wdt-animation-holder:not(.vertical) .wdt-animation-item.type1 {
   align-items: center;
   justify-content: center;
   color: rgba(var(--wdtHeadAltColorRgb),0.3);
@@ -79,11 +79,11 @@ Brand icon type1 Style
   -webkit-transition: var(--wdt-Ad-Transition);
   transition: var(--wdt-Ad-Transition);
 }
-.wdt-animation-item.type1 svg{
+.wdt-animation-holder:not(.vertical) .wdt-animation-item.type1 svg{
   width: 1em;
   height: auto;
 }
-.wdt-animation-item.type1:hover{
+.wdt-animation-holder:not(.vertical) .wdt-animation-item.type1:hover{
     color: var(--wdtHeadAltColor);
     background-position: right center;
     border-color: transparent;
@@ -91,7 +91,50 @@ Brand icon type1 Style
 /**
     Testimonial Style 
 */
-
+.wdt-animation-item.testimonial-item {
+    padding: clamp(1.25rem, 1.1107rem + 0.6369vw, 1.875rem); /* Min-20 & Max-30 */
+    background: var(--wdtBodyBGColor);
+    border-radius: var(--wdtRadius_1X);
+    -webkit-border-radius: var(--wdtRadius_1X);
+    border: 1px solid rgba(var(--wdtBorderColorRgb), 0.4);
+    -webkit-border: 1px solid rgba(var(--wdtBorderColorRgb), 0.4);
+    margin: 20px 0;
+}
+.wdt-animation-item.testimonial-item .testimonial-media-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.wdt-animation-item.testimonial-item .testimonial-content-group .testimonial-description {
+    margin-bottom: 20px;
+}
+.wdt-animation-item.testimonial-item .testimonial-media-group .image-item img {
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: var(--wdtRadius_Full);
+    border-radius: var(--wdtRadius_Full);
+}
+.wdt-animation-item.testimonial-item .testimonial-content-group span {
+    display: flex;
+    font-size: var(--wdtFontSize_H4);
+    color: var(--wdtSecondaryColor);
+    margin-bottom: 14px;
+}
+.wdt-animation-item.testimonial-item .testimonial-content-group span svg {
+    width: 1em;
+    height: 1em;
+}
+.wdt-animation-item.testimonial-item .testimonial-media-content-group .testimonial-text,
+.wdt-animation-item.testimonial-item .testimonial-media-content-group .testimonial-text a {
+    font-size: var(--wdtFontSize_Base);
+    color: var(--wdtHeadAltColor);
+}
+.wdt-animation-item.testimonial-item .testimonial-media-content-group .testimonial-subtitle {
+    font-size: var(--wdtFontSize_Ext);
+    color: rgba(var(--wdtHeadAltColorRgb), 0.4);
+    font-weight: var(--wdtFontWeight_Alt);
+    line-height: 1;
+}
 
 /* ===========================
     Vertical Animation Style
@@ -145,4 +188,19 @@ Brand icon type1 Style
     Responsive - AT Media Query
     --------------------------------
 */
+@media screen and (max-width:1280px) {
+    .wdt-animation-holder.vertical {
+        max-height: 550px;
+    }
+}
+@media screen and (max-width:1024px) {
+    .wdt-animation-holder.vertical {
+        max-height: 450px;
+    }
+}
+@media screen and (max-width:479px) {
+    .wdt-animation-holder.vertical {
+        max-height: 400px;
+    }
 
+}
