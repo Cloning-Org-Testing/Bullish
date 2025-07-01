@@ -46,11 +46,12 @@
 		border-radius: var(--wdtRadius_Full);
 		-webkit-border-radius: var(--wdtRadius_Full);
     	background-color: rgba(var(--wdtPrimaryColorRgb), 0.15);
-    	box-shadow: 0 0 800px 300px rgba(var(--wdtPrimaryColorRgb), 0.12);
-    	-webkit-box-shadow: 0 0 800px 300px rgba(var(--wdtPrimaryColorRgb), 0.12);
+    	box-shadow: 0 0 800px 300px rgba(var(--wdtPrimaryColorRgb), 0.25);
+    	-webkit-box-shadow: 0 0 800px 300px rgba(var(--wdtPrimaryColorRgb), 0.25);
+		z-index: 0;
 	}
 
-
+	.error404 .container .wdt-404-contents {z-index: 1;}
 
 /*--------------------------------------------------------------
     Default Colors

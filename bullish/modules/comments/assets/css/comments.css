@@ -147,7 +147,7 @@
 	.comment-form p:not(.comment-form-cookies-consent) label { font-weight: 500; }
 
 	.comment-form .comment-form-cookies-consent label { font-size: var(--wdtFontSize_Base); padding-left: 25px; cursor: pointer; }
-	.comment-form .comment-form-cookies-consent #wp-comment-cookies-consent { margin: 0; position: absolute; left: 0; top: 7px; }
+	.comment-form .comment-form-cookies-consent #wp-comment-cookies-consent { margin: 0; position: absolute; left: 0; top: 5px; }
 
 	.comment-form > p:last-child,.wpcf7-form .contact-form:last-child,.commentlist li.comment .comment-respond p:last-child { margin-bottom: 0; }
     .comment-form > p.comment-form-comment.textarea-field span.fa { float: left; height: 200px; }

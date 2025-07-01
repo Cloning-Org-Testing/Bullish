@@ -370,8 +370,8 @@
 .wdt-service-item.wdt-type-3 .wdt-service-media-group .wdt-service-image img {
     transition: var(--wdtAltTransition);
     object-fit: cover;
-    height: calc(100% + 110px);
-    transform: translateY(-110px);
+    height: calc(100% + var(--type3-desc-height));
+    transform: translateY(calc(-1*var(--type3-desc-height)));
     border-radius: var(--wdtRadius_2X);
     transform-origin: bottom;
 }
@@ -389,7 +389,7 @@
     transition: var(--wdtAltTransition);
     padding: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem) 0;
     /* Min-20 & Max-30 */
-    margin-top: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem);
+    margin-top: 0;
     /* Min-20 & Max-30 */
 }
 .swiper-slide.swiper-slide-active .wdt-service-item.wdt-type-3 .wdt-service-description,

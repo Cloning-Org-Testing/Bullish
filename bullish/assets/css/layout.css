@@ -2,7 +2,9 @@
     color:var(--wdtHeadAltColor);
     background: var(--wdtPrimaryColor);
 }
-
+html.lenis,html.lenis body:is(.error404) {
+    height: 100%;
+}
 .wdt-cus-header-bg:before {
     content:"";
     position:absolute;
