@@ -72,7 +72,6 @@ class WeDesignTech_Widget_Base_Animation {
 				'type1' => esc_html__( 'Type1', 'wdt-elementor-addon' ),
 				'type2' => esc_html__( 'Type2', 'wdt-elementor-addon' ),
 				'type3' => esc_html__( 'Type3', 'wdt-elementor-addon' ),
-				'icon_text' => esc_html__( 'Icon and Text', 'wdt-elementor-addon' ),
 				'testimonial' => esc_html__( 'Testimonial', 'wdt-elementor-addon' ),
 			)
 		) );
@@ -119,16 +118,6 @@ class WeDesignTech_Widget_Base_Animation {
 				'content_type' => array('text', 'testimonial')
 			)
 		) );
-
-		$repeater->add_control(
-			'icon_text_heading',
-			array(
-				'type' => \Elementor\Controls_Manager::RAW_HTML,
-				'raw' => '<strong>' . esc_html__( 'Icon + Text', 'wdt-elementor-addon' ) . '</strong>',
-				'content_classes' => 'elementor-control-heading',
-				'condition' => array( 'content_type' => 'icon_text' ),
-			)
-		);
 
 		$repeater->add_control( 'sub_title', array(
 			'label'       => esc_html__( 'Sub Title', 'wdt-elementor-addon' ),
@@ -299,7 +288,7 @@ class WeDesignTech_Widget_Base_Animation {
 				),
 			),
 			'selectors' => array(
-				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item' => 'font-size: {{SIZE}}{{UNIT}};',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item, {{WRAPPER}} .wdt-animation-item type3' => 'font-size: {{SIZE}}{{UNIT}};',
 			),
 		) );
 
@@ -308,7 +297,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'type' => \Elementor\Controls_Manager::DIMENSIONS,
 			'size_units' => array ( 'px', 'em', '%' ),
 			'selectors' => array (
-				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item'  => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item, {{WRAPPER}} .wdt-animation-item type3'  => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 		) );
 
@@ -317,7 +306,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'type' => \Elementor\Controls_Manager::DIMENSIONS,
 			'size_units' => array ( 'px', 'em', '%' ),
 			'selectors' => array (
-				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item, {{WRAPPER}} .wdt-animation-item type3' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 		) );	
 
@@ -325,7 +314,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'label' => esc_html__( 'Color', 'wdt-elementor-addon' ),
 			'type' => \Elementor\Controls_Manager::COLOR,
 			'selectors' => array(
-				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item' => 'color: {{VALUE}}',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item, {{WRAPPER}} .wdt-animation-item type3' => 'color: {{VALUE}}',
 			),
 		) );
 
@@ -334,7 +323,7 @@ class WeDesignTech_Widget_Base_Animation {
 			array(
 				'name' => 'icon_normal_background',
 				'types' =>  array('classic', 'gradient', 'video' ),
-				'selector' => '{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item',
+				'selector' => '{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item, {{WRAPPER}} .wdt-animation-item type3',
 			)
 		);
 
@@ -342,7 +331,7 @@ class WeDesignTech_Widget_Base_Animation {
 			\Elementor\Group_Control_Border::get_type(),
 			array(
 				'name' => 'icon_normal_border',
-				'selector' => '{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item',
+				'selector' => '{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item, {{WRAPPER}} .wdt-animation-item type3',
 			)	
 		);
 
@@ -351,7 +340,7 @@ class WeDesignTech_Widget_Base_Animation {
 			'type' => \Elementor\Controls_Manager::DIMENSIONS,
 			'size_units' => array ( 'px', 'em', '%' ),
 			'selectors' => array (
-				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				'{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item, {{WRAPPER}} .wdt-animation-item type3' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 			),
 		) );
 
@@ -359,7 +348,7 @@ class WeDesignTech_Widget_Base_Animation {
 			\Elementor\Group_Control_Box_Shadow::get_type(),
 			array(
 				'name' => 'item-icon_normal_box_shadow',
-				'selector' => '{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item',
+				'selector' => '{{WRAPPER}} .icon-item, {{WRAPPER}} .icon-text-item, {{WRAPPER}} .wdt-animation-item type3',
 			)	
 		);
 
@@ -573,12 +562,12 @@ class WeDesignTech_Widget_Base_Animation {
 							} elseif ( $item['content_type'] == 'type3' ) {
 
 								if ( !empty( $item['icon']['value'] ) ) {
-											$output.='<span>';
-												ob_start();
-												\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
-												$output .= ob_get_clean();
-											$output.='</span>';
-										}
+									$output.='<span class="wdt-animation-item type3">';
+										ob_start();
+										\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+										$output .= ob_get_clean();
+									$output.='</span>';
+								}
 								
 							} else if( $item['content_type'] == 'testimonial' ) {
 			
