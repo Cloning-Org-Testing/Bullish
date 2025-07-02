@@ -940,8 +940,6 @@ var wdtPortfolioFrontendUtils = {
 	},
 
 	wdtPortfolioListingImageSwiperGallery: function () {
-		console.log("wdtPortfolioListingImageSwiperGallery called");
-
 		jQuery('.wdt-listings-image-gallery-container').each(function () {
 			var $swiperItem = jQuery(this);
 

@@ -13,6 +13,10 @@ html.lenis,html.lenis body:is(.error404) {
     border: 1px solid rgba(var(--wdtBorderColorRgb),0.1);
     border-radius: var(--wdtRadius_1X);
 }
+
+.breadcrumb a[href="javascript:void(0);"], .breadcrumb a:last-child {
+    pointer-events: none;
+}
 /* --- Footer Info --*/
 
 #footer .wdt-template-classic .wdt-accordion-toggle-wrapper{
