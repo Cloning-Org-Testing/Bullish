@@ -71,6 +71,7 @@ class WeDesignTech_Widget_Base_Animation {
 				'icon' => esc_html__( 'Icon', 'wdt-elementor-addon' ),
 				'type1' => esc_html__( 'Type1', 'wdt-elementor-addon' ),
 				'type2' => esc_html__( 'Type2', 'wdt-elementor-addon' ),
+				'type3' => esc_html__( 'Type3', 'wdt-elementor-addon' ),
 				'icon_text' => esc_html__( 'Icon and Text', 'wdt-elementor-addon' ),
 				'testimonial' => esc_html__( 'Testimonial', 'wdt-elementor-addon' ),
 			)
@@ -95,7 +96,7 @@ class WeDesignTech_Widget_Base_Animation {
 				'library' => 'fa-solid',
 			),
 			'condition'   => array (
-				'content_type' => array('icon','type1','type2', 'testimonial'),
+				'content_type' => array('icon','type1','type2', 'type3','testimonial'),
 			)
 		) );
 
@@ -129,23 +130,6 @@ class WeDesignTech_Widget_Base_Animation {
 			)
 		);
 
-		$repeater->add_control( 'icon_text_icon', array(
-			'label' => esc_html__( 'Icon', 'wdt-elementor-addon' ),
-			'type' => \Elementor\Controls_Manager::ICONS,
-			'default' => array(
-				'value' => 'fas fa-check',
-				'library' => 'fa-solid',
-			),
-			'condition' => array( 'content_type' => 'icon_text' ),
-		) );
-
-		$repeater->add_control( 'icon_text_label', array(
-			'label' => esc_html__( 'Text', 'wdt-elementor-addon' ),
-			'type' => \Elementor\Controls_Manager::TEXT,
-			'default' => esc_html__( 'Progressively plagiarize', 'wdt-elementor-addon' ),
-			'label_block' => true,
-			'condition' => array( 'content_type' => 'icon_text' ),
-		) );
 		$repeater->add_control( 'sub_title', array(
 			'label'       => esc_html__( 'Sub Title', 'wdt-elementor-addon' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
@@ -284,7 +268,8 @@ class WeDesignTech_Widget_Base_Animation {
 				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].top-to-bottom, 
 				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].top-to-bottom ~ div.wdt-animation-cloned-marqee,
 				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].bottom-to-top, 
-				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].bottom-to-top ~ div.wdt-animation-cloned-marqee' 
+				{{WRAPPER}} .wdt-animation-wrapper div[class*="-marqee"].bottom-to-top ~ div.wdt-animation-cloned-marqee,
+				{{WRAPPER}} .wdt-animation-item icon-item' 
 				=> 'animation-duration: {{SIZE}}s;',
 			),
 		) );
@@ -571,27 +556,32 @@ class WeDesignTech_Widget_Base_Animation {
 							}
 							else if( $item['content_type'] == 'type2' ) {
 								$output .= '<div class="wdt-animation-item type2">';
-									ob_start();
-									\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
-									$output .= ob_get_clean();
+										if( !empty( $item['link']['url'] ) && $item['text'] != '' ){
+											$target = ( $item['link']['is_external'] == 'on' ) ? ' target="_blank" ' : '';
+											$nofollow = ( $item['link']['nofollow'] == 'on' ) ? 'rel="nofollow" ' : '';
+											$output .= '<div class="testimonial-text">';
+												$output .= '<a href="'.esc_url( $item['link']['url'] ).'"'. $target . $nofollow.'>';
+													$output .= $item['text'];
+												$output .= '</a>';
+											$output .= '</div>';
+										} elseif($item['text'] != '') {
+											$output .= '<div class="testimonial-text">';	
+												$output .= $item['text'];
+											$output .= '</div>';
+										};
 								$output.='</div>';
-							}
-							else if( $item['content_type'] == 'icon_text' ) {
+							} elseif ( $item['content_type'] == 'type3' ) {
 
-								$output .= '<div class="wdt-animation-item icon-text-item">';
-									if ( !empty( $item['icon_text_icon']['value'] ) ) {
-										ob_start();
-										\Elementor\Icons_Manager::render_icon( $item['icon_text_icon'], [ 'aria-hidden' => 'true' ] );
-										$output .= ob_get_clean();
-									}
-
-									if ( !empty( $item['icon_text_label'] ) ) {
-										$output .= '<span class="icon-text-label">' . esc_html( $item['icon_text_label'] ) . '</span>';
-									}
-								$output .= '</div>';
-							}
-							else if( $item['content_type'] == 'testimonial' ) {
+								if ( !empty( $item['icon']['value'] ) ) {
+											$output.='<span>';
+												ob_start();
+												\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+												$output .= ob_get_clean();
+											$output.='</span>';
+										}
 								
+							} else if( $item['content_type'] == 'testimonial' ) {
+			
 								$output .= '<div class="wdt-animation-item testimonial-item">';
 									$output .='<div class="testimonial-content-group">';
 										if ( !empty( $item['icon']['value'] ) ) {
@@ -700,18 +690,16 @@ class WeDesignTech_Widget_Base_Animation {
 									\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
 									$output .= ob_get_clean();
 								$output.='</div>';
-							} else if( $item['content_type'] == 'icon_text' ) {
-								$output .= '<div class="wdt-animation-item icon-text-item">';
-									if ( !empty( $item['icon_text_icon']['value'] ) ) {
-										ob_start();
-										\Elementor\Icons_Manager::render_icon( $item['icon_text_icon'], [ 'aria-hidden' => 'true' ] );
-										$output .= ob_get_clean();
-									}
+							} elseif ( $item['content_type'] == 'type3' ) {
 
-									if ( !empty( $item['icon_text_label'] ) ) {
-										$output .= '<span class="icon-text-label">' . esc_html( $item['icon_text_label'] ) . '</span>';
-									}
-								$output .= '</div>';
+								if ( !empty( $item['icon']['value'] ) ) {
+											$output.='<span>';
+												ob_start();
+												\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+												$output .= ob_get_clean();
+											$output.='</span>';
+										}
+								
 							} else if( $item['content_type'] == 'testimonial' ) {
 								
 								$output .= '<div class="wdt-animation-item testimonial-item">';
