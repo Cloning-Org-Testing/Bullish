@@ -177,9 +177,13 @@
     .wdt-header-menu ul li:hover > ul { display: block; opacity: 1; pointer-events: auto; visibility: visible; }
 
     .wdt-header-menu ul li.menu-item-depth-0 > ul { margin-top: -20px; 
-        -webkit-transition: margin-top .25s cubic-bezier(.25,.1,.11,.99) .1s,opacity 0s cubic-bezier(.25,.1,.11,.99) 0s, height 0s ease-out .5s;
-        -moz-transition: margin-top .25s cubic-bezier(.25,.1,.11,.99) .1s,opacity 0s cubic-bezier(.25,.1,.11,.99) 0s, height 0s ease-out .5s;
-        transition: margin-top .25s cubic-bezier(.25,.1,.11,.99) .1s,opacity 0s cubic-bezier(.25,.1,.11,.99) 0s, height 0s ease-out .5s; }
+        -webkit-transition: margin-top .35s cubic-bezier(.25,.1,.11,.99) .1s,opacity 0.2s cubic-bezier(.25,.1,.11,.99) 0.1s, height 0.2s ease-out .5s;
+        -moz-transition: margin-top .35s cubic-bezier(.25,.1,.11,.99) .1s,opacity 0.2s cubic-bezier(.25,.1,.11,.99) 0.1s, height 0.2s ease-out .5s;
+        transition: margin-top .35s cubic-bezier(.25,.1,.11,.99) .1s,opacity 0.2s cubic-bezier(.25,.1,.11,.99) 0.1s, height 0.2s ease-out .5s; }
+	.wdt-header-menu ul li.menu-item-depth-0 > ul:has(.menu-item-object-wdt_mega_menus) { 
+        -webkit-transition: margin-top .35s cubic-bezier(.25,.1,.11,.99) .1s,opacity 0s cubic-bezier(.25,.1,.11,.99) 0s, height 0.2s ease-out .5s;
+        -moz-transition: margin-top .35s cubic-bezier(.25,.1,.11,.99) .1s,opacity 0s cubic-bezier(.25,.1,.11,.99) 0s, height 0.2s ease-out .5s;
+        transition: margin-top .35s cubic-bezier(.25,.1,.11,.99) .1s,opacity 0s cubic-bezier(.25,.1,.11,.99) 0s, height 0.2s ease-out .5s; }
 
 	.wdt-header-menu ul li.menu-item-depth-0.focus > ul,
 	.wdt-header-menu ul li.menu-item-depth-0:focus > ul,
@@ -606,6 +610,12 @@
 #header .wdt-elementor-container-fluid .wdt-header-menu ul.wdt-primary-nav li.has-mega-menu>ul.sub-menu li .elementor-element .e-con-inner>div {
     backdrop-filter: blur(50px);
     -webkit-backdrop-filter: blur(50px);
+	opacity:0;
+	transition: opacity .35s cubic-bezier(.25,.1,.11,.99) 0s;
+	-webkit-transition: opacity .35s cubic-bezier(.25,.1,.11,.99) 0s;
+}
+#header .wdt-elementor-container-fluid .wdt-header-menu ul.wdt-primary-nav li.has-mega-menu:hover >ul.sub-menu li .elementor-element .e-con-inner>div{
+	opacity:1;
 }
 /*--------------------------------------------------------------
     Responsive

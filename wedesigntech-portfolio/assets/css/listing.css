@@ -143,6 +143,11 @@
     animation: btn-arrow-move 0.375s linear;
     -webkit-animation: btn-arrow-move 0.375s linear;
 }
+.wdt-listings-item-wrapper.type1 .wdt-content-item .wdt-content-counter{
+    font-weight: var(--wdtFontWeight_Alt);
+    font-size: clamp(1.5rem, 1.4164rem + 0.3822vw, 1.875rem); /* Min-24 & Max-30 */
+}
+
 
 @media screen and (max-width:479px) {
     .wdt-listings-item-wrapper.type1 .wdt-listings-item-top-section{
@@ -288,4 +293,10 @@
     .wdt-listings-item-wrapper.type3 .wdt-listings-item-hover-section .wdt-listings-item-title { margin: 0 0 10px; }
     .wdt-listings-item-wrapper.type3 { margin-bottom: 24px;}
 
+}
+
+/*  Dot Pagination  */
+
+.wdt-swiper-bullet-pagination .swiper-pagination-bullet-active{
+  background: var(--wdtSecondaryColor);
 }
