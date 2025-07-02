@@ -226,17 +226,17 @@
     padding: 0;
     border: none;
     border-radius: var(--wdtRadius_1X);
-    }
-
-
+}
 .wdt-mailchimp-holder.wdt-template-type2 .wdt-mailchimp-wrapper .wdt-mailchimp-subscribe-form .wdt-mailchimp-form-holder input {
-    background: var(--wdtBodyBGColor);
+    background: var(--wdtAccentTxtColor);
     border-width: 0;
-    border-radius:var(--wdtRadius_1X);
-    -webkit-border-radius:var(--wdtRadius_1X);
+    border-radius: var(--wdtRadius_1X);
+    -webkit-border-radius: var(--wdtRadius_1X);
     color: var(--wdtHeadAltColor);
-    }
-
+}
+.wdt-dark-bg .wdt-mailchimp-holder.wdt-template-type2 .wdt-mailchimp-wrapper .wdt-mailchimp-subscribe-form .wdt-mailchimp-form-holder input {
+    background: var(--wdtBodyBGColor);
+}
 
 /* Default Colors */
 

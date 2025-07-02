@@ -348,6 +348,7 @@
 .wdt-popup-box-window.mfp-wrap[class*="side-slide"] .mfp-container.mfp-inline-holder .mfp-content {
     height: 100%;
     max-height: 100%;
+    padding: 30px;
 }
 
 .wdt-popup-box-window.mfp-wrap[class*="side-slide"] .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder .wdt-popup-box-content-inner {
@@ -361,13 +362,13 @@
 /* Right Slide Effects */
 
 .wdt-popup-box-window.mfp-wrap.wdt-right-side-slide .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder {
-    height: calc(100% - 60px);
-    margin-right: 30px;
+    height: 100%;
+    margin-right: 0;
     margin-left: auto;
-    margin-top: 30px;
-    max-width: 730px;
+    /* margin-top: 30px; */
+    max-width: 680px;
     padding: 50px;
-    margin-bottom: auto;
+    /* margin-bottom: auto; */
     border-radius: var(--wdtRadius_2X);
     background: var(--wdtBodyBGColor);
 }
@@ -386,8 +387,8 @@
 }
 
 .wdt-popup-box-window.mfp-wrap.wdt-right-side-slide .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder .wdt-popup-box-content-inner~.mfp-close {
-    top: 12px;
-    right: 12px;
+    /* top: 12px; */
+    /* right: 12px; */
 }
 
 
