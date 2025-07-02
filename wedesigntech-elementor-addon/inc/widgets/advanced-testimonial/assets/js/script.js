@@ -5,9 +5,6 @@
         $('.wdt-advanced-testimonial-container.swiper').each(function () {
             const $thisSwiper     = $(this);
             const swiperSettings  = $thisSwiper.data('settings') || {};
-
-            console.log(swiperSettings, ' swiperSettings');
-            
             const swiperID        = $thisSwiper.attr('id');
             const $parentHolder   = $thisSwiper.closest('.wdt-advanced-testimonial-holder');
             const $slides         = $thisSwiper.find('.swiper-slide');
