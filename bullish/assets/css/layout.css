@@ -6,12 +6,13 @@ html.lenis,html.lenis body:is(.error404) {
     height: 100%;
 }
 .wdt-cus-header-bg:before {
-    content:"";
-    position:absolute;
+    content:"" !important;
+    position:absolute !important;
     background-color: rgba(var(--wdtAccentTxtColorRgb),0.1);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(var(--wdtBorderColorRgb),0.1);
-    border-radius: var(--wdtRadius_1X);
+    border-radius: var(--wdtRadius_1X) !important;
+    -webkit-border-radius: var(--wdtRadius_1X) !important;
 }
 
 .breadcrumb a[href="javascript:void(0);"], .breadcrumb a:last-child {
