@@ -12,6 +12,117 @@
 .wdt-service-archive-wrapper.wdt-columns-1 > .wdt-service-item { flex: 0 0 100%; }
 
 
+/* ---------------------------------------------------------------------
+ ===== Archive Service =====
+--------------------------------------------------------------------- */
+.wdt-service-archive-wrapper .wdt-service-item {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+    background: Var(--wdtAccentTxtColor);
+    border-radius: var(--wdtRadius_2X);
+    border: 1px solid rgba(var(--wdtBorderColorRgb),0.6);
+    box-shadow:0 0 0px -15px rgba(var(--wdtHeadAltColorRgb),0.2);
+    height: 100%;
+    transition: var(--wdtAltTransition);
+}
+
+.wdt-service-archive-wrapper .wdt-service-item:hover{
+    border-color: var(--wdtPrimaryColor);
+    box-shadow:0 0 30px -15px rgba(var(--wdtHeadAltColorRgb),0.2);
+}
+
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-detail-group {
+    padding: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem) clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem) 0;
+    /* Min-20 & Max-30 */
+    z-index: 0;
+}
+
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-detail-group .wdt-service-content-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem);
+    /* Min-20 & Max-30 */
+}
+
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-detail-group .wdt-service-content-group .wdt-service-title {
+    margin-right: 20px;
+}
+
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-detail-group .wdt-service-content-group .wdt-service-title h5,
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-detail-group .wdt-service-content-group .wdt-service-title h5 a {
+    margin: 0;
+    color: var(--wdtHeadAltColor);
+    font-size: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem);
+    /* Min-20 & Max-30 */
+}
+
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-detail-group .wdt-service-content-group .wdt-service-title h5 a:hover {
+    color: var(--wdtPrimaryColor);
+}
+
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-media-group .wdt-service-image {
+    border-radius: var(--wdtRadius_2X);
+    /* overflow: hidden; */
+    transition: var(--wdtAltTransition);
+    height: 100%;
+    display: block;
+    position: relative;
+}
+
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-media-group .wdt-service-image img {
+    transition: var(--wdtAltTransition);
+    object-fit: cover;
+    border-radius: var(--wdtRadius_2X);
+}
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-media-group .wdt-service-image img,
+.wdt-service-archive-wrapper .wdt-service-item:hover .wdt-service-media-group .wdt-service-image img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transform: translateY(0);
+}
+
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-description {
+    border-top: 1px solid rgba(var(--wdtBorderColorRgb),0.4);
+    transform: translateY(50px);
+    transition: var(--wdtAltTransition);
+    padding: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem) 0;
+    /* Min-20 & Max-30 */
+    margin-top: 0;
+    /* Min-20 & Max-30 */
+}
+.wdt-service-archive-wrapper .wdt-service-item .wdt-service-description,
+.wdt-service-archive-wrapper .wdt-service-item:hover .wdt-service-description {
+    transform: translate(0);
+    margin: 0 0 clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem);
+    /* Min-20 & Max-30 */
+    padding: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem) 0 0;
+    /* Min-20 & Max-30 */
+}
+
+.wdt-service-archive-wrapper  .wdt-service-item .wdt-service-detail-group .wdt-service-content-group .wdt-service-type-icon {
+    font-size: var(--wdtFontSize_H2);
+    line-height: 1;
+    color: var(--wdtHeadAltColor);
+    transition: var(--wdtAltTransition);
+    filter: none;
+    -webkit-filter: none;    
+}
+.wdt-service-item:hover .wdt-service-detail-group .wdt-service-content-group .wdt-service-type-icon {
+    color: var(--wdtPrimaryColor);
+    filter:drop-shadow(0 0 18px rgba(var(--wdtTertiaryColorRgb),0.8));
+    -webkit-filter:drop-shadow(0 0 18px rgba(var(--wdtTertiaryColorRgb),0.8));
+}
+
+.wdt-service-archive-wrapper .wdt-service-item .wdt-service-media-group {
+    display: grid;
+    height: 100%;
+    place-items: start;
+    z-index: 1;
+}
 
 
 

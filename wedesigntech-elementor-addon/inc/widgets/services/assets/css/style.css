@@ -103,7 +103,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(180deg, rgba(var(--wdtPrimaryColorRgb),0),rgba(var(--wdtTertiaryColorRgb),0.7));
+    background-image: linear-gradient(180deg, transparent,transparent, rgba(var(--wdtPrimaryColorRgb),0.2), rgba(var(--wdtTertiaryColorRgb),1));
     transform:scaleY(0);
     transform-origin:bottom;
     transition: var(--wdt-Ad-Transition); -webkit-transition:var(--wdt-Ad-Transition);

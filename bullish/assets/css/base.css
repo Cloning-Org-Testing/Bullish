@@ -69,6 +69,47 @@
 
     input[type="search" i]:enabled:read-write:-webkit-any(:focus, :hover)::-webkit-search-cancel-button  {opacity: 0;}
 
+    
+    .wdt-inview-section.wdt-mask-gradient .elementor-spacer-inner {
+        background: linear-gradient(90deg, var(--wdtTertiaryColor), rgba(var(--wdtPrimaryColorRgb),1), var(--wdtTertiaryColor));
+        background-size:300% 100%;
+        clip-path: circle(50% at 0 50%);
+        transform: translate(-150px);
+        filter:blur(100px);
+        opacity: 0;
+        transform-origin:left;
+        transition:var(--wdtAltTransition);
+        transition-duration: 0.5s;
+        transition-delay: 100ms;
+    }
+
+    .wdt-inview-section.wdt-mask-gradient.large .elementor-spacer-inner {
+        transition-delay: 150ms;
+    }
+
+    .wdt-inview-section.wdt-item-is-inview.wdt-mask-gradient .elementor-spacer .elementor-spacer-inner {
+        opacity: 1;
+        transform:scale(1);
+        filter:blur(0px);
+    }
+
+    .wdt-inview-section.wdt-filler-mask img{
+        transform: translate(-250px);
+        filter:blur(100px);
+        opacity: 0;
+        animation:none;
+        transform-origin:left;
+        transition:var(--wdtAltTransition);
+        transition-duration: 0.5s;
+        transition-delay: 200ms;
+    }
+
+    .wdt-inview-section.wdt-item-is-inview.wdt-filler-mask img{
+        opacity: 1;
+        transform:scale(1) translate(0px);
+        filter:blur(0px);
+    }
+
 
 /*--------------------------------------------------------------
     Transitions
