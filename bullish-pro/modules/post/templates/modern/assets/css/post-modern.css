@@ -49,8 +49,8 @@ div.post-modern { max-width: 1480px; padding: 0 30px; margin: auto; }
 
 /* tag cloud style */
 .blog-single-entry div[class^="entry-"] div.single-entry-tags { display:flex; flex-wrap:wrap; gap:10px; }
-.blog-single-entry div[class^="entry-"] div.single-entry-tags a{ background: linear-gradient(90deg, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor)); background-size: 300% 100%; background-position: center left; padding: 8px 20px; border-radius: var(--wdtRadius_1X); z-index: 1; border: 1px solid var(--wdtBorderColor); color:var(--wdtHeadAltColor) } 
-.blog-single-entry div[class^="entry-"] div.single-entry-tags a:hover{ background-position: right center; border-color:transparent; }
+.blog-single-entry div[class^="entry-"] div.single-entry-tags a{ background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor), var(--wdtBodyBGColor), var(--wdtBodyBGColor)); background-size: 300% 100%; background-position: center right; padding: 8px 20px; border-radius: var(--wdtRadius_1X); z-index: 1; border: 1px solid var(--wdtBorderColor); color:var(--wdtHeadAltColor) } 
+.blog-single-entry div[class^="entry-"] div.single-entry-tags a:hover{ background-position: left center; border-color:transparent; }
 
 /* ----Post Modern Fixed Navigation Ends---- */
 

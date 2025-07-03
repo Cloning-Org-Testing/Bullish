@@ -406,10 +406,14 @@
     line-height: 1;
     color: var(--wdtAccentTxtColor);
     transition: var(--wdtAltTransition);
+    filter: none;
+    -webkit-filter: none;    
 }
 .swiper-slide.swiper-slide-active .wdt-service-item.wdt-type-3 .wdt-service-detail-group .wdt-service-content-group .wdt-service-type-icon,
 .wdt-service-item.wdt-type-3:hover .wdt-service-detail-group .wdt-service-content-group .wdt-service-type-icon {
     color: var(--wdtPrimaryColor);
+    filter:drop-shadow(0 0 5px var(--wdtTertiaryColor));
+    -webkit-filter:drop-shadow(0 0 5px var(--wdtTertiaryColor));
 }
 
 .wdt-service-item.wdt-type-3 .wdt-service-media-group {

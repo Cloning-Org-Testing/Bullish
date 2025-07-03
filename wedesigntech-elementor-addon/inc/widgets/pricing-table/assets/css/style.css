@@ -1078,6 +1078,7 @@
     text-align: center; background-color: transparent; border-radius: var(--wdtRadius_1X); -webkit-border-radius: var(--wdtRadius_1X);
     border:1px solid var(--wdtHeadAltColor);
 }
+.wdt-active .wdt-pricing-table-holder[class*='-template-bordered'] div[class*='-table-footer'] .wdt-content-button > a,
 .wdt-pricing-table-holder[class*='-template-bordered']:hover div[class*='-table-footer'] .wdt-content-button > a{
     background-position: bottom left; border-color:var(--wdtTertiaryColor);
 }

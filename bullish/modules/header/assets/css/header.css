@@ -701,6 +701,11 @@
         body:not(.no-breadcrumb) #header-wrapper.header-top-absolute #header .wdt-header-tpl { margin-top: 0; }
 
         .mobile-menu ul li.menu-item-object-wdt_mega_menus div[class*="elementor-column-gap"] > .elementor-column > .elementor-element-populated { padding: 0; }
+
+        .mobile-menu > ul ul.sub-menu:not(.menu-item-object-wdt_mega_menus ul){background-color: var(--wdtHeadAltColor);}
+        .mobile-menu li a{border-color: rgba(var(--wdtBorderColorRgb),0.2);}
+        .mobile-menu ul:not(.menu-item-object-wdt_mega_menus ul), 
+        .mobile-menu ul li ul:not(.menu-item-object-wdt_mega_menus ul){border: none;}
     }
 
 
