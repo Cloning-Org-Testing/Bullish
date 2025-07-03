@@ -39,8 +39,8 @@
 
 
 .wdt-listings-item-wrapper.type1 {
-    position: sticky;
-    top: 0;
+    /* position: sticky;
+    top: 0; */
     border-radius: var(--wdtRadius_2X);
     overflow: hidden;
     margin-bottom: 60px;
