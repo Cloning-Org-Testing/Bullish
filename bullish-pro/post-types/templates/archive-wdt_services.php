@@ -49,15 +49,25 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
                 <div class="wdt-service-detail-group">
 
-                    <div class="wdt-service-title">
-                        <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+                    <div class="wdt-service-content-group">
+                        <div class="wdt-service-title">
+                            <h5><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+                        </div>
+
+                        <?php
+                            $service_settings = get_post_meta($service_id, '_bullish_service_settings', true);
+                            $icon  = !empty($service_settings['service_icon']) ? $service_settings['service_icon'] : '';
+                            if (!empty($icon)) {
+                                echo render_service_icon($icon);
+                            }
+                        ?>
                     </div>
 
-                    <?php if ($price || $offerprice) : ?>
-                        <div class="wdt-service-price-group">
-                            <div class="wdt-service-price">
+                    <?php if (!empty($price) || !empty($offerprice)) : ?>
+                        <div class="wdt-service-type-price-group">
+                            <div class="wdt-service-type-price">
                                 <?php
-                                if ($offerprice) {
+                                if (!empty($offerprice)) {
                                     echo '<del>' . esc_html($currency_symbol . $price) . '</del>';
                                 } else {
                                     echo esc_html($currency_symbol . $price . ' / ' . $duration);
@@ -65,27 +75,24 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                                 ?>
                             </div>
 
-                            <?php if ($offerprice) : ?>
-                                <div class="wdt-service-offerprice">
+                            <?php if (!empty($offerprice)) : ?>
+                                <div class="wdt-service-type-offerprice">
                                     <?php echo esc_html($currency_symbol . $offerprice . ' / ' . $duration); ?>
                                 </div>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
 
-                    <div class="wdt-service-excerpt">
-                        <?php the_excerpt(); ?>
-                    </div>
-
-                    <div class="wdt-service-button">
-                        <a href="<?php the_permalink(); ?>">
-                            <?php esc_html_e('Read More', 'bullish-pro'); ?>
-                        </a>
-                    </div>
+                    <?php if (has_excerpt()) : ?>
+                        <div class="wdt-service-description">
+                            <?php the_excerpt(); ?>
+                        </div>
+                    <?php endif; ?>
 
                 </div>
 
             </div>
+
 
         <?php endwhile; ?>
 
@@ -93,8 +100,8 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         <div class="pagination booking-pagination">
             <?php
             $pagination_args = array(
-                'prev_text' => '<i class="fa fa-angle-left"></i> ' . esc_html__('Newer Posts', 'bullish-pro'),
-                'next_text' => esc_html__('Older Posts', 'bullish-pro') . ' <i class="fa fa-angle-right"></i>',
+                'prev_text' => '<i class="fa fa-angle-left"></i>',
+                'next_text' => '<i class="fa fa-angle-right"></i>',
                 'mid_size' => 2,
                 'type' => 'list',
                 'current' => max(1, get_query_var('paged')),

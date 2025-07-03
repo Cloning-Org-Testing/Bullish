@@ -140,3 +140,26 @@ if ( ! function_exists( 'bullish_pro_duration_to_string' ) ) {
         return $result;
     }
 }
+
+if (!function_exists('render_service_icon')) {
+    function render_service_icon($icon) {
+        
+        $output = '';
+
+        if (!empty($icon)) {
+            if (strpos($icon, '.svg') !== false) {
+                $svg_path = ABSPATH . str_replace(site_url('/'), '', $icon);
+                if (file_exists($svg_path)) {
+                    $svg_content = file_get_contents($svg_path);
+                    if ($svg_content !== false) {
+                        $output .= '<div class="wdt-service-type-icon svg-icon">' . $svg_content . '</div>';
+                    }
+                }
+            } else {
+                $output .= '<div class="wdt-service-type-icon"><img src="' . esc_url($icon) . '" alt="Service Icon" title="Service Icon"/></div>';
+            }
+        }
+
+        return $output;
+    }
+}

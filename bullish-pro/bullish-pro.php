@@ -128,6 +128,7 @@ if( !class_exists( 'BullishPro' ) ) {
              */
 
             wp_enqueue_style( 'bullish-pro-widget', BULLISH_PRO_DIR_URL . 'assets/css/widget.css', false, BULLISH_PRO_VERSION, 'all');
+            wp_enqueue_style( 'bullish-pro-service', BULLISH_PRO_DIR_URL . 'assets/css/service.css', false, BULLISH_PRO_VERSION, 'all');
 
             do_action( 'bullish_pro_after_asset_enqueue' );
         }

@@ -217,6 +217,10 @@ if( !class_exists('WDTPortfolioDependentFiles') ) {
 				wp_enqueue_style ( 'swiper' );
 				wp_enqueue_style ( 'wdt-modules-listing' );
 				wp_enqueue_style ( 'wdt-modules-default' );
+				
+				if ( is_post_type_archive( 'wdt_listings' ) || is_tax( 'wdt_listings_category' ) || is_tax( 'wdt_listings_amenity' ) ) {
+					wp_enqueue_style( 'wdt-listing' );
+				}
 
 			// JS
 

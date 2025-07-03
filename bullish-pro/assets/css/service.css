@@ -1,0 +1,21 @@
+/** 
+  @ Service Page Styles
+  -------------------------------
+*/
+
+.wdt-service-archive-wrapper { display: flex; flex-wrap: wrap; --ser-gap: 30px; gap: var(--ser-gap); }
+
+.wdt-service-archive-wrapper.wdt-columns-5 > .wdt-service-item { flex: 0 0 calc(20% - calc(var(--ser-gap) / 1.25)); }
+.wdt-service-archive-wrapper.wdt-columns-4 > .wdt-service-item { flex: 0 0 calc(25% - calc(var(--ser-gap) / 1.333)); }
+.wdt-service-archive-wrapper.wdt-columns-3 > .wdt-service-item { flex: 0 0 calc(33.3333% - calc(var(--ser-gap) / 1.5)); }
+.wdt-service-archive-wrapper.wdt-columns-2 > .wdt-service-item { flex: 0 0 calc(50% - calc(var(--ser-gap) / 2)); }
+.wdt-service-archive-wrapper.wdt-columns-1 > .wdt-service-item { flex: 0 0 100%; }
+
+
+
+
+
+/* ---------------------------------------------------------------------
+ === Service Single ===
+--------------------------------------------------------------------- */
+
