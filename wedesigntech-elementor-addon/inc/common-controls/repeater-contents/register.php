@@ -674,15 +674,14 @@ class WeDesignTech_Common_Controls_Repeater_Contents {
 			}
 
 			$output .= '<div class="wdt-content-icon-wrapper">';
-			$output .= '<div class="wdt-content-icon"><span>';
-
-			$output .= $link_start;
-				ob_start();
-				\Elementor\Icons_Manager::render_icon( $item['media_icon'], [ 'aria-hidden' => 'true' ] );
-				$output .= ob_get_clean();
-			$output .= $link_end;
-
-			$output .= '</span></div>';
+				$output .= $link_start;
+					$output .= '<div class="wdt-content-icon"><span>';
+						ob_start();
+						\Elementor\Icons_Manager::render_icon( $item['media_icon'], [ 'aria-hidden' => 'true' ] );
+						$output .= ob_get_clean();
+						$output .= '</span>';
+					$output .= '</div>';
+				$output .= $link_end;
 			$output .= '</div>';
 		}
 
