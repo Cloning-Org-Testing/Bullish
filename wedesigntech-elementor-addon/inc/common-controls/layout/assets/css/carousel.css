@@ -7,7 +7,7 @@
 
 .wdt-carousel-holder .wdt-carousel-pagination-wrapper { text-align: center; }
 .wdt-carousel-holder .wdt-carousel-pagination-wrapper .wdt-swiper-pagination { position: static; }
-.wdt-carousel-holder .swiper.swiper-horizontal + .wdt-carousel-pagination-wrapper .wdt-swiper-pagination { margin-top: 20px; }
+.wdt-carousel-holder .swiper.swiper-horizontal + .wdt-carousel-pagination-wrapper .wdt-swiper-pagination {  margin-top: clamp(3.75rem, 2.9213rem + 2.7739vw, 6.25rem);/*100-60*/ }
 
 .wdt-carousel-holder .wdt-carousel-pagination-wrapper .wdt-swiper-pagination:empty { display: none; }
 
