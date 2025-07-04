@@ -201,6 +201,9 @@
     color:var(--wdtHeadAltColor);
     border-color:var(--wdtTertiaryColor);
 }
+.wdt-image-box-holder.wdt-rc-template-social-icons .swiper-wrapper{
+    cursor: auto;
+}
 
 
 /* Image box with description style */

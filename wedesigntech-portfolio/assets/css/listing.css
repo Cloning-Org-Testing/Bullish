@@ -3,7 +3,7 @@
     @Common CSS for listing
 */
 
-.wdt-listings-item-container:not(.swiper-wrapper) { width: auto; margin: 0px; }
+.wdt-listings-item-container:not(.swiper-wrapper) { width: auto; margin: 0px; position: relative; }
 
 
 /** 
@@ -39,8 +39,7 @@
 
 
 .wdt-listings-item-wrapper.type1 {
-    /* position: sticky;
-    top: 0; */
+    position: relative;
     border-radius: var(--wdtRadius_2X);
     overflow: hidden;
     margin-bottom: 60px;

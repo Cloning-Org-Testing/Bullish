@@ -151,6 +151,11 @@ html.lenis,html.lenis body:is(.error404) {
     text-decoration: underline;
 }
 
+/*-- swiper --*/
+
+.swiper-wrapper{
+    cursor: grab;
+}
 
 /* -------------------------------------------------------------------------- */
 /*                          Responsive Media Queries                          */
