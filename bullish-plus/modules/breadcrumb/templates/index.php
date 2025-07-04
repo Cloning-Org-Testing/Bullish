@@ -54,15 +54,15 @@ if( !class_exists( 'BullishPlusBCTemplate' ) ) {
                 array_push($classes, $breadcrumb_position);
             }
 
-            if($dark_bg_breadcrumb) {
-                if(!in_array('wdt-dark-bg', $classes) && $breadcrumb_position == 'header-top-absolute') {
-                    array_push($classes, 'wdt-dark-bg');
-                } else if($breadcrumb_position == 'header-top-relative') {
-                    unset($classes[array_search('wdt-dark-bg', $classes)]);
-                }
-            } else {
-                unset($classes[array_search('wdt-dark-bg', $classes)]);
-            }
+            // if($dark_bg_breadcrumb) {
+            //     if(!in_array('wdt-dark-bg', $classes) && $breadcrumb_position == 'header-top-absolute') {
+            //         array_push($classes, 'wdt-dark-bg');
+            //     } else if($breadcrumb_position == 'header-top-relative') {
+            //         unset($classes[array_search('wdt-dark-bg', $classes)]);
+            //     }
+            // } else {
+            //     unset($classes[array_search('wdt-dark-bg', $classes)]);
+            // }
 
             return $classes;
 
