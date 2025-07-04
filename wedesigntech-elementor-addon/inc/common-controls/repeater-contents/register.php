@@ -150,7 +150,22 @@ class WeDesignTech_Common_Controls_Repeater_Contents {
 							),
 						)
 					);
+					$repeater->add_control(
+						'icon_link_url',
+						array(
+							'label' => esc_html__( 'Icon Link URL', 'wdt-elementor-addon' ),
+							'type' => \Elementor\Controls_Manager::URL,
+							'placeholder' => 'https://example.com',
+							'label_block' => true,
+							'show_external' => true,
+							'condition' => array_merge(
+								$this->option_default_condition,
+								$this->option_media_icon_condition
+							),
+						)
+					);
 				}
+
 				if(in_array('sub_title', $this->option_default_keys)) {
 					$repeater->add_control( 'item_sub_title', array(
 						'label'       => $this->options_default['sub_title'],
@@ -645,17 +660,32 @@ class WeDesignTech_Common_Controls_Repeater_Contents {
 
 	public function render_icon($key, $item, $widget_object) {
 		$output = '';
-		if ( ! empty( $item['media_icon']['value'] ) ) :
+
+		if ( ! empty( $item['media_icon']['value'] ) ) {
+
+			$link_start = '';
+			$link_end = '';
+
+			if ( ! empty( $item['icon_link_url']['url'] ) ) {
+				$target = $item['icon_link_url']['is_external'] ? ' target="_blank"' : '';
+				$nofollow = $item['icon_link_url']['nofollow'] ? ' rel="nofollow"' : '';
+				$link_start = '<a href="' . esc_url( $item['icon_link_url']['url'] ) . '"' . $target . $nofollow . '>';
+				$link_end = '</a>';
+			}
 
 			$output .= '<div class="wdt-content-icon-wrapper">';
-				$output .= '<div class="wdt-content-icon"><span>';
-					ob_start();
-					\Elementor\Icons_Manager::render_icon( $item['media_icon'], [ 'aria-hidden' => 'true' ] );
-					$output .= ob_get_clean();
-				$output .= '</span></div>';
-			$output .= '</div>';
+			$output .= '<div class="wdt-content-icon"><span>';
 
-		endif;
+			$output .= $link_start;
+				ob_start();
+				\Elementor\Icons_Manager::render_icon( $item['media_icon'], [ 'aria-hidden' => 'true' ] );
+				$output .= ob_get_clean();
+			$output .= $link_end;
+
+			$output .= '</span></div>';
+			$output .= '</div>';
+		}
+
 		return $output;
 	}
 
