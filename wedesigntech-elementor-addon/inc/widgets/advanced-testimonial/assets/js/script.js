@@ -23,24 +23,14 @@
             const speed            = swiperSettings.speed              ? parseInt(swiperSettings.speed) : 300;
             const centeredSlides   = swiperSettings.centered_slides    === "yes";
 
-            // Default active class on second slide
-            $slides.removeClass('active');
-            $slides.eq(1).addClass('active');
-
-            // Add hover behavior
-            $slides.on('mouseenter', function () {
-                $slides.removeClass('active');
-                $(this).addClass('active');
-            });
-
-            // Init Swiper
-            new Swiper('#' + swiperID, {
-                slidesPerView: slidesToShow,
+            const swiperInstance = new Swiper('#' + swiperID, {
+                slidesPerView: 'auto',
                 spaceBetween: spaceBetween,
                 loop: loopEnabled,
-                freeMode: freeModeEnabled,
+                freeMode: false,
                 speed: speed,
-                centeredSlides: centeredSlides,
+                centeredSlides: true, 
+                grabCursor: true,
 
                 pagination: paginationType === "bullets" ? {
                     el: $parentHolder.find('.wdt-swiper-pagination')[0],
@@ -50,9 +40,105 @@
                 navigation: arrowsEnabled ? {
                     nextEl: $parentHolder.find('.wdt-arrow-pagination-next')[0],
                     prevEl: $parentHolder.find('.wdt-arrow-pagination-prev')[0]
-                } : false
+                } : false,
+
+                on: {
+                    init: function () {
+                        updateActiveCenterClass(this);
+                    },
+                    slideChangeTransitionEnd: function () {
+                        updateActiveCenterClass(this);
+                    }
+                }
             });
+
+
+            function updateActiveCenterClass(swiper) {
+
+                const $allSlides = $thisSwiper.find('.swiper-slide');
+                $allSlides.removeClass('active');
+
+                const activeIndex = swiper.activeIndex;
+                const $centerSlide = $(swiper.slides[activeIndex]);
+                $centerSlide.addClass('active');
+
+            }
+
         });
+
+        // $('.wdt-advanced-testimonial-container.swiper').each(function () {
+        //     const $thisSwiper = $(this);
+        //     const swiperSettings = $thisSwiper.data('settings') || {};
+        //     const swiperID = $thisSwiper.attr('id');
+        //     const $parentHolder = $thisSwiper.closest('.wdt-advanced-testimonial-holder');
+
+        //     if (!swiperSettings) return;
+
+        //     var deviceMode = elementorFrontend.getCurrentDeviceMode();
+        //     var spaceBetweenGaps = swiperSettings.space_between_gaps || {};
+        //     var spaceBetween = spaceBetweenGaps[deviceMode] !== undefined ? parseInt(spaceBetweenGaps[deviceMode]) : 30;
+
+        //     const loopEnabled = swiperSettings.loop === "yes";
+        //     const arrowsEnabled = swiperSettings.arrows === "yes";
+        //     const paginationType = swiperSettings.pagination || "none";
+        //     const speed = swiperSettings.speed ? parseInt(swiperSettings.speed) : 600;
+
+        //     const swiperInstance = new Swiper('#' + swiperID, {
+        //         slidesPerView: 'auto', // Keep this for responsive behavior
+        //         spaceBetween: spaceBetween,
+        //         loop: loopEnabled,
+        //         speed: speed,
+        //         centeredSlides: true,
+        //         grabCursor: true,
+                
+        //         // Add breakpoints for better responsive control
+        //         breakpoints: {
+        //             320: {
+        //                 spaceBetween: 20,
+        //             },
+        //             768: {
+        //                 spaceBetween: 30,
+        //             },
+        //             1024: {
+        //                 spaceBetween: 40,
+        //             }
+        //         },
+
+        //         pagination: paginationType === "bullets" ? {
+        //             el: $parentHolder.find('.wdt-swiper-pagination')[0],
+        //             clickable: true
+        //         } : false,
+
+        //         navigation: arrowsEnabled ? {
+        //             nextEl: $parentHolder.find('.wdt-arrow-pagination-next')[0],
+        //             prevEl: $parentHolder.find('.wdt-arrow-pagination-prev')[0]
+        //         } : false,
+
+        //         on: {
+        //             init: function () {
+        //                 updateActiveCenterClass(this);
+        //             },
+        //             slideChangeTransitionEnd: function () {
+        //                 updateActiveCenterClass(this);
+        //             },
+        //             // Add transition start for smoother animation
+        //             slideChangeTransitionStart: function () {
+        //                 updateActiveCenterClass(this);
+        //             }
+        //         }
+        //     });
+
+        //     function updateActiveCenterClass(swiper) {
+        //         const $allSlides = $thisSwiper.find('.swiper-slide');
+        //         $allSlides.removeClass('active');
+                
+        //         // Get the actual active slide index
+        //         const activeIndex = swiper.activeIndex;
+        //         const $centerSlide = $(swiper.slides[activeIndex]);
+                
+        //         $centerSlide.addClass('active');
+        //     }
+        // });
 
     }
 

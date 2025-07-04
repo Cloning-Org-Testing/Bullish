@@ -856,6 +856,9 @@ class WeDesignTech_Widget_Base_Services {
                             $output .= '</div>';
 
                             $output .= '<div class="wdt-service-detail-group">';
+							
+								$output .= $this->render_service_icon($icon);
+
                                 $output .= '<div class="wdt-service-title"><h5>';
                                     $output .= '<a href="' . esc_url(get_permalink()) . '">' . get_the_title() . '</a>';
                                 $output .= '</h5></div>';
