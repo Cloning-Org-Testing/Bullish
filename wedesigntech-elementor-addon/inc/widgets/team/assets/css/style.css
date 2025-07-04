@@ -22,7 +22,7 @@
 .wdt-team-holder.wdt-rc-template-default .wdt-content-item .wdt-social-icons-list li a { background-color: transparent; background-image: linear-gradient(90deg , var(--wdtTertiaryColor), var(--wdtPrimaryColor) , var(--wdtTertiaryColor)); background-size: 200% 100%; background-position: bottom right; background-repeat: no-repeat; width: 40px; height: 40px; border-radius: var(--wdtRadius_Full); -webkit-border-radius: var(--wdtRadius_Full); -webkit-box-shadow: none; box-shadow: none; color: var(--wdtHeadAltColor); overflow: hidden; }
 .wdt-team-holder.wdt-rc-template-default .wdt-content-item .wdt-social-icons-list li a:hover { background-position: top left; }
 .wdt-team-holder.wdt-rc-template-default .wdt-content-item .wdt-social-icons-list li a:hover i{ animation: btn-arrow-move 0.375s linear; -webkit-animation: btn-arrow-move 0.375s linear; }
-
+.wdt-team-holder.wdt-rc-template-default .wdt-content-item .wdt-content-subtitle{font-size: var(--wdtFontSize_Base);}
 
 /** Standard Template */
 

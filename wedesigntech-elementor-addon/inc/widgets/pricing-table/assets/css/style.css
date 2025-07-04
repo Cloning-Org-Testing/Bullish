@@ -622,9 +622,13 @@
     opacity: .7;
 }
 .wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-header'] .wdt-content-title h5,
-.wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-description'] .wdt-content-title h5 {
+.wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-description'] .wdt-content-title h5,
+.wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-header'] .wdt-content-title h5 a,
+.wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-description'] .wdt-content-title h5 a {
     font-size: clamp(1.25rem, 1.1943rem + 0.2548vw, 1.5rem); /* Min-20 & Max-24 */
     margin-bottom: 12px;
+    font-weight: var(--wdtFontWeight_Alt);
+    color: var(--wdtHeadAltColor);
 }
 .wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-footer .wdt-content-button>a {
     padding: var(--wdtPadding_Btn);
@@ -655,6 +659,10 @@
 }
 .wdt-pricing-table-holder[class*='-template-classic'] div[class*='-table-footer'] .wdt-content-button > a:hover:after{
     animation: btn-arrow-move 0.375s linear;-webkit-animation: btn-arrow-move 0.375s linear;
+}
+
+.wdt-pricing-table-holder div[class*='-table-features'] .wdt-pricing-table-features-list li .wdt-pricing-table-features-list-text{
+    color: var(--wdtHeadAltColor);
 }
 
 /* .wdt-pricing-table-holder[class*='-template-classic'] {

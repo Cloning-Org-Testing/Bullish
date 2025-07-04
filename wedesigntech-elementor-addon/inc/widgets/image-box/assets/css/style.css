@@ -239,7 +239,7 @@
 /* Hover and Active */
 
 .wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-active .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span,
-.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item:hover .wdt-content-icon-wrapper .wdt-content-icon span{ color: var(--wdtLinkHoverColor); filter: drop-shadow(0 0 10px var(--wdtTertiaryColor)); -webkit-filter: drop-shadow(0 0 10px var(--wdtTertiaryColor)); }
+.wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item:hover .wdt-content-icon-wrapper .wdt-content-icon span{ color: var(--wdtLinkHoverColor); filter: drop-shadow(0 0 18px rgba(var(--wdtTertiaryColorRgb),0.8)); -webkit-filter: drop-shadow(0 0 18px rgba(var(--wdtTertiaryColorRgb),0.8)); }
 .wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-active .wdt-content-item,
 .wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-content-item:hover{opacity: 1;}
 .wdt-image-box-holder.wdt-rc-template-simple-icon .wdt-active .wdt-content-item .wdt-content-media-group::before,
@@ -353,6 +353,7 @@
     /* background: var(--wdtAccentTxtColor); */
     color: var(--wdtHeadAltColor);
     background-position: center right;
+    border-color: var(--wdtTertiaryColor);
 }
 .wdt-image-box-holder.wdt-rc-template-career-list .wdt-content-item .wdt-content-button>a:before {
     content: "";
@@ -457,14 +458,15 @@
     content: "0" counter(counter-01);
     position:absolute;
     bottom:-12px;
-    background-image: linear-gradient(90deg,rgba(var(--wdtPrimaryColorRgb),0.4) ,rgba(var(--wdtTertiaryColorRgb),0.5));
-    backdrop-filter:blur(5px);
+    background-image: linear-gradient(90deg,rgba(var(--wdtPrimaryColorRgb),1) ,rgba(var(--wdtTertiaryColorRgb),1));
+    backdrop-filter:blur(10px);
     padding:6px;
     border:1px solid var(--wdtBorderColor);
     border-radius:5px;
     font-size:16px;
     line-height:1;
     color:var(--wdtHeadAltColor);
+    z-index: 1;
 }
 /* Overlay Template */
 .wdt-image-box-holder.wdt-rc-template-overlay .wdt-content-item > div:not(:last-child){
@@ -544,7 +546,11 @@
     color:var(--wdtPrimaryColor);
 }
 
-
+@media screen and (max-width:1024px){
+    .leader-line{
+        display:none;
+    }
+}
 
 
 

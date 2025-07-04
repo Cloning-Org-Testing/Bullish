@@ -35,6 +35,15 @@ html.lenis,html.lenis body:is(.error404) {
     color: var(--wdtPrimaryColor);
 }
 
+#footer .wdt-dark-bg .wdt-image-box-holder.wdt-rc-template-social-icons .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span a{
+    color:var(--wdtPrimaryColor);
+    border-color: rgba(var(--wdtAccentTxtColorRgb),0.1);
+}
+#footer .wdt-dark-bg .wdt-image-box-holder.wdt-rc-template-social-icons .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span:hover a {
+    color:var(--wdtHeadAltColor);
+    border-color:var(--wdtTertiaryColor);
+}
+
 /* Error message */
 .wpcf7-form input ~ .wpcf7-not-valid-tip, 
 .wpcf7-form input[type="text"] ~ .wpcf7-not-valid-tip, 
@@ -135,6 +144,12 @@ html.lenis,html.lenis body:is(.error404) {
 .entry-post-navigation.type1 > div > .nav-title-wrap p a:after { left:auto; right:0;}
 .entry-post-navigation.type1 > div > .nav-title-wrap p a:hover:before,
 .entry-post-navigation.type1 > div > .nav-title-wrap p a:hover:after { width:0%; }
+
+/*-- Text Editor --*/
+
+.underline p a{
+    text-decoration: underline;
+}
 
 
 /* -------------------------------------------------------------------------- */

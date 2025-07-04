@@ -1,4 +1,6 @@
 
+.wdt-sticky-css[class*="wdt-css-sticky-"] > .wdt-sticky-inner-wrapper { padding: 0px; flex-grow: 0; }
+
 /** 
     Sticky Column Style
 */

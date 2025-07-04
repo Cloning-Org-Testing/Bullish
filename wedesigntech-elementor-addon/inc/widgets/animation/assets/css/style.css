@@ -73,9 +73,9 @@ Brand icon type1 Style
   border: 1px solid rgba(var(--wdtSecondaryColorRgb),0.3);
   -webkit-border-radius: var(--wdtRadius_2X);
   border-radius: var(--wdtRadius_2X);
-  background: linear-gradient(90deg, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor));
+  background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor),var(--wdtBodyBGColor), var(--wdtBodyBGColor));
   background-size: 300% 100%;
-  background-position: center left;
+  background-position: center right;
   -webkit-transition: var(--wdt-Ad-Transition);
   transition: var(--wdt-Ad-Transition);
 }
@@ -85,7 +85,7 @@ Brand icon type1 Style
 }
 .wdt-animation-holder:not(.vertical) .wdt-animation-item.type1:hover{
     color: var(--wdtHeadAltColor);
-    background-position: right center;
+    background-position: left center;
     border-color: transparent;
 }
 /**
