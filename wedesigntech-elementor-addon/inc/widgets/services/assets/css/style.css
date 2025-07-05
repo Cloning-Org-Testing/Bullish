@@ -33,7 +33,8 @@
 .wdt-service-item.wdt-type-1:hover .wdt-service-type-icon,
 .wdt-service-item.wdt-type-1:focus .wdt-service-type-icon{
     color: var(--wdtPrimaryColor);
-    filter: drop-shadow(0 0 10px var(--wdtTertiaryColor)); -webkit-filter: drop-shadow(0 0 10px var(--wdtTertiaryColor));
+    filter: drop-shadow(0 0 18px rgba(var(--wdtTertiaryColorRgb),0.8));
+    -webkit-filter: drop-shadow(0 0 18px rgba(var(--wdtTertiaryColorRgb),0.8));
 }
 .wdt-service-item.wdt-type-1 .wdt-service-title h5{
     margin:20px 0 15px;
@@ -391,10 +392,9 @@
     border-top: 1px solid rgba(var(--wdtBorderColorRgb),0.4);
     transform: translateY(50px);
     transition: var(--wdtAltTransition);
-    padding: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem) 0;
-    /* Min-20 & Max-30 */
-    margin-top: 0;
-    /* Min-20 & Max-30 */
+    padding: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem) 0; /* Min-20 & Max-30 */
+    margin-top: 0; /* Min-20 & Max-30 */
+    color: var(--wdtAccentTxtColor);
 }
 .swiper-slide.swiper-slide-active .wdt-service-item.wdt-type-3 .wdt-service-description,
 .wdt-service-item.wdt-type-3:hover .wdt-service-description {

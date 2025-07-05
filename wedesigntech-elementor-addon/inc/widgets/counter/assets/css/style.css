@@ -11,6 +11,8 @@
 .wdt-counter-holder.wdt-rc-template-default .wdt-content-item .wdt-content-detail-group .wdt-content-title h5 { font-weight: var(--wdtFontWeight_Base); font-size: var(--wdtFontSize_Base); color: var(--wdtHeadAltColor); }
 
 /* Standard Template */
+.wdt-counter-holder.wdt-rc-template-standard{overflow: hidden;}
+.wdt-counter-holder.wdt-rc-template-standard .wdt-column-wrapper{margin: 0 -1px;}
 .wdt-counter-holder.wdt-rc-template-standard .wdt-content-item { text-align: center; }
 .wdt-counter-holder.wdt-rc-template-standard .wdt-column:not(:last-child) .wdt-content-item::before { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 1px; height: 70%; background: rgba(var(--wdtAccentTxtColorRgb), 0.3); margin: auto; }
 .wdt-counter-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-counter { font-size: clamp(2.5rem, 2.082rem + 1.9108vw, 4.375rem); /* Min-50 & Max-70 */ line-height: 1; }
