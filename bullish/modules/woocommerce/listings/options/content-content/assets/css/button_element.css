@@ -96,6 +96,6 @@
 
     /* Colors */
     .woocommerce ul.products li.product .product-buttons-wrapper.product-button a, .woocommerce ul.products li.product .product-buttons-wrapper.product-button button,
-    .woocommerce ul.products li.product .product-buttons-wrapper.product-button .button, .woocommerce ul.products li.product .product-buttons-wrapper.product-button a.button { color: var(--wdtAccentTxtColor); }
+    .woocommerce ul.products li.product .product-buttons-wrapper.product-button .button, .woocommerce ul.products li.product .product-buttons-wrapper.product-button a.button { color: var(--wdtHeadAltColor); }
 
 /* #region - Product Listing - Thumb Button */

@@ -699,7 +699,7 @@
     .woocommerce a.button.alt.disabled, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt[disabled]:disabled, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt[disabled]:disabled, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt[disabled]:disabled, .woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt[disabled]:disabled,
 
     .yith-wcwl-add-to-wishlist a, .yith-wcqv-button, .wdt-wcsg-button, .woocommerce .wishlist_table .add_to_cart.button, .woocommerce .yith-wcwl-popup-button a.add_to_wishlist, .woocommerce .wishlist_table a.ask-an-estimate-button, .woocommerce .wishlist-title a.show-title-form, .woocommerce .hidden-title-form a.hide-title-form, .woocommerce .hidden-title-form a.save-title-form, .woocommerce .wishlist_manage_table a.create-new-wishlist, .woocommerce a.added_to_cart { 
-        background-color: var(--wdtHeadAltColor); color: var(--wdtAccentTxtColor); border-width: 0; cursor: pointer; display: inline-block; 
+        background-color: var(--wdtHeadAltColor); color: var(--wdtHeadAltColor); border-width: 0; cursor: pointer; display: inline-block; 
         float: none; font-family: var(--wdtFontTypo_Alt); font-size: var(--wdtFontSize_Base); font-style: normal; font-weight: normal; 
         line-height: var(--wdtLineHeight_Alt); margin: 10px 0 0; outline: none; padding: var(--wdtPadding_Btn); position: relative; 
         text-align: center !important; text-transform: capitalize; -webkit-appearance: none; appearance: none; 
