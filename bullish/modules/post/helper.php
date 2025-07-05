@@ -7,7 +7,7 @@ if( !function_exists('bullish_single_post_params_default') ) {
             'enable_image_lightbox'  => 0,
             'enable_disqus_comments' => 0,
             'post_disqus_shortname'  => '',
-            'post_dynamic_elements'  => array( 'content', 'author_bio', 'comment_box', 'navigation' ),
+            'post_dynamic_elements'  => array( 'content', 'navigation', 'comment_box' ),
             'post_commentlist_style' => 'rounded',
             'select_post_navigation' => 'type1',
         );

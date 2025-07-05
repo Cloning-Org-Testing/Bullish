@@ -11,8 +11,11 @@ if( empty( $active_sidebars ) ) {
 }?>
 <!-- Secondary -->
  <?php
- $page_sidebartoggle =  bullish_customizer_settings('hide_toogle_sidebar' ); 
- $page_sidebartoggledefault =  bullish_customizer_settings('hide_sidebardisabletoogle' ); 
+ if(function_exists('bullish_customizer_settings')) {
+    $page_sidebartoggle =  bullish_customizer_settings('hide_toogle_sidebar' ); 
+    $page_sidebartoggledefault =  bullish_customizer_settings('hide_sidebardisabletoogle' ); 
+ }
+
 ?>
 
 <section id="secondary" class="<?php echo esc_attr( $sidebar_class ); ?>"><div class="wdt-sidebar-wrapper <?php if($page_sidebartoggle) { echo 'wdt-sidebartoogle-wrapper'; } ?>"><?php

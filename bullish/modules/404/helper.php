@@ -36,7 +36,7 @@ function notfound_inline_style( $style ) {
 function bullish_404_page_params() {
     $params = array(
         'enable_404message' => 1,
-        'notfound_style'    => 'type2',
+        'notfound_style'    => 'type1',
         'notfound_darkbg'   => 1,
         'notfound_bg_style' => 'background-color:var(--wdtHeadAltColor);'
     );

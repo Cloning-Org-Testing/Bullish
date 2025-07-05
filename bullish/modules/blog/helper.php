@@ -6,9 +6,9 @@ if( !function_exists('bullish_archive_blog_post_defaults') ) {
             'post-layout'      => 'entry-grid',
             'post-gl-style'    => 'wdt-simple',
             'list-type'        => 'entry-left-thumb',
-            'hover-style'      => 'wdt-default',
-            'overlay-style'    => 'wdt-default',
-            'post-align'       => 'alignnone',
+            'hover-style'      => 'wdt-scalein',
+            'overlay-style'    => 'wdt-flash',
+            'post-align'       => 'alignleft',
             'post-column'      => 'one-half-column'
         );
 
@@ -32,13 +32,13 @@ if( !function_exists('bullish_archive_blog_post_params_default') ) {
         $params = array(
             'enable_video_audio' 	 => 0,
             'enable_gallery_slider'  => 1,
-            'archive_media_elements' => array('feature_image','date'),
-            'archive_post_elements'  => array( 'title', 'content', 'meta_group', 'read_more' ),
-            'archive_meta_elements'  => array( 'author', 'category', 'tag', 'date', 'comment' ),
+            'archive_media_elements' => array('feature_image'),
+            'archive_post_elements'  => array( 'date', 'title', 'read_more' ),
+            'archive_meta_elements'  => array(),
             'archive_readmore_text'  => esc_html__('Read More', 'bullish'),
             'enable_excerpt_text'	 => 1,
-            'archive_excerpt_length' => 60,
-            'archive_blog_pagination'=> 'pagination-default',
+            'archive_excerpt_length' => 18,
+            'archive_blog_pagination'=> 'pagination-numbered',
             'enable_disqus_comments' => 0,
             'post_disqus_shortname'  => ''
         );
