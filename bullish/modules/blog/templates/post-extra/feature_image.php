@@ -4,7 +4,7 @@
 	$post_meta = get_post_meta( $post_ID, '_bullish_post_settings', TRUE );
 	$post_meta = is_array( $post_meta ) ? $post_meta  : array();
 
-	$post_format = !empty( $post_meta['post-format-type'] ) ? $post_meta['post-format-type'] :'wdt-simple';
+	$post_format = !empty( $post_meta['post-format-type'] ) ? $post_meta['post-format-type'] : get_post_format();
 
 	$template_args['post_ID'] = $post_ID;
 	$template_args['meta'] = $post_meta;
@@ -14,6 +14,4 @@
 	<!-- Featured Image -->
 	<div class="entry-thumb">
 		<?php bullish_template_part( 'blog', 'templates/post-format/post', $post_format, $template_args ); ?>
-
-        <?php //do_action( 'bullish_blog_archive_post_format',$post_format ); ?>
 	</div>
