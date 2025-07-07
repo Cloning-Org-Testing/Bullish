@@ -72,7 +72,7 @@
     /** Blog Title */
 
     .blog-entry .entry-title h4 span.sticky-post { display: inline-flex; padding: 5px; width: fit-content; border-radius: 50%; 
-        position: absolute; top: 50%; left: 0; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+        position: absolute; top: 0; left: 0; -webkit-transform: unset; transform: unset; }
     .blog-entry .entry-title h4 span.sticky-post > i:first-child { display: flex; width: 1em; height: 1em; }
 
     .blog-entry .entry-title h4 span.sticky-post > span { font-size: 0; }
@@ -84,7 +84,7 @@
     .blog-entry .entry-title h4 > a { overflow-wrap: anywhere; display: inline; }
     
     .wdt-post-entry .blog-entry.sticky .entry-title h4,
-    .wdt-post-entry .blog-entry .entry-title h4:has(> .sticky-post) { padding-left: 32px; }
+    .wdt-post-entry .blog-entry .entry-title h4:has(> .sticky-post) { padding-left: 0px; }
 
     .wdt-post-entry .blog-entry .entry-title h4 { font-size: clamp(1.375rem, 1.3471rem + 0.1274vw, 1.5rem); /* 22px - 24px */  position: relative; }
     .page-with-sidebar .wdt-post-entry .blog-entry .entry-title h4 { font-size: var(--wdtFontSize_H5); }
@@ -285,8 +285,8 @@
     .blog-entry:not(.format-link, .format-quote).has-post-thumbnail div.entry-media-group { display: grid; overflow: hidden; }
     .blog-entry:not(.format-link, .format-quote).has-post-thumbnail div.entry-media-group > div { grid-area: 1/-1; align-content: end; }
 
-    .blog-entry div.entry-media-group > div.entry-thumb { display: flex; }
-    .blog-entry div.entry-media-group > div.entry-thumb img { height: 100%; object-fit: cover; object-position: center; }
+    /* .blog-entry div.entry-media-group > div.entry-thumb { display: flex; } */
+    .blog-entry div.entry-media-group > div.entry-thumb img { height: 100%; width: 100%; object-fit: cover; object-position: center; }
     .blog-entry:not(.format-link, .format-quote) div.entry-media-group > div.entry-thumb-content { position: relative; 
         padding: clamp(3.75rem, 3.6058rem + 0.641vw, 4.375rem) 
                  clamp(1.25rem, 1.1058rem + 0.641vw, 1.875rem) clamp(1.25rem, 1.1058rem + 0.641vw, 1.875rem); }

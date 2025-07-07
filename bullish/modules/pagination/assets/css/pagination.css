@@ -76,7 +76,7 @@
     .page-link a, .pagination ul li a,
     .woocommerce nav.woocommerce-pagination ul li a,
     .page-link > span, .pagination ul li span,
-    .woocommerce nav.woocommerce-pagination ul li span { color: var(--wdtHeadAltColor); background: linear-gradient(90deg, var(--wdtAccentTxtColor), var(--wdtAccentTxtColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor)); background-size: 400% 100%; background-position: bottom left; background-repeat: no-repeat; }
+    .woocommerce nav.woocommerce-pagination ul li span { color: var(--wdtHeadAltColor); background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor),var(--wdtAccentTxtColor), var(--wdtAccentTxtColor)); background-size: 400% 100%; background-position: bottom right; background-repeat: no-repeat; }
 
     .pagination .newer-posts a, .pagination .older-posts a, .pagination a.loadmore-btn,
     .page-link > a:hover, .page-link > a:focus, .page-link > span,
@@ -109,7 +109,7 @@
     .pagination ul li a:hover, .pagination ul li a:focus, .pagination ul li span:not(.dots),
     .woocommerce nav.woocommerce-pagination ul li a:focus, 
     .woocommerce nav.woocommerce-pagination ul li a:hover, 
-    .woocommerce nav.woocommerce-pagination ul li span.current { background-size: 330% 100%; background-position: bottom right; background-repeat: no-repeat; }
+    .woocommerce nav.woocommerce-pagination ul li span.current { background-size: 330% 100%; background-position: bottom left; background-repeat: no-repeat; }
 
     .page-link > a:hover, .page-link > a:focus, .page-link > span,
     .pagination ul li a:hover, .pagination ul li a:focus, .pagination ul li span:not(.dots),

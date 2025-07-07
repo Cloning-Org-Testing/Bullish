@@ -645,11 +645,43 @@
     * 2. Remove the padding in IE 10.
     */
 
-    [type="checkbox"],
+    
     [type="radio"] {
         box-sizing: border-box; /* 1 */
         padding: 0; /* 2 */
     }
+    [type="checkbox"] {
+    top: 4px;
+    position: relative;
+    opacity: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(var(--wdtHeadAltColorRgb), 0.15);
+    transform: translateY(-0.075em);
+    display: inline-grid;
+    place-content: center;
+    background: rgba(var(--wdtBodyBGColorRgb), 0.5);
+    border-radius: 2px;
+    padding: 0 0 !important;
+    margin: 0 10px 0 0 !important;
+    cursor: pointer;
+    }
+	input[type="checkbox"]:before {
+    content: "";
+    width: 0.6em;
+    height: 0.6em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--wdtLinkHoverColor);
+}
+	[type="checkbox"]:checked:before{
+		transform: scale(1);
+	}
+
 
     /**
     * Correct the cursor style of increment and decrement buttons in Chrome.
@@ -699,6 +731,9 @@
     .select2-container--default .select2-search .select2-search__field, .select2-container--default .select2-search--dropdown .select2-search__field, .select2-container--default .select2-search--inline .select2-search__field { border: 1px solid !important; }
 
     textarea { height:115px; overflow:auto; resize:none; }
+
+    #primary form .wp-block-search__inside-wrapper input[type="search"],
+    #primary .post-password-form input[type="password"]{background-color:var(--wdtAccentTxtColor);}
 
     select {
         background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
@@ -804,8 +839,8 @@
     .yith-wcwl-add-to-wishlist a, .yith-wcqv-button, .wdt-wcsg-button { 
         border-width: 0; cursor: pointer; display: inline-block; float: none; font-family: var(--wdtFontTypo_Base); font-size: var(--wdtFontSize_Base); 
         font-style: normal; font-weight: normal; line-height: var(--wdtLineHeight_Alt); margin: 10px 0 0; outline: none; padding: var(--wdtPadding_Btn); 
-        text-decoration: none; text-transform: capitalize; -webkit-appearance: none; appearance: none; -webkit-border-radius: var(--wdtRadius_Zero); 
-        border-radius: var(--wdtRadius_Zero);}
+        text-decoration: none; text-transform: capitalize; -webkit-appearance: none; appearance: none; -webkit-border-radius: var(--wdtRadius_1X); 
+        border-radius: var(--wdtRadius_1X);}
 
     .elementor-element .elementor-button.elementor-size-sm { font-size: 0.9em; padding: var(--wdtPadding_Btn); }
     .elementor-element .elementor-button.elementor-size-md { font-size: var(--wdtFontSize_Base); padding: var(--wdtPadding_Btn); }
@@ -1099,7 +1134,7 @@
 
 
     /* Button - Block */
-    .wp-block-button__link { margin: .75em 0; }
+    .wp-block-button__link { margin: .75em 0; width: auto; }
     .wp-block-button .wp-block-button__link { font-size: var(--wdtFontSize_Base); line-height: 1.75;padding: var(--wdtPadding_Btn); }
 
 
@@ -1407,6 +1442,18 @@
     .select2-container--default .select2-results .select2-results__option--highlighted[aria-selected] { color: var(--wdtHeadAltColor); background-color: rgba(var(--wdtPrimaryColorRgb),0.85); }
     .select2.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple, .select2-container--default.select2-container--open.select2-container--above .select2-selection--single ,
     .select2.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple, .select2-container--default.select2-container--open.select2-container--below .select2-selection--single { border-color: var(--wdtPrimaryColor); }
+
+    input[type="submit"], input[type="button"] { 
+		background-color: var(--wdtPrimaryColor);
+		background-image:linear-gradient(90deg,var(--wdtTertiaryColor), var(--wdtPrimaryColor),var(--wdtTertiaryColor));
+		background-size:200% 100%;
+		background-position:center right;
+        color: var(--wdtHeadAltColor);
+	}
+    input[type="submit"]:hover, input[type="button"]:hover{
+	    background-position:center left;
+        color: var(--wdtHeadAltColor);
+    }
 
     /* Secondary */
     .has-secondary-color { color: var(--wdtSecondaryColor); }

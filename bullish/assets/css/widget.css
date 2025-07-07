@@ -55,7 +55,7 @@
 
 	.widget.widget_nav_menu ul li { padding:0; }
 	.widget.widget_nav_menu ul li, .widget.widget_nav_menu ul li:last-child { border-width: 0 !important; }
-	.widget.widget_nav_menu ul li a { border-bottom: 1px solid; padding:10px 0; }
+	.widget.widget_nav_menu ul li a { border-bottom: 0px solid; padding:10px 0; }
 	.widget.widget_nav_menu ul li a:empty { display:none; }
 	.widget.widget_nav_menu > div[class*="menu-container"] > ul > li:last-child:not(:only-child) > a { border-bottom-width: 0; padding-bottom: 0; }
 
@@ -111,12 +111,12 @@
 	.widget_block .wp-block-search .wp-block-search__button.has-icon { font-size: 16px; }
 
 	.widget_block .wp-block-search .wp-block-search__button:not(.has-icon):before {
-		content: ""; position: relative; display: block; width: 26px; height: 26px; background-color: var(--wdtPrimaryColor); -webkit-transition: background-color .3s ease; transition: background-color .3s ease;
+		content: ""; position: relative; display: block; width: 26px; height: 26px; background-color: currentColor; -webkit-transition: background-color .3s ease; transition: background-color .3s ease;
         -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:none;stroke:currentcolor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;%7D%0A%3C/style%3E%3Cg id='Group_130921' transform='translate(1 1)'%3E%3Cellipse id='Ellipse_1' class='st0' cx='20.1' cy='20.1' rx='18.1' ry='18.1'/%3E%3Cline id='Line_1' class='st0' x1='33.1' y1='33.1' x2='46' y2='46'/%3E%3C/g%3E%3C/svg%3E%0A");
         mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:none;stroke:currentcolor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;%7D%0A%3C/style%3E%3Cg id='Group_130921' transform='translate(1 1)'%3E%3Cellipse id='Ellipse_1' class='st0' cx='20.1' cy='20.1' rx='18.1' ry='18.1'/%3E%3Cline id='Line_1' class='st0' x1='33.1' y1='33.1' x2='46' y2='46'/%3E%3C/g%3E%3C/svg%3E%0A");
-        -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: 16px auto; mask-size: 16px auto;        
+        -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center; -webkit-mask-size: 16px auto; mask-size: 16px auto; transform: scaleX(-1);        
     }
-	.widget_block .wp-block-search .wp-block-search__button:not(.has-icon):hover:before { background-color: var(--wdtSecondaryColor); }
+	.widget_block .wp-block-search .wp-block-search__button:not(.has-icon):hover:before { background-color: currentColor; }
 
 	/* widget_text */
 
@@ -245,7 +245,7 @@
 	.widget ul li, .widget ol li, .widget.widget_nav_menu ul.menu li, .widget.widget_nav_menu ul li a { border-color: var(--wdtBorderColor); }
 
 	.widget #wp-calendar td a { color:rgba(var(--wdtHeadAltColorRgb),0.5); }
-		.widget_tag_cloud .tagcloud a, .widget .tagcloud a, .wp-block-tag-cloud a { background: linear-gradient(90deg, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor)); background-size: 300% 100%; background-position: center left; padding:8px 20px; border-radius:var(--wdtRadius_1X); z-index:1; border:1px solid var(--wdtBorderColor); }
+		.widget_tag_cloud .tagcloud a, .widget .tagcloud a, .wp-block-tag-cloud a { background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor),var(--wdtBodyBGColor), var(--wdtBodyBGColor)); background-size: 300% 100%; background-position: center right; padding:8px 20px; border-radius:var(--wdtRadius_1X); z-index:1; border:1px solid var(--wdtBorderColor); }
 
 	.wdt-dark-bg .widget input[type="text"], .wdt-dark-bg .widget input[type="password"], .wdt-dark-bg .widget input[type="email"], .wdt-dark-bg .widget input[type="url"], .wdt-dark-bg .widget input[type="tel"], .wdt-dark-bg .widget input[type="number"], .wdt-dark-bg .widget input[type="range"], .wdt-dark-bg .widget input[type="date"], .wdt-dark-bg .widget textarea, .wdt-dark-bg .widget input[type="search"], .wdt-dark-bg .widget select, .wdt-dark-bg .widget.widget_categories ul li > a span, .wdt-dark-bg .widget.widget_archive ul li > a span { background:rgba(var(--wdtBodyBGColorRgb),0.15); }
 
@@ -257,7 +257,7 @@
 	.wdt-dark-bg .widget #wp-calendar td a { color:rgba(var(--wdtAccentTxtColorRgb),0.5); }
 	.wdt-dark-bg .tagcloud a { background:rgba(var(--wdtBodyBGColorRgb),0.15); }
 
-	.tagcloud a:hover, .wp-block-tag-cloud a:hover, #footer .wdt-dark-bg .tagcloud a:hover, #footer .tagcloud a:hover { color:var(--wdtHeadAltColor) !important;  background-position: center right; }
+	.tagcloud a:hover, .wp-block-tag-cloud a:hover, #footer .wdt-dark-bg .tagcloud a:hover, #footer .tagcloud a:hover { color:var(--wdtHeadAltColor) !important;  background-position: center left; }
 
 	.widget #searchform:hover:before { color: var(--wdtAccentTxtColor); }
 
