@@ -594,5 +594,15 @@ if( !class_exists( 'Bullish_Loader' ) ) {
 
     }
 
-    Bullish_Loader::instance();
+    Bullish_Loader::instance(); 
+
+    if ( ! function_exists('wdt_comment_form_button_arrow') ) {
+        function wdt_comment_form_button_arrow($defaults) {
+            $defaults['submit_field'] = '<p class="form-submit">%1$s<i class="comment-btn-arrow"></i>%2$s</p>';
+            return $defaults;
+        }
+    }
+
+    add_filter('comment_form_defaults', 'wdt_comment_form_button_arrow');
+
 }
