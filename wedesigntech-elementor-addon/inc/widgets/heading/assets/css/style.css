@@ -27,6 +27,7 @@
 {
     line-height: var(--wdtLineHeight_H2);
     margin-top: 0;
+    text-transform: capitalize;
 }
 
 /*** Subtitle ---***/

@@ -30,7 +30,7 @@
 */
 
 .wdt-animation-item.text-item { display: inline-block; font-size: clamp(4.375rem, 3.539rem + 3.8217vw, 8.125rem); /* Min-70 & Max-130 */
-    font-weight: var(--wdtFontWeight_Alt); font-family: var(--wdtFontTypo_Alt); text-transform: capitalize; line-height: 1; }
+    font-weight: var(--wdtFontWeight_Alt); font-family: var(--wdtFontTypo_Alt); text-transform: capitalize; line-height: 1.15; }
 
 .wdt-animation-item.text-item,
 .wdt-animation-item.text-item a { color: rgba(var(--wdtHeadAltColorRgb),0.1); text-decoration: none !important; }
