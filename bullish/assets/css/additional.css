@@ -106,6 +106,7 @@
 /*     transition-delay: 0.5s; */
 }
 .wdt-testimonial-holder.wdt-rc-template-media_below_content .swiper-slide.swiper-slide-visible,
+.wdt-testimonial-holder.wdt-rc-template-media_below_content .swiper-slide.swiper-slide-prev,
 .wdt-testimonial-holder.wdt-rc-template-media_below_content .swiper-slide.swiper-slide-next {
   width: 22% !important;
   /* flex-basis: 22%; */

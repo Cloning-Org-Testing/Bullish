@@ -5,6 +5,11 @@
 html.lenis,html.lenis body:is(.error404) {
     height: 100%;
 }
+
+body{
+    cursor: auto;
+}
+
 .wdt-cus-header-bg:before {
     content:"" !important;
     position:absolute !important;
