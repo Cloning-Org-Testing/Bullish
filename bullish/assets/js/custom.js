@@ -460,10 +460,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// Page Preloader And Lazyload for speed (Ultra-Optimized)
 jQuery(function ($) {
-    const preloadThreshold = window.innerHeight + 100;
     const seenLinks = new Set();
+    const preloadThreshold = window.innerHeight + 150;
     const bgElements = [];
 
     const preloadLink = (href, as = "image") => {
@@ -473,8 +472,9 @@ jQuery(function ($) {
         link.rel = "preload";
         link.as = as;
         link.href = href;
-        const isCrossOrigin = new URL(href, location.href).origin !== location.origin;
-        if (isCrossOrigin) link.crossOrigin = "anonymous";
+        if (new URL(href, location.href).origin !== location.origin) {
+            link.crossOrigin = "anonymous";
+        }
         document.head.appendChild(link);
     };
 
@@ -502,18 +502,19 @@ jQuery(function ($) {
         document.body.appendChild(img);
     };
 
-    const extractUrl = (styleVal) => {
-        const match = styleVal && styleVal.match(/url\((['"]?)(.*?)\1\)/);
+    const extractUrl = (val) => {
+        const match = val && val.match(/url\((['"]?)(.*?)\1\)/);
         return match && match[2] ? match[2] : null;
     };
 
-    const scanImages = () => {
+    const preloadViewportImages = () => {
         document.querySelectorAll("img").forEach(img => {
             const rect = img.getBoundingClientRect();
             const src = img.currentSrc || img.src || img.getAttribute("data-src");
             if (!src) return;
 
-            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+            const inViewport = rect.top < preloadThreshold && rect.bottom > 0;
+
             if (inViewport) {
                 preconnectDomain(src);
                 preloadLink(src);
@@ -522,19 +523,19 @@ jQuery(function ($) {
                 img.decoding = "async";
                 img.fetchpriority = "high";
             } else {
-                img.loading = img.getAttribute("loading") || "lazy";
-                img.decoding = img.getAttribute("decoding") || "async";
+                img.loading = "lazy";
+                img.decoding = "async";
+                img.fetchpriority = "low";
             }
         });
     };
 
-    const scanBackgrounds = () => {
-        document.querySelectorAll(".e-con, .e-con-boxed, .e-container, .e-flex").forEach(el => {
+    const preloadViewportBackgrounds = () => {
+        document.querySelectorAll(".e-con, .e-con-boxed, .e-container, .e-flex, section, .elementor-section").forEach(el => {
             const style = getComputedStyle(el);
             const rect = el.getBoundingClientRect();
-            const top = rect.top + window.scrollY;
             const isVisible = style.display !== "none" && el.offsetHeight > 0;
-            const inViewport = rect.top < window.innerHeight && rect.bottom > 0;
+            const inViewport = rect.top < preloadThreshold && rect.bottom > 0;
 
             const bgImage = extractUrl(style.backgroundImage);
             const varImage = extractUrl(style.getPropertyValue('--optional-background-image'));
@@ -554,34 +555,6 @@ jQuery(function ($) {
                     bgElements.push(el);
                 }
             });
-        });
-    };
-
-    const scanFonts = () => {
-        const usedFonts = new Set();
-        const sampledEls = [...document.querySelectorAll("body, h1, h2, h3, p, .elementor-widget")];
-        sampledEls.forEach(el => {
-            const family = getComputedStyle(el).fontFamily;
-            if (family) {
-                const primary = family.split(",")[0].replace(/['"]/g, "").trim();
-                if (!/^(system-ui|sans-serif|serif|Times New Roman|apple-system|dashicons)$/i.test(primary)) {
-                    usedFonts.add(primary);
-                }
-            }
-        });
-
-        usedFonts.forEach(font => {
-            const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
-            if (!seenLinks.has(url)) {
-                seenLinks.add(url);
-                const preload = document.createElement("link");
-                preload.rel = "preload";
-                preload.as = "style";
-                preload.href = url;
-                preload.crossOrigin = "anonymous";
-                preload.onload = function () { this.rel = "stylesheet"; };
-                document.head.appendChild(preload);
-            }
         });
     };
 
@@ -609,23 +582,60 @@ jQuery(function ($) {
                     observer.unobserve(el);
                 }
             });
-        }, { rootMargin: "500px" });
+        }, { rootMargin: "600px" });
 
         bgElements.forEach(el => observer.observe(el));
     };
 
-    requestIdleCallback(() => {
-        scanImages();
-        scanBackgrounds();
-        scanFonts();
-        applyLazyBgObserver();
-    }, { timeout: 500 });
+    const preloadFonts = () => {
+        const usedFonts = new Set();
+        document.querySelectorAll("body, h1, h2, h3, .elementor-widget").forEach(el => {
+            const fam = getComputedStyle(el).fontFamily;
+            if (!fam) return;
+            const primary = fam.split(",")[0].replace(/['"]/g, "").trim();
+            if (!/^(system-ui|sans-serif|serif|apple-system|dashicons)$/i.test(primary)) {
+                usedFonts.add(primary);
+            }
+        });
 
+        usedFonts.forEach(font => {
+            const url = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(font)}&display=swap`;
+            if (!seenLinks.has(url)) {
+                seenLinks.add(url);
+                const preload = document.createElement("link");
+                preload.rel = "preload";
+                preload.as = "style";
+                preload.href = url;
+                preload.crossOrigin = "anonymous";
+                preload.onload = function () { this.rel = "stylesheet"; };
+                document.head.appendChild(preload);
+            }
+        });
+    };
+
+    // === RUN CRITICAL TASKS FIRST ===
+    preloadViewportImages();
+    preloadViewportBackgrounds();
+    preloadFonts();
+    applyLazyBgObserver();
+
+    // === DEFER OFFSCREEN ASSETS ===
+    requestIdleCallback(() => {
+        document.querySelectorAll("img[loading='lazy']").forEach(img => {
+            const src = img.currentSrc || img.src || img.getAttribute("data-src");
+            if (src && !seenLinks.has(src)) {
+                preloadLink(src);
+            }
+        });
+    }, { timeout: 1200 });
+
+    // === DEFER STYLES ===
     document.querySelectorAll('link[rel="stylesheet"][data-defer]').forEach(link => {
         link.media = "print";
         link.onload = function () { this.media = "all"; };
     });
 
+    // === LOAD CRITICAL CSS ===
     if (window.criticalCssUrl && !seenLinks.has(window.criticalCssUrl)) {
         seenLinks.add(window.criticalCssUrl);
         const link = document.createElement("link");
@@ -633,73 +643,4 @@ jQuery(function ($) {
         link.href = window.criticalCssUrl;
         document.head.appendChild(link);
     }
-});
-
-const buttonActionArea = document.querySelector('.button-action-area');
-const button = document.querySelector('.button');
-
-const map = (value, a0, b0, a1, b1) => {
-  return (value - a0) / (b0 - a0) * (b1 - a1) + a1
-}
-
-let buttonPosition = [50, 50];
-
-const throttle = (cb, delay) => {
-  let shouldWait = false;
-  let lastCallArgs;
-  
-  if (shouldWait) return;
-  
-  const timeoutCb = () => {
-    if (lastCallArgs) {
-      cb(lastCallArgs);
-      lastCallArgs = null;
-      setTimeout(timeoutCb, delay);
-    } else {
-      shouldWait = false
-    }
-  }
-  
-  return (...args) => {
-    if (shouldWait) return;
-    
-    cb(...args);
-    shouldWait = true;
-    setTimeout(timeoutCb, delay);
-  }
-}
-
-const updateMousePosition = throttle((e) => {
-  const x = map(e.offsetX, 0, 200, 50, 100) - 50
-  const y = map(e.offsetY, 0, 200, 50, 100) - 50
-  const anime =  button.animate([
-    { left: buttonPosition[0], top: buttonPosition[1] },
-    { left: x + 'px', top: y + 'px'}
-  ], {
-    duration: 200,
-  });
-
-  anime.onfinish = () => {
-    buttonPosition = [x, y];
-    button.style.top = y + 'px';
-    button.style.left = x + 'px';
-  };
-}, 10);
-
-buttonActionArea.addEventListener('mousemove', (e) => {
-  updateMousePosition(e);
-});
-
-buttonActionArea.addEventListener('mouseleave', () => {
-  const anime =  button.animate([
-    { left: buttonPosition[0], top: buttonPosition[1] },
-    { left: '25px', top: '25px'}
-  ], {
-    duration: 200,
-  });
-  
-  anime.onfinish = () => {
-    button.style.top = '25px';
-    button.style.left = '25px';
-  };
 });
