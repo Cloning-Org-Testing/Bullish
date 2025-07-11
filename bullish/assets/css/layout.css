@@ -195,3 +195,32 @@ body{
 	.entry-post-navigation.type1 > div.post-prev-link,
 	.entry-post-navigation.type1 > div.post-next-link{justify-content: center;text-align: center;padding: 20px 0;}
 }
+/* ------UNIT Test Codes */
+body{
+    cursor:auto;
+}
+.wdt-cus-arrow-fix .wdt-thumb-carousel-holder > .swiper,
+.wdt-cus-arrow-fix .elementor-widget.elementor-widget-wdt-thumbs-slider{
+    position: static;
+}
+.wp-block-group.has-border-color.has-black-border-color{
+    border-style: solid;
+}
+.has-black-border-color p,
+.wp-block-group:has(.wp-block-group__inner-container.is-layout-constrained) div p{
+    margin: 0;
+}
+.wp-block-group:has(.wp-block-group__inner-container.is-layout-constrained){
+    margin-bottom: 30px;
+}
+.wp-block-file:not(.wp-element-button){
+    display: flex;align-items: center; gap: 20px; margin-bottom: 1.5em;
+}
+.post-password-form p label[for="pwbox-1168"] {
+    width: 100%;
+}
+.post-password-form p:has(input[type="submit"]) {display: flex;  align-items: flex-end;   gap: 10px;}
+.post-password-form p input[type="submit"]{ height: fit-content;}
+.wp-block-columns {
+    margin-bottom: 30px;
+    }
