@@ -17,8 +17,18 @@
                 $service_settings = get_post_meta(get_the_ID(), '_bullish_service_settings', true);
                 // @Main Content
 
+                $template = get_page_templates( get_the_ID() );
+
+                $exclude_templates = [
+                    'elementor_canvas',
+                    'elementor_header_footer',
+                    'elementor_theme',
+                ];
+
                 echo '<div class="primary-wrap">';
                     
+                if ( ! in_array( $template, $exclude_templates, true ) || empty( $template ) ) {
+
                     echo '<div class="featured_image_wrap">';
 
                         if (has_post_thumbnail()) {
@@ -115,9 +125,10 @@
                                 echo '</div>';
                             }
 
-                        echo '</div>';
-
-                    the_content();
+                    echo '</div>';
+                }
+                    
+                the_content();
 
 
                 echo '</div>';

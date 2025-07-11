@@ -22,7 +22,7 @@
                     }
 
                     var wdt_inner__Wrapper = document.createElement('div');
-                    wdt_inner__Wrapper.className = 'wdt-sticky-inner-wrapper';
+                    wdt_inner__Wrapper.className = 'wdt-sticky-inner-wrapper e-con-inner';
                 
                     while (wdt_column.firstChild) {
                         wdt_inner__Wrapper.appendChild(wdt_column.firstChild);
