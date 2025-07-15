@@ -33,6 +33,7 @@ background-size: 300% 100%; background-position: bottom right; background-repeat
   -webkit-border-radius:var(--wdtRadius_Full);
 }
 
+
 /* Transtion Style */
 
 .wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-label {display: flex;margin-top: auto;align-items: flex-end;padding: clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem);/*60-30*/}
@@ -196,6 +197,9 @@ background-size: 300% 100%; background-position: bottom right; background-repeat
   /* .wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-title { font-size: var(--wdtFontSize_H6);
     -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg);
     writing-mode: vertical-rl; text-align: start; display: flex; align-items: center; }   */
+    .wdt-flex-banner-options .wdt-flex-banner-option:not(.active){
+  cursor:pointer;
+}
 
 }
 

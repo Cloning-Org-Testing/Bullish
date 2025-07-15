@@ -416,7 +416,7 @@ div[class*='-output-data-container'] .wdt-swiper-pagination-holder .wdt-swiper-b
     -webkit-transition: var(--wdt-Ad-Transition); -moz-transition: var(--wdt-Ad-Transition); -ms-transition: var(--wdt-Ad-Transition); 
     -o-transition: var(--wdt-Ad-Transition); transition: var(--wdt-Ad-Transition); }
 
-div[class*='-output-data-container'] .wdt-swiper-pagination-holder { float: left; width: 100%; margin: 60px 0 auto; }
+div[class*='-output-data-container'] .wdt-swiper-pagination-holder { float: left; width: 100%; margin: clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem) 0 auto; /*60-30*/ }
 
 div[class*='-output-data-container'] .wdt-swiper-pagination-holder .wdt-swiper-bullet-pagination { 
     position: static; margin: 0 0 15px; cursor: auto; text-align: center; }
