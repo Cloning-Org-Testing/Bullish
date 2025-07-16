@@ -58,7 +58,7 @@ ul li.wdt-active .wdt-showcase-content-group{
 	Title Group - Style
 */
 
-.wdt-showcase-title-group .wdt-content-title { display: inline; position: relative; margin: 0px; font-size: var(--wdtFontSize_Base); }
+.wdt-showcase-title-group .wdt-content-title { display: inline; position: relative; margin: 0px; font-size: var(--wdtFontSize_H6); }
 
 .wdt-showcase-title-group .wdt-showcase-title-prefix { width: fit-content; display: inline-flex; font-size: 20px; 
 	font-weight: 500; color: var(--wdtPrimaryColor); position: relative; margin-right: 10px; padding-right: 10px; line-height: 1; }

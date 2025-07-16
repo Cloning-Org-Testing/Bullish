@@ -34,7 +34,7 @@
 	.comment-body .comment-meta { display: inline-block; margin-bottom: 15px; position: relative; width: 100%; }
 	.comment-body p:last-child { margin-bottom: 0; }
 
-	.comment-author { display: inline-block; line-height: normal; margin-bottom: 0; position: relative; width: 100%; }
+	.comment-author { display: inline-block; line-height: normal; margin-bottom: 5px; position: relative; width: 100%; }
 	.comment-author b { font-size: calc(var(--wdtFontSize_H6) - 2px); text-transform: none; }
 	.comment-author .avatar { height: 60px; left: -80px; position: absolute; width: 60px; top: 0; }
 

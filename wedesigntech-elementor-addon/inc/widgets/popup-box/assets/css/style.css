@@ -121,6 +121,8 @@
 .wdt-click-element-image-n-icon .wdt-popup-box-trigger-element img {
     align-self: start;
     grid-area: 1 / -1;
+    min-height: 250px;
+    object-fit: cover;
 }
 
 .wdt-click-element-image-n-icon .wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon {

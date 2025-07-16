@@ -379,6 +379,7 @@
     transform: translateY(calc(-1*var(--type3-desc-height)));
     border-radius: var(--wdtRadius_2X);
     transform-origin: bottom;
+    will-change: height;
 }
 .swiper-slide.swiper-slide-active .wdt-service-item.wdt-type-3 .wdt-service-media-group .wdt-service-image img,
 .wdt-service-item.wdt-type-3:hover .wdt-service-media-group .wdt-service-image img {
@@ -386,6 +387,7 @@
     width: 100%;
     height: 100%;
     transform: translateY(0);
+    will-change: height;
 }
 
 .wdt-service-item.wdt-type-3 .wdt-service-description {

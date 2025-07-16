@@ -52,7 +52,7 @@
 .wdt-light-bg .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-icon:before { background: var(--wdtAccentTxtColor); }
 
 @media only screen and (max-width:479px){
-    .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-icon-wrapper {padding: 7px;}
+    .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-icon-wrapper {padding: 12px;}
     .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-icon {padding:10px;}
 
 }
