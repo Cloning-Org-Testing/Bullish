@@ -274,7 +274,7 @@
 /* Common Styles for the devices below 767px width */
 @media only screen and (max-width: 767px) {
     /* .wdt-mailchimp-holder.wdt-template-type2 .wdt-mailchimp-wrapper .wdt-mailchimp-subscribe-form { padding: 10px 25px; } */
-    .wdt-mailchimp-holder.wdt-template-type2 .wdt-mailchimp-wrapper .wdt-mailchimp-subscribe-form input[type='email'] { padding-right: 10px; }
+    .wdt-mailchimp-holder.wdt-template-type2 .wdt-mailchimp-wrapper .wdt-mailchimp-subscribe-form input[type='email'] { padding-right: 6em; }
     .wdt-mailchimp-holder.wdt-template-type2 .wdt-mailchimp-wrapper .wdt-mailchimp-subscribe-form button[type='submit'] { padding: 10px 0 10px 15px; }
 
     .wdt-mailchimp-holder.wdt-template-type6 .wdt-mailchimp-wrapper .wdt-mailchimp-subscribe-form { flex-wrap: wrap; }

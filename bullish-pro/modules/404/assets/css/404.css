@@ -1,7 +1,7 @@
 /*----*****---- << 404 Error - Type 2 >> ----*****----*/
 
 	.error404 .type1 h1{
-		font-size: clamp(6.25rem, 4.125rem + 10.625vw, 16.875rem);/*--- 100 - 270 ---*/
+		font-size: clamp(6.25rem, 3.1423rem + 10.4022vw, 15.625rem);/*--- 100 - 250 ---*/
 	}
 
 	.error404 .type1 h2 { 
@@ -48,7 +48,7 @@
 		margin-right: auto;
 		}
 	.error404 .type1 p {     
-		font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_Base); color: var(--wdtBodyTxtColor); max-width:800px; 
+		font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_Base); color: rgba(var(--wdtAccentTxtColorRgb),0.8); max-width:800px; 
 		padding:0 clamp(0rem, -0.6215rem + 2.0804vw, 1.875rem) clamp(1.875rem, 1.4606rem + 1.387vw, 3.125rem);/* 30-10 & 30-0 */ margin-bottom: 0; }
 	.error404 .type1 a.wdt-button { 
 		display: inline-block; font-size: var(--wdtFontSize_Base); font-weight: var(--wdtFontWeight_Ext); 

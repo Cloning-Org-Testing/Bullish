@@ -377,8 +377,8 @@
     -webkit-transform: translateX(800px);
     transform: translateX(800px);
     opacity: 1;
-    -webkit-transition: 0.45s cubic-bezier(0.5, 1, 0.89, 1) .45s;
-    transition: 0.45s cubic-bezier(0.5, 1, 0.89, 1) .45s;
+    -webkit-transition: 0.3s cubic-bezier(0.5, 1, 0.89, 1) .45s;
+    transition: 0.3s cubic-bezier(0.5, 1, 0.89, 1) .45s;
 }
 
 .wdt-popup-box-window.wdt-right-side-slide.mfp-ready .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder {

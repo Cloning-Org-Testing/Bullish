@@ -124,9 +124,10 @@
     margin-top:-10px
     }
     .wdt-counter-holder.wdt-rc-template-modern .wdt-content-item{
-        height: clamp(15.625rem, 13.3879rem + 11.1857vw, 18.75rem);/*300-250*/
-        width: clamp(15.625rem, 13.3879rem + 11.1857vw, 18.75rem);/*300-250*/
+        height: auto;
+        width: 100%;
         padding: 40px;
+        aspect-ratio: 1;
     }
     .wdt-counter-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-title h5{
         font-size: var(--wdtFontSize_H6);

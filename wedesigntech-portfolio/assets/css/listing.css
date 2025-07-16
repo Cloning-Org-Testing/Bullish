@@ -46,6 +46,7 @@
 .wdt-listings-item-wrapper.type1 .wdt-listings-item-title h4,
 .wdt-listings-item-wrapper.type1 .wdt-listings-item-title h4 a{
     color:var(--wdtHeadAltColor);
+    margin-top: 0;
 }
 .wdt-listings-item-wrapper.type1 .wdt-listings-item-top-section .wdt-listings-item-image-gallery{
     height: 100%;

@@ -43,7 +43,7 @@
     div[class*="metagroup-"] div.single-entry-categories a:not(:last-child),
     div[class*="metagroup-"] div.single-entry-tags a:not(:last-child) { margin-right: 5px; padding-right: 0; position: relative; }
     div.single-entry-categories a:not(:last-child):after,
-	div.single-entry-tags a:not(:last-child):after { content: ','; display: inline; font-size: 22px; margin-left: 1px; line-height: 20px; }
+	div.single-entry-tags a:not(:last-child):after { content: ''; display: inline; font-size: 22px; margin-left: 1px; line-height: 20px; }
 
 	div[class*="metagroup-"] div[class*="entry-"] { margin-bottom: 10px; }
 	div[class*="metagroup-"] div[class*="entry-"]:not(:last-child) { margin-right: 20px; padding-right: 10px; }

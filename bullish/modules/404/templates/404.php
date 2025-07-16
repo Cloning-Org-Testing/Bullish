@@ -10,7 +10,7 @@
                     <h1>404</h1>
                     <h2><?php esc_html_e("Error Page", 'bullish'); ?></h2>
                     <h4><?php esc_html_e("Oops! Page Not Found", 'bullish'); ?></h4>
-                    <p><?php esc_html_e("Whether you’re here to build muscle, find balance, or boost you’re here to find balance your our state-of the-art equipment, expert muscle.", 'bullish'); ?></p>
+                    <p><?php esc_html_e("Proin libero feugiat tristique accumsan maecenas potenti ultricies. Consequat magna ante condimentum neque at luctus nibh.", 'bullish'); ?></p>
                     <a class="wdt-button filled small" target="_self" href="<?php echo esc_url(home_url('/'));?>"><?php esc_html_e("Back to Home",'bullish');?></a>
                 </div>
             </div>

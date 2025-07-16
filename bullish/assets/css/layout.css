@@ -158,8 +158,13 @@ body{
 
 /*-- swiper --*/
 
-.wdt-carousel-holder:not(:has(.swiper-pagination-lock)) .swiper .swiper-wrapper{
+.wdt-carousel-holder:has(.swiper-pagination-bullets) .swiper .swiper-wrapper,
+.wdt-carousel-holder:has(.swiper-pagination-arrow) .swiper .swiper-wrapper
+{
     cursor: grab;
+}
+.wdt-carousel-holder:has(.swiper-pagination-lock) .swiper .swiper-wrapper{
+    cursor: auto ;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -224,3 +229,13 @@ body{
 .wp-block-columns {
     margin-bottom: 30px;
     }
+
+/*-- Popup */
+
+body:has(.wdt-popup-box-window.mfp-bg){
+    overflow: hidden;
+}
+
+.wdt-content-item .wdt-content-description p{
+    margin-bottom: 0;
+}

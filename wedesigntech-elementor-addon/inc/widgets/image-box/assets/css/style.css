@@ -27,10 +27,14 @@
     border-bottom-left-radius:var(--wdtRadius_2X);
     border-bottom-right-radius:var(--wdtRadius_2X);
     border-top:1px solid rgba(var(--wdtBorderColorRgb),0.25);
+    height: 100%;
 }
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-media-group{
     position:absolute;
+    height: 100%;
+    width: 100%;
 }
+
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-detail-group{
     padding:30px;
     z-index: 3;
@@ -148,6 +152,15 @@
 }
 .wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-button > a:hover:after{
     animation: btn-arrow-move 0.375s linear;-webkit-animation: btn-arrow-move 0.375s linear;
+}
+
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image-wrapper, 
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image-wrapper .wdt-content-image, 
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image > span, 
+.wdt-image-box-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-image > a{
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
 /* Social Icons */
