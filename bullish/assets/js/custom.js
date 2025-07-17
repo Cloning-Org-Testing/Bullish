@@ -459,7 +459,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
+// Lazy loading and preloading assets
 jQuery(function ($) {
     const seenLinks = new Set();
     const preloadThreshold = window.innerHeight + 150;

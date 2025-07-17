@@ -16,8 +16,11 @@
     .blog-entry *, 
     .blog-entry *:after, 
     .blog-entry *:after, 
-    .pagination a.loadmore-btn:before { 
-        -webkit-transition: var(--wdt-Ad-Transition); transition: var(--wdt-Ad-Transition); }
+    .pagination a.loadmore-btn:before {
+        -webkit-transition: var(--wdt-Ad-Transition);
+        transition: var(--wdt-Ad-Transition);
+        position: relative;
+        }
 
 /**
     1.1 - Blog Base Styles
@@ -31,7 +34,7 @@
 
     .blog-entry div i[class*="fa"], .blog-entry div i.pe, .blog-entry div i,
     .blog-entry div.entry-author, .blog-entry div.entry-date, .blog-entry div.entry-comments,
-    .blog-entry div.entry-categories, .blog-entry div.entry-tags { font-size: calc(var(--wdtFontSize_Base) - 0px); font-weight: var(--wdtFontWeight_Ext); }
+    .blog-entry div.entry-categories, .blog-entry div.entry-tags {font-size: calc(var(--wdtFontSize_Base) - 0px);font-weight: var(--wdtFontWeight_Ext);margin-bottom: 10px;padding-left: 12px;}
 
 
     /** Blog Icon */
@@ -248,8 +251,9 @@
 
 /** Meta Group */
 
-    .blog-entry div.entry-meta-group {display: block;float: left;width: auto;margin: -4px -8px;}
-    .blog-entry div.entry-meta-group > div {display: inline-block;float: none;padding: 0px 8px;line-height: 1;margin: -8px 0; position:relative;}
+    .blog-entry div.entry-meta-group {display: block;float: left;width: auto;margin: -4px 0px;}
+    .blog-entry div.entry-meta-group > div {display: inline-block;float: none;padding: 0px 8px;line-height: 1;margin: 0px 0;position:relative;}
+    .blog-entry div.entry-meta-group > div:first-child { margin-left:-8px; }
     .blog-entry div.entry-meta-group > div:not(:last-child):before{ content:""; position:absolute; width:1px; height:100%; background:var(--wdtBodyTxtColor); right:-4px; left:auto; top:0; bottom:0; margin:auto; transform:rotate(15deg); -webkit-transform:rotate(15deg);}
 
     .blog-entry div.entry-meta-group > div:empty { display: none; }
@@ -300,14 +304,19 @@
 
     .blog-entry div.entry-media-group > div.entry-thumb-content:empty { display: none; }
 
-    .blog-entry div.entry-content-group > div.entry-button { padding-top: clamp(1.25rem, 1.1803rem + 0.3185vw, 1.5625rem);/* 20px - 25px */  border-top:1px solid var(--wdtBorderColor); position: relative; }
-    .blog-entry div.entry-content-group:has( > .entry-meta-group) > div.entry-button { padding-top: 0px; border-top:0; }
+    .blog-entry .entry-sub-content-group div.entry-meta-group {width:100%;margin-bottom: 15px;padding-left: 12px;}
 
-    .blog-entry div.entry-content-group > div.entry-button:before { content:""; position:absolute; width:0%; height:1px; background:var(--wdtSecondaryColor); top:-1px; bottom:auto; margin:auto; transition:var(--wdtAltTransition); }
-    .blog-entry:hover div.entry-content-group > div.entry-button:before { width:100% }
-    .blog-entry div.entry-content-group:has( > .entry-meta-group) > div.entry-button:before { content: none; }
+    .blog-entry div.entry-content-group > div.entry-sub-content-group > div[class^="entry-meta-group"]:before,
+    .blog-entry div.entry-content-group > div.entry-sub-content-group > div[class^="entry-date"]:before{content:"";position:absolute;width:6px;height:6px;background:currentColor;border-radius:var(--wdtRadius_Full);left:0;right:auto;top: 9px;bottom: auto;margin:auto;}
 
-    .blog-entry div.entry-content-group > div:empty { display: none; }
+    .blog-entry div.entry-content-group .entry-read-more-group > div.entry-button { padding-top: clamp(1.25rem, 1.1803rem + 0.3185vw, 1.5625rem);/* 20px - 25px */  border-top:1px solid var(--wdtBorderColor); position: relative; }
+    .blog-entry div.entry-content-group:has( .entry-meta-group) .entry-read-more-group > div.entry-button { padding-top: 0px; border-top:0; }
+
+    .blog-entry div.entry-content-group .entry-read-more-group > div.entry-button:before { content:""; position:absolute; width:0%; height:1px; background:var(--wdtSecondaryColor); top:-1px; bottom:auto; margin:auto; transition:var(--wdtAltTransition); }
+    .blog-entry:hover div.entry-content-group .entry-read-more-group > div.entry-button:before { width:100% }
+    .blog-entry div.entry-content-group:has( .entry-meta-group) .entry-read-more-group > div.entry-button:before { content: none; }
+
+    .blog-entry div.entry-content-group .entry-read-more-group > div:empty { display: none; }
 
     .blog-entry div.entry-media-group > div.entry-thumb-content > div:not(:last-child),
     .blog-entry div.entry-content-group > div:not(:last-child) {margin-top: 0px;margin-bottom: clamp(0.9375rem, 0.84rem + 0.4459vw, 1.375rem); /* 15px - 22px */ }
