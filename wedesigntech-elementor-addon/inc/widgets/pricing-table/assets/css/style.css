@@ -606,7 +606,16 @@
     -webkit-border-radius: var(--wdtRadius_2X) var(--wdtRadius_2X) 0 0;   
 }
 .wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-features{
-  border-top: 1px solid var(--wdtBorderColor);
+    position:relative;
+}
+.wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-features:before{
+    content:"";
+    height:1px;
+    width:calc(100% - (clamp(1.5625rem, 1.3535rem + 0.9554vw, 2.5rem)*2));
+    background-color:var(--wdtBorderColor);
+    position:absolute;
+    top:0;
+    margin:auto;
 }
 .wdt-pricing-table-holder[class*='-template-classic'] .wdt-pricing-table-footer{
     padding-top: 0;
