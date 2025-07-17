@@ -23,7 +23,7 @@
 .wdt-button .wdt-button-text, 
 .wdt-button .wdt-button-icon { vertical-align: top; }
 
-.wdt-button .wdt-button-text { display: inline-grid; align-content: center; text-align: left; gap: 10px; height: 100%; }
+.wdt-button .wdt-button-text { display: inline-grid; align-content: center; text-align: inherit; gap: 10px; height: 100%; }
 .wdt-button .wdt-button-icon { display: inline-flex; line-height: 0; transition: var(--wdt-Ad-Transition) }
 .wdt-button .wdt-button-icon span { display: inherit; align-items: center; position: relative; }
 /* .wdt-button .wdt-button-icon span, .wdt-button .wdt-button-icon span i { -webkit-transition: inherit; transition: inherit; } */

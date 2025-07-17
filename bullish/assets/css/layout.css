@@ -42,7 +42,7 @@ body{
 
 #footer .wdt-dark-bg .wdt-image-box-holder.wdt-rc-template-social-icons .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span a{
     color:var(--wdtPrimaryColor);
-    border-color: rgba(var(--wdtAccentTxtColorRgb),0.1);
+    border-color: rgba(var(--wdtAccentTxtColorRgb),0.25);
 }
 #footer .wdt-dark-bg .wdt-image-box-holder.wdt-rc-template-social-icons .wdt-content-item .wdt-content-icon-wrapper .wdt-content-icon span:hover a {
     color:var(--wdtHeadAltColor);
@@ -106,7 +106,7 @@ body{
 
 /* Form submit btn */
 .wdt-form-submit-btn p > input { background-image: linear-gradient(90deg, var(--wdtTertiaryColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor)); background-size: 200% 100%; background-repeat: no-repeat; grid-area: 1/1; border: 0; color: var(--wdtHeadAltColor); justify-content: center; text-align: center; background-color: transparent; background-position: right bottom; border-radius: var(--wdtRadius_1X); position: relative; padding-right: clamp(3.125rem, 2.916rem + 0.9554vw, 4.0625rem); /*50-65px*/ }
-.wdt-form-submit-btn p > input:hover, .wdt-form-submit-btn p > input:focus { background-image: linear-gradient(90deg, var(--wdtTertiaryColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor)); background-size: 200% 100%; color: var(--wdtHeadAltColor); box-shadow: none; background-position: left top; }
+.wdt-form-submit-btn p > input:hover, .wdt-form-submit-btn p > input:focus { background-image: linear-gradient(90deg, var(--wdtTertiaryColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor)); background-size: 200% 100%; color: var(--wdtHeadAltColor); box-shadow: none; background-position: left top; background-color: transparent; }
 .wdt-form-submit-btn p.with-spinner { display: inline-grid; place-items: end; align-items: center; }
 .wdt-form-submit-btn p > i.wdt-submit-icon { grid-area: 1 / -1; display: block; position: relative; pointer-events: none; width: 16px; height: 16px; right: clamp(1.5rem, 1.2771rem + 1.0191vw, 2.5rem); z-index: 1; }
 .wdt-form-submit-btn p > i.wdt-submit-icon:before { content: ""; position: absolute; pointer-events: none; width: 100%; height: 100%; left: 0; top: 0; right: 0; bottom: 0; margin: auto; mask-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 100 100' style='enable-background:new 0 0 100 100;' xml:space='preserve'%3E%3Cpath d='M97.5,50L44.1,19.1v61.7L97.5,50z M2.5,50v5.3h46.9V50v-5.3H2.5V50z'/%3E%3C/svg%3E%0A"); -webkit-mask-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 100 100' style='enable-background:new 0 0 100 100;' xml:space='preserve'%3E%3Cpath d='M97.5,50L44.1,19.1v61.7L97.5,50z M2.5,50v5.3h46.9V50v-5.3H2.5V50z'/%3E%3C/svg%3E%0A"); mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat; background: var(--wdtHeadAltColor); }
@@ -158,13 +158,14 @@ body{
 
 /*-- swiper --*/
 
-.wdt-carousel-holder:has(.swiper-pagination-bullets) .swiper .swiper-wrapper,
-.wdt-carousel-holder:has(.swiper-pagination-arrow) .swiper .swiper-wrapper
+.wdt-carousel-holder:not(:has(.swiper-pagination-lock)) .swiper .swiper-wrapper,
+.wdt-carousel-holder:not(:has(.swiper-button-lock)) .swiper .swiper-wrapper
 {
     cursor: grab;
 }
-.wdt-carousel-holder:has(.swiper-pagination-lock) .swiper .swiper-wrapper{
-    cursor: auto ;
+.wdt-carousel-holder:has(.swiper-pagination-lock) .swiper .swiper-wrapper,
+.wdt-carousel-holder:has(.swiper-button-lock) .swiper .swiper-wrapper{
+    cursor: auto;
 }
 
 /* -------------------------------------------------------------------------- */

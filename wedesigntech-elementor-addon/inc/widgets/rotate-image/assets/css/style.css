@@ -1,5 +1,6 @@
 .wdt-rotate-image-container { display: grid; text-align: center; }
 .wdt-rotate-image-container .wdt-rotate-image,
 .wdt-rotate-image-container .wdt-rotate-second-image { grid-area: 1/-1; align-self: center; }
+.wdt-rotate-image-container .wdt-rotate-second-image{ z-index: 2; }
 
 .wdt-rotate-image-container .wdt-rotate-image a { display: block; }

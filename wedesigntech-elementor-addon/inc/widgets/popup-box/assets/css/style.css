@@ -121,6 +121,8 @@
 .wdt-click-element-image-n-icon .wdt-popup-box-trigger-element img {
     align-self: start;
     grid-area: 1 / -1;
+    min-height: 250px;
+    object-fit: cover;
 }
 
 .wdt-click-element-image-n-icon .wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon {
@@ -370,7 +372,9 @@
     padding: 50px;
     /* margin-bottom: auto; */
     border-radius: var(--wdtRadius_2X);
-    background: var(--wdtBodyBGColor);
+    background-color: rgba(var(--wdtAccentTxtColorRgb),0.6);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
 }
 
 .wdt-popup-box-window.wdt-right-side-slide .mfp-container.mfp-inline-holder .mfp-content .wdt-popup-box-content-holder {

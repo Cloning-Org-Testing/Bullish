@@ -677,7 +677,7 @@ function wdt_generate_listing_item_html($data_listing_attributes) {
 					}
 
 					$output .= '<div class="wdt-listings-group-button-hover-icon">';
-						$output .= '<a class="custom-button-style wdt-button wdt-listing-view-details" href="'.esc_url( get_permalink($listing_id) ).'">'.esc_html__('View Details','wdt-portfolio').''.$view_details_btn.'</a>';
+						$output .= '<a class="custom-button-style wdt-button wdt-listing-view-details" href="'.esc_url( get_permalink($listing_id) ).'">'.esc_html__('Know Details','wdt-portfolio').''.$view_details_btn.'</a>';
 					$output .= '</div>';
 
 				$output .= '</div>';

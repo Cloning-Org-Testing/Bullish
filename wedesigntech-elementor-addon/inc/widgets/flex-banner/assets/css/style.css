@@ -26,11 +26,19 @@ background-size: 300% 100%; background-position: bottom right; background-repeat
   left: clamp(1.875rem, 1.2535rem + 2.0804vw, 3.75rem);/*60-30*/
   height:50px;
   width:50px;
-  border:1px solid currentColor;
+  border:1px solid var(--wdtPrimaryColor);
   display:grid;
   place-items:center;
   border-radius:var(--wdtRadius_Full);
   -webkit-border-radius:var(--wdtRadius_Full);
+  background-image: linear-gradient(90deg, var(--wdtPrimaryColor),var(--wdtTertiaryColor), var(--wdtAccentTxtColor));
+  background-size: 200% 100%; background-position: bottom left; background-repeat: no-repeat;
+  transition: border-color 0.3s linear;
+}
+.wdt-flex-banner-options .wdt-flex-banner-option.active:after{
+  /* background-image: linear-gradient(90deg, var(--wdtPrimaryColor) var(--wdtAccentTxtColor)); */
+  background-size: 400% 100%;
+  border:1px solid currentColor;
 }
 
 
@@ -115,7 +123,7 @@ background-size: 300% 100%; background-position: bottom right; background-repeat
     mask-repeat:no-repeat;
     mask-position:center;
     margin:auto;
-    margin-left:5px;
+    margin-left:8px;
 }
 .wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-label .wdt-flex-banner-info > div.wdt-flex-banner-button a:hover:after{
     animation: btn-arrow-move 0.375s linear;-webkit-animation: btn-arrow-move 0.375s linear;
