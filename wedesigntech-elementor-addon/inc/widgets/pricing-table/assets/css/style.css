@@ -1058,6 +1058,7 @@
     font-weight:var(--wdtFontWeight_Alt);
     align-items:center;
     display:flex;
+    justify-content: center;
 }
 .wdt-pricing-table-holder[class*='-template-bordered'] div[class*='-table-header'] .wdt-content-subtitle:before{
     content:"";

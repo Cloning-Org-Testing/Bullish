@@ -41,8 +41,13 @@
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-description { line-height:var(--wdtLineHeight_Base); font-size: calc(var(--wdtFontSize_Base) - 1px);}
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items { line-height:var(--wdtLineHeight_Alt); }
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items,
-.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a { color:var(--wdtBodyTxtColor); font-size: calc(var(--wdtFontSize_Base) - 1px); }
-.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a:hover { color:var(--wdtPrimaryColor); }
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a { position: relative; color:var(--wdtBodyTxtColor); font-size: calc(var(--wdtFontSize_Base) - 1px); transition: var(--wdt-Ad-Transition); -webkit-transition: var(--wdt-Ad-Transition); }
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a:hover { color: rgba(var(--wdtHeadAltColorRgb),1); }
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a:before,
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a:after { content:""; position:absolute; width:0%; height:1px; background:currentColor; bottom:0; left:0; right:auto; top: auto; margin:auto; transition:var(--wdt-Ad-Transition); -webkit-transition:var(--wdt-Ad-Transition); transition-delay: 0s; transition-property: width; }
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a:after { left:auto; right:0;}
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a:hover:before,
+.wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-spec-items > a:hover:after { width:50%; }
 .wdt-specifications-holder .wdt-content-item .wdt-content-detail-group { align-self: center; }
 .wdt-specifications-holder .wdt-content-item .wdt-specification-block.wdt_type_1 .wdt-content-icon:before { content:""; position:absolute; width:100%; height:100%; background: var(--wdtBodyBGColor);; top:0; left:0; right:0; bottom:0; transform:scale(1.5); z-index:-1; border-radius:inherit; }
 
