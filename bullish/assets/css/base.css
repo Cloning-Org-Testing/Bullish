@@ -792,7 +792,7 @@
     .select2-container.select2-container--default .select2-selection--multiple { min-height: 50px; }
     .select2-results__option {border-radius: var(--wdtRadius_1X);}
 
-    .select2-container.select2-container--default .select2-selection--single .select2-selection__rendered { color: inherit; font-size: var(--wdtFontSize_Base); line-height: normal; padding: 0; padding-left: 0px; padding-right: 50px; }
+    .select2-container.select2-container--default .select2-selection--single .select2-selection__rendered { color: inherit; font-size: var(--wdtFontSize_Base); line-height: var(--wdtLineHeight_Base); padding: 0; padding-left: 0px; padding-right: 50px; }
 
     .select2-container--default .select2-selection--single .select2-selection__arrow b { border-top-color: currentColor !important; }
     .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b { border-bottom-color: currentColor !important; }
