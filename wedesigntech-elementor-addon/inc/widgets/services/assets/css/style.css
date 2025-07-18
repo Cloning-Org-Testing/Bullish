@@ -78,7 +78,7 @@
     mask-repeat:no-repeat;
     mask-position:center;
     margin:auto;
-    margin-left:5px;
+    margin-left:8px;
 }
 .wdt-service-item.wdt-type-1 .wdt-service-button a:hover:after{
     animation: btn-arrow-move 0.375s linear;-webkit-animation: btn-arrow-move 0.375s linear;
@@ -114,7 +114,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(180deg,transparent, rgba(var(--wdtPrimaryColorRgb),0.2), rgba(var(--wdtTertiaryColorRgb),1));
+    background-image: linear-gradient(180deg,transparent, rgba(var(--wdtSecondaryColorRgb),0.4), rgba(var(--wdtSecondaryColorRgb),0.8));;
     transform:scaleY(0);
     transform-origin:bottom;
     transition: var(--wdt-Ad-Transition); -webkit-transition:var(--wdt-Ad-Transition);
@@ -405,7 +405,7 @@
     transition: var(--wdtAltTransition);
     padding: clamp(1.25rem, 1.0417rem + 0.6944vw, 1.875rem) 0; /* Min-20 & Max-30 */
     margin-top: 0; /* Min-20 & Max-30 */
-    color: var(--wdtAccentTxtColor);
+    color: rgba(var(--wdtAccentTxtColorRgb),0.7);
 }
 .swiper-slide.swiper-slide-active .wdt-service-item.wdt-type-3 .wdt-service-description,
 .wdt-service-item.wdt-type-3:hover .wdt-service-description {

@@ -1,6 +1,6 @@
 /*--===Form-blur-style====== */
 .wdt-cus-blur-style{
-   backdrop-filter: blur(30px);
+   backdrop-filter: blur(7px);
 }
 /*-========== h2-filler-mask ===========*/
 .wdt-cus-filler-mask .elementor-widget-container::before{
@@ -165,7 +165,12 @@
   padding-top: 20px;
 }
 }
-
+.entry-body p{
+  margin-bottom: 0;
+}
+.elementor-lightbox img.elementor-lightbox-image{
+  border-radius: 20px;
+}
 
 
 

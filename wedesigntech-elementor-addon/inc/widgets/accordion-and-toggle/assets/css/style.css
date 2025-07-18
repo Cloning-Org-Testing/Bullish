@@ -52,9 +52,11 @@
 
 .wdt-dark-bg .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder .wdt-accordion-toggle-icon > div {
     color: var(--wdtAccentTxtColor);
+    transition: var(--wdt-Ad-Transition);
+    -webkit-transition: var(--wdt-Ad-Transition);
 }
 .wdt-dark-bg .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active .wdt-accordion-toggle-icon > div {
-    color: var(--wdtPrimaryColor);
+    color: var(--wdtHeadAltColor);
 }
 .wdt-accordion-toggle-holder .wdt-accordion-toggle-title-holder.ui-state-active  .wdt-accordion-toggle-icon > div {
     color: var(--wdtSecondaryColor);
@@ -73,6 +75,26 @@
 .wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-wrapper:has(.ui-state-active) .wdt-accordion-toggle-title-holder {padding-bottom: clamp(0.9375rem, 0.8678rem + 0.3185vw, 1.25rem); /*15-20*/}    
 .wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-description{padding-top: 0;padding-right: clamp(1.25rem, -2.4896rem + 12.4913vw, 12.5rem); /*200-20*/}
 
+.wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-wrapper, 
+.wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-wrapper{
+    background-image: linear-gradient(90deg, var(--wdtPrimaryColor),var(--wdtTertiaryColor), rgba(var(--wdtAccentTxtColorRgb),0.01),rgba(var(--wdtAccentTxtColorRgb),0.01));
+    background-size:300% 100%;
+    background-position:right;
+    background-repeat:no-repeat;
+    border:none;
+}
+.wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-wrapper:has(.ui-state-active), 
+.wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-wrapper:has(.ui-state-active){
+    background-position:left;
+    color:var(--wdtHeadAltColor);
+}
+.wdt-accordion-toggle-holder .wdt-accordion-toggle-wrapper .wdt-accordion-toggle-title-holder  .wdt-accordion-toggle-title{
+    transition: var(--wdt-Ad-Transition);
+    -webkit-transition: var(--wdt-Ad-Transition);
+}
+.wdt-dark-bg .wdt-accordion-toggle-holder .wdt-accordion-toggle-wrapper:has(.ui-state-active) .wdt-accordion-toggle-title-holder  .wdt-accordion-toggle-title{
+    color:var(--wdtHeadAltColor);
+}
 
 /** 
     Template Bordered 

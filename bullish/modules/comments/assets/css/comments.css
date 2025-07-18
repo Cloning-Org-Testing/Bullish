@@ -18,7 +18,7 @@
 	.comment-form .comment-notes { margin-bottom: 15px; }
 
 	#comments { clear: both; }
-	#comments > h3 { font-size: var(--wdtFontSize_H4); margin-bottom: 1.25em; margin-top: 45px; }
+	#comments > h3 { font-size: calc(var(--wdtFontSize_H4) - 4px); margin-bottom: 1.25em; margin-top: 45px; }
 	.comments-title { font-size: 1.25rem; margin-bottom: 1.5em; }
 
 	.comment-list, .comment-list .children { list-style: none; margin: 0; padding: 0; }
@@ -78,7 +78,7 @@
 
 	.commententries .comments-area > #comments > h3 { margin-bottom: 20px; }
 
-	#respond h3#reply-title { position: relative; display: inline-block; width: 100%; font-size: var(--wdtFontSize_H4); margin-top: 35px; }
+	#respond h3#reply-title { position: relative; display: inline-block; width: 100%; font-size: calc(var(--wdtFontSize_H4) - 4px); margin-top: 35px; }
 	#respond h3#reply-title small { display: block; font-size: calc(var(--wdtFontSize_Base) - 3px); font-weight: normal; }
 	#respond h3#reply-title small a { color: inherit; display: table; opacity: 0.75; margin-top: 10px; }
 	#respond h3#reply-title small a:hover { opacity: 1; color: var(--wdtPrimaryColor); }

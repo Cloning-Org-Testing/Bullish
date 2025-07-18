@@ -24,7 +24,7 @@
     -webkit-box-shadow: 0 -1px 8px 3px rgba(var(--wdtHeadAltColorRgb),0.08); box-shadow: 0 -1px 8px 3px rgba(var(--wdtHeadAltColorRgb),0.08); }
 
 #searchform input.text_input ~ ul.quick_search_results { opacity: 0; transform: translateY(10px); 
-    transition: all .4s ease; visibility: hidden; -webkit-border-radius: 0px; border-radius: var(--wdtRadius_1X); border: 1px solid var(--wdtBorderColor); }
+    transition: all .4s ease; visibility: hidden; -webkit-border-radius: 0px; border-radius: var(--wdtRadius_1X); border: 0px solid var(--wdtBorderColor); }
 #searchform input.text_input:focus ~ ul.quick_search_results { opacity: 1; transform: translateY(0); visibility: visible; }
 
 #searchform ul.quick_search_results.active:before { content: ""; position: absolute; width: 16px; height: 16px; background: inherit; 

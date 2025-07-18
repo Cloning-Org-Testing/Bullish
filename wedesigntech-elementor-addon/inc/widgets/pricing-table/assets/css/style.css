@@ -1058,7 +1058,7 @@
 }
 .wdt-pricing-table-holder[class*='-template-bordered'] > div{
     width: 100%;
-    padding: 0 clamp(2.5rem, 2.0856rem + 1.387vw, 3.75rem);/*60-40*/
+    padding: 0 clamp(1.875rem, -0.2723rem + 3.352vw, 3.75rem);/*60-30*/
 }
 
 .wdt-pricing-table-holder[class*='-template-bordered'] div[class*='-table-header'] .wdt-content-subtitle{
@@ -1124,7 +1124,7 @@
 
 .wdt-pricing-table-holder[class*='-template-bordered'] .wdt-pricing-table-features{
     padding-top: clamp(2.5rem, 2.0856rem + 1.387vw, 3.75rem);/*60-40*/
-    border-top:1px solid var(--wdtBorderColor);
+    border-top:1px solid rgba(var(--wdtBorderColorRgb),0.3);
 }
     
 .wdt-pricing-table-holder[class*='-template-bordered'] div[class*='-table-features'] .wdt-pricing-table-features-list li.wdt-pricing-table-feature-included .wdt-pricing-table-features-list-icon{

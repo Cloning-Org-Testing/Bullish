@@ -16,7 +16,7 @@
     .widget .recent-posts-widget li .post-details { flex: 1 1 100%; margin-left: 24px; }
 
     .widget .recent-posts-widget li .post-details > .post-date > p { font-size: 0.9rem;
-        line-height: normal; margin-bottom: 10px; font-weight: var(--wdtFontWeight_Ext); text-transform: uppercase; 
+        line-height: normal; margin-bottom: 10px; font-weight: var(--wdtFontWeight_Ext); text-transform: capitalize; 
         letter-spacing: var(--AD-Letter-Spacing); }
 
     .widget .recent-posts-widget li .entry-meta { font-size: 13px; }

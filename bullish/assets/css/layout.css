@@ -1,3 +1,7 @@
+/* popup overflows */
+html:has(body > .wdt-search-form-container.show) {
+    overflow: hidden;
+}
 ::selection{
     color:var(--wdtHeadAltColor);
     background: var(--wdtPrimaryColor);

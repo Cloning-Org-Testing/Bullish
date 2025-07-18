@@ -30,7 +30,7 @@
     display:grid;
     place-content: center;
     padding:clamp(0.625rem, -2.9464rem + 5.5804vw, 3.75rem);/*60-0*/
-    box-shadow: 0 0 30px 10px rgba(var(--wdtBorderColorRgb),0.4);
+    box-shadow: 0 0 30px 10px rgba(var(--wdtBorderColorRgb),0.3);
     position:relative; z-index:3; will-change:transform;
 }
 .wdt-counter-holder.wdt-rc-template-modern .wdt-content-item:hover{
