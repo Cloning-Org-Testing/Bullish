@@ -76,7 +76,7 @@
 
     .blog-entry .entry-title h4 span.sticky-post { display: inline-flex; padding: 5px; width: fit-content; border-radius: 50%; 
         position: absolute; top: 0; left: 0; -webkit-transform: unset; transform: unset; }
-    .blog-entry .entry-title h4 span.sticky-post > i:first-child { display: flex; width: 1em; height: 1em; }
+    .blog-entry .entry-title h4 span.sticky-post > i:first-child { display: flex; width: 1em; height: 1em; padding: 0; }
 
     .blog-entry .entry-title h4 span.sticky-post > span { font-size: 0; }
 
@@ -91,6 +91,7 @@
 
     .wdt-post-entry .blog-entry .entry-title h4 { font-size: clamp(1.375rem, 1.3471rem + 0.1274vw, 1.5rem); /* 22px - 24px */  position: relative; }
     .page-with-sidebar .wdt-post-entry .blog-entry .entry-title h4 { font-size: var(--wdtFontSize_H5); }
+    .wdt-post-entry .blog-entry:has(.entry-body p) .entry-title{ margin-bottom:10px; }
 
     /** Blog Likes Views */
 

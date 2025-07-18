@@ -559,7 +559,9 @@
 	}
 	
 	.wdt-header-menu .wdt-primary-nav .sub-menu li a span:before {
-	  left: -15px;
+        left: -15px;
+        top: 6px;
+        bottom: auto;
 	}
 	.wdt-header-menu .wdt-primary-nav li>.sub-menu li:hover>a span,
 	.wdt-header-menu .wdt-primary-nav li.current-menu-item>a span,
