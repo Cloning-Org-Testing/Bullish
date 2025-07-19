@@ -206,7 +206,7 @@ iframe { max-width: 100%; }
 .wdt-pagination.wdt-ajax-pagination .prev-post a,
 .wdt-pagination.wdt-ajax-pagination .next-post a,
 .wdt-pagination.wdt-ajax-pagination ul.page-numbers li span,
-.wdt-pagination.wdt-ajax-pagination ul.page-numbers li a { font-size: 20px; font-weight: var(--wdtFontWeight_Alt); line-height: 58px; display: inline-block; 
+.wdt-pagination.wdt-ajax-pagination ul.page-numbers li a { font-size: 20px; font-weight: var(--wdtFontWeight_Alt); line-height: 58px; display: flex; justify-content: center; align-items: center; 
     float: none; width: 60px; height: 60px; padding: 0; text-decoration: none; color: var(--wdtHeadAltColor); 
     background-image:linear-gradient(90deg,var(--wdtPrimaryColor),var(--wdtTertiaryColor),var(--wdtAccentTxtColor),var(--wdtAccentTxtColor));
     background-size:300% 100%; background-position:right;
