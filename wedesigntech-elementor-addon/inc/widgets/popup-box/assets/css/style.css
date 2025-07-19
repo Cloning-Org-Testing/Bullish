@@ -484,6 +484,34 @@
     right: 12px;
 }
 
+/* hamburger menu popup */
+.wdt-popup-box-trigger-holder.wdt-click-element-icon .wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon{
+    width:48px;
+    height:48px;
+    border-radius:var(--wdtRadius_Full);
+    border:1px solid var(--wdtBorderColor);
+    font-size:var(--wdtFontSize_H6);
+    background-color: transparent;
+    background-image: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor), transparent, transparent);
+    background-size: 300% 100%;
+    background-position: right;
+    -webkit-transition: var(--wdtAltTransition);
+    transition: var(--wdtAltTransition);
+}
+.wdt-popup-box-trigger-holder.wdt-click-element-icon .wdt-popup-box-trigger-element:hover .wdt-popup-box-trigger-icon{
+    background-position: left;
+    color:var(--wdtHeadAltColor);
+    border-color:var(--wdtPrimaryColor);
+}
+.wdt-popup-box-trigger-holder.wdt-click-element-icon .wdt-popup-box-trigger-element .wdt-popup-box-trigger-icon i path{
+    transition:var(--wdtAltTransition);
+}
+.wdt-popup-box-trigger-holder.wdt-click-element-icon .wdt-popup-box-trigger-element:hover .wdt-popup-box-trigger-icon i .wdt-ham_menu0{
+    transform:translateX(35%)
+}
+.wdt-popup-box-trigger-holder.wdt-click-element-icon .wdt-popup-box-trigger-element:hover .wdt-popup-box-trigger-icon i .wdt-ham_menu2{
+    transform:translateX(-35%)
+}
 
 
 /* ===== Scrollbar CSS ===== */
