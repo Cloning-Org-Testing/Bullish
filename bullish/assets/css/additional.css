@@ -172,8 +172,14 @@
   border-radius: 20px;
 }
 
+  .blog-entry.format-quote .entry-media-group > .entry-thumb:has(.entry-quote-inner),
+  .blog-entry.format-link .entry-media-group > .entry-thumb:has(.entry-link-inner){border:none; margin-bottom:0;padding-bottom:0;}
 
 
+/*-- Map --*/
 
-
+.elementor-widget-wdt-google-map ~ .e-con.e-child{
+    width: fit-content;
+    height: fit-content;
+}
 

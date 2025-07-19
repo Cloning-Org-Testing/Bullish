@@ -252,7 +252,7 @@
         transition: all 0.3s linear;
         margin: auto;
         overflow: hidden;
-        border:1px solid var(--wdtBorderColor);
+        border:1px solid var(--wdtAccentTxtColor);
         border-radius:var(--wdtRadius_Full);
     }
     .wdt-header-icons-list>div.search-item a.wdt-search-icon > * {
