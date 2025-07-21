@@ -35,7 +35,7 @@ if( !function_exists('bullish_archive_blog_post_params_default') ) {
             'archive_media_elements' => array('feature_image'),
             'archive_post_elements'  => array( 'date', 'title', 'read_more', 'content'),
             'archive_meta_elements'  => array(),
-            'archive_readmore_text'  => esc_html__('Read More', 'bullish'),
+            'archive_readmore_text'  => esc_html__('Continue Reading', 'bullish'),
             'enable_excerpt_text'	 => 1,
             'archive_excerpt_length' => 18,
             'archive_blog_pagination'=> 'pagination-numbered',
