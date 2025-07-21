@@ -20,7 +20,7 @@ if( ! function_exists( 'bullish_header_template' )  ) {
 
 if( ! function_exists('bullish_get_header_logo') ) {
 	function bullish_get_header_logo() {
-		$logo = '<img class="normal_logo" alt="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" src="'.esc_url(BULLISH_ROOT_URI.'/assets/images/logo.svg').'"/>';
+		$logo = '<img class="normal_logo" alt="'.esc_attr( get_bloginfo( 'name', 'display' ) ).'" src="'.esc_url(BULLISH_ROOT_URI.'/assets/images/light-logo.svg').'"/>';
 
 		$customizer_logo = get_custom_logo();
 		if ( ! empty( $customizer_logo ) ) {

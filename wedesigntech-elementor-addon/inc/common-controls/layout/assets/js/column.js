@@ -96,7 +96,7 @@
 		elementorFrontend.hooks.addAction('frontend/element_ready/wdt-testimonial.default', wdtColumnWidgetHandler);
 		elementorFrontend.hooks.addAction('frontend/element_ready/wdt-events.default', wdtColumnWidgetHandler);
         elementorFrontend.hooks.addAction('frontend/element_ready/wdt-donations.default', wdtColumnWidgetHandler);
-
+        elementorFrontend.hooks.addAction('frontend/element_ready/wdt-specifications.default', wdtColumnWidgetHandler);
   	});
 
 })(jQuery);
