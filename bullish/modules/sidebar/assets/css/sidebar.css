@@ -60,7 +60,7 @@
 --------------------------------------------------------------*/
 
     /* Primary Color */
-    .secondary-sidebar .widget ul li > a:hover { color: var(--wdtPrimaryColor); }
+    .secondary-sidebar .widget ul li > a:hover { color: rgba(var(--wdtHeadAltColorRgb),0.6); }
 
 
 /*--------------------------------------------------------------

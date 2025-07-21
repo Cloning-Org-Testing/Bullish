@@ -15,7 +15,7 @@
     position: relative;
     border-radius: var(--wdtRadius_2X);
     overflow: hidden;
-    margin-bottom: 60px;
+    margin-bottom: clamp(2.5rem, 2.0856rem + 1.387vw, 3.75rem);/*60-40*/
     z-index: 10;
 }
 .wdt-listings-item-wrapper.type1 .wdt-counter-container{
@@ -142,8 +142,23 @@
     .wdt-listings-item-wrapper.type1 .wdt-counter-container{
         padding: 20px 0 30px;
     }
+    .wdt-listings-item-wrapper.type1,
+    .wdt-listings-item-wrapper.type1 .wdt-listings-item-top-section .wdt-listings-item-top-section-content{
+        border-bottom-left-radius: var(--wdtRadius_Zero);
+        border-bottom-right-radius: var(--wdtRadius_Zero);
+    }
+    .wdt-listings-item-wrapper.type1 a.custom-button-style{
+        margin-top: 0;
+    }
 }
+/*-- Portfolio sticky --*/
 
+@media screen and (min-width:480px) {
+  .top-sticky{
+  position: sticky;
+  top: 50px;
+}
+}
 
 /** 
     @Type 2 

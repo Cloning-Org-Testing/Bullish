@@ -221,7 +221,7 @@ div[class*="-apply-isotope"] .wdt-column .wdt-listings-item-wrapper { float: lef
     color: var(--wdtAccentTxtColor);
 }
 .wdt-listings-item-wrapper.type2 .wdt-listings-item-title a:hover { color: var(--wdtLinkHoverColor); }
-.wdt-listings-item-wrapper.type1 .wdt-listings-item-top-section .wdt-listings-item-title a:hover { color: var(--wdtLinkHoverColor); }
+.wdt-listings-item-wrapper.type1 .wdt-listings-item-top-section .wdt-listings-item-title a:hover { color: rgba(var(--wdtHeadAltColorRgb),0.6); }
 
 
 /*With Sidebar Styles*/

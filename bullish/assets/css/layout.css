@@ -224,7 +224,7 @@ body{
     margin-bottom: 30px;
 }
 .wp-block-file:not(.wp-element-button){
-    display: flex;align-items: center; gap: 20px; margin-bottom: 1.5em;
+    display: flex;align-items: center; gap: 20px; margin-bottom: 1.5em; font-size: var(--wdtFontSize_Base);
 }
 .post-password-form p label[for="pwbox-1168"] {
     width: 100%;
