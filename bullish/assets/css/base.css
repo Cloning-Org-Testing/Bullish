@@ -1258,7 +1258,7 @@
 
     .has-background p, .wp-block-group.has-background p {margin-bottom: 0;}
     .wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {padding: 10px 0 10px 15px;border: 1px solid var(--wdtBorderColor);}
-    .wp-block-query-pagination.wp-block-query-pagination-is-layout-flex {display: block;}
+    .wp-block-query-pagination.wp-block-query-pagination-is-layout-flex {display: inline-flex; margin: 10px 0; gap: 10px;}
     .wp-block-social-link, 
     .wp-block-social-links.is-style-pill-shape .wp-social-link,
     .wp-block-social-link,
@@ -1280,6 +1280,31 @@
     body.has-gutenberg-blocks *[class^="wp-block"].wp-block-archives-dropdown .selection-box { margin-bottom: 20px; }
 
     .wp-block-group.has-background { padding: 1rem; margin-bottom: 40px; }
+
+    .wp-block-query-pagination .wp-block-query-pagination-previous,
+	.wp-block-query-pagination .wp-block-query-pagination-next{
+		position:relative;
+	}
+	.wp-block-query-pagination .wp-block-query-pagination-previous:hover,
+	.wp-block-query-pagination .wp-block-query-pagination-next:hover{
+		color:rgba(var(--wdtHeadAltColorRgb),0.7)
+	}
+
+    .wp-block-query-pagination .wp-block-query-pagination-previous:before,
+    .wp-block-query-pagination .wp-block-query-pagination-previous:after,
+    .wp-block-query-pagination .wp-block-query-pagination-next:before,
+    .wp-block-query-pagination .wp-block-query-pagination-next:after{
+        content:""; position:absolute; width:50%; height:1px; background:currentColor; bottom:0; left:0; right:auto; top: auto; margin:auto; 
+        transition:var(--wdt-Ad-Transition); -webkit-transition:var(--wdt-Ad-Transition); transition-delay: 0s; 
+    }
+    .wp-block-query-pagination .wp-block-query-pagination-previous:after,
+    .wp-block-query-pagination .wp-block-query-pagination-next:after{
+        left:auto; right:0;
+    }
+    .wp-block-query-pagination .wp-block-query-pagination-previous:hover:before,
+    .wp-block-query-pagination .wp-block-query-pagination-previous:hover:after,
+    .wp-block-query-pagination .wp-block-query-pagination-next:hover:before,
+    .wp-block-query-pagination .wp-block-query-pagination-next:hover:after{width: 0;}
 
     /* New */
     .wp-block-social-links.is-style-default .wp-social-link.wp-social-link.wp-social-link { padding: 5px; }

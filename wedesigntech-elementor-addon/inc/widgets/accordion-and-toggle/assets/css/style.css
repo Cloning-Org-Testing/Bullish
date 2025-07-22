@@ -73,7 +73,7 @@
 .wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-wrapper .wdt-accordion-toggle-title-holder,
 .wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-description {padding: clamp(1.25rem, 0.7514rem + 1.6655vw, 2.75rem); /*40-20*/}
 .wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-wrapper:has(.ui-state-active) .wdt-accordion-toggle-title-holder {padding-bottom: clamp(0.9375rem, 0.8678rem + 0.3185vw, 1.25rem); /*15-20*/}    
-.wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-description{padding-top: 0;padding-right: clamp(1.25rem, -2.4896rem + 12.4913vw, 12.5rem); /*200-20*/}
+.wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-description{padding-top: 0;padding-right: 20%;}
 
 .wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-wrapper, 
 .wdt-accordion-toggle-holder.wdt-template-classic .wdt-accordion-toggle-wrapper{
