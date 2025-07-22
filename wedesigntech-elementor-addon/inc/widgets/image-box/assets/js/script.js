@@ -46,9 +46,11 @@
     
     // Initial setup
     $(window).on('load', () => {
-      setTimeout(() => {
-        wdtLeaderLines();
-      }, 100); 
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          wdtLeaderLines();
+        }, 2000);
+      });
     });
         
     $(window).on('resize', wdtLeaderLines);
