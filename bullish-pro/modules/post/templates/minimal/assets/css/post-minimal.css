@@ -42,12 +42,12 @@
 
 	.blog-single-entry.post-minimal .post-header .single-entry-date,
 	.blog-single-entry.post-minimal .post-header .single-entry-categories { margin: 0 0 10px; }
-
+/* 
 	.blog-single-entry.post-minimal .post-header .single-entry-date:before, .blog-single-entry.post-minimal .post-header .single-entry-date:after { position: absolute; top: 50%; overflow: hidden; width: 24px; height: 1px; border-top: 1px solid; content: ''; }
 
 	.blog-single-entry.post-minimal .post-header .single-entry-date:before{ left: 0; }
 
-	.blog-single-entry.post-minimal .post-header .single-entry-date:after { right: 0; }
+	.blog-single-entry.post-minimal .post-header .single-entry-date:after { right: 0; } */
 
 	.blog-single-entry.post-minimal .blog-image img,
 	.blog-single-entry.post-minimal .blog-image iframe,
@@ -399,7 +399,8 @@
 	.blog-single-entry.post-minimal > .single-entry-body > .single-entry-comments a:hover, .blog-single-entry.post-minimal > .single-entry-likes-views .wdt-like-views > div:hover, .blog-single-entry.post-minimal .single-entry-body > .single-entry-likes-views .wdt-like-views > div:hover, .blog-single-entry.post-minimal > .single-entry-body > .single-entry-date:hover, .blog-single-entry.post-minimal > .single-entry-date:hover, .blog-single-entry.post-minimal .single-entry-body div[class*="metagroup-elements-boxed"] .single-entry-author:hover,
 	.blog-single-entry.post-minimal .post-header .single-entry-title span.sticky-post, .blog-single-entry.post-minimal > .single-entry-title span.sticky-post { background-color: var(--wdtPrimaryColor); }
 
-	.blog-single-entry.post-minimal .single-entry-body p a:not(.wp-block-button__link), .blog-single-entry.post-split .single-entry-body p a:not(.wp-block-button__link) { -webkit-box-shadow: inset 0 -1px 0 var(--wdtPrimaryColor); box-shadow: inset 0 -1px 0 var(--wdtPrimaryColor); }
+	.blog-single-entry.post-minimal .single-entry-body p a:not(.wp-block-button__link), 
+	.blog-single-entry.post-split .single-entry-body p a:not(.wp-block-button__link) { -webkit-box-shadow: inset 0 0px 0 var(--wdtPrimaryColor); box-shadow: inset 0 0px 0 var(--wdtPrimaryColor); }
 
 /*--------------------------------------------------------------
 Responsive
