@@ -149,7 +149,13 @@
 
 	.comment-form { display: inline-block; margin-bottom: 20px; width: 100%; }
 	.comment-form > p { margin-bottom: 15px; width: 100%; float: left; text-align: left; position: relative; }
-
+	.comment-form > p.logged-in-as a { position:relative; transition:var(--wdtAltTransition);}
+	.comment-form > p.logged-in-as a:hover { color:rgba(var(--wdtHeadAltColorRgb),0.55);}
+	.comment-form > p.logged-in-as a:before,
+    .comment-form > p.logged-in-as a:after { content:""; position:absolute; width:50%; height:1px; background:currentColor; bottom:0; left:0; right:auto; top: auto; margin:auto; transition:var(--wdt-Ad-Transition); -webkit-transition:var(--wdt-Ad-Transition); transition-delay: 0s; }
+    .comment-form > p.logged-in-as a:after { left:auto; right:0;}
+    .comment-form > p.logged-in-as a:hover:before,
+    .comment-form > p.logged-in-as a:hover:after { width:0%; }
 	.comment-form > p[class^="comment-form-"] input,
 	.comment-form > p.comment-form-comment textarea{background: var(--wdtAccentTxtColor) !important;}
 

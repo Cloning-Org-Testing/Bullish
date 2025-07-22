@@ -380,9 +380,9 @@
 	.blog-single-entry.post-minimal > .single-entry-body .single-entry-comments:hover a,
 	.blog-single-entry.post-minimal .post-meta .single-entry-author .meta-author-info > a:hover, 
 	.blog-single-entry.post-minimal .single-entry-author .meta-author-info > a:hover, 
-	.blog-single-entry.post-minimal .entry-post-navigation > div > .nav-title-wrap h3 a:hover { color: var(--wdtLinkHoverColor); }
+	.blog-single-entry.post-minimal .entry-post-navigation > div > .nav-title-wrap h3 a:hover { color: rgba(var(--wdtHeadAltColorRgb),0.55); }
 
-	.blog-single-entry.post-minimal .post-header .single-entry-categories a:hover { color: var(--wdtSecondaryColor); }
+	.blog-single-entry.post-minimal .post-header .single-entry-categories a:hover { color: rgba(var(--wdtHeadAltColorRgb),0.55); }
 
 	.blog-single-entry.post-minimal .post-meta .single-entry-social-share ul li a, .blog-single-entry.post-minimal .post-meta .single-entry-social-share ul li a:hover,
 	.blog-single-entry.post-minimal .single-entry-body .single-entry-social-share:not([class*="meta-elements"]) > .share .wdt-share-list li a, .blog-single-entry.post-minimal > .single-entry-social-share:not([class*="meta-elements"]) > .share .wdt-share-list li a, .blog-single-entry.post-minimal .single-entry-body .single-entry-social-share:not([class*="meta-elements"]) > .share .wdt-share-list li a:hover, .blog-single-entry.post-minimal > .single-entry-social-share:not([class*="meta-elements"]) > .share .wdt-share-list li a:hover,
