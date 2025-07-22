@@ -73,7 +73,7 @@ Brand icon type1 Style
   border: 1px solid rgba(var(--wdtSecondaryColorRgb),0.3);
   -webkit-border-radius: var(--wdtRadius_2X);
   border-radius: var(--wdtRadius_2X);
-  background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor),var(--wdtBodyBGColor), var(--wdtBodyBGColor));
+  background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor), transparent, transparent);
   background-size: 300% 100%;
   background-repeat: no-repeat;
   background-position: center right;

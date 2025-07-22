@@ -155,10 +155,42 @@ body{
 .entry-post-navigation.type1 > div > .nav-title-wrap p a:hover:after { width:0%; }
 
 /*-- Text Editor --*/
-
-.underline p a{
-    text-decoration: underline;
+.elementor-widget-text-editor.underline .elementor-widget-container a,
+.elementor-widget-text-editor.underline .elementor-widget-container p a {
+  position: relative;
+  display: inline-block;
 }
+.elementor-widget-text-editor.underline .elementor-widget-container  a:before,
+.elementor-widget-text-editor.underline .elementor-widget-container  a:after,
+.elementor-widget-text-editor.underline .elementor-widget-container p a:before,
+.elementor-widget-text-editor.underline .elementor-widget-container p a:after {
+  content: "" !important;
+  position: absolute;
+  width: 50%;
+  height: 1px;
+  background: currentColor;
+  bottom: 3px;
+  margin: auto;
+  transition: var(--wdt-Ad-Transition);
+  transition-delay: 0s;
+  transition-property: width;
+  display: inline-block !important;
+}
+.elementor-widget-text-editor.underline .elementor-widget-container a:before,
+.elementor-widget-text-editor.underline .elementor-widget-container p a:before {
+  left: 0;
+}
+.elementor-widget-text-editor.underline .elementor-widget-container a:after,
+.elementor-widget-text-editor.underline .elementor-widget-container p a:after {
+  right: 0;
+}
+.elementor-widget-text-editor.underline .elementor-widget-container a:hover:before,
+.elementor-widget-text-editor.underline .elementor-widget-container a:hover:after,
+.elementor-widget-text-editor.underline .elementor-widget-container p a:hover:before,
+.elementor-widget-text-editor.underline .elementor-widget-container p a:hover:after {
+  width: 0;
+}
+
 
 /*-- swiper --*/
 
@@ -170,6 +202,12 @@ body{
 .wdt-carousel-holder:has(.swiper-pagination-lock) .swiper .swiper-wrapper,
 .wdt-carousel-holder:has(.swiper-button-lock) .swiper .swiper-wrapper{
     cursor: auto;
+}
+.nocursor .wdt-carousel-holder:not(:has(.swiper-pagination-lock)) .swiper .swiper-wrapper,
+.nocursor .wdt-carousel-holder:not(:has(.swiper-button-lock)) .swiper .swiper-wrapper,
+.nocursor .wdt-carousel-holder:has(.swiper-pagination-lock) .swiper .swiper-wrapper,
+.nocursor .wdt-carousel-holder:has(.swiper-button-lock) .swiper .swiper-wrapper{
+    cursor: context-menu;
 }
 
 /* -------------------------------------------------------------------------- */
