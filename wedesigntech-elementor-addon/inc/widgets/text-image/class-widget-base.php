@@ -495,27 +495,34 @@ class WeDesignTech_Widget_Base_Text_With_Image {
 		if ( $settings['features_content'] ) 
 		{
 			$output  = '<div class="wdt-elementor-repeater-container ' . $track_class . ' ' . $track_id . '">';
-				$output .= '<div class="wdt-elementor-repeater-container-wrapper">';
-					foreach (  $settings['features_content'] as $item ) {
+			$output .= '<div class="wdt-elementor-repeater-container-wrapper">';
 
-						if($item['content_type']=="image"){
-							$output.= '<div class="wdt-opt-image elementor-repeater-item-'.esc_attr( $item['_id'] ).'"><img src='.esc_url( $item['content_template']['url'] ).' alt="image-'.esc_attr( $item['_id'] ).'" title="image-'.esc_attr( $item['_id'] ).'"></div>';
-						} else if($item['content_type']=="default"){
-							// $output.= '<div class="wdt-text-tile elementor-repeater-item-'.esc_attr( $item['_id'] ).'">' . $item['list_title'] . '</div>';
-							$output.= '<div class="wdt-text-tile elementor-repeater-item-'.esc_attr( $item['_id'] ).'">';
-								$output.= '<span class="wdt-gradient-text">' . esc_html($item['list_title']) . '</span>';
-							$output.= '</div>';
-						} else {
-							$output.='<div class="wdt-opt-icon elementor-repeater-item-'.esc_attr( $item['_id'] ).'">';
-								ob_start();
-								\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
-								$output .= ob_get_clean();
-							$output.='</div>';
-						}
+			$output .= '<div class="wdt-gradient-text-group">'; // ✅ Start group wrapper (only once)
 
-					}
-				$output .= '</div>';
-			$output.= '</div>';
+			foreach ( $settings['features_content'] as $item ) {
+
+				if ( $item['content_type'] == "image" ) {
+					$output .= '<div class="wdt-opt-image elementor-repeater-item-' . esc_attr( $item['_id'] ) . '">';
+						$output .= '<img src="' . esc_url( $item['content_template']['url'] ) . '" alt="image-' . esc_attr( $item['_id'] ) . '" title="image-' . esc_attr( $item['_id'] ) . '">';
+					$output .= '</div>';
+				} else if ( $item['content_type'] == "default" ) {
+					$output .= '<div class="wdt-text-tile elementor-repeater-item-' . esc_attr( $item['_id'] ) . '">';
+						$output .= '<span class="wdt-gradient-text">' . esc_html( $item['list_title'] ) . '</span>';
+					$output .= '</div>';
+				} else {
+					$output .= '<div class="wdt-opt-icon elementor-repeater-item-' . esc_attr( $item['_id'] ) . '">';
+						ob_start();
+						\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
+						$output .= ob_get_clean();
+					$output .= '</div>';
+				}
+			}
+
+			$output .= '</div>'; // ✅ Close group wrapper after loop
+
+			$output .= '</div>'; // .wdt-elementor-repeater-container-wrapper
+			$output .= '</div>'; // .wdt-elementor-repeater-container
+
 			return $output;
 		}
     }
