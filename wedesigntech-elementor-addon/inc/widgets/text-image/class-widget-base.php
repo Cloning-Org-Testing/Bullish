@@ -43,7 +43,9 @@ class WeDesignTech_Widget_Base_Text_With_Image {
 	}
 
 	public function init_scripts() {
-		return array ();
+		return array (
+			$this->name() =>  WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL.'inc/widgets/text-image/assets/js/script.js'
+		);
 	}
 
     public function create_elementor_controls($elementor_object) {
@@ -461,8 +463,23 @@ class WeDesignTech_Widget_Base_Text_With_Image {
 			
 			$elementor_object->end_controls_section();
 
+			$elementor_object->start_controls_section( 'wdt_section_settings', array(
+				'label' => esc_html__( 'Settings', 'wdt-elementor-addon'),
+			) );
 
-		}
+				$elementor_object->add_control( 'track_text_title', array(
+						'label'              => esc_html__( 'Track Line', 'wdt-elementor-addon' ),
+						'type'               => \Elementor\Controls_Manager::SWITCHER,
+						'frontend_available' => true,
+						'default'            => 'false',
+						'return_value'       => 'true'
+					)
+				);
+
+			$elementor_object->end_controls_section();
+
+
+	}
 
     public function render_html($widget_object, $settings){
 
@@ -470,17 +487,25 @@ class WeDesignTech_Widget_Base_Text_With_Image {
 			return;
 		}
 		$output  = '';
+		$module_id = $widget_object->get_id();
+
+		$track_id    = ( isset($settings['track_text_title']) && $settings['track_text_title'] === 'true' ) ? 'wdt-track-' . esc_attr($module_id) : '';
+		$track_class = ( isset($settings['track_text_title']) && $settings['track_text_title'] === 'true' ) ? 'wdt-track-holder' : '';
+
 		if ( $settings['features_content'] ) 
 		{
-			$output.= '<div class="wdt-elementor-repeater-container">';
-				$output.= '<div class="wdt-elementor-repeater-container-wrapper">';
+			$output  = '<div class="wdt-elementor-repeater-container ' . $track_class . ' ' . $track_id . '">';
+				$output .= '<div class="wdt-elementor-repeater-container-wrapper">';
 					foreach (  $settings['features_content'] as $item ) {
 
-						if($item['content_type']=="image")
+						if($item['content_type']=="image"){
 							$output.= '<div class="wdt-opt-image elementor-repeater-item-'.esc_attr( $item['_id'] ).'"><img src='.esc_url( $item['content_template']['url'] ).' alt="image-'.esc_attr( $item['_id'] ).'" title="image-'.esc_attr( $item['_id'] ).'"></div>';
-						else if($item['content_type']=="default")
-							$output.= '<div class="wdt-text-tile elementor-repeater-item-'.esc_attr( $item['_id'] ).'">' . $item['list_title'] . '</div>';
-						else {
+						} else if($item['content_type']=="default"){
+							// $output.= '<div class="wdt-text-tile elementor-repeater-item-'.esc_attr( $item['_id'] ).'">' . $item['list_title'] . '</div>';
+							$output.= '<div class="wdt-text-tile elementor-repeater-item-'.esc_attr( $item['_id'] ).'">';
+								$output.= '<span class="wdt-gradient-text">' . esc_html($item['list_title']) . '</span>';
+							$output.= '</div>';
+						} else {
 							$output.='<div class="wdt-opt-icon elementor-repeater-item-'.esc_attr( $item['_id'] ).'">';
 								ob_start();
 								\Elementor\Icons_Manager::render_icon( $item['icon'], [ 'aria-hidden' => 'true' ] );
