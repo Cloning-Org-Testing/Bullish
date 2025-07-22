@@ -156,32 +156,12 @@ if( !class_exists( 'WeDesignTechElementorAddon' ) ) {
             wp_register_script( 'wdt-parallax-scroll', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/js/parallax-scroll.min.js', array ('jquery'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true );
 			wp_register_script( 'wdt-parallax', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/js/parallax.min.js', array ('jquery'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true );
             wp_enqueue_script( 'wdt-elementor-addon-core', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/js/core.js', array ('jquery'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true );
-
-            // Register GSAP Scripts
-            wp_register_script('gsap', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/gsap/gsap.min.js', array(), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true);
-            wp_register_script('scrollsmoother', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/gsap/ScrollSmoother.min.js', array('gsap'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true);
-            wp_register_script('scrolltrigger', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/gsap/ScrollTrigger.min.js', array('gsap'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true);
-            wp_register_script('scrolltoplugin', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/gsap/ScrollToPlugin.min.js', array('gsap'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true);
-            wp_register_script('SplitText', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/gsap/SplitText.min.js', array('gsap'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true);
-            wp_register_script('cssruleplugin', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/gsap/CSSRulePlugin.min.js', array('gsap'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true);
-            wp_register_script('custombounce', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/gsap/CustomBounce.min.js', array('gsap'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true);
-            wp_register_script('observer', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/gsap/Observer.min.js', array('gsap'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true);
-
+            
             // Register custom script for ScrollSmoother
             wp_register_script('theme-custom-js', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/js/addon-gsap.js', array('jquery', 'gsap', 'scrollsmoother', 'scrolltrigger'), WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, true);
 
             // Enqueue Core Scripts
             wp_enqueue_script('wdt-elementor-addon-core');
-
-            // Enqueue GSAP Scripts
-            wp_enqueue_script('gsap');
-            wp_enqueue_script('scrollsmoother');
-            wp_enqueue_script('scrolltrigger');
-            wp_enqueue_script('scrolltoplugin');
-            wp_enqueue_script('SplitText');
-            wp_enqueue_script('cssruleplugin');
-            wp_enqueue_script('custombounce');
-            wp_enqueue_script('observer');
 
             // Enqueue Custom Script
             wp_enqueue_script('theme-custom-js');
