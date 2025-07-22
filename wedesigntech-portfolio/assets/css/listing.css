@@ -37,7 +37,7 @@
     grid-area: 1/1;
 }
 .wdt-listings-item-wrapper.type1 .wdt-listings-item-top-section .wdt-listings-item-top-section-content{
-    background-color:rgba(var(--wdtAccentTxtColorRgb),0.6);
+    background-color:rgba(var(--wdtAccentTxtColorRgb),0.7);
     padding: clamp(1.875rem, 1.6667rem + 0.6944vw, 2.5rem);/*40-30*/
     border-radius: var(--wdtRadius_2X);
     -webkit-border-radius: var(--wdtRadius_2X);
