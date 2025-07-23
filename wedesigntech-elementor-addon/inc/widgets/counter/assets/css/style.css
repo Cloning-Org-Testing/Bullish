@@ -18,7 +18,7 @@
 .wdt-counter-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-counter { font-size: clamp(2.5rem, 2.082rem + 1.9108vw, 4.375rem); /* Min-50 & Max-70 */ line-height: 1; }
 .wdt-counter-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-counter .wdt-content-counter-prefix, 
 .wdt-counter-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-counter .wdt-content-counter-suffix{ font-size: inherit; color: inherit; font-weight: inherit; }
-.wdt-counter-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-detail-group .wdt-content-title h5 { font-weight: var(--wdtFontWeight_Base); font-size: var(--wdtFontSize_H6); }
+.wdt-counter-holder.wdt-rc-template-standard .wdt-content-item .wdt-content-detail-group .wdt-content-title h5 { font-weight: var(--wdtFontWeight_Base); font-size: clamp(1.125rem, 1.0417rem + 0.1736vw, 1.25rem);/*20-18*/ }
 
 /* Modern Template */
 .wdt-counter-holder.wdt-rc-template-modern .wdt-content-item{
