@@ -1240,7 +1240,7 @@
     .wp-block-separator.is-style-dots { color: currentColor; }
     .wp-block-separator:not(.is-style-wide):not(.is-style-dots) { width: 100px; }
 
-    pre.wp-block-verse { white-space: nowrap; overflow: auto; }
+    pre.wp-block-verse { white-space: pre-wrap; overflow: auto; }
 
     .wp-block-embed__wrapper{ word-break: break-all; }
 

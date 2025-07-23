@@ -37,6 +37,19 @@
     .pagination ul li a.prev i:before { content:"\e900"; }
     .pagination div[class*="-posts"] { display: inline-block; float: none; position: relative; text-align: center; width: auto; z-index: 9; }
     .pagination div[class*="-posts"] a { display: inline-block; float: none; margin: 2px; min-width: 150px; -webkit-border-radius: var(--wdtRadius_3X); border-radius: var(--wdtRadius_3X); }
+    .pagination ul li a.prev:hover i:before{
+        animation: btn-arrow-move-rev 0.375s linear;
+        -webkit-animation: btn-arrow-move-rev 0.375s linear;
+    }
+    @keyframes btn-arrow-move-rev{
+    0%{ transform:translateX(0); opacity:1; }
+    49%{ transform:translateX(-100%); opacity:0; }
+    50%{ transform:translateX(100%); opacity:0; }
+    100%{ transform:translateX(0%); opacity:1; }
+	}
+    .pagination ul li a.next:hover i:before{
+        animation: btn-arrow-move 0.375s linear;
+        -webkit-animation: btn-arrow-move 0.375s linear;}
 
     .pagination:empty { display: none; }
     .archive .pagination.blog-pagination:empty { display: inline-block; }
