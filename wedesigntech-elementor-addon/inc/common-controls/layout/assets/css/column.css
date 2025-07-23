@@ -22,7 +22,7 @@
 .wdt-column-wrapper.wdt-snap-scroll-enabled:not(.wdt-snap-scroll) { flex-wrap: wrap; }
 
 .wdt-column-wrapper.wdt-snap-scroll-enabled.wdt-snap-scroll { overflow: auto; display: flex; flex-wrap: nowrap; 
-  scroll-snap-type: X mandatory; scroll-padding-left: 0px; -webkit-overflow-scrolling: touch; }
+  scroll-snap-type: X mandatory; scroll-padding-left: 0px; -webkit-overflow-scrolling: touch; justify-content: inherit; }
 .wdt-column-wrapper.wdt-snap-scroll-enabled.wdt-snap-scroll div.wdt-column { scroll-snap-align: start; width: auto !important; }
 
 /*==== Scroll Snap - Pagination Style ====*/

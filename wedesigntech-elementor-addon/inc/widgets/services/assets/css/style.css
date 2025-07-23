@@ -25,6 +25,14 @@
 .wdt-service-item.wdt-type-1:hover .wdt-service-detail-group{
     padding-top:160px;
 }
+.wdt-service-item.wdt-type-1 .wdt-service-media-group{
+    position:absolute;
+    right:0;
+    top:0;
+    display:block;
+    height:100%;
+    width:100%;
+}
 .wdt-service-item.wdt-type-1 .wdt-service-type-icon{
     font-size: 60px; 
     display:flex;

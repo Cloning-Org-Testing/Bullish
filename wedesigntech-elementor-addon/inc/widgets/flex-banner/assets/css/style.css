@@ -99,7 +99,7 @@ background-size: 300% 100%; background-position: bottom right; background-repeat
 
 
 .wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-title { line-height: var(--wdtLineHeight_Alt); 
-  font-family: var(--wdtFontTypo_Alt); font-weight: var(--wdtFontWeight_Alt); text-transform: capitalize; cursor: text;  }
+  font-family: var(--wdtFontTypo_Alt); font-weight: var(--wdtFontWeight_Alt); text-transform: capitalize; }
 
 .wdt-flex-banner-options .wdt-flex-banner-option .wdt-flex-banner-label .wdt-flex-banner-info { padding: 30px 0 0; }
 

@@ -133,7 +133,7 @@
     font-size:30px;
 }
 .wdt-tabs-container.wdt-template-default .wdt-tabs-list li .ui-tabs-anchor .wdt-content-title{
-    font-size:var(--wdtFontSize_H6);
+    font-size: clamp(1.0625rem, 0.9375rem + 0.2604vw, 1.25rem);/*20-16*/
     font-weight:var(--wdtFontWeight_Alt);
 }.wdt-tabs-container.wdt-template-default .wdt-tabs-list-wrapper .wdt-tabs-list .ui-tabs-tab{
     border-radius: var(--wdtRadius_2X);
