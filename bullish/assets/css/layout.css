@@ -24,6 +24,17 @@ body{
     -webkit-border-radius: var(--wdtRadius_1X) !important;
 }
 
+.wdt-cus-gloss-bg:before {
+    content:"" !important;
+    position:absolute !important;
+    background: linear-gradient(0deg, rgba(var(--wdtHeadAltColorRgb),0.35), rgba(var(--wdtHeadAltColorRgb),0.25));
+    background-repeat: no-repeat;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 3px 20px -8px rgba(var(--wdtHeadAltColorRgb),0.4);
+    border-radius: var(--wdtRadius_1X) !important;
+    -webkit-border-radius: var(--wdtRadius_1X) !important;
+}
+
 .breadcrumb a[href="javascript:void(0);"], .breadcrumb a:last-child {
     pointer-events: none;
 }
@@ -147,9 +158,9 @@ body{
 /* service menu */
 .menu-services-menu-container .menu { margin: 0; padding: 0; }
 .menu-services-menu-container .menu .menu-item{ display:flex; padding: 0; }
-.menu-services-menu-container .menu .menu-item a{ padding: 25px 30px; width: 100%; font-weight: var(--wdtFontWeight_Alt); font-size: clamp(1.125rem, 1.0971rem + 0.1274vw, 1.25rem); /*18-20px*/ line-height: var(--wdtLineHeight_H6); background: linear-gradient(90deg, var(--wdtBodyBGColor), var(--wdtBodyBGColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor)); border-radius:var(--wdtRadius_2X); background-size: 300% 100%; background-position: center left; transition:var(--wdtAltTransition); }
+.menu-services-menu-container .menu .menu-item a{padding: 18px 30px;width: 100%;font-weight: var(--wdtFontWeight_Alt);font-size: clamp(1.125rem, 1.0971rem + 0.1274vw, 1.25rem); /*18-20px*/line-height: var(--wdtLineHeight_H6);background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor));border-radius:var(--wdtRadius_2X);background-size: 300% 100%;background-position: center right;transition:var(--wdtAltTransition);/* color: #fff; */}
 .menu-services-menu-container .menu .menu-item.current-menu-item a,
-.menu-services-menu-container .menu .menu-item a:hover{ background-position: center right; color:var(--wdtHeadAltColor); }
+.menu-services-menu-container .menu .menu-item a:hover{ background-position: center left; color:var(--wdtHeadAltColor); }
 .menu-services-menu-container .menu .menu-item:not(:last-child){ margin-bottom:15px }
 .menu-services-menu-container .menu .menu-item::marker{ display:none; opacity: 0; }
 

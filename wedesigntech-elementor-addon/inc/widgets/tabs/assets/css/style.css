@@ -342,6 +342,7 @@
 .wdt-tabs-container[class*='-tabs-toggle-mode'] .wdt-tabs-list-wrapper .wdt-tabs-list{
     background-color:var(--wdtBodyBGColor);
     border-radius:var(--wdtRadius_1X);
+    box-shadow: 0 0px 20px -8px rgba(var(--wdtHeadAltColorRgb), 0.3);
 }
 .wdt-tabs-container[class*='-tabs-toggle-mode'] .wdt-tabs-list-wrapper .wdt-tabs-list li {
     background-color: transparent;
@@ -352,6 +353,7 @@
 }
 .wdt-light-bg .wdt-tabs-container[class*='-tabs-toggle-mode'] .wdt-tabs-list-wrapper .wdt-tabs-list li{
     background-image: linear-gradient(90deg,var(--wdtPrimaryColor),var(--wdtTertiaryColor),var(--wdtBodyBGColor),var(--wdtBodyBGColor)); 
+    border-radius: var(--wdtRadius_1X);
 }
 .wdt-tabs-container[class*='-tabs-toggle-mode'] .wdt-tabs-list-wrapper .wdt-tabs-list li a {
     color: var(--wdt-elementor-color-secondary);

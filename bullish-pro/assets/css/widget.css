@@ -17,7 +17,9 @@
 
     .widget .recent-posts-widget li .post-details > .post-date > p { font-size: 0.9rem;
         line-height: normal; margin-bottom: 10px; font-weight: var(--wdtFontWeight_Ext); text-transform: capitalize; 
-        letter-spacing: var(--AD-Letter-Spacing); }
+        position:relative; padding-left:12px; color:var(--wdtHeadAltColor); }
+    .widget .recent-posts-widget li .post-details > .post-date > p:before{content:"";position:absolute;width:5px;height:5px;background:currentColor;border-radius:var(--wdtRadius_Full);left:0;right:auto;top: 7px;bottom: auto;margin:auto;}
+
 
     .widget .recent-posts-widget li .entry-meta { font-size: 13px; }
     .widget .recent-posts-widget li .entry-meta p { float:left; margin-right: 15px; margin-bottom: 0; }

@@ -57,7 +57,7 @@
 	.commentlist li.comment .reply { display: inline-block; right: 0; top: 0; position: absolute; margin: 0; padding: 0; }
 	.page-with-sidebar .commentlist li.comment.depth-5 .reply { margin-top: 15px; position: relative; }
 
-	.comment-reply-link { border: 0px solid; display: inline-block; font-size: calc(var(--wdtFontSize_Base) - 2px); font-weight: 400; line-height: normal; margin-top: 0; padding: 8px 15px; position: relative; text-transform: capitalize; -webkit-border-radius: var(--wdtRadius_2X); border-radius: var(--wdtRadius_2X);
+	.comment-reply-link { border: 0px solid; display: inline-block; font-size: calc(var(--wdtFontSize_Base) - 2px); font-weight: 400; line-height: normal; margin-top: 0; padding: 8px 15px; position: relative; text-transform: capitalize; -webkit-border-radius: var(--wdtRadius_2X); border-radius: var(--wdtRadius_1X);
     color: var(--wdtHeadAltColor);
     background-image: linear-gradient(90deg, var(--wdtTertiaryColor), var(--wdtPrimaryColor), var(--wdtTertiaryColor));
     background-size: 200% 100%;
