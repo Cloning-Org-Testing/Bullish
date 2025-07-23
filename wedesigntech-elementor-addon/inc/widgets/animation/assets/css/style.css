@@ -7,7 +7,7 @@
 .wdt-animation-holder:not(.vertical) .wdt-animation-wrapper div[class*="-marqee"] { width: auto; flex: 0 0 auto; display: grid; grid-auto-flow: column; align-items: center; }
 
 .wdt-animation-holder:not(.vertical) .wdt-animation-wrapper div[class*="-marqee"] .wdt-animation-item { display: inline-flex; flex: 0 0 auto; text-align: center; position: relative; }
-.wdt-animation-holder:not(.vertical) .wdt-animation-wrapper .wdt-animation-item { padding: 0 clamp(1.875rem, 1.5963rem + 1.2739vw, 3.125rem); /*  Min-30 & Max-50 */ }
+.wdt-animation-holder:not(.vertical) .wdt-animation-item { padding: 0 clamp(1.875rem, 1.5963rem + 1.2739vw, 3.125rem); /*  Min-30 & Max-50 */ }
 
 .wdt-animation-holder:not(.vertical) .wdt-animation-wrapper div[class*="-marqee"].right-to-left { 
     -webkit-animation: MarqueeLeft 24s linear infinite 0ms; animation: MarqueeLeft 24s linear infinite 0ms; }
@@ -70,7 +70,7 @@ Brand icon type1 Style
   font-size: clamp(5.625rem, 4.9283rem + 3.1847vw, 8.75rem); /* Min-90 & Max-140 */
   padding: clamp(1.25rem, 1.1107rem + 0.6369vw, 1.875rem) clamp(1.5625rem, 1.2838rem + 1.2739vw, 2.8125rem); /* Min-20 & Max-30 */ /* Min-25 & Max-45 */
   margin: 0 clamp(0.625rem, 0.5553rem + 0.3185vw, 0.9375rem); /* Min-10 & Max-15 */
-  border: 1px solid rgba(var(--wdtSecondaryColorRgb),0.3);
+  border: 1px solid rgba(var(--wdtSecondaryColorRgb),0.1);
   -webkit-border-radius: var(--wdtRadius_2X);
   border-radius: var(--wdtRadius_2X);
   background: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor), transparent, transparent);
