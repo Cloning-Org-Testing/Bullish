@@ -113,6 +113,9 @@
 .wdt-tabs-container.wdt-template-default {
     gap: clamp(1.875rem, 0.625rem + 2.6042vw, 3.75rem);/*60-30*/
 }
+.wdt-tabs-container.wdt-template-default .wdt-tabs-list li .ui-tabs-anchor{
+    padding: 18px 20px;
+}
 .wdt-tabs-container.wdt-template-default .wdt-tabs-list-wrapper{
     width:28%;
     position: sticky;top: 0; height: fit-content;
@@ -156,6 +159,8 @@
     color: var(--wdtSecondaryColor); 
     background-position: left;
 }
+.wdt-tabs-container.wdt-template-default .wdt-tabs-list li .ui-tabs-anchor .wdt-content-icon { margin: 0 0 0; }
+
 
 @media screen and (max-width:1280px) {
     .wdt-tabs-container.wdt-template-default .wdt-tabs-list-wrapper{

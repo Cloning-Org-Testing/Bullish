@@ -404,6 +404,7 @@
     background-position:top right;
     display: flex;
     justify-content: inherit;
+    width: clamp(6.25rem, 5.4213rem + 2.7739vw, 8.75rem);/*140-100*/;
 }
 .wdt-image-box-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-media-group{
     margin-bottom:35px
