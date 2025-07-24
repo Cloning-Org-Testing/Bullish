@@ -112,3 +112,24 @@
     height: fit-content;
 }
 
+#header .sticky-header {
+    background-color:transparent;
+}
+#header .sticky-header .wdt-cus-header-bg:before{
+    content: "" !important;
+    position: absolute !important;
+    background-color: rgba(var(--wdtAccentTxtColorRgb), 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--wdtBorderColorRgb), 0.1);
+    border-radius: var(--wdtRadius_1X) !important;
+    -webkit-border-radius: var(--wdtRadius_1X) !important;
+}
+
+#header .sticky-header.wdt-sticky-active {
+    background-color:var(--wdtSecondaryColor);
+}
+#header .sticky-header.wdt-sticky-active .wdt-cus-header-bg:before{
+    background:none;
+    border:none;
+    backdrop-filter:unset;
+}

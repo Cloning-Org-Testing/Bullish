@@ -52,6 +52,7 @@
 	}
 
 	.error404 .container .wdt-404-contents {z-index: 1;}
+	body.error404 div.wrapper{height: 100vh;}
 
 /*--------------------------------------------------------------
     Default Colors
