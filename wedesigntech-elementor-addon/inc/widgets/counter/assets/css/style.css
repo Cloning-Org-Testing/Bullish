@@ -131,7 +131,8 @@
         aspect-ratio: 1;
     }
     .wdt-counter-holder.wdt-rc-template-modern .wdt-content-item .wdt-content-title h5{
-        font-size: var(--wdtFontSize_H6);
+        font-size: calc(var(--wdtFontSize_H6) - 2px);
+        padding: 0;
     }
     .wdt-counter-holder.wdt-rc-template-standard .wdt-column:not(:last-child) .wdt-content-item::before{
         opacity: 0;
