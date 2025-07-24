@@ -25,10 +25,10 @@
     <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'bullish' ); ?></a>
 
     <!-- **Wrapper** -->
-    <div class="wrapper">
+    <div id="smooth-wrapper" class="wrapper">
 
         <!-- ** Inner Wrapper ** -->
-        <div class="inner-wrapper">
+        <div id="smooth-content" class="inner-wrapper">
 
             <?php do_action( 'bullish_hook_content_before' ); ?>
 
