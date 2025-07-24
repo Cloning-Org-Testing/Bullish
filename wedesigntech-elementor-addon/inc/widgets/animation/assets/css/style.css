@@ -144,6 +144,8 @@ Brand icon type1 Style
 .wdt-animation-holder.vertical {
     overflow: hidden;
     max-height: 600px;
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, var(--wdtHeadAltColor) 5%, var(--wdtHeadAltColor) 95%, transparent 100%);
+    mask-image: linear-gradient(to top, transparent 0%, var(--wdtHeadAltColor) 5%, var(--wdtHeadAltColor) 95%, transparent 100%);
 }
 .wdt-animation-holder.vertical .wdt-animation-wrapper {
     height: var(--wdt-marque-height);
