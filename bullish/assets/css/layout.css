@@ -199,6 +199,7 @@ body{
   transition-delay: 0s;
   transition-property: width;
   display: inline-block !important;
+  will-change: transform;
 }
 .elementor-widget-text-editor.underline .elementor-widget-container a:before,
 .elementor-widget-text-editor.underline .elementor-widget-container p a:before {
@@ -234,6 +235,10 @@ body{
     cursor: context-menu;
 }
 
+.elementor-lightbox .elementor-lightbox-item .swiper-zoom-container{
+    padding: 0 20px;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                          Responsive Media Queries                          */
 /* -------------------------------------------------------------------------- */
@@ -261,11 +266,7 @@ body{
     .wdt-upload-form .wdt-upload-form-bottom .wdt-upload-form-btn-group .wdt-file-upload-btn ,
     .wdt-contact-form .wdt-contact-form-bottom .wdt-upload-form-btn-group .wdt-file-upload-btn { width: 100%; }
 
-    .entry-post-navigation.type1 { grid-template-columns: 1fr; }
-	.entry-post-navigation.type1 > .post-next-link { border-left-width: 0; border-top-width: 1px; border-style: solid; border-color: var(--wdtBorderColor); }
 	.entry-post-navigation.type1 > div > .nav-title-wrap h3:not(.no-post h3) { display: none; }
-	.entry-post-navigation.type1 > div.post-prev-link,
-	.entry-post-navigation.type1 > div.post-next-link{justify-content: center;text-align: center;padding: 20px 0;}
 }
 /* ------UNIT Test Codes */
 body{

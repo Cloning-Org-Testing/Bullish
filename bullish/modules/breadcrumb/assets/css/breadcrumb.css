@@ -23,6 +23,7 @@
   margin: 0;
   padding: 75px 0 90px;
   width: 100%;
+  backface-visibility: hidden;
 }
 
 .main-title-section {
@@ -160,6 +161,7 @@
 
 .main-title-section-wrapper.dark-bg-breadcrumb > .main-title-section-bg {
   background-color: var(--wdtHeadAltColor);
+  backface-visibility: hidden;
 }
 
 .dark-bg-breadcrumb .main-title-section h1,

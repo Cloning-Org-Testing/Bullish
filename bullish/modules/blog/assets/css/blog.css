@@ -647,7 +647,7 @@
     .wdt-post-entry .blog-entry .entry-format a:hover { color: rgba(var(--wdtHeadAltColorRgb),0.55); }
 
     .wdt-post-entry .blog-entry .entry-button a.wdt-button:before,
-    .wdt-post-entry .blog-entry .entry-button a.wdt-button:after { content:""; position:absolute; width:50%; height:1px; background:currentColor; bottom:0; left:0; right:auto; top: auto; margin:auto; transition:var(--wdt-Ad-Transition); -webkit-transition:var(--wdt-Ad-Transition); transition-delay: 0s; transition-property: width; }
+    .wdt-post-entry .blog-entry .entry-button a.wdt-button:after { content:""; position:absolute; width:50%; height:1px; background:currentColor; bottom:0; left:0; right:auto; top: auto; margin:auto; transition:var(--wdt-Ad-Transition); -webkit-transition:var(--wdt-Ad-Transition); transition-delay: 0s; transition-property: width; will-change: transform; }
     .wdt-post-entry .blog-entry .entry-button a.wdt-button:after { left:auto; right:0;}
     .wdt-post-entry .blog-entry .entry-button a.wdt-button:hover:before,
     .wdt-post-entry .blog-entry .entry-button a.wdt-button:hover:after { width:0%; }

@@ -15,7 +15,7 @@
 	.blog-single-entry.post-minimal .post-header .single-entry-date,
 	.blog-single-entry.post-minimal .post-header .single-entry-categories { line-height: normal; }
 
-	.blog-single-entry.post-minimal .post-header .single-entry-categories a { border-width: 0; display: inline-block; font-size: var(--wdtFontSize_Base); font-weight: 600; line-height: normal; letter-spacing: 1px; position: relative; text-transform: none; white-space: nowrap; }
+	.blog-single-entry.post-minimal .post-header .single-entry-categories a { border-width: 0; display: inline-block; font-size: var(--wdtFontSize_Base); font-weight: 600; line-height: normal; letter-spacing: 0px; position: relative; text-transform: none; white-space: nowrap; }
 
 	.blog-single-entry.post-minimal .post-header .single-entry-categories a:hover { background: transparent; }
 
@@ -36,7 +36,7 @@
 
 	.blog-single-entry.post-minimal .single-entry-title h1 { margin-bottom: 0; }
 
-	.blog-single-entry.post-minimal .post-header .single-entry-date { border: none; display: inline-block; font-size: var(--wdtFontSize_Base); font-weight: 600; letter-spacing: 1px; padding: 0 40px; position: relative; text-transform: none; width: auto; }
+	.blog-single-entry.post-minimal .post-header .single-entry-date { border: none; display: inline-block; font-size: var(--wdtFontSize_Base); font-weight: 600; letter-spacing: 0px; padding: 0 40px; position: relative; text-transform: none; width: auto; }
 
 	.blog-single-entry.post-minimal .post-header .single-entry-date:hover { background: none; color: var(--wdtBodyTxtColor); }
 
@@ -382,6 +382,7 @@
 	.blog-single-entry.post-minimal .single-entry-author .meta-author-info > a:hover, 
 	.blog-single-entry.post-minimal .entry-post-navigation > div > .nav-title-wrap h3 a:hover { color: rgba(var(--wdtHeadAltColorRgb),0.55); }
 
+	.blog-single-entry.post-minimal .post-header .single-entry-categories a { color: var(--wdtHeadAltColor); }
 	.blog-single-entry.post-minimal .post-header .single-entry-categories a:hover { color: rgba(var(--wdtHeadAltColorRgb),0.55); }
 
 	.blog-single-entry.post-minimal .post-meta .single-entry-social-share ul li a, .blog-single-entry.post-minimal .post-meta .single-entry-social-share ul li a:hover,

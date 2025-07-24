@@ -178,10 +178,10 @@
 .wdt-popup-box-window .mfp-close {
     margin: 14px;
     font-size: 0;
-    height: 36px;
-    width: 36px;
-    line-height: 36px;
-    border-radius: var(--wdtRadius_Zero);
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    border-radius: var(--wdtRadius_Full);
     -webkit-transform: none;
     transform: none;
     display: flex;
@@ -490,7 +490,7 @@
     height:48px;
     border-radius:var(--wdtRadius_Full);
     border:1px solid var(--wdtBorderColor);
-    font-size: var(--wdtFontSize_H6);
+    font-size: calc(var(--wdtFontSize_H6) + 1px);
     background-color: transparent;
     background-image: linear-gradient(90deg, var(--wdtPrimaryColor), var(--wdtTertiaryColor), transparent, transparent);
     background-size: 300% 100%;

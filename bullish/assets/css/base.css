@@ -268,7 +268,7 @@
 	/* Tables  */
 	table { border-collapse: collapse; border-spacing:0; clear:both;  margin: 0 0 1rem; width: 100%; }
 	table td, table th { border:1px solid rgba(var(--wdtHeadAltColorRgb),0.15); padding: 0.5em; text-align:center; }
-    thead th, tbody th { font-weight: var(--wdtFontWeight_Base); }
+    thead th, tbody th { font-weight: var(--wdtFontWeight_Base); color: var(--wdtHeadAltColor); }
 	/* tbody tr:nth-child(2n+1) { background:rgba(0, 0, 0, 0.03); } */
 
     th a:hover, td a:hover { text-decoration: underline; }
@@ -1191,7 +1191,9 @@
     .wp-block-latest-comments__comment .wp-block-latest-comments__comment-meta .wp-block-latest-comments__comment-link:hover{color: rgba(var(--wdtHeadAltColorRgb),0.6);}
 
     .wp-block-rss li.wp-block-rss__item .wp-block-rss__item-title, 
-    .wp-block-latest-posts.wp-block-latest-posts__list li .wp-block-latest-posts__post-title { font-size: 1.1em; line-height: var(--wdtLineHeight_Alt); }
+    .wp-block-latest-posts.wp-block-latest-posts__list li .wp-block-latest-posts__post-title { font-size: 1.1em; line-height: var(--wdtLineHeight_Alt); }	
+    .wp-block-rss li.wp-block-rss__item .wp-block-rss__item-title:hover, 
+    .wp-block-latest-posts.wp-block-latest-posts__list li .wp-block-latest-posts__post-title:hover { color: rgba(var(--wdtHeadAltColorRgb),0.55);  }
 
     .wp-block-latest-comments__comment .wp-block-latest-comments__comment-meta .wp-block-latest-comments__comment-author { font-weight: 500; }
     .wp-block-latest-comments__comment .wp-block-latest-comments__comment-meta .wp-block-latest-comments__comment-author:hover { color: rgba(var(--wdtHeadAltColorRgb),0.55); }
@@ -1209,6 +1211,7 @@
     .wp-block-search .wp-block-search__button { margin: 0; }
 
     .wp-block-archives-list li a:not(:focus), .wp-block-calendar a:not(:focus), .wp-block-latest-comments li a:not(:focus), .wp-block-latest-posts li a:not(:focus), .wp-block-rss li a:not(:focus) { text-decoration: none; }
+    .wp-block-archives-list li a:hover, .wp-block-calendar a:hover, .wp-block-latest-comments li a:hover, .wp-block-latest-posts li a:hover, .wp-block-rss li a:hover, .wp-block-rss li a:hover { color: var(--wdtPrimaryColor); }
 
     /* Gallery - Block */
     .wp-block-gallery li { padding: 0; }

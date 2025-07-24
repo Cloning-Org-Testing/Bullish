@@ -351,13 +351,8 @@
 
 	/*----*****---- << Mobile - Portrait >> ----*****----*/
 	@media only screen and (max-width: 479px) {
-
-		.blog-single-entry .entry-post-navigation { grid-template-columns: 1fr; }
-		.blog-single-entry .entry-post-navigation > .post-next-link { border-left-width: 0; border-top-width: 1px; border-style: solid; }
+		
 		.blog-single-entry .entry-post-navigation > div > .nav-title-wrap h3:not(.no-post h3) { display: none; }
-
-		.blog-single-entry .entry-post-navigation > .post-prev-link,
-		.blog-single-entry .entry-post-navigation > .post-next-link { justify-content: center; text-align: center; }
 
 		/* Navigation - Type II */
 		.blog-single-entry .entry-post-navigation:not(.wdt-post-entry).type2 { margin-top: 50px; margin-bottom: 50px; }

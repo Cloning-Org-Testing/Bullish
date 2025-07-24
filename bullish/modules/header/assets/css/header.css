@@ -640,11 +640,8 @@
 .wdt-header-menu ul li ul li.focus > a, .wdt-header-menu ul li ul li:focus > a, .wdt-header-menu ul li ul li:hover > a, .wdt-header-menu ul li ul li > a:hover,
 .wdt-header-menu ul li ul li.current_menu_item > a, .wdt-header-menu ul li ul li.current_page_item > a, .wdt-header-menu ul li ul li.current_menu_ancestor > a, 
 .wdt-header-menu ul li ul li.current_page_ancestor > a, .wdt-header-menu ul li ul li.current-menu-item > a, 
-.wdt-header-menu ul li ul li.current-page-item > a, .wdt-header-menu ul li ul li.current-menu-ancestor > a
-
-{
-	color:var(--wdtHeadAltColor);
-}
+.wdt-header-menu ul li ul li.current-page-item > a, .wdt-header-menu ul li ul li.current-menu-ancestor > a, 
+.wdt-header-menu ul li ul li.current-page-ancestor > a{	color:var(--wdtHeadAltColor); }
  /* Mega-menu Style */
 
 #header .wdt-elementor-container-fluid .wdt-header-menu ul.wdt-primary-nav li.has-mega-menu>ul.sub-menu li .elementor-element .e-con-inner>div {

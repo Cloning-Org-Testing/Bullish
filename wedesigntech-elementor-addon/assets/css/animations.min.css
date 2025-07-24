@@ -604,17 +604,20 @@
 .slideInRight{
     animation-name:slideInRight
 }
-@keyframes slideInUp{
-    from{
-        transform:translate3d(0,15%,0);
-    }
-    to{
-        transform:translate3d(0,0,0);
-    }
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 15%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
-.slideInUp{
-    animation-name:slideInUp
+
+.slideInUp {
+  animation: slideInUp 0.8s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  will-change: opacity, transform;
 }
+
  .elementor-animation-grow{
     transition-duration:.3s;
     transition-property:transform

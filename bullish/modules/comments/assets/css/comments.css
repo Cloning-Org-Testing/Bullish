@@ -93,15 +93,19 @@
 	#respond h3#reply-title { position: relative; display: inline-block; width: 100%; font-size: calc(var(--wdtFontSize_H4) - 4px); margin-top: 35px; }
 	#respond h3#reply-title small { display: block; font-size: var(--wdtFontSize_Base); font-weight: normal;margin-bottom: 5px; }
 	#respond h3#reply-title small a { color: inherit; display: table; opacity: 0.75; margin-top: 10px;  }
-	#respond h3#reply-title small a:hover { opacity: 1; color: var(--wdtPrimaryColor); }
+	#respond h3#reply-title small a:hover { opacity: 1; color:  rgba(var(--wdtHeadAltColorRgb),0.55);; }
 	.wp-block-post-comments-form .comment-reply-title :where(small){margin-left: 0;}
 
-
-
+	#respond h3#reply-title small a#cancel-comment-reply-link {position:relative;}
+	#respond h3#reply-title small a#cancel-comment-reply-link:before,
+    #respond h3#reply-title small a#cancel-comment-reply-link:after { content:""; position:absolute; width:50%; height:1px; background:currentColor; bottom:0; left:0; right:auto; top: auto; margin:auto; transition:var(--wdt-Ad-Transition); -webkit-transition:var(--wdt-Ad-Transition); transition-delay: 0s; transition-property: width; will-change: transform; }
+    #respond h3#reply-title small a#cancel-comment-reply-link:after { left:auto; right:0;}
+    #respond h3#reply-title small a#cancel-comment-reply-link:hover:before,
+    #respond h3#reply-title small a#cancel-comment-reply-link:hover:after { width:0%; }
 
 	.commentlist li.comment #respond { display: block; }
-	.commentlist li.comment .comment-body ~ #respond { border-top: 1px solid; border-bottom: 1px solid; display: inline-block; margin-top: -1px; margin-bottom: 0; padding: 10px 0 35px; position: relative; z-index: 1; }
-
+	.commentlist li.comment .comment-body ~ #respond { border-top: 2px solid; border-bottom: 1px solid; display: inline-block; margin-top: -2px; margin-bottom: 0; padding: 10px 0 35px; position: relative; z-index: 1; }
+	.commentlist li.comment:last-child .comment-body ~ #respond { border-bottom:0; padding-bottom:0; }
 	.commentlist li.comment .comment-body ~ #respond .comment-form { margin-bottom: 0; }
 	.commentlist li.comment .comment-body ~ #respond h3#reply-title { margin-top: 0; }
 
