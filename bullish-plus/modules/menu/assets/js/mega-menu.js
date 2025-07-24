@@ -3,28 +3,90 @@ jQuery(document).ready(function($) {
     "use strict";
 
     // Sticky Row
+    
     if( $("#header-wrapper .sticky-header").length > 0 ) {
-        var $sticky_header_cloned = $('.sticky-header').clone();
-        $sticky_header_cloned.removeClass('sticky-header').addClass('sticky-header-active');
-        $( $sticky_header_cloned ).insertAfter( $('.sticky-header') );
 
-        $('body').css('--sticky-header-height', $('.sticky-header-active').outerHeight() + 'px');
+        if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") { 
 
-        var position = $(window).scrollTop();
+            gsap.registerPlugin(ScrollTrigger);
 
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
-            if((scroll > 0 && position > 0) && scroll > position) {
-                $("#header-wrapper .sticky-header-active").addClass('wdt-header-top');
-                $("#header-wrapper .sticky-header-active").addClass('wdt-header-scroll');
+            let stickyTriggers = [];
 
-                $("#header-wrapper .sticky-header-active").show();
-            } else {
-                 $("#header-wrapper .sticky-header-active").removeClass('wdt-header-top');
-                 $("#header-wrapper .sticky-header-active").removeClass('wdt-header-scroll');
+            async function waitForSiteLoaded() {
+                if (document.readyState !== "complete") {
+                    await new Promise(resolve => window.addEventListener("load", resolve, { once: true }));
+                }
             }
-            position = scroll;
-        });
+
+            const initStickyColumns = () => {
+                stickyTriggers.forEach(trigger => trigger.kill());
+                stickyTriggers = [];
+
+                document.querySelectorAll('.sticky-header').forEach(item => {
+
+                    setTimeout(() => {
+                        const wrapperEle = item.closest('.inner-wrapper');
+                        if (!wrapperEle) return;
+
+                        const trigger = ScrollTrigger.create({
+                            trigger: wrapperEle,
+                            start: "top top",
+                            end: "bottom top+=" + item.clientHeight,
+                            pin: item,
+                            pinSpacing: false,
+                            lazy: true,
+                            markers: false,
+                            id: Math.random().toString(36).substring(2, 15),
+                            onEnter: () => { 
+                                item.classList.add('wdt-sticky-active');
+                            },
+                            onLeave: () => { 
+                                item.classList.remove('wdt-sticky-active');
+                            },
+                        });
+
+                        stickyTriggers.push(trigger);
+                    }, 1000);
+
+
+                });
+
+                ScrollTrigger.refresh();
+            };
+
+            waitForSiteLoaded().then(() => {
+                initStickyColumns();
+                window.addEventListener("resize", () => {
+                    initStickyColumns();
+                });
+            });
+
+        } else {
+
+            var $sticky_header_cloned = $('.sticky-header').clone();
+            $sticky_header_cloned.removeClass('sticky-header').addClass('sticky-header-active');
+            $( $sticky_header_cloned ).insertAfter( $('.sticky-header') );
+
+            $('body').css('--sticky-header-height', $('.sticky-header-active').outerHeight() + 'px');
+
+            var position = $(window).scrollTop();
+
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                if((scroll > 0 && position > 0) && scroll > position) {
+                    $("#header-wrapper .sticky-header-active").addClass('wdt-header-top');
+                    $("#header-wrapper .sticky-header-active").addClass('wdt-header-scroll');
+
+                    $("#header-wrapper .sticky-header-active").show();
+                } else {
+                    $("#header-wrapper .sticky-header-active").removeClass('wdt-header-top');
+                    $("#header-wrapper .sticky-header-active").removeClass('wdt-header-scroll');
+                }
+                position = scroll;
+            });
+
+        }
+        
     }
 
     // Mega Menu

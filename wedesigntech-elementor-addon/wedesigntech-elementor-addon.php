@@ -84,7 +84,7 @@ if( !class_exists( 'WeDesignTechElementorAddon' ) ) {
         function enqueue_styles() {
 
             wp_enqueue_style( 'wdt-elementor-addon-core', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/css/core.css', false, WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, 'all');
-            wp_enqueue_style( 'wdt-elementor-addon-wdtGsap', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/css/wdtGsap.css', false, WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, 'all');
+            // wp_enqueue_style( 'wdt-elementor-addon-wdtGsap', WEDESIGNTECH_ELEMENTOR_ADDON_DIR_URL . 'assets/css/wdtGsap.css', false, WEDESIGNTECH_ELEMENTOR_ADDON_VERSION, 'all');
 
             $css = $this->generate_core_css();
             if( !empty( $css ) ) {
