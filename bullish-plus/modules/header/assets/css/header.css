@@ -66,8 +66,8 @@
     }
 
     #header .wdt-header-tpl .sticky-header-active.wdt-header-top {
-        -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        /* -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); */
+        /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); */
         z-index: 10;
     }
 
