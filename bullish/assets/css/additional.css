@@ -125,11 +125,16 @@
     -webkit-border-radius: var(--wdtRadius_1X) !important;
 }
 
-#header .sticky-header.wdt-sticky-active {
+/* #header .sticky-header.wdt-sticky-active {
     background-color:var(--wdtSecondaryColor);
+} */
+#header .sticky-header.wdt-sticky-active .wdt-cus-header-bg:before {
+    background-color: rgba(var(--wdtSecondaryColorRgb), 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--wdtRadius_1X);
+    -webkit-border-radius: var(--wdtRadius_1X);
 }
-#header .sticky-header.wdt-sticky-active .wdt-cus-header-bg:before{
-    background:none;
-    border:none;
-    backdrop-filter:unset;
+#header .sticky-header.wdt-sticky-active .e-con-inner{
+  padding-top: 0!important;
 }

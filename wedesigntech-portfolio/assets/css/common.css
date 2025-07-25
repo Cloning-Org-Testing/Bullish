@@ -422,13 +422,13 @@ div[class*='-output-data-container'] .wdt-swiper-pagination-holder .wdt-swiper-b
     position: static; margin: 0 0 15px; cursor: auto; text-align: center; }
 
 div[class*='-output-data-container'] .wdt-swiper-pagination-holder .wdt-swiper-bullet-pagination.swiper-pagination-bullets .swiper-pagination-bullet { 
-    width: 15px; height: 15px; margin: 0 5px; -webkit-border-radius: 50%; border-radius: 50%; padding: 0px; }
+    width: 12px; height: 12px; margin: 0 5px; -webkit-border-radius: 50%; border-radius: 50%; padding: 0px; }
 
 div[class*='-output-data-container'] .wdt-swiper-pagination-holder .wdt-swiper-bullet-pagination.swiper-pagination-bullets .swiper-pagination-bullet:hover { 
     opacity: 1; }
 
 div[class*='-output-data-container'] .wdt-swiper-pagination-holder .wdt-swiper-bullet-pagination.swiper-pagination-bullets .swiper-pagination-bullet-active { 
-    width: 40px; -webkit-border-radius: 1em; border-radius: 1em; }
+    width: 35px; -webkit-border-radius: 1em; border-radius: 1em; }
 
 
 /* Arrow Pagination */
