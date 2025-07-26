@@ -7,7 +7,7 @@
  * Author: the WeDesignTech team
  * Author URI: https://wedesignthemes.com/
  * Text Domain: wdt-elementor-addon
- * Elementor tested up to: 3.28.3
+ * Elementor tested up to: 3.30.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

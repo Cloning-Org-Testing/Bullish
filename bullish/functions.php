@@ -32,19 +32,22 @@ if( !class_exists( 'Bullish_Loader' ) ) {
             add_action( 'bullish_after_main_css', array( $this, 'add_google_fonts' ) );
 
             add_action( 'after_setup_theme', array( $this, 'include_module_helpers' ) );
+            
             // Disable emoji script and styles
+            add_theme_support( "wp-block-styles" );
+            add_theme_support( "responsive-embeds" );
+
             remove_action('wp_head',array($this,'remove_emoji_detection_script'), 7);
             remove_action('wp_print_styles', array($this,'print_emoji_styles'), 10);
 
             
             //One click demo import
-            // add_filter('ocdi/import_files', array($this, 'ocdi_import_files'), 10);
-            // add_filter('ocdi/after_import', array($this, 'import_elementor_on_theme_activation'), 11);
-            // add_filter('ocdi/import_files', array($this, 'ocdi_before_widgets_import'), 9);
-            // add_action('after_switch_theme', array($this, 'modify_xml_file'));
-            // add_action('ocdi/before_content_import', array($this, 'woocommerce_before_content_import'));
-            // add_filter('ocdi/regenerate_thumbnails_in_content_import', '__return_false');
-            // add_filter('ocdi/after_import', array($this, 'ocdi_after_import_setup'), 11);
+            add_filter('ocdi/import_files', array($this, 'ocdi_import_files'), 10);
+            add_filter('ocdi/after_import', array($this, 'import_elementor_on_theme_activation'), 11);
+            add_filter('ocdi/import_files', array($this, 'ocdi_before_widgets_import'), 9);
+            add_action('after_switch_theme', array($this, 'modify_xml_file'));
+            add_action('ocdi/before_content_import', array($this, 'woocommerce_before_content_import'));
+            add_filter('ocdi/regenerate_thumbnails_in_content_import', '__return_false');
 
         }
 
@@ -93,7 +96,7 @@ if( !class_exists( 'Bullish_Loader' ) ) {
                     'import_widget_file_url'     => BULLISH_ROOT_URI . '/ocdi/theme-widgets.wie',
                     'import_preview_image_url'   => BULLISH_ROOT_URI . '/screenshot.png',
                     'import_notice'              => __('After you import this demo, you will have to setup the slider separately.', 'bullish'),
-                    'preview_url'                => 'https://bullish.wpengine.com/',
+                    'preview_url'                => 'https://wdtbullish.wpengine.com/',
                 )
             );
         }
@@ -110,13 +113,13 @@ if( !class_exists( 'Bullish_Loader' ) ) {
                 $dom->load($xmlFilePath);
                 $xmlContent = $dom->saveXML();
                 $replacements = [
-                    '<wp:attachment_url><![CDATA[https://bullish.wpengine.com/wp-content/uploads/' => '<wp:attachment_url><![CDATA[' . $themeRootDirUri,
-                    'src="https://bullish.wpengine.com/wp-content/uploads/' => 'src="' . $themeRootDirUri,
-                    '<guid isPermaLink="false">https://bullish.wpengine.com/wp-content/uploads/' => '<guid isPermaLink="false">' . $themeRootDirUri,
-                    '<link>https://bullish.wpengine.com' => '<link>' .  $themeRootDirUri1,
-                    'href="https://bullish.wpengine.com' => 'href="' . $themeRootDirUri1,
-                    'https:\/\/bullish.wpengine.com' => home_url(),
-                    'https://bullish.wpengine.com' => home_url(),
+                    '<wp:attachment_url><![CDATA[https://wdtbullish.wpengine.com/wp-content/uploads/' => '<wp:attachment_url><![CDATA[' . $themeRootDirUri,
+                    'src="https://wdtbullish.wpengine.com/wp-content/uploads/' => 'src="' . $themeRootDirUri,
+                    '<guid isPermaLink="false">https://wdtbullish.wpengine.com/wp-content/uploads/' => '<guid isPermaLink="false">' . $themeRootDirUri,
+                    '<link>https://wdtbullish.wpengine.com' => '<link>' .  $themeRootDirUri1,
+                    'href="https://wdtbullish.wpengine.com' => 'href="' . $themeRootDirUri1,
+                    'https:\/\/wdtbullish.wpengine.com' => home_url(),
+                    'https://wdtbullish.wpengine.com' => home_url(),
                     '\/wp-content\/uploads' => '\/wp-content\/themes\/' . $themeName . '\/ocdi\/uploads'
                 ];
                 foreach ($replacements as $oldUrl => $newUrl) {
@@ -213,7 +216,7 @@ if( !class_exists( 'Bullish_Loader' ) ) {
                 return null;
             }
             // Set default pages
-            $front_page_id = get_page_id_by_title('Home');
+            $front_page_id = get_page_id_by_title('Home 1');
             $shop_cart_id = get_page_id_by_title('Cart');
             $shop_checkout_id = get_page_id_by_title('Checkout');
             if ($front_page_id) {
@@ -227,25 +230,7 @@ if( !class_exists( 'Bullish_Loader' ) ) {
                 update_option('woocommerce_checkout_page_id', $shop_checkout_id);
             }
         }
-        function ocdi_after_import_setup()
-        {
-            $product_template_file_path = BULLISH_ROOT_DIR . '/ocdi/product-template.txt';
-            if (is_file($product_template_file_path) && is_readable($product_template_file_path)) {
-                $file_contents = file_get_contents($product_template_file_path);
-                if ($file_contents !== false) {
-                    $data = @unserialize($file_contents);
-                    if ($data !== false) {
-                        update_option('_bullish_cs_options', $data);
-                    } else {
-                        error_log("Failed to unserialize data.");
-                    }
-                } else {
-                    error_log("Unable to read file: " . $product_template_file_path);
-                }
-            } else {
-                error_log("Unable to read file: " . $product_template_file_path);
-            }
-        }
+        
         function set_theme_support() {
             load_theme_textdomain( 'bullish', BULLISH_LANG_DIR );
             add_theme_support( 'automatic-feed-links' );
@@ -306,36 +291,26 @@ if( !class_exists( 'Bullish_Loader' ) ) {
         }
 
        function enqueue_js() {
+
             // Enqueue WooCommerce cart fragments (do not defer)
             wp_enqueue_script('wc-cart-fragments');
+
             // Enqueue jQuery Select2 with defer
+            wp_script_add_data('jquery-select2', 'strategy', 'defer');
             wp_enqueue_script('jquery-select2', get_theme_file_uri('/assets/lib/select2/select2.full.js'), array('jquery'), false, true);
-            add_filter('script_loader_tag', function($tag, $handle) {
-                if ('jquery-select2' === $handle) {
-                    return str_replace('src=', 'defer src=', $tag);
-                }
-                return $tag;
-            }, 10, 2);
+
             // Enqueue Flatpickr with defer
+            wp_script_add_data('flatpickr', 'strategy', 'defer');
             wp_enqueue_script('flatpickr');
-            add_filter('script_loader_tag', function($tag, $handle) {
-                if ('flatpickr' === $handle) {
-                    return str_replace('src=', 'defer src=', $tag);
-                }
-                return $tag;
-            }, 10, 2);
+
             /**
              * Before Hook
              */
             do_action('bullish_before_enqueue_js');
+
             // Enqueue custom JavaScript with defer
+            wp_script_add_data('bullish-jqcustom', 'strategy', 'defer');
             wp_enqueue_script('bullish-jqcustom', get_theme_file_uri('/assets/js/custom.js'), array('jquery'), false, true);
-            add_filter('script_loader_tag', function($tag, $handle) {
-                if ('bullish-jqcustom' === $handle) {
-                    return str_replace('src=', 'defer src=', $tag);
-                }
-                return $tag;
-            }, 10, 2);
             if (is_singular() && comments_open() && get_option('thread_comments')) {
                 wp_enqueue_script('comment-reply');
             }

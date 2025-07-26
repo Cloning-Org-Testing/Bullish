@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Bullish Twitter\n"
-"POT-Creation-Date: 2023-10-20 17:59+0530\n"
+"POT-Creation-Date: 2025-07-26 12:28+0530\n"
 "PO-Revision-Date: 2020-01-14 18:56+0530\n"
 "Last-Translator: \n"
 "Language-Team: Creative Brahma\n"
@@ -11,10 +11,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __e;__;esc_html__;esc_html_e;esc_attr__;esc_attr_e\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: bullish-shop.php:74
+msgid "Ad Settings"
+msgstr ""
+
+#: bullish-shop.php:91
+msgid "Ad Image/Video URL"
+msgstr ""
+
+#: bullish-shop.php:94
+msgid "URL of the ad media to show on product page."
+msgstr ""
+
+#: bullish-shop.php:250 bullish-shop.php:270
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" plugin to be installed and activated."
+msgstr ""
+
+#: bullish-shop.php:251 bullish-shop.php:271 bullish-shop.php:305
+msgid "Bullish Shop"
+msgstr ""
+
+#: bullish-shop.php:252
+msgid "WooCommerce - excelling eCommerce"
+msgstr ""
+
+#: bullish-shop.php:272
+msgid "Bullish Pro"
+msgstr ""
 
 #: functions.php:11
 msgid "None"
@@ -131,6 +160,14 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
+#: modules/listings/backup/index.php:40
+msgid "Backup"
+msgstr ""
+
+#: modules/listings/backup/index.php:46
+msgid "You can save your current options. Download a Backup and Import."
+msgstr ""
+
 #: modules/listings/index.php:73 modules/listings/index.php:78
 msgid "Bullish Settings"
 msgstr ""
@@ -226,7 +263,7 @@ msgid "Product Style Archives"
 msgstr ""
 
 #: modules/listings/product-archive/index.php:260
-#: modules/listings/product-template/index.php:114
+#: modules/listings/product-template/index.php:115
 msgid "Add New"
 msgstr ""
 
@@ -238,45 +275,87 @@ msgstr ""
 msgid "Standard Sidebar"
 msgstr ""
 
-#: modules/listings/product-template/index.php:44
-#: modules/listings/product-template/index.php:164
+#: modules/listings/product-swatcheshooks/index.php:203
+#: modules/listings/product-swatcheshooks/index.php:368
+msgid "Variant Type"
+msgstr ""
+
+#: modules/listings/product-swatcheshooks/index.php:207
+msgid "Select"
+msgstr ""
+
+#: modules/listings/product-swatcheshooks/index.php:208
+msgid "Color"
+msgstr ""
+
+#: modules/listings/product-swatcheshooks/index.php:209
+msgid "Image"
+msgstr ""
+
+#: modules/listings/product-swatcheshooks/index.php:210
+msgid "Button"
+msgstr ""
+
+#: modules/listings/product-swatcheshooks/index.php:212
+#: modules/listings/product-swatcheshooks/index.php:392
+msgid "Its based on the variant appearance."
+msgstr ""
+
+#: modules/listings/product-swatcheshooks/index.php:399
+msgid "Variant Image"
+msgstr ""
+
+#: modules/listings/product-swatcheshooks/index.php:404
+msgid "Upload Image"
+msgstr ""
+
+#: modules/listings/product-swatcheshooks/index.php:405
+msgid "Remove Image"
+msgstr ""
+
+#: modules/listings/product-swatcheshooks/index.php:406
+msgid "Upload an image for the variant."
+msgstr ""
+
+#: modules/listings/product-template/index.php:45
+#: modules/listings/product-template/index.php:191
 msgid "Template"
 msgstr ""
 
-#: modules/listings/product-template/index.php:54
-#: modules/listings/product-template/index.php:177
+#: modules/listings/product-template/index.php:55
+#: modules/listings/product-template/index.php:204
 msgid "Default Options."
 msgstr ""
 
-#: modules/listings/product-template/index.php:64
-#: modules/listings/product-template/index.php:187
+#: modules/listings/product-template/index.php:65
+#: modules/listings/product-template/index.php:214
 msgid "Hover Options."
 msgstr ""
 
-#: modules/listings/product-template/index.php:74
-#: modules/listings/product-template/index.php:197
+#: modules/listings/product-template/index.php:75
+#: modules/listings/product-template/index.php:224
 msgid "Common Options."
 msgstr ""
 
-#: modules/listings/product-template/index.php:84
-#: modules/listings/product-template/index.php:207
+#: modules/listings/product-template/index.php:85
+#: modules/listings/product-template/index.php:234
 msgid "Thumb Options."
 msgstr ""
 
-#: modules/listings/product-template/index.php:94
-#: modules/listings/product-template/index.php:217
+#: modules/listings/product-template/index.php:95
+#: modules/listings/product-template/index.php:244
 msgid "Content Options."
 msgstr ""
 
-#: modules/listings/product-template/index.php:105
+#: modules/listings/product-template/index.php:106
 msgid "Shop - Product Template"
 msgstr ""
 
-#: modules/listings/product-template/index.php:113
+#: modules/listings/product-template/index.php:114
 msgid "Product Style Templates"
 msgstr ""
 
-#: modules/listings/product-template/index.php:115
+#: modules/listings/product-template/index.php:116
 msgid "Add New Template"
 msgstr ""
 
@@ -431,6 +510,22 @@ msgstr ""
 msgid "Only logged in customers who have purchased this product may leave a review."
 msgstr ""
 
+#: templates/single-product/add-to-cart/variable.php:32
+msgid "This product is currently out of stock and unavailable."
+msgstr ""
+
+#: templates/single-product/add-to-cart/variable.php:48
+msgid "Clear"
+msgstr ""
+
+#: templates/single-product/add-to-cart/variable.php:78
+msgid "Choose a Variant"
+msgstr ""
+
+#: templates/single-product/add-to-cart/variable.php:116
+msgid "Choose an option"
+msgstr ""
+
 #: templates/single-product/meta.php:34
 msgid "SKU:"
 msgstr ""
@@ -445,22 +540,4 @@ msgstr ""
 
 #: templates/single-product/tabs/description.php:25
 msgid "Description"
-msgstr ""
-
-#: bullish-shop.php:121 bullish-shop.php:141
-#, php-format
-msgid "\"%1$s\" requires \"%2$s\" plugin to be installed and activated."
-msgstr ""
-
-#: bullish-shop.php:122 bullish-shop.php:142
-#: bullish-shop.php:166
-msgid "Bullish Shop"
-msgstr ""
-
-#: bullish-shop.php:123
-msgid "WooCommerce - excelling eCommerce"
-msgstr ""
-
-#: bullish-shop.php:143
-msgid "Bullish Pro"
 msgstr ""

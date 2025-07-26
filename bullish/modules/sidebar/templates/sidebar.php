@@ -10,11 +10,13 @@ if( empty( $active_sidebars ) ) {
     return;
 }?>
 <!-- Secondary -->
- <?php
- if(function_exists('bullish_customizer_settings')) {
-    $page_sidebartoggle =  bullish_customizer_settings('hide_toogle_sidebar' ); 
-    $page_sidebartoggledefault =  bullish_customizer_settings('hide_sidebardisabletoogle' ); 
- }
+<?php
+
+    $page_sidebartoggle = false;
+    if (function_exists('bullish_customizer_settings')) {
+        $page_sidebartoggle = bullish_customizer_settings('hide_toogle_sidebar');
+        $page_sidebartoggledefault = bullish_customizer_settings('hide_sidebardisabletoogle');
+    }
 
 ?>
 

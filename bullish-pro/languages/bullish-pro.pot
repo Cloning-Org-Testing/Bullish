@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Bullish Pro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-20 17:59+0530\n"
+"POT-Creation-Date: 2025-07-26 12:26+0530\n"
 "PO-Revision-Date: 2019-07-19 11:26+0530\n"
 "Last-Translator: \n"
 "Language-Team: Creative Brahma\n"
@@ -13,9 +13,30 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;esc_attr__;esc_attr_e;"
 "esc_html__;esc_html_e;_e;__\n"
 "X-Poedit-Basepath: .\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
+
+#: ../bullish-pro.php:150
+msgid "Bullish Settings"
+msgstr ""
+
+#: ../bullish-pro.php:155
+msgid "Bullish"
+msgstr ""
+
+#: ../bullish-pro.php:175
+#, php-format
+msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+msgstr ""
+
+#: ../bullish-pro.php:176
+msgid "Bullish Pro Plugin"
+msgstr ""
+
+#: ../bullish-pro.php:177
+msgid "Bullish Plus Plugin"
+msgstr ""
 
 #: ../cs-framework-override/fields/gallery/gallery.php:21
 #: ../cs-framework/fields/gallery/gallery.php:21
@@ -95,24 +116,24 @@ msgstr ""
 msgid "show all options"
 msgstr ""
 
-#: ../cs-framework/classes/options.class.php:125
+#: ../cs-framework/classes/options.class.php:132
 msgid "CONFIG"
 msgstr ""
 
-#: ../cs-framework/classes/options.class.php:131
-#: ../cs-framework/classes/options.class.php:151
+#: ../cs-framework/classes/options.class.php:138
+#: ../cs-framework/classes/options.class.php:158
 msgid "USAGE"
 msgstr ""
 
-#: ../cs-framework/classes/options.class.php:137
+#: ../cs-framework/classes/options.class.php:144
 msgid "VALUE"
 msgstr ""
 
-#: ../cs-framework/classes/options.class.php:155
+#: ../cs-framework/classes/options.class.php:162
 msgid "ID"
 msgstr ""
 
-#: ../cs-framework/classes/options.class.php:227
+#: ../cs-framework/classes/options.class.php:234
 #, php-format
 msgid "You are editing language: ( %s )"
 msgstr ""
@@ -169,6 +190,7 @@ msgid "Add Icon"
 msgstr ""
 
 #: ../cs-framework/fields/icon/icon.php:26
+#: ../post-types/services-post-type.php:335
 msgid "Remove Icon"
 msgstr ""
 
@@ -233,6 +255,21 @@ msgstr ""
 msgid "Fatal Error! This field is required!"
 msgstr ""
 
+#: ../functions.php:130
+#, php-format
+msgid "%d hr"
+msgstr ""
+
+#: ../functions.php:130
+#, php-format
+msgid "%d hrs"
+msgstr ""
+
+#: ../functions.php:137
+#, php-format
+msgid "%d mins"
+msgstr ""
+
 #: ../modules/404/customizer/index.php:57
 msgid "Enable Message"
 msgstr ""
@@ -242,18 +279,18 @@ msgid "YES! to enable not-found page message."
 msgstr ""
 
 #: ../modules/404/customizer/index.php:61
-#: ../modules/404/customizer/index.php:116
+#: ../modules/404/customizer/index.php:110
 #: ../modules/auth/customizer/index.php:63
-#: ../modules/auth/customizer/index.php:106
-#: ../modules/auth/customizer/index.php:176
+#: ../modules/auth/customizer/index.php:87
+#: ../modules/auth/customizer/index.php:157
 #: ../modules/cursor/customizer/index.php:64
 #: ../modules/hooks/customizer/settings/tracking-code.php:66
-#: ../modules/post/customizer/index.php:74
-#: ../modules/post/customizer/index.php:133
-#: ../modules/post/customizer/index.php:157
-#: ../modules/post/customizer/index.php:181
-#: ../modules/post/customizer/index.php:347
-#: ../modules/post/customizer/index.php:395
+#: ../modules/post/customizer/index.php:75
+#: ../modules/post/customizer/index.php:156
+#: ../modules/post/customizer/index.php:180
+#: ../modules/post/customizer/index.php:204
+#: ../modules/post/customizer/index.php:370
+#: ../modules/post/customizer/index.php:418
 #: ../modules/post/elementor/widgets/post-feature-image/class-widget-post-feature-image.php:25
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:50
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:66
@@ -277,18 +314,18 @@ msgid "Yes"
 msgstr ""
 
 #: ../modules/404/customizer/index.php:62
-#: ../modules/404/customizer/index.php:117
+#: ../modules/404/customizer/index.php:111
 #: ../modules/auth/customizer/index.php:64
-#: ../modules/auth/customizer/index.php:107
-#: ../modules/auth/customizer/index.php:177
+#: ../modules/auth/customizer/index.php:88
+#: ../modules/auth/customizer/index.php:158
 #: ../modules/cursor/customizer/index.php:65
 #: ../modules/hooks/customizer/settings/tracking-code.php:67
-#: ../modules/post/customizer/index.php:75
-#: ../modules/post/customizer/index.php:134
-#: ../modules/post/customizer/index.php:158
-#: ../modules/post/customizer/index.php:182
-#: ../modules/post/customizer/index.php:348
-#: ../modules/post/customizer/index.php:396
+#: ../modules/post/customizer/index.php:76
+#: ../modules/post/customizer/index.php:157
+#: ../modules/post/customizer/index.php:181
+#: ../modules/post/customizer/index.php:205
+#: ../modules/post/customizer/index.php:371
+#: ../modules/post/customizer/index.php:419
 #: ../modules/post/elementor/widgets/post-feature-image/class-widget-post-feature-image.php:26
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:51
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:67
@@ -316,74 +353,48 @@ msgid "Template Style"
 msgstr ""
 
 #: ../modules/404/customizer/index.php:85
-#: ../modules/post/templates/modern/index.php:25
-msgid "Modern"
-msgstr ""
-
-#: ../modules/404/customizer/index.php:86
 msgid "Classic"
 msgstr ""
 
 #: ../modules/404/customizer/index.php:87
-msgid "Diamond"
-msgstr ""
-
-#: ../modules/404/customizer/index.php:88
-msgid "Shadow"
-msgstr ""
-
-#: ../modules/404/customizer/index.php:89
-msgid "Diamond Alt"
-msgstr ""
-
-#: ../modules/404/customizer/index.php:90
-msgid "Stack"
-msgstr ""
-
-#: ../modules/404/customizer/index.php:91 ../modules/blog/index.php:53
-#: ../modules/post/templates/minimal/index.php:24
-msgid "Minimal"
-msgstr ""
-
-#: ../modules/404/customizer/index.php:93
 msgid "Choose the style of not-found template page."
 msgstr ""
 
-#: ../modules/404/customizer/index.php:112
+#: ../modules/404/customizer/index.php:106
 msgid "404 Dark BG"
 msgstr ""
 
-#: ../modules/404/customizer/index.php:113
+#: ../modules/404/customizer/index.php:107
 msgid "YES! to use dark bg notfound page for this site."
 msgstr ""
 
-#: ../modules/404/customizer/index.php:138
+#: ../modules/404/customizer/index.php:132
 msgid "Custom Page"
 msgstr ""
 
-#: ../modules/404/customizer/index.php:140
+#: ../modules/404/customizer/index.php:134
 msgid "Choose the page for not-found content."
 msgstr ""
 
-#: ../modules/404/customizer/index.php:159
+#: ../modules/404/customizer/index.php:153
 #: ../modules/breadcrumb/customizer/settings/color.php:132
 #: ../modules/breadcrumb/metabox/index.php:70
 msgid "Background"
 msgstr ""
 
-#: ../modules/404/customizer/index.php:178
+#: ../modules/404/customizer/index.php:172
 msgid "Custom Inline Styles"
 msgstr ""
 
-#: ../modules/404/customizer/index.php:179
+#: ../modules/404/customizer/index.php:173
 msgid "Paste custom CSS styles for not found page."
 msgstr ""
 
-#: ../modules/404/customizer/index.php:181
+#: ../modules/404/customizer/index.php:175
 msgid "color:#ff00bb; text-align:left;"
 msgstr ""
 
-#: ../modules/404/customizer/index.php:191
+#: ../modules/404/customizer/index.php:185
 msgid "Choose the page"
 msgstr ""
 
@@ -396,7 +407,6 @@ msgid " Advanced Fields"
 msgstr ""
 
 #: ../modules/advance-field/widget/widget-advance-field.php:40
-#: ../modules/blog/widget/widget-recent-posts.php:33
 #: ../modules/woocommerce/widget/widget-orderby.php:26
 msgid "Title:"
 msgstr ""
@@ -438,93 +448,109 @@ msgstr ""
 msgid "Enable Social Logins"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:84
-msgid "Set Authentication Logo"
-msgstr ""
-
-#: ../modules/auth/customizer/index.php:104
+#: ../modules/auth/customizer/index.php:85
 msgid "Enable Facebook Login"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:127
-#: ../modules/auth/customizer/index.php:130
+#: ../modules/auth/customizer/index.php:108
+#: ../modules/auth/customizer/index.php:111
 msgid "App Id"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:128
+#: ../modules/auth/customizer/index.php:109
 msgid "Put the facebook app id here"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:150
-#: ../modules/auth/customizer/index.php:153
+#: ../modules/auth/customizer/index.php:131
+#: ../modules/auth/customizer/index.php:134
 msgid "Secret Id"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:151
+#: ../modules/auth/customizer/index.php:132
 msgid "Put the facebook app secret here"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:174
+#: ../modules/auth/customizer/index.php:155
 msgid "Enable Google Login"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:197
-#: ../modules/auth/customizer/index.php:200
+#: ../modules/auth/customizer/index.php:178
+#: ../modules/auth/customizer/index.php:181
 msgid "Client Id"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:198
+#: ../modules/auth/customizer/index.php:179
 msgid "Put the google client id here"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:220
-#: ../modules/auth/customizer/index.php:223
+#: ../modules/auth/customizer/index.php:201
+#: ../modules/auth/customizer/index.php:204
 msgid "Client Secret"
 msgstr ""
 
-#: ../modules/auth/customizer/index.php:221
+#: ../modules/auth/customizer/index.php:202
 msgid "Put the google client secret here"
 msgstr ""
 
-#: ../modules/auth/index.php:38
+#: ../modules/auth/index.php:37
 msgid "Registration Page Template"
 msgstr ""
 
-#: ../modules/auth/index.php:157
-msgid "Remember Me"
+#: ../modules/auth/index.php:144
+msgid "Create Your Account"
 msgstr ""
 
-#: ../modules/auth/index.php:158
-msgid "Sign In"
-msgstr ""
-
-#: ../modules/auth/index.php:168
-msgid "Welcome Back"
-msgstr ""
-
-#: ../modules/auth/index.php:168
+#: ../modules/auth/index.php:145
 msgid "Please enter your login credentials to access your account."
 msgstr ""
 
-#: ../modules/auth/index.php:173
-msgid "Forgot password ?"
-msgstr ""
-
-#: ../modules/auth/index.php:186
-msgid "Or Login With"
-msgstr ""
-
-#: ../modules/auth/index.php:207
+#: ../modules/auth/index.php:175
 #: ../modules/woocommerce/single/modules/social-share-and-follow/customizer/index.php:253
 #: ../modules/woocommerce/single/modules/social-share-and-follow/includes/index.php:122
 msgid "Facebook"
 msgstr ""
 
-#: ../modules/auth/index.php:210
+#: ../modules/auth/index.php:178
 msgid "Google"
 msgstr ""
 
-#: ../modules/auth/index.php:263
+#: ../modules/auth/index.php:180
+msgid "Or Login With"
+msgstr ""
+
+#: ../modules/auth/index.php:191
+msgid "Username"
+msgstr ""
+
+#: ../modules/auth/index.php:194
+msgid "Password"
+msgstr ""
+
+#: ../modules/auth/index.php:199
+msgid "Remember Me"
+msgstr ""
+
+#: ../modules/auth/index.php:202
+msgid "Sign In"
+msgstr ""
+
+#: ../modules/auth/index.php:206
+msgid "Forgot password ?"
+msgstr ""
+
+#: ../modules/auth/index.php:230
+msgid "Username does not exist."
+msgstr ""
+
+#: ../modules/auth/index.php:233
+msgid "Incorrect password."
+msgstr ""
+
+#: ../modules/auth/index.php:245
+msgid "Login successful, redirecting..."
+msgstr ""
+
+#: ../modules/auth/index.php:285
 msgid "Login To Website"
 msgstr ""
 
@@ -570,159 +596,6 @@ msgstr ""
 
 #: ../modules/auth/templates/tpl-registration.php:42
 msgid "Login"
-msgstr ""
-
-#: ../modules/blog/index.php:50 ../modules/post/templates/simple/index.php:25
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:155
-#: ../modules/woocommerce/single/modules/social-share-and-follow/elementor/widgets/index.php:34
-msgid "Simple"
-msgstr ""
-
-#: ../modules/blog/index.php:51
-msgid "Overlap"
-msgstr ""
-
-#: ../modules/blog/index.php:52
-msgid "Thumb Overlap"
-msgstr ""
-
-#: ../modules/blog/index.php:54
-msgid "Fancy Box"
-msgstr ""
-
-#: ../modules/blog/index.php:55
-msgid "Bordered"
-msgstr ""
-
-#: ../modules/blog/index.php:56
-msgid "Magnificent"
-msgstr ""
-
-#: ../modules/blog/templates/bordered/parts/comment.php:12
-#: ../modules/blog/templates/magnificent/parts/comment.php:12
-#: ../modules/blog/templates/simple/parts/comment.php:12
-msgid "Add Comment"
-msgstr ""
-
-#: ../modules/blog/templates/bordered/parts/comment.php:12
-#: ../modules/blog/templates/magnificent/parts/comment.php:12
-#: ../modules/blog/templates/simple/parts/comment.php:12
-#: ../modules/post/templates/minimal/parts/comment.php:10
-#: ../modules/post/templates/modern/parts/comment.php:21
-#: ../modules/post/templates/simple/parts/comment.php:21
-msgid "1 Comment"
-msgstr ""
-
-#: ../modules/blog/templates/bordered/parts/comment.php:12
-#: ../modules/blog/templates/magnificent/parts/comment.php:12
-#: ../modules/blog/templates/simple/parts/comment.php:12
-#: ../modules/post/templates/minimal/parts/comment.php:11
-#: ../modules/post/templates/modern/parts/comment.php:22
-#: ../modules/post/templates/simple/parts/comment.php:22
-msgid "% Comments"
-msgstr ""
-
-#: ../modules/blog/templates/bordered/parts/comment.php:12
-#: ../modules/blog/templates/magnificent/parts/comment.php:12
-#: ../modules/blog/templates/simple/parts/comment.php:12
-#: ../modules/post/templates/minimal/parts/comment.php:13
-#: ../modules/post/templates/modern/parts/comment.php:24
-#: ../modules/post/templates/simple/parts/comment.php:24
-msgid "Comments Off"
-msgstr ""
-
-#: ../modules/blog/templates/fancy-box/parts/author.php:8
-#: ../modules/blog/templates/thumb-overlap/parts/author.php:5
-msgid "By"
-msgstr ""
-
-#: ../modules/blog/templates/fancy-box/parts/author.php:9
-#: ../modules/blog/templates/magnificent/parts/feature_image.php:23
-#: ../modules/blog/templates/minimal/parts/author.php:5
-#: ../modules/blog/templates/overlap/parts/author.php:5
-#: ../modules/blog/templates/post-extra/author.php:7
-#: ../modules/blog/templates/thumb-overlap/parts/author.php:6
-#: ../modules/post/templates/minimal/parts/author.php:10
-#: ../modules/post/templates/modern/parts/author.php:14
-#: ../modules/post/templates/simple/parts/author.php:14
-#: ../modules/post/templates/simple/parts/author.php:21
-msgid "View all posts by "
-msgstr ""
-
-#: ../modules/blog/templates/magnificent/parts/feature_image.php:26
-msgid "wrote"
-msgstr ""
-
-#: ../modules/blog/templates/magnificent/parts/feature_image.php:32
-#: ../modules/blog/templates/post-extra/title.php:6
-#: ../modules/post/templates/minimal/parts/title.php:4
-#: ../modules/post/templates/post-extra/title.php:4
-msgid "Featured"
-msgstr ""
-
-#: ../modules/blog/templates/magnificent/parts/feature_image.php:33
-#: ../modules/blog/templates/post-extra/title.php:7
-#, php-format
-msgid "Permalink to %s"
-msgstr ""
-
-#: ../modules/blog/templates/magnificent/parts/feature_image.php:48
-msgid "in"
-msgstr ""
-
-#: ../modules/blog/templates/overlap/parts/date.php:5
-#: ../modules/blog/templates/thumb-overlap/parts/date.php:5
-msgid "on "
-msgstr ""
-
-#: ../modules/blog/templates/overlap/parts/date.php:5
-#: ../modules/blog/templates/thumb-overlap/parts/date.php:5
-msgid " at "
-msgstr ""
-
-#: ../modules/blog/templates/post-pagination/pagination-default/post.php:5
-msgid " Newer Posts"
-msgstr ""
-
-#: ../modules/blog/templates/post-pagination/pagination-default/post.php:9
-msgid "Older Posts "
-msgstr ""
-
-#: ../modules/blog/templates/post-pagination/pagination-loadmore/post.php:18
-msgid "Load More"
-msgstr ""
-
-#: ../modules/blog/widget/widget-recent-posts.php:7
-msgid "To list out posts"
-msgstr ""
-
-#: ../modules/blog/widget/widget-recent-posts.php:11
-msgid " Posts"
-msgstr ""
-
-#: ../modules/blog/widget/widget-recent-posts.php:40
-msgid ""
-"Choose the categories you want to display (multiple selection possible)"
-msgstr ""
-
-#: ../modules/blog/widget/widget-recent-posts.php:43
-msgid "Select"
-msgstr ""
-
-#: ../modules/blog/widget/widget-recent-posts.php:56
-msgid "Display title only or title &amp; excerpt"
-msgstr ""
-
-#: ../modules/blog/widget/widget-recent-posts.php:69
-msgid "Show Image"
-msgstr ""
-
-#: ../modules/blog/widget/widget-recent-posts.php:74
-msgid "No.of posts to show:"
-msgstr ""
-
-#: ../modules/blog/widget/widget-recent-posts.php:151
-msgid "No Posts found"
 msgstr ""
 
 #: ../modules/breadcrumb/customizer/settings/color.php:58
@@ -788,7 +661,7 @@ msgstr ""
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:287
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:362
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:99
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:205
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:206
 msgid "Default"
 msgstr ""
 
@@ -816,141 +689,145 @@ msgstr ""
 msgid "Custom Font"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:34
-#: ../modules/custom-font/taxonomy/index.php:64
+#: ../modules/custom-font/taxonomy/index.php:35
+#: ../modules/custom-font/taxonomy/index.php:65
 msgid "Custom Fonts"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:35
+#: ../modules/custom-font/taxonomy/index.php:36
 msgid "Font"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:37
+#: ../modules/custom-font/taxonomy/index.php:38
 msgid "Search Fonts"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:38
+#: ../modules/custom-font/taxonomy/index.php:39
 msgid "All Fonts"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:39
+#: ../modules/custom-font/taxonomy/index.php:40
 msgid "Edit Font"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:40
+#: ../modules/custom-font/taxonomy/index.php:41
 msgid "Update Font"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:41
+#: ../modules/custom-font/taxonomy/index.php:42
 msgid "Add New Font"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:42
+#: ../modules/custom-font/taxonomy/index.php:43
 msgid "New Font Name"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:43
+#: ../modules/custom-font/taxonomy/index.php:44
 msgid "No fonts found"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:44
+#: ../modules/custom-font/taxonomy/index.php:45
 msgid "Back to fonts"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:63
+#: ../modules/custom-font/taxonomy/index.php:64
 msgid "DesingThemes Custom Fonts List"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:136
+#: ../modules/custom-font/taxonomy/index.php:184
 msgid "Font .woff"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:139
+#: ../modules/custom-font/taxonomy/index.php:187
 msgid "Upload .woff file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:140
+#: ../modules/custom-font/taxonomy/index.php:188
 msgid "Choose .woff font file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:141
-#: ../modules/custom-font/taxonomy/index.php:152
-#: ../modules/custom-font/taxonomy/index.php:163
-#: ../modules/custom-font/taxonomy/index.php:174
-#: ../modules/custom-font/taxonomy/index.php:185
+#: ../modules/custom-font/taxonomy/index.php:189
+#: ../modules/custom-font/taxonomy/index.php:200
+#: ../modules/custom-font/taxonomy/index.php:211
+#: ../modules/custom-font/taxonomy/index.php:222
+#: ../modules/custom-font/taxonomy/index.php:233
 msgid "Use File"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:147
+#: ../modules/custom-font/taxonomy/index.php:195
 msgid "Font .woff2"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:150
+#: ../modules/custom-font/taxonomy/index.php:198
 msgid "Upload .woff2 file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:151
+#: ../modules/custom-font/taxonomy/index.php:199
 msgid "Choose .woff2 font file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:158
+#: ../modules/custom-font/taxonomy/index.php:206
 msgid "Font .ttf"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:161
+#: ../modules/custom-font/taxonomy/index.php:209
 msgid "Upload .ttf file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:162
+#: ../modules/custom-font/taxonomy/index.php:210
 msgid "Choose .ttf font file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:169
+#: ../modules/custom-font/taxonomy/index.php:217
 msgid "Font .svg"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:172
+#: ../modules/custom-font/taxonomy/index.php:220
 msgid "Upload .svg file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:173
+#: ../modules/custom-font/taxonomy/index.php:221
 msgid "Choose .svg font file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:180
+#: ../modules/custom-font/taxonomy/index.php:228
 msgid "Font .otf"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:183
+#: ../modules/custom-font/taxonomy/index.php:231
 msgid "Upload .otf file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:184
+#: ../modules/custom-font/taxonomy/index.php:232
 msgid "Choose .otf font file"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:191
+#: ../modules/custom-font/taxonomy/index.php:239
 msgid "Font Display"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:193
+#: ../modules/custom-font/taxonomy/index.php:241
 msgid "Auto"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:194
+#: ../modules/custom-font/taxonomy/index.php:242
 msgid "Block"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:195
+#: ../modules/custom-font/taxonomy/index.php:243
 msgid "Swap"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:196
+#: ../modules/custom-font/taxonomy/index.php:244
 msgid "Fallback"
 msgstr ""
 
-#: ../modules/custom-font/taxonomy/index.php:197
+#: ../modules/custom-font/taxonomy/index.php:245
 msgid "Optional"
+msgstr ""
+
+#: ../modules/header-side-nav/index.php:33
+msgid "Header Side Navigation"
 msgstr ""
 
 #: ../modules/hooks/customizer/settings/tracking-code.php:41
@@ -976,170 +853,197 @@ msgid ""
 "shortcode [bullish_sc_privacy_google_tracking] somewhere on your site."
 msgstr ""
 
-#: ../modules/post/customizer/index.php:70
+#: ../modules/post/customizer/index.php:71
 msgid "Enable Title"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:71
+#: ../modules/post/customizer/index.php:72
 msgid "YES! to enable the title of single post."
 msgstr ""
 
-#: ../modules/post/customizer/index.php:94
+#: ../modules/post/customizer/index.php:95
 msgid "Post Elements Positioning"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:97
+#: ../modules/post/customizer/index.php:98
 #: ../modules/post/elementor/widgets/post-meta-group/class-widget-post-meta-group.php:29
+#: ../modules/post/metabox/index.php:148
 msgid "Author"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:98
+#: ../modules/post/customizer/index.php:99
 msgid "Author Bio"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:99
+#: ../modules/post/customizer/index.php:100
 #: ../modules/post/elementor/widgets/post-meta-group/class-widget-post-meta-group.php:32
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:242
 msgid "Categories"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:100
+#: ../modules/post/customizer/index.php:101
 #: ../modules/post/elementor/widgets/post-meta-group/class-widget-post-meta-group.php:31
 msgid "Comments"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:101
+#: ../modules/post/customizer/index.php:102
 msgid "Comment Box"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:102
+#: ../modules/post/customizer/index.php:103
 #: ../modules/side-nav/metabox/index.php:81
 msgid "Content"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:103
+#: ../modules/post/customizer/index.php:104
 #: ../modules/post/elementor/widgets/post-meta-group/class-widget-post-meta-group.php:30
 msgid "Date"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:104
+#: ../modules/post/customizer/index.php:105
+#: ../post-types/services-post-type.php:209
 msgid "Feature Image"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:105
+#: ../modules/post/customizer/index.php:106
 msgid "Navigation"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:106
+#: ../modules/post/customizer/index.php:107
 #: ../modules/post/elementor/widgets/post-meta-group/class-widget-post-meta-group.php:33
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:251
 msgid "Tags"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:107
+#: ../modules/post/customizer/index.php:108
 #: ../modules/post/elementor/widgets/lightbox/class-widget-lightbox.php:31
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:24
 #: ../modules/woocommerce/single/modules/additional-tabs/metabox/index.php:52
 msgid "Title"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:108
+#: ../modules/post/customizer/index.php:109
 #: ../modules/post/elementor/widgets/post-meta-group/class-widget-post-meta-group.php:35
 msgid "Likes & Views"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:109
-#: ../modules/post/customizer/index.php:271
+#: ../modules/post/customizer/index.php:110
+#: ../modules/post/customizer/index.php:294
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:25
 msgid "Related Posts"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:110
+#: ../modules/post/customizer/index.php:111
 #: ../modules/post/elementor/widgets/post-meta-group/class-widget-post-meta-group.php:34
 msgid "Social Share"
 msgstr ""
 
 #: ../modules/post/customizer/index.php:129
+msgid "Navigation Type"
+msgstr ""
+
+#: ../modules/post/customizer/index.php:131
+#: ../modules/post/elementor/widgets/post-navigation/class-widget-post-navigation.php:32
+#: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat-single/class-product-cat-single.php:47
+#: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat/class-product-cat.php:40
+msgid "Type 1"
+msgstr ""
+
+#: ../modules/post/customizer/index.php:132
+#: ../modules/post/elementor/widgets/post-navigation/class-widget-post-navigation.php:33
+#: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:363
+#: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat-single/class-product-cat-single.php:48
+#: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat/class-product-cat.php:41
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:207
+msgid "Type 2"
+msgstr ""
+
+#: ../modules/post/customizer/index.php:133
+#: ../modules/post/elementor/widgets/post-navigation/class-widget-post-navigation.php:34
+msgid "Type 3"
+msgstr ""
+
+#: ../modules/post/customizer/index.php:152
 msgid "Feature Image Lightbox"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:130
+#: ../modules/post/customizer/index.php:153
 msgid ""
 "YES! to enable lightbox for feature image. Will not work in \"Overlay\" "
 "style."
 msgstr ""
 
-#: ../modules/post/customizer/index.php:153
+#: ../modules/post/customizer/index.php:176
 msgid "Enable Related Article"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:154
+#: ../modules/post/customizer/index.php:177
 msgid "YES! to enable related article at right hand side of post."
 msgstr ""
 
-#: ../modules/post/customizer/index.php:177
+#: ../modules/post/customizer/index.php:200
 msgid "Enable Disqus Comments"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:178
+#: ../modules/post/customizer/index.php:201
 msgid "YES! to enable disqus platform comments module."
 msgstr ""
 
-#: ../modules/post/customizer/index.php:202
+#: ../modules/post/customizer/index.php:225
 msgid "Shortname"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:225
+#: ../modules/post/customizer/index.php:248
 msgid "Your site's unique identifier"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:225
+#: ../modules/post/customizer/index.php:248
 msgid "What is this?"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:244
+#: ../modules/post/customizer/index.php:267
 msgid "Comments List Style"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:246
+#: ../modules/post/customizer/index.php:269
 #: ../modules/post/elementor/widgets/post-comment-box/class-widget-post-comment-box.php:28
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:170
 #: ../modules/woocommerce/single/modules/social-share-and-follow/elementor/widgets/index.php:50
 msgid "Rounded"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:247
+#: ../modules/post/customizer/index.php:270
 #: ../modules/post/elementor/widgets/post-comment-box/class-widget-post-comment-box.php:29
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:169
 #: ../modules/woocommerce/single/modules/social-share-and-follow/elementor/widgets/index.php:49
 msgid "Square"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:249
+#: ../modules/post/customizer/index.php:272
 msgid "Choose comments list style to display single post."
 msgstr ""
 
-#: ../modules/post/customizer/index.php:268
+#: ../modules/post/customizer/index.php:291
 msgid "Related Posts Section Title"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:269
+#: ../modules/post/customizer/index.php:292
 msgid "Put the related posts section title here"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:289
+#: ../modules/post/customizer/index.php:312
 #: ../modules/woocommerce/category/customizer/index.php:144
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:179
 #: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat/class-product-cat.php:47
 #: ../modules/woocommerce/shop/customizer/index.php:143
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:81
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:46
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:55
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:45
 #: ../modules/woocommerce/tag/customizer/index.php:144
 msgid "Columns"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:293
+#: ../modules/post/customizer/index.php:316
 #: ../modules/woocommerce/category/customizer/index.php:148
 #: ../modules/woocommerce/others/cart/customizer/index.php:88
 #: ../modules/woocommerce/shop/customizer/index.php:147
@@ -1147,7 +1051,7 @@ msgstr ""
 msgid "One Column"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:297
+#: ../modules/post/customizer/index.php:320
 #: ../modules/woocommerce/category/customizer/index.php:152
 #: ../modules/woocommerce/others/cart/customizer/index.php:92
 #: ../modules/woocommerce/shop/customizer/index.php:151
@@ -1155,7 +1059,7 @@ msgstr ""
 msgid "One Half Column"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:301
+#: ../modules/post/customizer/index.php:324
 #: ../modules/woocommerce/category/customizer/index.php:156
 #: ../modules/woocommerce/others/cart/customizer/index.php:96
 #: ../modules/woocommerce/shop/customizer/index.php:155
@@ -1163,65 +1067,65 @@ msgstr ""
 msgid "One Third Column"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:322
+#: ../modules/post/customizer/index.php:345
 msgid "No.of Posts to Show"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:323
+#: ../modules/post/customizer/index.php:346
 msgid "Put the no.of related posts to show"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:344
+#: ../modules/post/customizer/index.php:367
 msgid "Enable Excerpt Text"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:368
+#: ../modules/post/customizer/index.php:391
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:58
 msgid "Excerpt Length"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:369
+#: ../modules/post/customizer/index.php:392
 msgid "Put Excerpt Length"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:391
+#: ../modules/post/customizer/index.php:414
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:153
 msgid "Enable Carousel"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:392
+#: ../modules/post/customizer/index.php:415
 msgid "YES! to enable carousel related posts"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:415
+#: ../modules/post/customizer/index.php:438
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:74
 msgid "Navigation Style"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:417
+#: ../modules/post/customizer/index.php:440
 #: ../modules/post/elementor/widgets/lightbox/class-widget-lightbox.php:41
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:77
 #: ../modules/woocommerce/others/cart-notification/customizer/index.php:63
 #: ../modules/woocommerce/others/cart-notification/elementor/widgets/menu-icon/class-widget-menu-icon.php:40
 #: ../modules/woocommerce/single/modules/additional-tabs/metabox/index.php:33
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:113
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:33
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:37
 #: ../modules/woocommerce/single/modules/social-share-and-follow/elementor/widgets/index.php:22
 #: ../post-types/mega-menu-post-type.php:111
 msgid "None"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:418
+#: ../modules/post/customizer/index.php:441
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:78
 msgid "Navigations"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:419
+#: ../modules/post/customizer/index.php:442
 #: ../modules/post/elementor/widgets/post-related-posts/class-widget-post-related-posts.php:79
 msgid "Pager"
 msgstr ""
 
-#: ../modules/post/customizer/index.php:421
+#: ../modules/post/customizer/index.php:444
 msgid "Choose navigation style to display related post carousel."
 msgstr ""
 
@@ -1257,7 +1161,7 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:31
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:30
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs/class-product-tabs.php:27
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:36
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:39
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary-nav-bar/class-product-summary-nav-bar.php:26
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:37
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:35
@@ -1278,7 +1182,7 @@ msgid "Alignment"
 msgstr ""
 
 #: ../modules/post/elementor/widgets/lightbox/class-widget-lightbox.php:42
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:174
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:175
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:143
 #: ../post-types/mega-menu-post-type.php:112
 msgid "Left"
@@ -1290,7 +1194,7 @@ msgid "Center"
 msgstr ""
 
 #: ../modules/post/elementor/widgets/lightbox/class-widget-lightbox.php:44
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:175
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:176
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:145
 #: ../post-types/mega-menu-post-type.php:113
 msgid "Right"
@@ -1511,6 +1415,10 @@ msgstr ""
 msgid "Post - Navigation"
 msgstr ""
 
+#: ../modules/post/elementor/widgets/post-navigation/class-widget-post-navigation.php:29
+msgid "Select Navigation type"
+msgstr ""
+
 #: ../modules/post/elementor/widgets/post-related-article/class-widget-post-related-article.php:13
 msgid "Post - Related Article"
 msgstr ""
@@ -1570,11 +1478,11 @@ msgstr ""
 msgid "Post - Title"
 msgstr ""
 
-#: ../modules/post/index.php:138
+#: ../modules/post/index.php:140
 msgid "Already"
 msgstr ""
 
-#: ../modules/post/index.php:165
+#: ../modules/post/index.php:167
 msgid "Security check"
 msgstr ""
 
@@ -1694,63 +1602,97 @@ msgstr ""
 msgid "URL"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:149
+#: ../modules/post/metabox/index.php:138
+msgid "Quote Values"
+msgstr ""
+
+#: ../modules/post/metabox/index.php:143
+msgid "Quote Text"
+msgstr ""
+
+#: ../modules/post/metabox/index.php:167
 msgid "Header & Footer"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:156
+#: ../modules/post/metabox/index.php:174
 msgid "Header"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:162
+#: ../modules/post/metabox/index.php:180
 msgid "Show Header"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:168
+#: ../modules/post/metabox/index.php:186
 msgid "Choose Header"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:177
+#: ../modules/post/metabox/index.php:195
 msgid "Select Header"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:179
+#: ../modules/post/metabox/index.php:197
 msgid "Select custom header for this page."
 msgstr ""
 
-#: ../modules/post/metabox/index.php:187
+#: ../modules/post/metabox/index.php:205
 msgid "Footer"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:193
+#: ../modules/post/metabox/index.php:211
 msgid "Show Footer"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:199
+#: ../modules/post/metabox/index.php:217
 msgid "Choose Footer"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:208
+#: ../modules/post/metabox/index.php:226
 msgid "Select Footer"
 msgstr ""
 
-#: ../modules/post/metabox/index.php:210
+#: ../modules/post/metabox/index.php:228
 msgid "Select custom footer for this page."
+msgstr ""
+
+#: ../modules/post/metabox/index.php:234
+msgid "Show Fixed Footer"
+msgstr ""
+
+#: ../modules/post/templates/minimal/index.php:24
+msgid "Minimal"
 msgstr ""
 
 #: ../modules/post/templates/minimal/parts/author.php:9
 msgid "Written by"
 msgstr ""
 
+#: ../modules/post/templates/minimal/parts/author.php:10
+#: ../modules/post/templates/modern/parts/author.php:14
+msgid "View all posts by "
+msgstr ""
+
 #: ../modules/post/templates/minimal/parts/author_bio.php:12
-#: ../modules/post/templates/simple/parts/author_bio.php:12
 msgid "About Author"
 msgstr ""
 
 #: ../modules/post/templates/minimal/parts/comment.php:9
 #: ../modules/post/templates/modern/parts/comment.php:20
-#: ../modules/post/templates/simple/parts/comment.php:20
 msgid "No Comments"
+msgstr ""
+
+#: ../modules/post/templates/minimal/parts/comment.php:10
+#: ../modules/post/templates/modern/parts/comment.php:21
+msgid "1 Comment"
+msgstr ""
+
+#: ../modules/post/templates/minimal/parts/comment.php:11
+#: ../modules/post/templates/modern/parts/comment.php:22
+msgid "% Comments"
+msgstr ""
+
+#: ../modules/post/templates/minimal/parts/comment.php:13
+#: ../modules/post/templates/modern/parts/comment.php:24
+msgid "Comments Off"
 msgstr ""
 
 #: ../modules/post/templates/minimal/parts/content.php:7
@@ -1759,64 +1701,73 @@ msgid " Edit "
 msgstr ""
 
 #: ../modules/post/templates/minimal/parts/navigation.php:18
-#: ../modules/post/templates/post-extra/navigation.php:19
-msgid "Previous Story"
+#: ../modules/post/templates/post-extra/navigation.php:18
+msgid "Previous"
 msgstr ""
 
 #: ../modules/post/templates/minimal/parts/navigation.php:22
 #: ../modules/post/templates/modern/index.php:72
-#: ../modules/post/templates/post-extra/navigation.php:23
+#: ../modules/post/templates/post-extra/navigation.php:22
 msgid "Previous Post"
 msgstr ""
 
 #: ../modules/post/templates/minimal/parts/navigation.php:36
 #: ../modules/post/templates/modern/index.php:86
-#: ../modules/post/templates/post-extra/navigation.php:37
 msgid "No previous story to show!"
 msgstr ""
 
 #: ../modules/post/templates/minimal/parts/navigation.php:55
-#: ../modules/post/templates/post-extra/navigation.php:56
-msgid "Next Story"
+#: ../modules/post/templates/modern/index.php:106
+#: ../modules/post/templates/post-extra/navigation.php:55
+#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:397
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:451
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:268
+msgid "Next"
 msgstr ""
 
 #: ../modules/post/templates/minimal/parts/navigation.php:59
 #: ../modules/post/templates/modern/index.php:109
-#: ../modules/post/templates/post-extra/navigation.php:60
+#: ../modules/post/templates/post-extra/navigation.php:59
 msgid "Next Post"
 msgstr ""
 
 #: ../modules/post/templates/minimal/parts/navigation.php:73
 #: ../modules/post/templates/modern/index.php:123
-#: ../modules/post/templates/post-extra/navigation.php:74
 msgid "No next story to show!"
 msgstr ""
 
+#: ../modules/post/templates/minimal/parts/title.php:4
+#: ../modules/post/templates/post-extra/title.php:4
+msgid "Featured"
+msgstr ""
+
+#: ../modules/post/templates/modern/index.php:25
+msgid "Modern"
+msgstr ""
+
 #: ../modules/post/templates/modern/index.php:69
-#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:392
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:445
+#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:396
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:450
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:267
 msgid "Prev"
 msgstr ""
 
-#: ../modules/post/templates/modern/index.php:106
-#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:393
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:446
-msgid "Next"
-msgstr ""
-
 #: ../modules/post/templates/modern/parts/author.php:13
-#: ../modules/post/templates/simple/parts/author.php:13
 msgid "by"
 msgstr ""
 
 #: ../modules/post/templates/modern/parts/social.php:13
-#: ../modules/post/templates/simple/parts/social.php:13
 msgid "Share Article:"
 msgstr ""
 
 #: ../modules/post/templates/post-extra/comment_box.php:14
 msgid ""
 "Put correct shortname from your Disqus account in Customizer settings."
+msgstr ""
+
+#: ../modules/post/templates/post-extra/navigation.php:36
+#: ../modules/post/templates/post-extra/navigation.php:73
+msgid "Not available to show!"
 msgstr ""
 
 #: ../modules/post/templates/post-extra/related_article.php:19
@@ -1924,7 +1875,7 @@ msgstr ""
 msgid "Bottom Content"
 msgstr ""
 
-#: ../modules/side-nav/metabox/index.php:118
+#: ../modules/side-nav/metabox/index.php:123
 #: ../modules/slider/metabox/index.php:121
 msgid "Select Elementor Library"
 msgstr ""
@@ -1947,6 +1898,10 @@ msgstr ""
 
 #: ../modules/sidebar/customizer/settings/global.php:45
 msgid "Global Custom Sidebar?"
+msgstr ""
+
+#: ../modules/sidebar/customizer/settings/global.php:65
+msgid "Custom shop Sidebar?"
 msgstr ""
 
 #: ../modules/sidebar/customizer/settings/title.php:60
@@ -1980,17 +1935,6 @@ msgstr ""
 #: ../modules/site-tagline/customizer/index.php:40
 #: ../modules/site-title/customizer/index.php:40
 msgid "Typography"
-msgstr ""
-
-#: ../modules/site-tagline/customizer/index.php:58
-#: ../modules/site-title/customizer/index.php:58
-#: ../modules/woocommerce/others/taxonomy/index.php:81
-#: ../modules/woocommerce/others/taxonomy/index.php:100
-msgid "Color"
-msgstr ""
-
-#: ../modules/site-title/customizer/index.php:77
-msgid "Hover Color"
 msgstr ""
 
 #: ../modules/slider/metabox/index.php:41
@@ -2060,7 +2004,7 @@ msgstr ""
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:198
 #: ../modules/woocommerce/others/cart/customizer/index.php:120
 #: ../modules/woocommerce/shop/customizer/index.php:105
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:62
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:72
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:61
 #: ../modules/woocommerce/tag/customizer/index.php:105
 msgid "Product Style Template"
@@ -2092,9 +2036,9 @@ msgid "Products"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:80
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:26
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:29
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:26
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:46
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:50
 msgid "Admin Option"
 msgstr ""
 
@@ -2182,8 +2126,8 @@ msgid "Right Thumb"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:200
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:56
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:64
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:66
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:74
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:55
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:63
 msgid "Choose number of products that you like to display."
@@ -2200,7 +2144,7 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:101
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:81
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs/class-product-tabs.php:49
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:82
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:92
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary-nav-bar/class-product-summary-nav-bar.php:49
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:220
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:81
@@ -2246,6 +2190,7 @@ msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:278
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:90
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:100
 msgid "Carousel Settings"
 msgstr ""
 
@@ -2272,12 +2217,14 @@ msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:294
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:105
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:104
 msgid "Slides Per View"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:296
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:107
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:171
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:172
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:106
 msgid "Number slides of to show in view port."
 msgstr ""
 
@@ -2290,12 +2237,12 @@ msgid "Number slides of to show per column."
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:318
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:119
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:120
 msgid "Enable Loop Mode"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:320
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:121
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:122
 msgid "If you wish, you can enable continuous loop mode for your carousel."
 msgstr ""
 
@@ -2310,13 +2257,13 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:50
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:60
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:70
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:122
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:132
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:142
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:152
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:162
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:194
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:216
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:123
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:133
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:143
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:153
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:163
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:195
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:217
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:44
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:54
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:64
@@ -2325,7 +2272,10 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:54
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:64
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs/class-product-tabs.php:39
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:73
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:83
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:121
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:130
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:139
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:180
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:190
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:200
@@ -2346,13 +2296,13 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:51
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:61
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:71
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:123
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:133
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:143
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:153
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:163
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:195
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:217
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:124
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:134
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:144
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:154
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:164
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:196
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:218
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:45
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:55
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:65
@@ -2361,7 +2311,10 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:55
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:65
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs/class-product-tabs.php:40
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:74
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:84
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:122
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:131
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:140
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:181
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:191
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:201
@@ -2372,81 +2325,82 @@ msgid "no"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:328
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:129
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:130
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:118
 msgid "Enable Mousewheel Control"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:330
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:131
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:132
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:120
 msgid "If you wish, you can enable mouse wheel control for your carousel."
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:338
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:149
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:150
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:127
 msgid "Enable Bullet Pagination"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:340
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:151
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:152
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:129
 msgid "To enable bullet pagination."
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:348
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:191
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:192
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:136
 msgid "Enable Arrow Pagination"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:350
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:193
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:194
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:138
 msgid "To enable arrow pagination."
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:358
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:201
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:202
 msgid "Arrow Type"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:360
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:203
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:204
 msgid "Choose arrow pagination type for your carousel."
 msgstr ""
 
-#: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:363
-#: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat-single/class-product-cat-single.php:48
-#: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat/class-product-cat.php:41
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:206
-msgid "Type 2"
-msgstr ""
-
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:370
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:213
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:214
 msgid "Enable Scrollbar"
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:372
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:215
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:216
 msgid "To enable scrollbar for your carousel."
 msgstr ""
 
 #: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:380
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:223
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:224
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:145
 msgid "Space Between Sliders"
 msgstr ""
 
-#: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:382
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:225
+#: ../modules/woocommerce/listings/elementor/widgets/products/class-widget-products.php:383
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:227
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:147
 msgid "Space between sliders can be given here."
 msgstr ""
 
-#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:525
+#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:529
 msgid "Previous product"
 msgstr ""
 
-#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:548
+#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:552
 msgid "Back to products"
 msgstr ""
 
-#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:553
+#: ../modules/woocommerce/listings/elementor/widgets/products/shortcodes.php:557
 msgid "Next product"
 msgstr ""
 
@@ -2488,24 +2442,24 @@ msgstr ""
 msgid "No products added!"
 msgstr ""
 
-#: ../modules/woocommerce/others/cart-notification/includes/index.php:31
+#: ../modules/woocommerce/others/cart-notification/includes/index.php:33
 msgid "Shopping cart"
 msgstr ""
 
-#: ../modules/woocommerce/others/cart-notification/includes/index.php:33
-#: ../modules/woocommerce/others/cart-notification/includes/index.php:61
-#: ../modules/woocommerce/others/cart-notification/includes/index.php:146
+#: ../modules/woocommerce/others/cart-notification/includes/index.php:35
+#: ../modules/woocommerce/others/cart-notification/includes/index.php:63
+#: ../modules/woocommerce/others/cart-notification/includes/index.php:148
 #: ../modules/woocommerce/others/size-guide/includes/index.php:170
 #: ../modules/woocommerce/single/modules/360-viewer/elementor/utils.php:78
 msgid "Close"
 msgstr ""
 
-#: ../modules/woocommerce/others/cart-notification/includes/index.php:68
+#: ../modules/woocommerce/others/cart-notification/includes/index.php:70
 #, php-format
 msgid "Product %1$s has been added to cart sucessfully."
 msgstr ""
 
-#: ../modules/woocommerce/others/cart-notification/includes/index.php:145
+#: ../modules/woocommerce/others/cart-notification/includes/index.php:147
 msgid "Your Shopping cart"
 msgstr ""
 
@@ -2732,11 +2686,6 @@ msgstr ""
 msgid "Choose type that you like yo use."
 msgstr ""
 
-#: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat-single/class-product-cat-single.php:47
-#: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat/class-product-cat.php:40
-msgid "Type 1"
-msgstr ""
-
 #: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat-single/class-product-cat-single.php:56
 msgid "Update if you like to use alternate image for this category."
 msgstr ""
@@ -2797,6 +2746,11 @@ msgstr ""
 
 #: ../modules/woocommerce/others/taxonomy/elementor/widgets/product-cat/class-product-cat.php:61
 msgid "Category ids separated by comma."
+msgstr ""
+
+#: ../modules/woocommerce/others/taxonomy/index.php:81
+#: ../modules/woocommerce/others/taxonomy/index.php:100
+msgid "Color"
 msgstr ""
 
 #: ../modules/woocommerce/others/taxonomy/index.php:83
@@ -2919,10 +2873,10 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/360-viewer/elementor/utils.php:122
 #: ../modules/woocommerce/single/modules/additional-tabs/elementor/utils.php:130
 #: ../modules/woocommerce/single/modules/custom-template/elementor/utils.php:80
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:484
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:489
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:230
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs/class-product-tabs.php:89
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:131
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:280
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary-nav-bar/class-product-summary-nav-bar.php:107
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:691
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:127
@@ -2940,7 +2894,7 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-list/class-product-images-list.php:35
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:34
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs/class-product-tabs.php:31
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:40
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:43
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary-nav-bar/class-product-summary-nav-bar.php:30
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:41
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:39
@@ -3077,7 +3031,7 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/additional-tabs/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:36
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:36
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs/class-product-tabs.php:33
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:42
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:45
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary-nav-bar/class-product-summary-nav-bar.php:32
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:43
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:41
@@ -3119,7 +3073,7 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/additional-tabs/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:54
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:52
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs/class-product-tabs.php:37
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:70
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:80
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:69
 msgid "Hide Title"
 msgstr ""
@@ -3127,7 +3081,7 @@ msgstr ""
 #: ../modules/woocommerce/single/modules/additional-tabs/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:60
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:58
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs/class-product-tabs.php:43
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:72
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:82
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:71
 msgid "If you wish to hide title you can do it here"
 msgstr ""
@@ -3154,8 +3108,8 @@ msgstr ""
 
 #: ../modules/woocommerce/single/modules/additional-tabs/metabox/index.php:33
 #: ../modules/woocommerce/single/modules/additional-tabs/metabox/index.php:67
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:33
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:68
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:37
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:75
 msgid "Custom Description"
 msgstr ""
 
@@ -3177,7 +3131,7 @@ msgstr ""
 
 #: ../modules/woocommerce/single/modules/additional-tabs/metabox/index.php:58
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/product-tabs-exploded/class-product-tabs-exploded.php:45
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:58
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:65
 msgid "Description"
 msgstr ""
 
@@ -3228,19 +3182,38 @@ msgstr ""
 msgid "Sec(s)"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:58
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:43
+#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:64
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:47
 msgid "Product Template"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:61
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:47
+#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:69
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:51
 msgid "WooCommerce Default"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:62
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:48
+#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:70
+msgid "Admin Default"
+msgstr ""
+
+#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:71
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:53
 msgid "Custom Template"
+msgstr ""
+
+#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:74
+msgid ""
+"\"Custom template\" option can be used to create Single product page as "
+"per your needs with Edit with elementor and drag the product related "
+"widgets."
+msgstr ""
+
+#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:103
+msgid "Select Single product Template"
+msgstr ""
+
+#: ../modules/woocommerce/single/modules/custom-template/customizer/index.php:105
+msgid "\"Admin template\" will use the same template for all products."
 msgstr ""
 
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:17
@@ -3282,40 +3255,40 @@ msgstr ""
 msgid "If you wish, you can enable thumbnail enlarger in this gallery."
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:139
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:140
 msgid "Enable Vertical Direction"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:141
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:142
 msgid "To make your slides to navigate vertically."
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:159
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:160
 msgid "Enable Thumbnail Pagination"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:161
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:162
 msgid "To enable thumbnail pagination."
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:169
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:170
 msgid "Thumbnail Position"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:173
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:174
 msgid "Bottom"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:182
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:183
 msgid "Number Of Images - Thumbnail"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:184
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:185
 msgid "Number of images to show in thumbnails."
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:463
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:470
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:468
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/images-carousel/class-product-images-carousel.php:475
 msgid "Gallery Thumb"
 msgstr ""
 
@@ -3380,11 +3353,15 @@ msgid "Product Single - Related Products"
 msgstr ""
 
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:48
+msgid "Layout"
+msgstr ""
+
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:57
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:47
 msgid "Choose column that you like to display upsell products."
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:54
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/related-products/class-related-products.php:64
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/upsell-products/class-upsell-products.php:53
 msgid "Limit"
 msgstr ""
@@ -3514,6 +3491,11 @@ msgstr ""
 msgid "Button Style"
 msgstr ""
 
+#: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:155
+#: ../modules/woocommerce/single/modules/social-share-and-follow/elementor/widgets/index.php:34
+msgid "Simple"
+msgstr ""
+
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:156
 #: ../modules/woocommerce/single/modules/social-share-and-follow/elementor/widgets/index.php:35
 msgid "BG Fill"
@@ -3579,6 +3561,7 @@ msgid "Add to Cart"
 msgstr ""
 
 #: ../modules/woocommerce/single/modules/custom-template/elementor/widgets/summary/class-product-summary.php:467
+#: ../post-types/services-post-type.php:428
 msgid "N/A"
 msgstr ""
 
@@ -3598,13 +3581,20 @@ msgstr ""
 msgid "Product Single - Upsell Products"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:51
-msgid ""
-"Don't use product shortcodes in content area when \"WooCommerce Default\" "
-"template is chosen."
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:52
+msgid "Same Template for all Products"
 msgstr ""
 
-#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:60
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:56
+msgid ""
+"Don't use product shortcodes in content area when \"WooCommerce Default\" "
+"template is chosen.\n"
+"\t\t\t\t\t\tWhen \"Custom Template\" is chosen you can create a single "
+"product page as per your needs.\n"
+"\t\t\t\t\t\t\"Admin template\" will use the same template for all products."
+msgstr ""
+
+#: ../modules/woocommerce/single/modules/custom-template/metabox/index.php:67
 msgid ""
 "Choose \"Elementor Templates\" here to use for \"Description\", if you "
 "choose \"Custom Description\" option you can provide your own content "
@@ -3925,25 +3915,252 @@ msgstr ""
 msgid "Please set Mega Menu Position"
 msgstr ""
 
-#: ../bullish-pro.php:137
-msgid "Bullish Settings"
+#: ../post-types/services-post-type.php:40
+#: ../post-types/services-post-type.php:41
+#: ../post-types/services-post-type.php:42
+msgid "Services"
 msgstr ""
 
-#: ../bullish-pro.php:142
-msgid "Bullish"
+#: ../post-types/services-post-type.php:43
+msgid "Add Services"
 msgstr ""
 
-#: ../bullish-pro.php:162
-#, php-format
-msgid "\"%1$s\" requires \"%2$s\" to be installed and activated."
+#: ../post-types/services-post-type.php:44
+msgid "Add New Services"
 msgstr ""
 
-#: ../bullish-pro.php:163
-msgid "Bullish Pro Plugin"
+#: ../post-types/services-post-type.php:45
+#: ../post-types/services-post-type.php:46
+msgid "Edit Services"
 msgstr ""
 
-#: ../bullish-pro.php:164
-msgid "Bullish Plus Plugin"
+#: ../post-types/services-post-type.php:47
+msgid "New Services"
+msgstr ""
+
+#: ../post-types/services-post-type.php:48
+#: ../post-types/services-post-type.php:49
+msgid "View Services"
+msgstr ""
+
+#: ../post-types/services-post-type.php:50
+msgid "Search Services"
+msgstr ""
+
+#: ../post-types/services-post-type.php:51
+msgid "No Services found"
+msgstr ""
+
+#: ../post-types/services-post-type.php:52
+msgid "No Services found in Trash"
+msgstr ""
+
+#: ../post-types/services-post-type.php:75
+#: ../post-types/services-post-type.php:372
+msgid "Service Categories"
+msgstr ""
+
+#: ../post-types/services-post-type.php:76
+msgid "Service Category"
+msgstr ""
+
+#: ../post-types/services-post-type.php:77
+msgid "Search Service Categories"
+msgstr ""
+
+#: ../post-types/services-post-type.php:78
+msgid "All Service Categories"
+msgstr ""
+
+#: ../post-types/services-post-type.php:79
+msgid "Parent Service Category"
+msgstr ""
+
+#: ../post-types/services-post-type.php:80
+msgid "Parent Service Category:"
+msgstr ""
+
+#: ../post-types/services-post-type.php:81
+msgid "Edit Service Category"
+msgstr ""
+
+#: ../post-types/services-post-type.php:82
+msgid "Update Service Category"
+msgstr ""
+
+#: ../post-types/services-post-type.php:83
+msgid "Add New Service Category"
+msgstr ""
+
+#: ../post-types/services-post-type.php:84
+msgid "New Service Category Name"
+msgstr ""
+
+#: ../post-types/services-post-type.php:106
+msgid "Select"
+msgstr ""
+
+#: ../post-types/services-post-type.php:117
+msgid "Service Settings"
+msgstr ""
+
+#: ../post-types/services-post-type.php:129
+#: ../post-types/services-post-type.php:331
+msgid "Service Icon"
+msgstr ""
+
+#: ../post-types/services-post-type.php:130
+msgid "Upload or select a service icon."
+msgstr ""
+
+#: ../post-types/services-post-type.php:142
+#: ../post-types/services-post-type.php:351
+msgid "Enable Price"
+msgstr ""
+
+#: ../post-types/services-post-type.php:144
+#: ../post-types/services-post-type.php:353
+msgid "Disable"
+msgstr ""
+
+#: ../post-types/services-post-type.php:145
+#: ../post-types/services-post-type.php:354
+msgid "Enable"
+msgstr ""
+
+#: ../post-types/services-post-type.php:153
+msgid "Service Price"
+msgstr ""
+
+#: ../post-types/services-post-type.php:160
+msgid "Service Offer Price"
+msgstr ""
+
+#: ../post-types/services-post-type.php:161
+msgid "Optional: You can set an offer price for the service."
+msgstr ""
+
+#: ../post-types/services-post-type.php:168
+msgid "Price Duration"
+msgstr ""
+
+#: ../post-types/services-post-type.php:169
+msgid "Select whether the price is per day, month, or year."
+msgstr ""
+
+#: ../post-types/services-post-type.php:171
+msgid "Day"
+msgstr ""
+
+#: ../post-types/services-post-type.php:172
+msgid "Month"
+msgstr ""
+
+#: ../post-types/services-post-type.php:173
+msgid "Year"
+msgstr ""
+
+#: ../post-types/services-post-type.php:182
+msgid "Duration"
+msgstr ""
+
+#: ../post-types/services-post-type.php:183
+msgid "Select time duration here"
+msgstr ""
+
+#: ../post-types/services-post-type.php:191
+#: ../post-types/services-post-type.php:197
+#: ../post-types/templates/single-wdt_services.php:84
+msgid "Service Features"
+msgstr ""
+
+#: ../post-types/services-post-type.php:198
+msgid "Add multiple service features."
+msgstr ""
+
+#: ../post-types/services-post-type.php:199
+msgid "Add Feature"
+msgstr ""
+
+#: ../post-types/services-post-type.php:204
+msgid "Feature Icon"
+msgstr ""
+
+#: ../post-types/services-post-type.php:214
+msgid "Feature Description"
+msgstr ""
+
+#: ../post-types/services-post-type.php:223
+msgid "Contact Details"
+msgstr ""
+
+#: ../post-types/services-post-type.php:229
+msgid "Email Address"
+msgstr ""
+
+#: ../post-types/services-post-type.php:235
+msgid "Phone Number"
+msgstr ""
+
+#: ../post-types/services-post-type.php:240
+msgid "Address"
+msgstr ""
+
+#: ../post-types/services-post-type.php:245
+msgid "Social Icons"
+msgstr ""
+
+#: ../post-types/services-post-type.php:246
+msgid "Add multiple social media links."
+msgstr ""
+
+#: ../post-types/services-post-type.php:247
+msgid "Add Social Link"
+msgstr ""
+
+#: ../post-types/services-post-type.php:252
+msgid "Social Icon"
+msgstr ""
+
+#: ../post-types/services-post-type.php:271
+msgid "Social URL"
+msgstr ""
+
+#: ../post-types/services-post-type.php:272
+msgid "Enter full URL (e.g., https://facebook.com/yourpage)"
+msgstr ""
+
+#: ../post-types/services-post-type.php:319
+msgid "Icon"
+msgstr ""
+
+#: ../post-types/services-post-type.php:320
+msgid "Upload from Media Library"
+msgstr ""
+
+#: ../post-types/services-post-type.php:359
+#: ../post-types/services-post-type.php:417
+msgid "Price"
+msgstr ""
+
+#: ../post-types/templates/archive-wdt_services.php:116
+msgid "No services found."
+msgstr ""
+
+#: ../post-types/templates/single-wdt_services.php:57
+msgid " / day"
+msgstr ""
+
+#: ../post-types/templates/single-wdt_services.php:59
+msgid " / month"
+msgstr ""
+
+#: ../post-types/templates/single-wdt_services.php:61
+msgid " / year"
+msgstr ""
+
+#: ../post-types/templates/single-wdt_services.php:110
+msgid "Follow Us"
 msgstr ""
 
 #: ../widget-area/widget-area.php:47 ../widget-area/widget-area.php:58
