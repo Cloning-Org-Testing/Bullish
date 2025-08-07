@@ -287,6 +287,10 @@
     padding-left: 90px;
 }
 
+.rtl .wdt-mailchimp-holder .wdt-mailchimp-wrapper .wdt-mailchimp-subscription-msg {
+    text-align: right;
+}
+
 /* Back-to-top */
 .rtl #back-to-top {
     left: 20px;
@@ -613,7 +617,6 @@ body.rtl > .wdt-search-form-container #searchform input[type="text"],
 .rtl .wdt-animation-holder:not(.vertical) .wdt-animation-wrapper div[class*="-marqee"].left-to-right {
     -webkit-animation: rtl-MarqueeRight 24s linear infinite 0ms;
     animation: rtl-MarqueeRight 24s linear infinite 0ms;
-    animation-duration: 50s;
 }
 @keyframes rtl-MarqueeRight {
 0% {
@@ -1164,6 +1167,17 @@ body.rtl > .wdt-search-form-container #searchform input[type="text"],
 .rtl .wdt-pagination.wdt-ajax-pagination .next-post a:hover {
   background-position: right;
 }
+
+.rtl .entry-post-navigation.type1 > div > .nav-title-wrap p a:before,
+.rtl .entry-post-navigation.type1 > div > .nav-title-wrap p a:after {
+    width: 51%;
+}
+
+.rtl .entry-post-navigation.type1 > div > .nav-title-wrap p a:hover:before,
+.rtl .entry-post-navigation.type1 > div > .nav-title-wrap p a:hover:after {
+    width: 0%;
+}
+
 
 
 /* Service Detail */
