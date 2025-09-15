@@ -97,41 +97,74 @@ if( !class_exists( 'Bullish_Loader' ) ) {
                     'import_preview_image_url'   => BULLISH_ROOT_URI . '/screenshot.png',
                     'import_notice'              => __('After you import this demo, you will have to setup the slider separately.', 'bullish'),
                     'preview_url'                => 'https://wdtbullish.wpengine.com/',
+                ),
+                array(
+                    'import_file_name'           => 'RTL Demo',
+                    'import_file_url'            => BULLISH_ROOT_URI . '/ocdi/rtl-theme-content.xml',
+                    'import_customizer_file_url' => BULLISH_ROOT_URI . '/ocdi/theme-customizer.dat',
+                    'import_widget_file_url'     => BULLISH_ROOT_URI . '/ocdi/theme-widgets.wie',
+                    'import_preview_image_url'   => BULLISH_ROOT_URI . '/rtl-screenshot.png',
+                    'import_notice'              => __('After you import this demo, you will have to setup the slider separately.', 'bullish'),
+                    'preview_url'                => 'https://wdtbullish.wpengine.com/rtl-demo',
                 )
             );
         }
-        function modify_xml_file()
+        
+
+    function modify_xml_file()
         {
-            // Define paths
-            $themeRootDirUri = get_template_directory_uri() . '/ocdi/uploads/';
+            $themeRootDirUri  = get_template_directory_uri() . '/ocdi/uploads/';
             $themeRootDirUri1 = get_template_directory_uri();
-            $themeRootDir = get_template_directory();
-            $themeName = basename($themeRootDir); // Get the current theme directory name
-            $xmlFilePath = $themeRootDir . '/ocdi/theme-content.xml';
-            if (file_exists($xmlFilePath)) {
-                $dom = new DOMDocument();
-                $dom->load($xmlFilePath);
-                $xmlContent = $dom->saveXML();
-                $replacements = [
-                    '<wp:attachment_url><![CDATA[https://wdtbullish.wpengine.com/wp-content/uploads/' => '<wp:attachment_url><![CDATA[' . $themeRootDirUri,
-                    'src="https://wdtbullish.wpengine.com/wp-content/uploads/' => 'src="' . $themeRootDirUri,
-                    '<guid isPermaLink="false">https://wdtbullish.wpengine.com/wp-content/uploads/' => '<guid isPermaLink="false">' . $themeRootDirUri,
-                    '<link>https://wdtbullish.wpengine.com' => '<link>' .  $themeRootDirUri1,
-                    'href="https://wdtbullish.wpengine.com' => 'href="' . $themeRootDirUri1,
-                    'https:\/\/wdtbullish.wpengine.com' => home_url(),
-                    'https://wdtbullish.wpengine.com' => home_url(),
-                    '\/wp-content\/uploads' => '\/wp-content\/themes\/' . $themeName . '\/ocdi\/uploads'
-                ];
-                foreach ($replacements as $oldUrl => $newUrl) {
-                    $xmlContent = str_replace($oldUrl, $newUrl, $xmlContent);
+            $themeRootDir     = get_template_directory();
+            $themeName        = basename($themeRootDir);
+
+            $xmlFiles = [
+                $themeRootDir . '/ocdi/theme-content.xml',
+                $themeRootDir . '/ocdi/rtl-theme-content.xml'
+            ];
+
+            foreach ($xmlFiles as $xmlFilePath) {
+                if (file_exists($xmlFilePath)) {
+                    $dom = new DOMDocument();
+                    $dom->load($xmlFilePath);
+                    $xmlContent = $dom->saveXML();
+
+                    $replacements = [
+                        '<wp:attachment_url><![CDATA[https://wdtbullish.wpengine.com/wp-content/uploads/'=> '<wp:attachment_url><![CDATA[' . $themeRootDirUri,
+                        '<wp:attachment_url><![CDATA[https://wdtbullish.wpengine.com/rtl-demo/wp-content/uploads/sites/3/' => '<wp:attachment_url><![CDATA[' . $themeRootDirUri,
+                        '<wp:meta_value><![CDATA[https://wdtbullish.wpengine.com'  => '<wp:meta_value><![CDATA[' . home_url(),
+                        'src="https://wdtbullish.wpengine.com/wp-content/uploads/'  => 'src="' . $themeRootDirUri,
+                        'src="https://wdtbullish.wpengine.com/rtl-demo/wp-content/uploads/'  => 'src="' . $themeRootDirUri,
+                        '<guid isPermaLink="false">https://wdtbullish.wpengine.com/wp-content/uploads/' => '<guid isPermaLink="false">' . $themeRootDirUri,
+                        '<guid isPermaLink="false">https://wdtbullish.wpengine.com/rtl-demo/wp-content/uploads/' => '<guid isPermaLink="false">' . $themeRootDirUri,
+                        '<link>https://wdtbullish.wpengine.com/rtl-demo'=> '<link>' . home_url(),
+                        '<link>https://wdtbullish.wpengine.com' => '<link>' . $themeRootDirUri1,
+                        'href="https://wdtbullish.wpengine.com' => 'href="' . $themeRootDirUri1,
+                        'https:\/\/wdtbullish.wpengine.com\/rtl-demo\/wp-content\/uploads\/sites\/3' => $themeRootDirUri,
+                        'https:\/\/wdtbullish.wpengine.com' => home_url(),
+                        'https://wdtbullish.wpengine.com' => home_url(),
+                        '\/wp-content\/uploads' => '\/wp-content\/themes\/' . $themeName . '\/ocdi\/uploads',
+                        '\/rtl-demo'=> '',
+                        'rtl-demo/' => '',
+                        'sites/3/' => '',
+                        '/rtl-demo' => '',
+                    ];
+
+                    foreach ($replacements as $oldUrl => $newUrl) {
+                        $xmlContent = str_replace($oldUrl, $newUrl, $xmlContent);
+                    }
+
+                    $dom->loadXML($xmlContent);
+                    $dom->save($xmlFilePath);
+
+                    echo "XML file has been modified and saved successfully.";
+                } else {
+                    echo "XML file does not exist.";
                 }
-                $dom->loadXML($xmlContent);
-                $dom->save($xmlFilePath);
-                echo "XML file has been modified and saved successfully.";
-            } else {
-                echo "XML file does not exist.";
             }
-        }
+        }      
+
+
         function ocdi_before_widgets_import()
         {
             $widget_file_path = BULLISH_ROOT_DIR . '/ocdi/theme-widgets.wie';
