@@ -1,10 +1,14 @@
 *** Bullish WordPress Theme Changelog ***
 
-Version 1.0.1
+Version 1.0.2
 
     * Added : RTL Demo
     * Compatible with latest Elementor Version
     * Compatible with latest WordPress Version
+
+Version 1.0.1
+
+    * Demo content added
 
 Version 1.0.0
 
