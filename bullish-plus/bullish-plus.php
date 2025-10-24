@@ -2,7 +2,7 @@
 /**
  * Plugin Name:	Bullish Plus
  * Description: Adds additional features for Bullish Theme.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: the WeDesignTech team
  * Author URI: https://wedesignthemes.com/
  * Text Domain: bullish-plus

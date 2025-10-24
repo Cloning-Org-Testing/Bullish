@@ -223,12 +223,16 @@ if( !class_exists( 'BullishPlusBCTemplate' ) ) {
                 $bc_source = bullish_customizer_settings( 'breadcrumb_source' );
 
                 switch( $bc_source ):
-
+                    case 'rankmath-seo':
+                        bullish_template_part( 'breadcrumb', 'templates/rankmath-seo/title-content', '', $template_args );
+                        break;
+                    case 'yoast-seo':
+                        bullish_template_part( 'breadcrumb', 'templates/yoast-seo/title-content', '', $template_args );
+                        break;
                     case 'default':
-                    default:
                         bullish_template_part( 'breadcrumb', 'templates/default/title-content', '', $template_args );
+                    default:
                     break;
-
                 endswitch;
             } else {
                 $enable_bc = bullish_customizer_settings( 'enable_breadcrumb' );

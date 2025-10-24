@@ -23,16 +23,11 @@ if( !class_exists( 'BullishPlusBCRankMath' ) ) {
         function register_init() {
             if ( function_exists('rank_math_the_breadcrumbs') ) {
                 $this->load_backend();
-                $this->load_frontend();
             }
         }
 
         function load_backend() {
             add_filter( 'bullish_breadcrumb_source', array( $this, 'register_option' ) );
-        }
-
-        function load_frontend() {
-            add_filter( 'bullish_breadcrumb_get_template_part', array( $this, 'register_template' ), 10 );
         }
 
         function register_option( $options ) {
@@ -41,7 +36,10 @@ if( !class_exists( 'BullishPlusBCRankMath' ) ) {
         }
 
         function register_template() {
-            bullish_template_part( 'breadcrumb', 'templates/rankmath-seo/title-content', '', $template_args );
+            $bc_source = bullish_customizer_settings( 'breadcrumb_source' );
+            if ($bc_source === 'rankmath-seo'):
+                        bullish_template_part( 'breadcrumb', 'templates/rankmath-seo/title-content', '', $template_args );
+            endif;
         }
     }
 }

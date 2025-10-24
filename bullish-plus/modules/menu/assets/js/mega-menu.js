@@ -12,7 +12,13 @@ jQuery(document).ready(function($) {
 
         $sticky_header_cloned.find('.sticky-header').addClass('sticky-header-active');
         $sticky_header_cloned.find('.sticky-header').siblings().remove();
-
+        $sticky_header_cloned.find('.wdt-header-icons-list-item.search-item.search-overlay').each(function() {
+        var $searchContainer = $(this).find('.wdt-search-form-container');
+            if ($searchContainer.length) {
+                $searchContainer.remove(); 
+            }
+        });
+        
         $('body').css('--sticky-header-height', $('.sticky-header-active').outerHeight() + 'px');
 
         var position = $(window).scrollTop();

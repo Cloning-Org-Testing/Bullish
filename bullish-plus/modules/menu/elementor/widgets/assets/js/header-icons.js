@@ -1,11 +1,10 @@
-// Search js
 (function ($) {
 
     var dtHeaderIconsWidgetHandler = function($scope, $){
 
         $search = $scope.find("div.search-overlay");
         if( $search.length ) {
-            if($search.parents('.elementor-section').hasClass('sticky-header-active')) {
+            if($search.parents('elementor-element').hasClass('sticky-header-active')) {
                 $search.find(".wdt-search-form-container").remove();
             } else {
                 $form = $search.find(".wdt-search-form-container").clone();
@@ -14,22 +13,55 @@
             }
         }
 
-        $('.wdt-search-form-close').on('click', function(e){
+        $(document).on('click', '.wdt-search-form-close', function(e){
             if ($(this).parents('.wdt-search-form-container').length) {
                 $(this).parents('.wdt-search-form-container').removeClass('show');
             } else {
-                $('.wdt-search-form-container').toggleClass('show');
+                $('.wdt-search-form-container').removeClass('show').hide();
             }
         });
 
-        $scope.find('.wdt-search-icon').on('click', function(e) {
-            if($(this).parents('.wdt-header-icons-list-item').hasClass('search-expand')) {
-                $searchItem = $scope.find('.wdt-search-form-container');
-            } else  {
-                $searchItem = $('body').find('.wdt-search-form-container')[0];
+        $(document).on('click', '.wdt-search-icon', function(e) {
+            e.preventDefault();
+
+            var $searchItem;
+            if ($(this).parents('.wdt-header-icons-list-item').hasClass('search-expand')) {
+                $searchItem = $(this).closest('.wdt-header-icons-list-item').find('.wdt-search-form-container');
+            } else {
+                $searchItem = $('body').find('.wdt-search-form-container');
             }
-            if($searchItem) {
-                $($searchItem).toggleClass('show');
+
+            if ($searchItem.length) {
+                $('.wdt-search-form-container.show').not($searchItem).removeClass('show').hide();
+
+                if ($searchItem.hasClass('show')) {
+                    $searchItem.removeClass('show').hide();
+                } else {
+                    $searchItem.addClass('show').show();
+                }
+            }
+        });
+
+        $(document).on('click', '.sticky-header-active .wdt-search-icon', function(e) {
+            e.preventDefault();
+            var $searchItem = $(this).closest('.sticky-header-active').find('.wdt-search-form-container');
+            
+            if ($searchItem.length) {
+                $('.sticky-header-active .wdt-search-form-container.show').not($searchItem).removeClass('show').hide();
+                
+                if (!$searchItem.hasClass('show')) {
+                    $searchItem.addClass('show').show();
+                }
+            }
+        });
+
+        $(document).on('click', '.sticky-header-active .wdt-search-form-close', function(e) {
+            e.preventDefault();
+            
+            var $searchFormContainer = $(this).closest('.wdt-search-form-container');
+            
+            if ($searchFormContainer.length) {
+                $searchFormContainer.removeClass('show').hide();
             }
         });
 

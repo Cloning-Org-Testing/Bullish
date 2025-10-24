@@ -1,5 +1,9 @@
 *** Bullish WordPress Theme Changelog ***
 
+Version 1.0.3
+    
+    * Fixes and Improvements
+    
 Version 1.0.2
 
     * Added : RTL Demo

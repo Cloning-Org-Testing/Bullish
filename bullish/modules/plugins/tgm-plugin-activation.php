@@ -16,7 +16,7 @@ function bullish_tgmpa_plugins_register() {
 			'slug' => 'bullish-plus',
 			'source' => BULLISH_MODULE_DIR . '/plugins/bullish-plus.rar',
 			'required' => true,
-			'version' => '1.0.0',
+			'version' => '1.0.1',
 			'force_activation' => false,
 			'force_deactivation' => false,
 		),

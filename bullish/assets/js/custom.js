@@ -357,32 +357,31 @@ jQuery(document).ready(function($){
 });
 
 /* Live Search*/
-jQuery( 'body' ).delegate( '.text_input', 'keypress', function(e) {
+jQuery('body').delegate('.text_input', 'keypress', function (e) {
 
     if (jQuery('.text_input').is(":focus")) {
+        var this_item = jQuery(this),
+            search_val = this_item.val(),
+            security = jQuery('#search_security_nonce').val(); // get nonce value
 
-    var this_item = jQuery(this),
-    search_val = this_item.val();
-        if(search_val == "" ){
-            jQuery('.quick_search_results').html("");
-            jQuery('.quick_search_results').removeClass('active');
+        if (search_val == "") {
+            jQuery('.quick_search_results').html("").removeClass('active');
         } else {
-                jQuery.ajax({
-                    type:"POST",
-                    url: bullish_urls.ajaxurl,
-                    data: {
-                        action:'bullish_search_data_fetch',
-                        search_val:search_val,
-                        ajax_call: true,
-                        function_call: 'bullish_search_data_fetch',
-                        security: ajax_object.ajax_nonce
-                    },
-                    success:function(data){
-                        jQuery('.quick_search_results').addClass('active');
-                        jQuery('.quick_search_results').html(data);
-                    }
-                });
-            }
+            jQuery.ajax({
+                type: "POST",
+                url: bullish_urls.ajaxurl,
+                data: {
+                    action: 'bullish_search_data_fetch',
+                    search_val: search_val,
+                    ajax_call: true,
+                    function_call: 'bullish_search_data_fetch',
+                    security: security // pass the form nonce
+                },
+                success: function (data) {
+                    jQuery('.quick_search_results').addClass('active').html(data);
+                }
+            });
+        }
     }
 });
 //lightbox image popup loading fix

@@ -33,11 +33,8 @@
 }
 add_action( 'wp_enqueue_scripts', 'bullish_enqueue_scripts' );
     function bullish_enqueue_scripts() {
-        // Enqueue your script here
         wp_enqueue_script( 'bullish-jqcustom', get_theme_file_uri('/assets/js/custom.js'), array('jquery'), false, true );
-        // Create nonce and pass it to the script
-        $ajax_nonce = wp_create_nonce( 'search_data_fetch_nonce' );
-        wp_localize_script( 'bullish-jqcustom', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'ajax_nonce' => $ajax_nonce ) );
+        wp_localize_script( 'bullish-jqcustom', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )) );
     }
 
 ?>

@@ -21,9 +21,8 @@ if( !class_exists( 'BullishPlusBCYoast' ) ) {
         }
 
         function register_init() {
-            if ( function_exists('yoast_breadcrumb') ) {
+             if ( defined( 'WPSO_VERSION' ) ) {
                 $this->load_backend();
-                $this->load_frontend();
             }
         }
 
@@ -31,14 +30,18 @@ if( !class_exists( 'BullishPlusBCYoast' ) ) {
             add_filter( 'bullish_breadcrumb_source', array( $this, 'register_option' ) );
         }
 
-        function load_frontend() {
-        }
-
         function register_option( $options ) {
             $options['yoast-seo'] = esc_html__('Yoast SEO','bullish-plus');
             return $options;
         }
-    }
+
+        function register_template() {
+            $bc_source = bullish_customizer_settings( 'breadcrumb_source' );
+            if ($bc_source === 'yoast-seo'):
+                        bullish_template_part( 'breadcrumb', 'templates/yoast-seo/title-content', '', $template_args );
+            endif;
+        }
+    }   
 }
 
 BullishPlusBCYoast::instance();
