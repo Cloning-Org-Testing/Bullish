@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
         const smoother = ScrollSmoother.create({
             wrapper: "#smooth-wrapper", 
             content: "#smooth-content",
-            smooth: 1.1, // Smoothness of the scroll
+            smooth: 1.2, // Smoothness of the scroll
             effects: true,
             smoothTouch: 0.1,
         });
